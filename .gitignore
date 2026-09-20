@@ -1,0 +1,11 @@
+# Dépendances et build
+node_modules
+dist
+
+# Dossiers locaux (Netlify / Vercel)
+.netlify
+.vercel
+
+# Secrets locaux
+.env
+.env.*

@@ -1,0 +1,18 @@
+{
+  "name": "justine-combeau-portfolio",
+  "private": true,
+  "version": "2.0.0",
+  "type": "module",
+  "description": "Portfolio de Justine Combeau — Développement Web & IA / Automation",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.5.1",
+    "tailwindcss": "^3.4.17",
+    "vite": "^6.0.7"
+  }
+}

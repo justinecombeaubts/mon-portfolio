@@ -1,0 +1,46 @@
+[
+  {
+    "category": "Développement Web",
+    "icon": "code-2",
+    "items": [
+      { "name": "HTML5 / CSS3", "level": 90 },
+      { "name": "JavaScript", "level": 80 },
+      { "name": "PHP", "level": 75 },
+      { "name": "SQL / MySQL / PostgreSQL", "level": 80 },
+      { "name": "MVC / Symfony", "level": 65 },
+      { "name": "React & Vite", "level": 60 }
+    ]
+  },
+  {
+    "category": "IA & Automation",
+    "icon": "sparkles",
+    "items": [
+      { "name": "n8n", "level": 70 },
+      { "name": "Make.com", "level": 65 },
+      { "name": "GitHub Actions (cron)", "level": 70 },
+      { "name": "API LLM (OpenAI, Gemini, Claude)", "level": 75 },
+      { "name": "Prompt engineering", "level": 75 },
+      { "name": "Supabase (Postgres / RLS)", "level": 70 }
+    ]
+  },
+  {
+    "category": "Outils & DevOps",
+    "icon": "terminal",
+    "items": [
+      { "name": "Git / GitHub", "level": 80 },
+      { "name": "Python", "level": 70 },
+      { "name": "VS Code", "level": 90 },
+      { "name": "Pack Office / Suite Google", "level": 80 }
+    ]
+  },
+  {
+    "category": "Design & Contenu",
+    "icon": "palette",
+    "items": [
+      { "name": "Canva", "level": 80 },
+      { "name": "CapCut", "level": 70 },
+      { "name": "UI / UX", "level": 65 },
+      { "name": "Identité visuelle", "level": 70 }
+    ]
+  }
+]

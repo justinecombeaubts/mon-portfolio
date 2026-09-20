@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="fr" class="dark">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Justine Combeau — Développement Web & IA / Automation</title>
+  <meta name="description"
+    content="Portfolio de Justine Combeau, étudiante en Bachelor IA & Automation et développeuse web (BTS SIO). Projets en développement web, intelligence artificielle et automatisation." />
+  <meta name="author" content="Justine Combeau" />
+  <meta name="theme-color" content="#0f1115" />
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+  <link rel="canonical" href="https://mon-portfolio-justine-combeau.vercel.app/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Justine Combeau — Développement Web & IA / Automation" />
+  <meta property="og:description"
+    content="Portfolio de Justine Combeau : projets en développement web, IA et automatisation (n8n, Make, Supabase, LLMs)." />
+  <meta property="og:image" content="https://mon-portfolio-justine-combeau.vercel.app/images/moi.png" />
+  <meta property="og:url" content="https://mon-portfolio-justine-combeau.vercel.app/" />
+  <meta property="og:locale" content="fr_FR" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Justine Combeau — Développement Web & IA / Automation" />
+  <meta name="twitter:description"
+    content="Portfolio de Justine Combeau : projets en développement web, IA et automatisation." />
+  <meta name="twitter:image" content="https://mon-portfolio-justine-combeau.vercel.app/images/moi.png" />
+
+  <!-- Données structurées -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Justine Combeau",
+    "jobTitle": "Étudiante en Bachelor IA & Automation / Développeuse Web",
+    "url": "https://mon-portfolio-justine-combeau.vercel.app/",
+    "email": "mailto:justine.combeau.bts@gmail.com",
+    "sameAs": [
+      "https://github.com/justinecombeaubts",
+      "https://www.linkedin.com/in/justine-combeau/",
+      "https://www.instagram.com/sunrise.tech_/"
+    ],
+    "alumniOf": [
+      { "@type": "EducationalOrganization", "name": "Digital Campus, Paris" },
+      { "@type": "EducationalOrganization", "name": "Lycée Bertran de Born, Périgueux" }
+    ]
+  }
+  </script>
+
+  <!-- Polices -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Open+Sans:wght@300;400;600;700&display=swap"
+    rel="stylesheet" />
+  <!-- Icônes -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+  <script>
+    // Applique le thème avant le premier rendu pour éviter le flash (FOUC)
+    (function () {
+      var stored = localStorage.getItem('theme');
+      var prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+      var isDark = stored ? stored === 'dark' : !prefersLight;
+      document.documentElement.classList.toggle('dark', isDark);
+    })();
+  </script>
+
+  <script type="module" src="/src/main.js"></script>
+</head>
+
+<body class="bg-white text-slate-700 dark:bg-[#0f1115] dark:text-slate-200 antialiased selection:bg-brand-300/40">
+  <noscript>
+    <p style="padding:2rem;text-align:center">
+      Ce portfolio nécessite JavaScript pour s'afficher correctement.
+    </p>
+  </noscript>
+  <div id="app"></div>
+</body>
+
+</html>

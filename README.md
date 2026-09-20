@@ -1,0 +1,53 @@
+# Portfolio — Justine Combeau
+
+Portfolio de Justine Combeau (Bachelor 3 IA & Automation / BTS Développement Web), refondu en **Vite + Tailwind CSS + JavaScript vanilla** (ES modules, sans framework).
+
+## Stack
+
+- [Vite](https://vitejs.dev/) — bundler & serveur de dev
+- [Tailwind CSS](https://tailwindcss.com/) — styles utilitaires, dark mode par classe
+- JavaScript ES modules (pas de framework) — chaque section est un petit composant qui génère son HTML à partir des données JSON
+- [Font Awesome](https://fontawesome.com/) — icônes (CDN)
+- [Formspree](https://formspree.io/) — traitement du formulaire de contact
+
+## Lancer le projet
+
+```bash
+npm install
+npm run dev       # serveur de dev (http://localhost:5173)
+npm run build      # build de production dans dist/
+npm run preview    # prévisualiser le build
+```
+
+## Structure
+
+```
+src/
+├── main.js                 # point d'entrée : monte toutes les sections
+├── styles/main.css          # Tailwind + classes de composants réutilisables
+├── data/
+│   ├── projects.json        # source unique des cartes projets + fiches détaillées
+│   ├── skills.json           # compétences par catégorie
+│   └── timeline.json         # formations & expériences
+├── components/               # un fichier = une section (render + logique)
+└── utils/theme.js            # dark/light mode (persisté en localStorage)
+```
+
+## Mettre à jour le contenu
+
+- **Ajouter un projet** : ajouter une entrée dans `src/data/projects.json` (catégorie `ia-automation`, `dev-web` ou `mobile`) avec `context` (contexte), `solution` + `stack`, et `impact` (liste de résultats). La carte et la fiche détaillée (modale) se génèrent automatiquement.
+- **Mettre un projet en avant comme workflow** : ajouter un tableau `workflow` (étapes `{ kind, icon, label, detail }`, `kind` = `source`, `process`, `ai`, `human` ou `output`). Le projet apparaît alors dans la section « Mes workflows en action » et sa fiche affiche le schéma.
+- **Modifier une compétence** : éditer `src/data/skills.json`.
+- **Ajouter une étape de parcours** : éditer `src/data/timeline.json`.
+- Les images utilisées par les projets/le hero vivent dans `public/images/` et sont référencées en `/images/xxx.png`.
+
+## Déploiement (Vercel)
+
+- Projet Vercel : `mon-portfolio` — adresse : https://mon-portfolio-justine-combeau.vercel.app
+- Déployer en production : `vercel deploy --prod` depuis ce dossier (build : `npm run build`, dossier publié : `dist`).
+
+## ⚠️ À faire côté Justine
+
+- **Vérification Google Search Console** : le fichier `google2bb515c0b84c19ae.html` (jeton de vérification de propriété du site) a été supprimé lors de la refonte et n'a pas pu être récupéré. Si ce site est vérifié dans Search Console via ce fichier, il faudra régénérer un nouveau jeton (Search Console → Paramètres → Vérification de la propriété) — ou basculer sur la vérification par balise `<meta>`/DNS, plus durable face aux refontes.
+- Remplacer les `image` de secours pour COC / Assistant Marketing / EduStudy Hub par de vraies captures d'écran dans `public/images/` + `src/data/projects.json` dès que disponibles.
+- Ajouter les liens GitHub publics dans `projects.json` (`links.code`) pour les projets qui peuvent être rendus publics.

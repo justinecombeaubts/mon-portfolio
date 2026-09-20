@@ -1,0 +1,125 @@
+import projects from '../data/projects.json';
+
+const CATEGORIES = [
+  { id: 'all', label: 'Tous' },
+  { id: 'ia-automation', label: 'IA & Automation' },
+  { id: 'dev-web', label: 'Développement Web' },
+  { id: 'mobile', label: 'Mobile' },
+];
+
+function renderCard(project) {
+  const stack = project.stack
+    .slice(0, 3)
+    .map((t) => `<span class="chip">${t}</span>`)
+    .join('');
+  const extra = project.stack.length > 3 ? `<span class="chip">+${project.stack.length - 3}</span>` : '';
+
+  return `
+  <article
+    class="project-card card group flex flex-col overflow-hidden"
+    data-category="${project.category}"
+  >
+    <button type="button" data-project-open="${project.id}" class="block overflow-hidden text-left">
+      <div class="relative h-48 overflow-hidden">
+        <img
+          src="${project.image}"
+          alt="${project.title}"
+          class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+        />
+        <span class="absolute left-4 top-4 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-slate-700 shadow-soft dark:bg-black/60 dark:text-slate-100">
+          ${project.status || project.year}
+        </span>
+        ${
+          project.workflow
+            ? `<span class="absolute right-4 top-4 rounded-full bg-ai-500/90 px-3 py-1 text-xs font-semibold text-white shadow-soft">
+                <i class="fas fa-diagram-project mr-1"></i>Workflow
+              </span>`
+            : ''
+        }
+      </div>
+    </button>
+
+    <div class="flex flex-1 flex-col p-6">
+      <h3 class="font-display text-lg font-semibold text-slate-900 dark:text-white">
+        ${project.title}
+      </h3>
+      <p class="mt-2 flex-1 text-sm text-slate-500 dark:text-slate-400">${project.tagline}</p>
+
+      <div class="mt-4 flex flex-wrap gap-2">${stack}${extra}</div>
+
+      <div class="mt-6 flex items-center justify-between">
+        <button
+          type="button"
+          data-project-open="${project.id}"
+          class="text-sm font-semibold text-brand-600 transition-colors hover:text-brand-700 dark:text-brand-300 dark:hover:text-brand-200"
+        >
+          Voir la fiche <i class="fas fa-arrow-right ml-1"></i>
+        </button>
+        ${
+          project.links.demo
+            ? `<a href="${project.links.demo}" target="_blank" rel="noopener" aria-label="Ouvrir le site de ${project.title}" class="text-slate-400 hover:text-brand-600 dark:hover:text-brand-300">
+                <i class="fas fa-arrow-up-right-from-square"></i>
+              </a>`
+            : `<span class="text-slate-300 dark:text-slate-600" title="${project.status || 'Projet privé'}"><i class="fas fa-lock"></i></span>`
+        }
+      </div>
+    </div>
+  </article>`;
+}
+
+export function renderProjects() {
+  const filters = CATEGORIES.map(
+    (c, i) => `
+    <button type="button" class="filter-btn ${i === 0 ? 'active' : ''}" data-filter="${c.id}">
+      ${c.label}
+    </button>`
+  ).join('');
+
+  const cards = projects.map(renderCard).join('');
+
+  return `
+  <section id="projects" class="py-24">
+    <div class="container-x">
+      <div class="text-center">
+        <p class="section-eyebrow justify-center">Réalisations</p>
+        <h2 class="section-title mt-3">Mes projets</h2>
+        <p class="section-subtitle mx-auto max-w-xl">
+          Une sélection de projets en développement web, IA et automatisation.
+        </p>
+      </div>
+
+      <div class="mt-10 flex flex-wrap justify-center gap-3">${filters}</div>
+
+      <div id="projects-grid" class="mt-12 grid gap-7 sm:grid-cols-2 lg:grid-cols-3">
+        ${cards}
+      </div>
+
+      <p id="projects-empty" class="mt-12 hidden text-center text-slate-500 dark:text-slate-400">
+        Aucun projet dans cette catégorie pour le moment.
+      </p>
+    </div>
+  </section>
+  `;
+}
+
+export function initProjectFilters() {
+  const buttons = document.querySelectorAll('[data-filter]');
+  const cards = document.querySelectorAll('.project-card');
+  const empty = document.getElementById('projects-empty');
+
+  buttons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      buttons.forEach((b) => b.classList.remove('active'));
+      btn.classList.add('active');
+
+      const filter = btn.dataset.filter;
+      let visibleCount = 0;
+      cards.forEach((card) => {
+        const match = filter === 'all' || card.dataset.category === filter;
+        card.classList.toggle('hidden', !match);
+        if (match) visibleCount += 1;
+      });
+      empty.classList.toggle('hidden', visibleCount !== 0);
+    });
+  });
+}

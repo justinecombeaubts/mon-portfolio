@@ -1,0 +1,37 @@
+[
+  {
+    "period": "2026 — 2027",
+    "type": "formation",
+    "title": "Bachelor 3 IA & Automation",
+    "place": "Digital Campus, Paris",
+    "description": "Spécialisation intelligence artificielle et automatisation des processus, en alternance."
+  },
+  {
+    "period": "Mars — Août 2025",
+    "type": "experience",
+    "title": "Maître nageur sauveteur & Surveillante de baignade",
+    "place": "Piscine Ezanville (CDD)",
+    "description": "Gestion du stress, rigueur et responsabilité de la sécurité des personnes."
+  },
+  {
+    "period": "Février — Mai 2024",
+    "type": "experience",
+    "title": "Agent d'accueil — Service Civique",
+    "place": "France Travail",
+    "description": "Assistance informatique auprès des usagers : pédagogie, empathie et capacité à vulgariser la technique."
+  },
+  {
+    "period": "2023 — 2024",
+    "type": "formation",
+    "title": "BNSSA",
+    "place": "FNMNS24, Piscine l'Ovive, Nontron",
+    "description": "Brevet National de Sécurité et de Sauvetage Aquatique."
+  },
+  {
+    "period": "2021 — 2023",
+    "type": "formation",
+    "title": "BTS Informatique Développement",
+    "place": "Lycée Bertran de Born, Périgueux",
+    "description": "Début du développement web : HTML/CSS, JavaScript, PHP, SQL, gestion de projet."
+  }
+]
