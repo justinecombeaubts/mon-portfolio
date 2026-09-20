@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<title>CV Justine Combeau</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+<style>
+  @page { size: 210mm 297mm; margin: 0; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 210mm; height: 297mm; }
+  body {
+    font-family: 'Open Sans', sans-serif;
+    color: #334155;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  a { color: inherit; text-decoration: none; }
+  .page { display: flex; width: 210mm; height: 297mm; overflow: hidden; }
+
+  /* ───────── Colonne latérale ───────── */
+  aside {
+    width: 210pt;
+    flex: none;
+    padding: 37pt 23pt 0;
+    background: linear-gradient(180deg, #fdf3f6 0%, #fdeff3 100%);
+    border-right: 0.6pt solid #fbe6ed;
+  }
+  .photo {
+    width: 92pt; height: 92pt; margin: 0 auto;
+    border-radius: 50%;
+    border: 3pt solid #fff;
+    box-shadow: 0 4pt 10pt -2pt rgba(176, 100, 131, 0.45);
+    overflow: hidden;
+  }
+  .photo img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .name { margin-top: 12pt; text-align: center; font-size: 14.2pt; font-weight: 700; line-height: 16pt; color: #0f172a; }
+  .name span { display: block; color: #b06483; }
+  .role { margin-top: 7pt; text-align: center; font-size: 7.5pt; line-height: 11pt; color: #64748b; }
+  .rule { margin: 14pt 0 0; border: 0; border-top: 0.6pt solid #f3c6d6; }
+
+  .s-title {
+    margin-top: 21pt; margin-bottom: 7pt;
+    font-size: 7.2pt; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #b06483;
+  }
+  .contact li, .checks li { list-style: none; display: flex; align-items: baseline; font-size: 7.6pt; line-height: 12.6pt; }
+  .contact i { width: 14pt; flex: none; font-size: 6.6pt; color: #b06483; }
+  .contact a { color: #b06483; border-bottom: 0.6pt dotted #c98fa3; }
+  .checks i { width: 14pt; flex: none; font-size: 6.6pt; color: #c98fa3; }
+  .chips { display: flex; flex-wrap: wrap; gap: 5pt 5pt; }
+  .chip {
+    padding: 3.4pt 8pt; border: 0.7pt solid #f3c6d6; border-radius: 999pt; background: #fff;
+    font-size: 6.8pt; line-height: 9pt; color: #334155;
+  }
+  .tools li { list-style: none; font-size: 7.6pt; line-height: 11pt; margin-bottom: 8pt; }
+
+  /* ───────── Colonne principale ───────── */
+  main { flex: 1; padding: 34pt 24pt 0 31pt; }
+  .kicker { display: flex; align-items: center; gap: 4pt; font-size: 7.2pt; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #b06483; }
+  .kicker::before { content: ''; width: 3.6pt; height: 3.6pt; border-radius: 50%; background: #c98fa3; }
+  .profil { margin-top: 6pt; font-size: 8.2pt; line-height: 13pt; }
+  .profil sup { font-size: 5.4pt; line-height: 0; }
+
+  h2 { margin: 16pt 0 6pt; font-family: 'Playfair Display', serif; font-size: 11.7pt; font-weight: 600; color: #0f172a; line-height: 14pt; }
+  .entry { margin-bottom: 9pt; }
+  .row { display: flex; justify-content: space-between; align-items: baseline; }
+  .row .t { font-size: 8.7pt; font-weight: 600; color: #0f172a; line-height: 11pt; }
+  .row .d { font-size: 6.9pt; font-weight: 600; letter-spacing: 0.03em; text-transform: uppercase; color: #b06483; }
+  .sub { font-size: 7.5pt; line-height: 11pt; color: #64748b; }
+  .desc { margin-top: 2pt; font-size: 7.7pt; line-height: 11pt; }
+
+  /* Projets */
+  .proj { position: relative; padding-left: 16pt; margin-bottom: 5pt; }
+  .proj > .ico { position: absolute; left: 1pt; top: 1.6pt; width: 9pt; font-size: 7pt; color: #c98fa3; text-align: center; }
+  .proj .t { font-size: 8.1pt; font-weight: 600; color: #0f172a; line-height: 10pt; }
+  .proj .t.lnk { color: #b06483; border-bottom: 0.6pt solid #c98fa3; }
+  .proj .t + i { margin-left: 4pt; font-size: 5.8pt; color: #b06483; }
+  .proj .b { font-size: 6pt; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: #8f4b68; }
+  .proj .p { margin-top: 1pt; font-size: 7.3pt; line-height: 9.4pt; color: #334155; }
+  .proj .k { margin-top: 1.5pt; font-size: 6.3pt; line-height: 8.5pt; color: #64748b; }
+  .ttl { display: flex; align-items: baseline; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <aside>
+    <div class="photo"><img src="photo.png" alt="Justine Combeau" /></div>
+    <div class="name">Justine<span>Combeau</span></div>
+    <div class="role">Étudiante en Bachelor 3<br />IA &amp; Automation</div>
+    <hr class="rule" />
+
+    <div class="s-title">Contact</div>
+    <ul class="contact">
+      <li><i class="fas fa-phone"></i>07 87 50 53 29</li>
+      <li><i class="fas fa-envelope"></i>justine.combeau.bts@gmail.com</li>
+      <li><i class="fas fa-location-dot"></i>Paris, France</li>
+      <li><i class="fas fa-globe"></i><a href="https://mon-portfolio-justine-combeau.vercel.app/">Portfolio</a></li>
+      <li><i class="fab fa-linkedin"></i><a href="https://www.linkedin.com/in/justine-combeau/">LinkedIn</a></li>
+      <li><i class="fab fa-github"></i><a href="https://github.com/justinecombeaubts">GitHub</a></li>
+    </ul>
+
+    <div class="s-title">Hard skills</div>
+    <ul class="checks">
+      <li><i class="fas fa-check"></i>Gestion de bases de données</li>
+      <li><i class="fas fa-check"></i>Dev front-end / back-end</li>
+      <li><i class="fas fa-check"></i>Tests &amp; débogage</li>
+      <li><i class="fas fa-check"></i>Documentation technique</li>
+      <li><i class="fas fa-check"></i>Outils IA générative</li>
+    </ul>
+
+    <div class="s-title">Soft skills</div>
+    <div class="chips">
+      <span class="chip">Ponctualité</span><span class="chip">Adaptabilité</span>
+      <span class="chip">Travail en équipe</span><span class="chip">Rigueur</span>
+      <span class="chip">Autodidacte</span>
+    </div>
+
+    <div class="s-title">Outils</div>
+    <ul class="tools">
+      <li>Python · HTML/CSS · PHP · SQL · Java</li>
+      <li>Symfony · MVC · Vanilla JS</li>
+      <li>n8n · Make · VS Code</li>
+      <li>Pack Office · Canva · CapCut</li>
+    </ul>
+
+    <div class="s-title">Langues</div>
+    <ul class="checks">
+      <li><i class="fas fa-check"></i>Français : langue maternelle</li>
+      <li><i class="fas fa-check"></i>Anglais : niveau intermédiaire</li>
+    </ul>
+
+    <div class="s-title">Centres d'intérêt</div>
+    <div class="chips">
+      <span class="chip">Lecture</span><span class="chip">Écriture</span><span class="chip">Jeux vidéo</span>
+      <span class="chip">Sport</span><span class="chip">Dessin</span>
+    </div>
+  </aside>
+
+  <main>
+    <div class="kicker">Profil</div>
+    <p class="profil">Étudiante en 3<sup>e</sup> année de Bachelor IA &amp; Automation, je recherche une alternance pour septembre (rythme 3 jours en entreprise / 2 jours à l'école). Diplômée d'un BTS en développement web et passionnée par l'IA et l'automatisation, je souhaite rejoindre une entreprise pour contribuer activement à des projets numériques innovants et continuer à apprendre sur le terrain.</p>
+
+    <h2>Expériences</h2>
+    <div class="entry">
+      <div class="row"><span class="t">Maître nageur sauveteur &amp; Surveillante de baignade</span><span class="d">Mars – Août 2025</span></div>
+      <div class="sub">CDD — Piscine Ezanville</div>
+      <div class="desc">Gestion du stress, rigueur et responsabilité de la sécurité des personnes.</div>
+    </div>
+    <div class="entry">
+      <div class="row"><span class="t">Agent d'accueil — Service Civique</span><span class="d">Février – Mai 2024</span></div>
+      <div class="sub">France Travail</div>
+      <div class="desc">Assistance informatique auprès des usagers : pédagogie, empathie et capacité à vulgariser la technique.</div>
+    </div>
+
+    <h2>Formations</h2>
+    <div class="entry">
+      <div class="row"><span class="t">Bachelor 3 IA &amp; Automation</span><span class="d">2026 – 2027</span></div>
+      <div class="sub">Digital Campus, Paris</div>
+    </div>
+    <div class="entry">
+      <div class="row"><span class="t">BTS Informatique Développement</span><span class="d">2021 – 2023</span></div>
+      <div class="sub">Lycée Bertran de Born, Périgueux</div>
+    </div>
+    <div class="entry">
+      <div class="row"><span class="t">BNSSA</span><span class="d">2023 – 2024</span></div>
+      <div class="sub">FNMNS24, Piscine l'Ovive, Nontron</div>
+    </div>
+
+    <h2>Projets indépendants</h2>
+
+    <div class="proj">
+      <i class="ico fas fa-chess-rook"></i>
+      <div class="row"><div class="ttl"><a class="t lnk" href="https://coc-dashboard-beta.vercel.app/">Suivi Clash of Clans Multi-Clans</a><i class="fas fa-arrow-up-right-from-square"></i></div><span class="b">Repo privé</span></div>
+      <div class="p">Dashboard + automatisation pour piloter 2 clans (100 joueurs) en temps réel : détection auto des mouvements, alertes et rapport Discord.</div>
+      <div class="k">Node.js · Supabase (Postgres) · GitHub Actions · Discord Webhooks</div>
+    </div>
+
+    <div class="proj">
+      <i class="ico fas fa-bell"></i>
+      <div class="row"><div class="ttl"><span class="t">Alertes Deals Dealabs → Discord</span></div><span class="b">Scénario Make</span></div>
+      <div class="p">Scénario Make qui lit le flux RSS de Dealabs et alerte sur Discord les bons plans les plus populaires (filtre sur la température).</div>
+      <div class="k">Make · Flux RSS · Regex (Text parser) · Discord</div>
+    </div>
+
+    <div class="proj">
+      <i class="ico fas fa-bullhorn"></i>
+      <div class="row"><div class="ttl"><span class="t">Assistant Marketing IA</span></div><span class="b">Étude de cas — Vaultinum</span></div>
+      <div class="p">Prototype d'analyse marketing piloté par IA avec calculs garantis exacts : le LLM restitue, il ne calcule jamais.</div>
+      <div class="k">Python · Streamlit · Pandas · API LLM (sortie structurée)</div>
+    </div>
+
+    <div class="proj">
+      <i class="ico fas fa-graduation-cap"></i>
+      <div class="row"><div class="ttl"><a class="t lnk" href="https://edustudy-hub.vercel.app/">EduStudy Hub</a><i class="fas fa-arrow-up-right-from-square"></i></div><span class="b">BoostCamp Digital Campus</span></div>
+      <div class="p">Agenda de cours et hub de révision augmenté par un agent IA (« Professeur Sakura ») : flashcards et QCM générés, validation humaine obligatoire.</div>
+      <div class="k">React · Vite · Tailwind CSS · Supabase</div>
+    </div>
+
+    <div class="proj">
+      <i class="ico fas fa-calendar-days"></i>
+      <div class="row"><div class="ttl"><a class="t lnk" href="https://agenda-sorties.vercel.app/?demo">Agenda des sorties</a><i class="fas fa-arrow-up-right-from-square"></i></div><span class="b">En ligne — démo visiteur</span></div>
+      <div class="p">Application de groupe pour trouver les dates où tous les amis sont libres : disponibilités partagées, calendrier commun par groupe, comptes gérés par un admin.</div>
+      <div class="k">Node.js · Express · Postgres (Neon) · Tailwind CSS</div>
+    </div>
+
+    <div class="proj">
+      <i class="ico fas fa-mobile-screen-button"></i>
+      <div class="row"><div class="ttl"><span class="t">Mon Quotidien</span></div><span class="b">App Android</span></div>
+      <div class="p">Planning de journée en cycles de 2h avec suivi d'hydratation, notifications fiables en arrière-plan et widget d'écran d'accueil natif.</div>
+      <div class="k">Flutter · Dart · flutter_local_notifications · Kotlin</div>
+    </div>
+
+    <div class="proj">
+      <i class="ico fas fa-wine-glass"></i>
+      <div class="row"><div class="ttl"><a class="t lnk" href="https://le-chat-ivre.vercel.app/">Le Chat Ivre</a><i class="fas fa-arrow-up-right-from-square"></i></div><span class="b">En ligne</span></div>
+      <div class="p">Site vitrine one-page pour un bar à vin parisien : menu interactif, galerie photo et localisation Google Maps.</div>
+      <div class="k">HTML5 · CSS3 · JavaScript · Google Maps API</div>
+    </div>
+
+    <div class="proj">
+      <i class="ico fas fa-life-ring"></i>
+      <div class="row"><div class="ttl"><a class="t lnk" href="https://qcm-bnssa.vercel.app/">QCM BNSSA Trainer</a><i class="fas fa-arrow-up-right-from-square"></i></div><span class="b">En ligne</span></div>
+      <div class="p">Plateforme d'entraînement à l'épreuve théorique du BNSSA : 40 questions aléatoires parmi 180+, chronomètre et correction en direct.</div>
+      <div class="k">HTML5 · CSS3 · JavaScript · JSON</div>
+    </div>
+
+    <div class="proj">
+      <i class="ico fas fa-utensils"></i>
+      <div class="row"><div class="ttl"><a class="t lnk" href="https://les-recettes-famille.vercel.app/">Les recettes de maman</a><i class="fas fa-arrow-up-right-from-square"></i></div><span class="b">En ligne</span></div>
+      <div class="p">Site de recettes familiales cherchables et enrichissables : recherche instantanée, fiches détaillées, formulaire d'ajout.</div>
+      <div class="k">HTML5 · CSS3 · JavaScript · JSON</div>
+    </div>
+  </main>
+
+</div>
+</body>
+</html>

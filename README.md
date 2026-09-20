@@ -39,6 +39,7 @@ src/
 - **Mettre un projet en avant comme workflow** : ajouter un tableau `workflow` (étapes `{ kind, icon, label, detail }`, `kind` = `source`, `process`, `ai`, `human` ou `output`). Le projet apparaît alors dans la section « Mes workflows en action » et sa fiche affiche le schéma.
 - **Modifier une compétence** : éditer `src/data/skills.json`.
 - **Ajouter une étape de parcours** : éditer `src/data/timeline.json`.
+- **Modifier le CV** : éditer `cv-source/cv.html`, puis lancer `npm run cv` (nécessite Chrome ou Edge et une connexion internet pour les polices). Le PDF est régénéré dans `public/cv/CV_JustineCombeau.pdf`.
 - Les images utilisées par les projets/le hero vivent dans `public/images/` et sont référencées en `/images/xxx.png`.
 
 ## Déploiement (Vercel)
