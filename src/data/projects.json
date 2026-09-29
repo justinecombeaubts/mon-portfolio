@@ -368,8 +368,7 @@
     "image": "/images/le-chat-ivre-icon.svg",
     "accent": "wine",
     "links": {
-      "demo": "https://le-chat-ivre.vercel.app/",
-      "code": "https://github.com/justinecombeaubts/le-chat-ivre"
+      "demo": "https://le-chat-ivre.vercel.app/"
     },
     "screenshot": "/images/projets/chat.jpg"
   },

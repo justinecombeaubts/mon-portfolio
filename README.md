@@ -50,5 +50,4 @@ src/
 
 ## ⚠️ À faire côté Justine
 
-- **Vérification Google Search Console** : le fichier `google2bb515c0b84c19ae.html` (jeton de vérification de propriété du site) a été supprimé lors de la refonte et n'a pas pu être récupéré. Si ce site est vérifié dans Search Console via ce fichier, il faudra régénérer un nouveau jeton (Search Console → Paramètres → Vérification de la propriété) — ou basculer sur la vérification par balise `<meta>`/DNS, plus durable face aux refontes.
-- Mettre à jour les dépôts GitHub publics (`le-chat-ivre`, `recettes-famille`, `qcm-bnssa`) : ils datent de juillet 2026 et ne reflètent pas les dernières versions. Renommer `mon-portofolio` en `mon-portfolio` sur GitHub.
+- Mettre à jour les dépôts GitHub publics (`recettes-famille`, `qcm-bnssa`) et remplir `le-chat-ivre` (dépôt vide : le lien « Voir le code » a été retiré en attendant) : ils datent de juillet 2026 et ne reflètent pas les dernières versions. Renommer `mon-portofolio` en `mon-portfolio` sur GitHub.
