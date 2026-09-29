@@ -22,9 +22,9 @@ function renderCard(project) {
     <button type="button" data-project-open="${project.id}" class="block overflow-hidden text-left">
       <div class="relative h-48 overflow-hidden">
         <img
-          src="${project.image}"
+          src="${project.screenshot || project.image}"
           alt="${project.title}"
-          class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+          class="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
         />
         <span class="absolute left-4 top-4 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-slate-700 shadow-soft dark:bg-ink/70 dark:text-slate-100">
           ${project.status || project.year}

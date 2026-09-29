@@ -40,7 +40,8 @@ src/
 - **Modifier une compétence** : éditer `src/data/skills.json`.
 - **Ajouter une étape de parcours** : éditer `src/data/timeline.json`.
 - **Modifier le CV** : éditer `cv-source/cv.html`, puis lancer `npm run cv` (nécessite Chrome ou Edge et une connexion internet pour les polices). Le PDF est régénéré dans `public/cv/CV_JustineCombeau.pdf`.
-- Les images utilisées par les projets/le hero vivent dans `public/images/` et sont référencées en `/images/xxx.png`.
+- Les images utilisées par les projets/le hero vivent dans `public/images/` et sont référencées en `/images/xxx.png`. Chaque projet a une `image` (icône, utilisée dans la section workflows) et, s'il est en ligne, une `screenshot` (capture 960×540 dans `public/images/projets/`, utilisée pour la carte et la fiche).
+- **Compétences** : chaque entrée de `skills.json` a un `level` (`projet`, `formation` ou `perso`) et une liste `proof` des projets qui la démontrent — pas de pourcentages.
 
 ## Déploiement (Vercel)
 
@@ -50,5 +51,4 @@ src/
 ## ⚠️ À faire côté Justine
 
 - **Vérification Google Search Console** : le fichier `google2bb515c0b84c19ae.html` (jeton de vérification de propriété du site) a été supprimé lors de la refonte et n'a pas pu être récupéré. Si ce site est vérifié dans Search Console via ce fichier, il faudra régénérer un nouveau jeton (Search Console → Paramètres → Vérification de la propriété) — ou basculer sur la vérification par balise `<meta>`/DNS, plus durable face aux refontes.
-- Remplacer les `image` de secours pour COC / Assistant Marketing / EduStudy Hub par de vraies captures d'écran dans `public/images/` + `src/data/projects.json` dès que disponibles.
-- Ajouter les liens GitHub publics dans `projects.json` (`links.code`) pour les projets qui peuvent être rendus publics.
+- Mettre à jour les dépôts GitHub publics (`le-chat-ivre`, `recettes-famille`, `qcm-bnssa`) : ils datent de juillet 2026 et ne reflètent pas les dernières versions. Renommer `mon-portofolio` en `mon-portfolio` sur GitHub.

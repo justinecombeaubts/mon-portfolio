@@ -16,7 +16,7 @@ export function renderHero() {
         </h1>
         <p class="mt-6 max-w-xl text-lg text-slate-500 dark:text-slate-400">
           Étudiante en Bachelor IA &amp; Automation à Digital Campus Paris, diplômée d'un BTS
-          Développement Web. Je conçois des sites et applications robustes, puis j'y ajoute de
+          Informatique Développement. Je conçois des sites et applications robustes, puis j'y ajoute de
           l'automatisation et de l'intelligence artificielle pour aller plus loin.
         </p>
         <div class="mt-10 flex flex-wrap items-center gap-4">
@@ -39,7 +39,7 @@ export function renderHero() {
             <i class="fas fa-location-dot text-brand-500 dark:text-brand-300"></i> Paris, France
           </div>
           <div class="flex items-center gap-2">
-            <i class="fas fa-briefcase text-brand-500 dark:text-brand-300"></i> Recherche alternance
+            <i class="fas fa-briefcase text-brand-500 dark:text-brand-300"></i> Alternance : disponible immédiatement (3 j entreprise / 2 j école)
           </div>
         </div>
       </div>

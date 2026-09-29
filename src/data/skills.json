@@ -3,44 +3,44 @@
     "category": "Développement Web",
     "icon": "code-2",
     "items": [
-      { "name": "HTML5 / CSS3", "level": 90 },
-      { "name": "JavaScript", "level": 80 },
-      { "name": "PHP", "level": 75 },
-      { "name": "SQL / MySQL / PostgreSQL", "level": 80 },
-      { "name": "MVC / Symfony", "level": 65 },
-      { "name": "React & Vite", "level": 60 }
+      { "name": "HTML5 / CSS3", "level": "projet", "proof": ["Route 35", "Le Chat Ivre", "Les recettes de maman", "QCM BNSSA"] },
+      { "name": "JavaScript", "level": "projet", "proof": ["Route 35", "Agenda des sorties", "Les recettes de maman"] },
+      { "name": "Node.js / Express / API REST", "level": "projet", "proof": ["Agenda des sorties", "Suivi Clash of Clans", "Les recettes de maman"] },
+      { "name": "SQL / PostgreSQL", "level": "projet", "proof": ["Agenda des sorties", "Suivi Clash of Clans", "Le Chat Ivre"] },
+      { "name": "React & Vite", "level": "projet", "proof": ["EduStudy Hub"] },
+      { "name": "Tailwind CSS", "level": "projet", "proof": ["Agenda des sorties", "EduStudy Hub", "Ce portfolio"] },
+      { "name": "PHP / Symfony (MVC)", "level": "formation", "proof": ["BTS Informatique Développement"] }
     ]
   },
   {
     "category": "IA & Automation",
     "icon": "sparkles",
     "items": [
-      { "name": "n8n", "level": 70 },
-      { "name": "Make.com", "level": 65 },
-      { "name": "GitHub Actions (cron)", "level": 70 },
-      { "name": "API LLM (OpenAI, Gemini, Claude)", "level": 75 },
-      { "name": "Prompt engineering", "level": 75 },
-      { "name": "Supabase (Postgres / RLS)", "level": 70 }
+      { "name": "GitHub Actions (cron)", "level": "projet", "proof": ["Suivi Clash of Clans"] },
+      { "name": "Make", "level": "projet", "proof": ["Alertes Dealabs"] },
+      { "name": "API LLM (OpenAI, Gemini, Claude)", "level": "projet", "proof": ["Assistant Marketing IA", "EduStudy Hub"] },
+      { "name": "Sortie structurée & garde-fous IA", "level": "projet", "proof": ["Assistant Marketing IA", "EduStudy Hub"] },
+      { "name": "Supabase (Postgres, RLS, Auth)", "level": "projet", "proof": ["Suivi Clash of Clans", "Le Chat Ivre", "EduStudy Hub"] },
+      { "name": "n8n", "level": "formation", "proof": ["Bachelor IA & Automation"] }
     ]
   },
   {
-    "category": "Outils & DevOps",
+    "category": "Outils & Déploiement",
     "icon": "terminal",
     "items": [
-      { "name": "Git / GitHub", "level": 80 },
-      { "name": "Python", "level": 70 },
-      { "name": "VS Code", "level": 90 },
-      { "name": "Pack Office / Suite Google", "level": 80 }
+      { "name": "Git / GitHub", "level": "projet", "proof": ["Tous les projets"] },
+      { "name": "Vercel (déploiement, serverless, Blob)", "level": "projet", "proof": ["Route 35", "Les recettes de maman", "Agenda des sorties"] },
+      { "name": "Python (Pandas, Streamlit)", "level": "projet", "proof": ["Assistant Marketing IA"] },
+      { "name": "Flutter / Dart", "level": "projet", "proof": ["Mon Quotidien"] }
     ]
   },
   {
     "category": "Design & Contenu",
     "icon": "palette",
     "items": [
-      { "name": "Canva", "level": 80 },
-      { "name": "CapCut", "level": 70 },
-      { "name": "UI / UX", "level": 65 },
-      { "name": "Identité visuelle", "level": 70 }
+      { "name": "UI / UX mobile-first", "level": "projet", "proof": ["Route 35", "Les recettes de maman"] },
+      { "name": "Identité visuelle", "level": "projet", "proof": ["Le Chat Ivre", "Ce portfolio"] },
+      { "name": "Canva / CapCut", "level": "perso", "proof": ["Contenus réseaux sociais"] }
     ]
   }
 ]

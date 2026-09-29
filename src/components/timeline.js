@@ -30,7 +30,7 @@ export function renderTimeline() {
         <p class="section-eyebrow justify-center">Étapes clés</p>
         <h2 class="section-title mt-3">Parcours & Formation</h2>
         <p class="section-subtitle mx-auto max-w-xl">
-          Du BTS Développement Web au Bachelor IA &amp; Automation, en passant par le terrain.
+          Du BTS Informatique Développement au Bachelor IA &amp; Automation, en passant par le terrain.
         </p>
       </div>
 

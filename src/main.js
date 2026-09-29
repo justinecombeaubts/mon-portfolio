@@ -3,7 +3,7 @@ import './styles/main.css';
 import { renderHeader, initHeader } from './components/header.js';
 import { renderHero } from './components/hero.js';
 import { renderAbout } from './components/about.js';
-import { renderSkills, initSkillsAnimation } from './components/skills.js';
+import { renderSkills } from './components/skills.js';
 import { renderWorkflows } from './components/workflows.js';
 import { renderProjects, initProjectFilters } from './components/projects.js';
 import { renderProjectModal, initProjectModal } from './components/projectModal.js';
@@ -33,7 +33,6 @@ app.innerHTML = `
 
 initHeader();
 initThemeToggle();
-initSkillsAnimation();
 initProjectFilters();
 initProjectModal();
 initContactForm();

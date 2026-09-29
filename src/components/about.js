@@ -33,10 +33,10 @@ export function renderAbout() {
 
           <div class="mt-10 grid grid-cols-2 gap-5 sm:grid-cols-4">
             ${[
-              ['5+', 'projets réalisés'],
-              ['2', 'diplômes'],
-              ['3', 'outils no-code / IA'],
-              ['1', 'alternance recherchée'],
+              ['10', 'projets réalisés'],
+              ['7', 'sites en ligne'],
+              ['6', 'automatisations en production'],
+              ['3 j / 2 j', "rythme d'alternance"],
             ]
               .map(
                 ([value, label]) => `
@@ -58,6 +58,7 @@ export function renderAbout() {
               ${[
                 ['Comprendre', 'Cerner le besoin réel avant d\'écrire la moindre ligne de code.'],
                 ['Construire', 'Un code propre, testé et documenté, pensé pour durer.'],
+                ["Coder avec l'IA", "J'utilise des assistants IA en binôme : je cadre, je relis, je teste, et chaque choix technique reste le mien."],
                 ['Automatiser', 'Identifier ce qui peut être fiabilisé par un script ou un agent IA.'],
                 ['Livrer & apprendre', 'Récolter le retour, itérer, et documenter la décision.'],
               ]

@@ -3,29 +3,62 @@
     "id": "coc-carpe-diem",
     "category": "ia-automation",
     "title": "Suivi Clash of Clans Multi-Clans",
-    "tagline": "Dashboard + automatisation pour piloter 2 clans (100 joueurs) en temps réel",
+    "tagline": "Dashboard + 5 automatisations pour piloter 2 clans (100 joueurs) en temps réel",
     "year": "2026",
     "status": "Repo GitHub privé",
-    "context": "Deux clans de 50 joueurs (100 joueurs au total) à animer chaque semaine : effectifs, Raid Weekends, Ligue de Guerre de Clans. Tout ce suivi se faisait à la main, sans vue d'ensemble ni alerte quand un joueur arrive ou quitte.",
-    "solution": "Script Node.js planifié par GitHub Actions (cron hebdomadaire, lundi 11h) qui interroge l'API officielle Clash of Clans via un proxy, compare les effectifs à une base Supabase (Postgres + RLS), détecte automatiquement les arrivées/départs et publie des alertes ainsi qu'un rapport de synthèse sur Discord via Webhook. Dashboard web statique (thème « bois » façon jeu, navigation par clan) consultable publiquement en lecture seule.",
-    "stack": ["Node.js", "Supabase (Postgres)", "GitHub Actions", "Discord Webhooks", "API REST", "RLS"],
+    "context": "Deux clans de 50 joueurs (100 joueurs au total) à animer : effectifs, guerres, Raid Weekends, Ligue de Guerre de Clans. Tout ce suivi se faisait à la main, sans vue d'ensemble ni alerte quand un joueur arrive ou quitte.",
+    "solution": "Scripts Node.js orchestrés par 5 workflows GitHub Actions à cadences adaptées à chaque événement du jeu : effectif et guerres toutes les 2h, raids toutes les heures pendant le week-end, Ligue de Guerre chaque jour, rapport de synthèse chaque lundi. Les données de l'API officielle Clash of Clans (via un proxy) sont comparées à une base Supabase (Postgres + RLS) ; chaque arrivée ou départ déclenche une alerte Discord immédiate via Webhook. Dashboard web public en lecture seule (thème « bois » façon jeu, navigation par clan).",
+    "stack": [
+      "Node.js",
+      "Supabase (Postgres)",
+      "GitHub Actions",
+      "Discord Webhooks",
+      "API REST",
+      "RLS"
+    ],
     "impact": [
-      "Rapport hebdomadaire automatique (chaque lundi à 11h) sur Discord, sans aucune action manuelle.",
-      "Arrivées et départs détectés et signalés automatiquement pour les 2 clans.",
-      "Dashboard public en lecture seule : l'état des clans est consultable par n'importe qui via un lien."
+      "5 automatisations planifiées tournent en continu, sans aucune action manuelle.",
+      "Chaque arrivée ou départ est signalé sur Discord dans les 2h, pour les 2 clans.",
+      "Rapport hebdomadaire automatique chaque lundi et dashboard public consultable par tous via un lien."
     ],
     "workflow": [
-      {"kind": "source", "icon": "fa-clock", "label": "Cron GitHub Actions", "detail": "Chaque lundi à 11h"},
-      {"kind": "process", "icon": "fa-cloud-arrow-down", "label": "API Clash of Clans", "detail": "Collecte via un proxy"},
-      {"kind": "process", "icon": "fa-database", "label": "Base Supabase", "detail": "Effectifs comparés (RLS)"},
-      {"kind": "process", "icon": "fa-code-compare", "label": "Détection", "detail": "Arrivées et départs"},
-      {"kind": "output", "icon": "fa-bell", "label": "Discord + dashboard", "detail": "Alertes et rapport de synthèse"}
+      {
+        "kind": "source",
+        "icon": "fa-clock",
+        "label": "5 crons GitHub Actions",
+        "detail": "De toutes les heures à hebdo"
+      },
+      {
+        "kind": "process",
+        "icon": "fa-cloud-arrow-down",
+        "label": "API Clash of Clans",
+        "detail": "Collecte via un proxy"
+      },
+      {
+        "kind": "process",
+        "icon": "fa-database",
+        "label": "Base Supabase",
+        "detail": "Historique comparé (RLS)"
+      },
+      {
+        "kind": "process",
+        "icon": "fa-code-compare",
+        "label": "Détection",
+        "detail": "Arrivées, départs, guerres"
+      },
+      {
+        "kind": "output",
+        "icon": "fa-bell",
+        "label": "Discord + dashboard",
+        "detail": "Alertes et rapport hebdo"
+      }
     ],
     "image": "/images/coc-icon.svg",
     "accent": "amber",
     "links": {
       "demo": "https://coc-dashboard-beta.vercel.app/"
-    }
+    },
+    "screenshot": "/images/projets/coc.jpg"
   },
   {
     "id": "alerte-dealabs",
@@ -36,17 +69,43 @@
     "status": "Scénario Make",
     "context": "Dealabs publie en continu de nouveaux bons plans. Seuls les plus « chauds » (température élevée) valent vraiment le détour, mais il faut surveiller le site pour ne pas les rater.",
     "solution": "Scénario Make exécuté toutes les 15 minutes : il lit le flux RSS « Hot » de Dealabs, extrait la température du deal depuis son titre avec un Text parser (expression régulière), applique un filtre numérique sur un seuil de température, puis poste le titre et le lien du deal dans un salon Discord via une connexion Discord. Seuls les deals qui dépassent le seuil déclenchent une notification.",
-    "stack": ["Make", "Flux RSS", "Regex (Text parser)", "Filtres", "Discord"],
+    "stack": [
+      "Make",
+      "Flux RSS",
+      "Regex (Text parser)",
+      "Filtres",
+      "Discord"
+    ],
     "impact": [
       "Veille automatique : le flux est relu toutes les 15 minutes, sans ouvrir le site.",
       "Aucun bruit : seuls les deals au-dessus du seuil de température sont envoyés.",
       "Chaque alerte contient le titre et le lien direct vers le deal, prêt à être ouvert depuis Discord."
     ],
     "workflow": [
-      {"kind": "source", "icon": "fa-rss", "label": "Flux RSS « Hot »", "detail": "Relu toutes les 15 min"},
-      {"kind": "process", "icon": "fa-magnifying-glass", "label": "Text parser", "detail": "Regex : extrait la température"},
-      {"kind": "process", "icon": "fa-filter", "label": "Filtre", "detail": "Température ≥ seuil"},
-      {"kind": "output", "icon": "fa-bell", "label": "Message Discord", "detail": "Titre + lien du deal"}
+      {
+        "kind": "source",
+        "icon": "fa-rss",
+        "label": "Flux RSS « Hot »",
+        "detail": "Relu toutes les 15 min"
+      },
+      {
+        "kind": "process",
+        "icon": "fa-magnifying-glass",
+        "label": "Text parser",
+        "detail": "Regex : extrait la température"
+      },
+      {
+        "kind": "process",
+        "icon": "fa-filter",
+        "label": "Filtre",
+        "detail": "Température ≥ seuil"
+      },
+      {
+        "kind": "output",
+        "icon": "fa-bell",
+        "label": "Message Discord",
+        "detail": "Titre + lien du deal"
+      }
     ],
     "image": "/images/alerte-dealabs-icon.svg",
     "accent": "violet",
@@ -61,18 +120,50 @@
     "status": "Étude de cas — Vaultinum",
     "context": "Dans le cadre d'une étude de cas Vaultinum : des KPI marketing dispersés dans un classeur Excel doivent être lus et commentés rapidement, sans jamais prendre le risque qu'une IA se trompe dans les chiffres.",
     "solution": "Application Streamlit qui normalise les données (Pandas + Decimal), calcule les variations MoM/YoY dans une couche Python contrôlée, puis confie uniquement la restitution et le chat à un LLM interchangeable (OpenAI, Gemini ou Claude) via sortie structurée : le modèle sélectionne des faits déjà calculés, il n'en invente ni n'en calcule aucun. Architecture cible proposée : n8n + PostgreSQL + dbt Core.",
-    "stack": ["Python", "Streamlit", "Pandas", "OpenAI / Gemini / Claude API", "Sortie structurée", "n8n (architecture cible)"],
+    "stack": [
+      "Python",
+      "Streamlit",
+      "Pandas",
+      "OpenAI / Gemini / Claude API",
+      "Sortie structurée",
+      "n8n (architecture cible)"
+    ],
     "impact": [
       "Zéro chiffre calculé par le LLM : toutes les variations MoM/YoY viennent d'un code Python contrôlé, donc reproductibles.",
       "Fournisseur d'IA interchangeable (OpenAI, Gemini ou Claude) sans toucher aux calculs.",
       "Architecture cible proposée (n8n + PostgreSQL + dbt Core) pour passer du prototype à une version industrialisée."
     ],
     "workflow": [
-      {"kind": "source", "icon": "fa-file-excel", "label": "Classeur Excel", "detail": "KPI marketing"},
-      {"kind": "process", "icon": "fa-table", "label": "Pandas + Decimal", "detail": "Normalisation des données"},
-      {"kind": "process", "icon": "fa-calculator", "label": "Calculs Python", "detail": "Variations MoM / YoY"},
-      {"kind": "ai", "icon": "fa-wand-magic-sparkles", "label": "LLM", "detail": "Choisit des faits déjà calculés"},
-      {"kind": "output", "icon": "fa-comments", "label": "Restitution + chat", "detail": "Le LLM ne calcule rien"}
+      {
+        "kind": "source",
+        "icon": "fa-file-excel",
+        "label": "Classeur Excel",
+        "detail": "KPI marketing"
+      },
+      {
+        "kind": "process",
+        "icon": "fa-table",
+        "label": "Pandas + Decimal",
+        "detail": "Normalisation des données"
+      },
+      {
+        "kind": "process",
+        "icon": "fa-calculator",
+        "label": "Calculs Python",
+        "detail": "Variations MoM / YoY"
+      },
+      {
+        "kind": "ai",
+        "icon": "fa-wand-magic-sparkles",
+        "label": "LLM",
+        "detail": "Choisit des faits déjà calculés"
+      },
+      {
+        "kind": "output",
+        "icon": "fa-comments",
+        "label": "Restitution + chat",
+        "detail": "Le LLM ne calcule rien"
+      }
     ],
     "image": "/images/marketing-assistant-icon.svg",
     "accent": "violet",
@@ -87,24 +178,57 @@
     "status": "Projet BoostCamp — Digital Campus",
     "context": "Projet de 3 jours en BoostCamp à Digital Campus : aider les étudiants à centraliser leurs cours et à réviser, avec une IA qui assiste sans jamais décider à leur place, dans le respect d'une charte IA & sécurité.",
     "solution": "Application React/Vite avec agenda multi-vues (Jour/Semaine/Mois/Année), « Coin Study » filtrable par Unité d'Enseignement, et génération de flashcards/QCM par IA à partir des cours — validation humaine obligatoire avant sauvegarde, badge « généré par IA » visible. Développée dans le respect d'une charte IA & sécurité stricte (Zero Secret, données fictives, aucune action autonome).",
-    "stack": ["React", "Vite", "Tailwind CSS", "Supabase", "LocalStorage", "Lucide React"],
+    "stack": [
+      "React",
+      "Vite",
+      "Tailwind CSS",
+      "Supabase",
+      "LocalStorage",
+      "Lucide React"
+    ],
     "impact": [
       "Prototype fonctionnel livré en 3 jours : agenda multi-vues, Coin Study par UE, flashcards et QCM.",
       "IA encadrée : rien n'est enregistré sans validation humaine, et le contenu généré est toujours signalé par un badge.",
       "Aucun secret dans le code et uniquement des données fictives, conformément à la charte."
     ],
     "workflow": [
-      {"kind": "source", "icon": "fa-book-open", "label": "Cours de l'étudiant", "detail": "Notes par Unité d'Enseignement"},
-      {"kind": "ai", "icon": "fa-wand-magic-sparkles", "label": "IA", "detail": "Génère flashcards et QCM"},
-      {"kind": "human", "icon": "fa-user-check", "label": "Validation humaine", "detail": "Obligatoire avant sauvegarde"},
-      {"kind": "process", "icon": "fa-floppy-disk", "label": "Sauvegarde", "detail": "Badge « généré par IA »"},
-      {"kind": "output", "icon": "fa-graduation-cap", "label": "Révision", "detail": "Coin Study filtrable par UE"}
+      {
+        "kind": "source",
+        "icon": "fa-book-open",
+        "label": "Cours de l'étudiant",
+        "detail": "Notes par Unité d'Enseignement"
+      },
+      {
+        "kind": "ai",
+        "icon": "fa-wand-magic-sparkles",
+        "label": "IA",
+        "detail": "Génère flashcards et QCM"
+      },
+      {
+        "kind": "human",
+        "icon": "fa-user-check",
+        "label": "Validation humaine",
+        "detail": "Obligatoire avant sauvegarde"
+      },
+      {
+        "kind": "process",
+        "icon": "fa-floppy-disk",
+        "label": "Sauvegarde",
+        "detail": "Badge « généré par IA »"
+      },
+      {
+        "kind": "output",
+        "icon": "fa-graduation-cap",
+        "label": "Révision",
+        "detail": "Coin Study filtrable par UE"
+      }
     ],
     "image": "/images/edustudy-hub-icon.svg",
     "accent": "rose",
     "links": {
       "demo": "https://edustudy-hub.vercel.app/"
-    }
+    },
+    "screenshot": "/images/projets/edustudy.jpg"
   },
   {
     "id": "route-35",
@@ -115,7 +239,14 @@
     "status": "En ligne",
     "context": "Préparer l'examen du code de la route (35 bonnes réponses sur 40 exigées) sans repasser l'examen payant plusieurs fois, et savoir objectivement quand on est prêt à le réserver. Il faut pouvoir réviser un peu chaque jour, sur son téléphone comme sur son ordinateur.",
     "solution": "Application web mobile-first installable (PWA) à l'esthétique rétro « jeu vidéo » : leçons sur 10 thèmes officiels, entraînement corrigé et expliqué question par question, examens blancs en conditions réelles (40 questions, 20 s chacune, réponses multiples possibles), révision de ses erreurs. Progression gamifiée (niveaux, XP, combos, 16 badges, série de jours) et feu tricolore qui indique quand réserver l'examen. La sauvegarde se synchronise entre appareils grâce à un code personnel, via une fonction serverless Vercel et Vercel Blob — le code n'est jamais stocké en clair (nom de fichier = empreinte SHA-256).",
-    "stack": ["HTML5", "CSS3", "JavaScript", "PWA", "Vercel Functions (Node.js)", "Vercel Blob"],
+    "stack": [
+      "HTML5",
+      "CSS3",
+      "JavaScript",
+      "PWA",
+      "Vercel Functions (Node.js)",
+      "Vercel Blob"
+    ],
     "impact": [
       "451 questions expliquées réparties sur 10 thèmes, dont 77 à réponses multiples comme à l'examen.",
       "Feu tricolore « prêt à réserver » : vert après 3 examens blancs d'affilée à 35/40 ou plus.",
@@ -125,7 +256,8 @@
     "accent": "amber",
     "links": {
       "demo": "https://route35.vercel.app/"
-    }
+    },
+    "screenshot": "/images/projets/route35.jpg"
   },
   {
     "id": "agenda-sorties",
@@ -136,7 +268,14 @@
     "status": "En ligne — démo visiteur",
     "context": "Un groupe d'amis qui veut se voir régulièrement mais passe des jours à comparer les disponibilités de chacun dans une conversation de groupe. Chaque sortie (bar à chats, soirée jeu…) doit aussi se préparer avec les bonnes personnes seulement.",
     "solution": "Application web où chacun renseigne ses disponibilités (dispo / indispo / incertain) sur un calendrier, et où des sous-groupes (« Bar à chats », « Soirée jeu »…) affichent un calendrier commun qui met en évidence les jours où tous sont libres. Backend Express + Postgres (Neon) déployé sur Vercel, comptes gérés par un administrateur, et mode visiteur 100 % local au navigateur avec données fictives pour tester sans rien exposer.",
-    "stack": ["Node.js", "Express", "Postgres (Neon)", "Tailwind CSS", "JavaScript", "Vercel"],
+    "stack": [
+      "Node.js",
+      "Express",
+      "Postgres (Neon)",
+      "Tailwind CSS",
+      "JavaScript",
+      "Vercel"
+    ],
     "impact": [
       "Les dates où tout le monde est libre ressortent d'un seul coup d'œil, groupe par groupe.",
       "Accès contrôlé : pas d'inscription libre, les comptes sont créés par un administrateur.",
@@ -146,7 +285,8 @@
     "accent": "amber",
     "links": {
       "demo": "https://agenda-sorties.vercel.app/?demo"
-    }
+    },
+    "screenshot": "/images/projets/agenda.jpg"
   },
   {
     "id": "mon-quotidien",
@@ -156,8 +296,15 @@
     "year": "2026",
     "status": "App Android (Flutter)",
     "context": "Application personnelle pour tenir un rythme de journée régulier (cycles travail/pause de 2h) et penser à boire, avec des rappels qui doivent rester fiables même quand Android limite les tâches en arrière-plan.",
-    "solution": "Application Flutter au thème « Cozy Girly Vampire » : notifications locales planifiées (réveil interactif à 6h, bascule de créneau, rappels d'hydratation horaires), widget d'écran d'accueil natif (AppWidgetProvider Kotlin), et tâches d'arrière-plan (WorkManager) qui replanifient tout après un redémarrage. Le moteur de créneau se base toujours sur l'heure murale réelle : aucune réinitialisation manuelle nécessaire.",
-    "stack": ["Flutter", "Dart", "flutter_local_notifications", "WorkManager", "Kotlin (widget natif)", "Provider"],
+    "solution": "Application Flutter à l'identité visuelle personnalisée : notifications locales planifiées (réveil interactif à 6h, bascule de créneau, rappels d'hydratation horaires), widget d'écran d'accueil natif (AppWidgetProvider Kotlin), et tâches d'arrière-plan (WorkManager) qui replanifient tout après un redémarrage. Le moteur de créneau se base toujours sur l'heure murale réelle : aucune réinitialisation manuelle nécessaire.",
+    "stack": [
+      "Flutter",
+      "Dart",
+      "flutter_local_notifications",
+      "WorkManager",
+      "Kotlin (widget natif)",
+      "Provider"
+    ],
     "impact": [
       "Rappels planifiés qui survivent au redémarrage du téléphone (WorkManager).",
       "Widget natif Android sur l'écran d'accueil, développé en Kotlin.",
@@ -173,40 +320,58 @@
     "title": "QCM BNSSA Trainer",
     "tagline": "Plateforme d'entraînement à l'épreuve théorique du BNSSA",
     "year": "2025",
-    "status": "En ligne",
+    "status": "En ligne — référentiel BNSSA",
     "context": "Le BNSSA (Brevet National de Sécurité et de Sauvetage Aquatique) commence par une épreuve théorique chronométrée. Il faut pouvoir s'y entraîner dans des conditions proches de l'examen, pas seulement relire un cours.",
     "solution": "Site HTML/CSS/JavaScript générant 40 questions aléatoires parmi 180+, réparties en 6 catégories, avec chronomètre de 40 minutes, correction automatique (feedback visuel vert/rouge) et page de révision des notions clés.",
-    "stack": ["HTML5", "CSS3", "JavaScript", "JSON"],
+    "stack": [
+      "HTML5",
+      "CSS3",
+      "JavaScript",
+      "JSON"
+    ],
     "impact": [
       "Entraînement en conditions réelles : 40 questions tirées au hasard parmi 180+, chrono de 40 minutes.",
       "Correction immédiate en vert/rouge, sur 6 catégories de questions.",
-      "Page de révision des notions clés pour combler les lacunes."
+      "Page de révision des notions clés pour combler les lacunes.",
+      "Site maintenu : un bandeau prévient que le BNSSA est remplacé par le SSA au 1er octobre 2026 et que le contenu reste basé sur l'ancien référentiel."
     ],
     "image": "/images/qcm-bnssa-icon.svg",
     "accent": "blue",
     "links": {
-      "demo": "https://qcm-bnssa.vercel.app/"
-    }
+      "demo": "https://qcm-bnssa.vercel.app/",
+      "code": "https://github.com/justinecombeaubts/qcm-bnssa"
+    },
+    "screenshot": "/images/projets/qcm.jpg"
   },
   {
     "id": "le-chat-ivre",
     "category": "dev-web",
     "title": "Le Chat Ivre",
-    "tagline": "Site vitrine one-page pour un bar à vin parisien",
+    "tagline": "Site vitrine d'un bar à vin parisien, carte modifiable par l'établissement",
     "year": "2026",
     "status": "En ligne",
-    "context": "Un bar à vin parisien qui a besoin d'une présence en ligne à son image : carte, ambiance en photos, localisation et contact au même endroit.",
-    "solution": "Site one-page en HTML/CSS/JavaScript avec menu interactif, galerie photo et intégration Google Maps pour la localisation.",
-    "stack": ["HTML5", "CSS3", "JavaScript", "Google Maps API"],
+    "context": "Un bar à vin parisien a besoin d'une présence en ligne à son image (carte, ambiance, localisation, réservation), et doit pouvoir mettre sa carte à jour lui-même sans passer par un développeur.",
+    "solution": "Site HTML/CSS/JavaScript (accueil, carte, galerie, avis, accès) avec une carte des vins et des plats stockée dans Supabase. Un espace admin protégé par Supabase Auth permet de modifier plats, boissons et catégories en autonomie. Google Maps n'est chargé qu'après consentement (bandeau cookies), et le site inclut mentions légales et politique de confidentialité.",
+    "stack": [
+      "HTML5",
+      "CSS3",
+      "JavaScript",
+      "Supabase (Postgres + Auth)",
+      "Google Maps",
+      "RGPD"
+    ],
     "impact": [
-      "Site one-page en ligne : menu interactif, galerie photo et contact.",
-      "Localisation intégrée avec Google Maps pour trouver le bar sans quitter la page."
+      "Carte modifiable en autonomie depuis un espace admin sécurisé, sans toucher au code.",
+      "Consentement cookies avant tout chargement de Google Maps, mentions légales et confidentialité en place.",
+      "Site en ligne, pensé pour le mobile : carte, galerie, réservation et itinéraire au même endroit."
     ],
     "image": "/images/le-chat-ivre-icon.svg",
     "accent": "wine",
     "links": {
-      "demo": "https://le-chat-ivre.vercel.app/"
-    }
+      "demo": "https://le-chat-ivre.vercel.app/",
+      "code": "https://github.com/justinecombeaubts/le-chat-ivre"
+    },
+    "screenshot": "/images/projets/chat.jpg"
   },
   {
     "id": "recettes-famille",
@@ -217,7 +382,14 @@
     "status": "En ligne",
     "context": "Des recettes de famille éparpillées entre cahiers et messages, et une ancienne base existante sous forme d'export SQL de 3 300 lignes, cassé par endroits et jamais vraiment exploitable.",
     "solution": "Refonte mobile-first au style « cozy campagnard » (barre de navigation basse, cibles tactiles larges, liste d'ingrédients cochable en mode « je cuisine »). Un parseur sur mesure a récupéré les 125 recettes de l'export SQL corrompu. Le site statique est devenu une application avec backend partagé : API REST (GET/POST/PUT/DELETE) en fonctions serverless Node.js, avec Vercel Blob comme source de vérité. Fonction « Mon frigo » : on coche ses ingrédients et l'appli propose les recettes réalisables, triées par nombre d'ingrédients manquants.",
-    "stack": ["HTML5", "CSS3", "JavaScript", "Vercel Functions (Node.js)", "Vercel Blob", "API REST"],
+    "stack": [
+      "HTML5",
+      "CSS3",
+      "JavaScript",
+      "Vercel Functions (Node.js)",
+      "Vercel Blob",
+      "API REST"
+    ],
     "impact": [
       "125 recettes familiales récupérées depuis un export SQL corrompu, sans ressaisie manuelle.",
       "Ajout, modification et suppression partagés instantanément avec toute la famille, sur n'importe quel appareil.",
@@ -226,7 +398,9 @@
     "image": "/images/recettes-famille-icon.svg",
     "accent": "green",
     "links": {
-      "demo": "https://les-recettes-famille.vercel.app/"
-    }
+      "demo": "https://les-recettes-famille.vercel.app/",
+      "code": "https://github.com/justinecombeaubts/recettes-famille"
+    },
+    "screenshot": "/images/projets/recettes.jpg"
   }
 ]
