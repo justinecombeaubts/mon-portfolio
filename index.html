@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr" class="dark">
+<html lang="fr">
 
 <head>
   <meta charset="UTF-8" />
@@ -8,7 +8,8 @@
   <meta name="description"
     content="Portfolio de Justine Combeau, étudiante en Bachelor IA & Automation et développeuse web (BTS SIO). Projets en développement web, intelligence artificielle et automatisation." />
   <meta name="author" content="Justine Combeau" />
-  <meta name="theme-color" content="#0f1115" />
+  <meta name="theme-color" content="#f4f4f6" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#2a0f17" media="(prefers-color-scheme: dark)" />
   <link rel="icon" type="image/x-icon" href="/favicon.ico" />
   <link rel="canonical" href="https://mon-portfolio-justine-combeau.vercel.app/" />
 
@@ -53,25 +54,25 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Open+Sans:wght@300;400;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Source+Code+Pro:wght@400;600&display=swap"
     rel="stylesheet" />
   <!-- Icônes -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
 
   <script>
-    // Applique le thème avant le premier rendu pour éviter le flash (FOUC)
+    // Applique le thème avant le premier rendu pour éviter le flash (FOUC).
+    // L'identité Sunrise.tech est lumineuse par défaut : le mode sombre reste
+    // un choix explicite de la personne, jamais un état par défaut.
     (function () {
       var stored = localStorage.getItem('theme');
-      var prefersLight = window.matchMedia('(prefers-color-scheme: light)').matches;
-      var isDark = stored ? stored === 'dark' : !prefersLight;
-      document.documentElement.classList.toggle('dark', isDark);
+      document.documentElement.classList.toggle('dark', stored === 'dark');
     })();
   </script>
 
   <script type="module" src="/src/main.js"></script>
 </head>
 
-<body class="bg-white text-slate-700 dark:bg-[#0f1115] dark:text-slate-200 antialiased selection:bg-brand-300/40">
+<body class="bg-sand-50 text-slate-700 dark:bg-ink dark:text-slate-100 antialiased selection:bg-brand-300/40">
   <noscript>
     <p style="padding:2rem;text-align:center">
       Ce portfolio nécessite JavaScript pour s'afficher correctement.

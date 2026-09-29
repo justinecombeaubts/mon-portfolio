@@ -10,9 +10,9 @@ export function renderHero() {
           Développement Web &middot; IA &amp; Automation
         </p>
         <h1 class="mt-5 font-display text-4xl font-semibold leading-tight text-slate-900 sm:text-5xl lg:text-6xl dark:text-white">
-          Bonjour, je suis <span class="text-brand-500">Justine</span>.<br />
-          Je code des solutions <span class="text-ai-500">web</span> et je les rends
-          <span class="text-brand-500">intelligentes</span>.
+          Bonjour, je suis <span class="text-brand-500 dark:text-brand-300">Justine</span>.<br />
+          Je code des solutions <span class="text-ai-600 dark:text-ai-400">web</span> et je les rends
+          <span class="text-brand-500 dark:text-brand-300">intelligentes</span>.
         </h1>
         <p class="mt-6 max-w-xl text-lg text-slate-500 dark:text-slate-400">
           Étudiante en Bachelor IA &amp; Automation à Digital Campus Paris, diplômée d'un BTS
@@ -33,13 +33,13 @@ export function renderHero() {
 
         <div class="mt-12 flex flex-wrap items-center gap-x-10 gap-y-4 text-sm text-slate-500 dark:text-slate-400">
           <div class="flex items-center gap-2">
-            <i class="fas fa-graduation-cap text-brand-500"></i> Bachelor 3 IA &amp; Automation
+            <i class="fas fa-graduation-cap text-brand-500 dark:text-brand-300"></i> Bachelor 3 IA &amp; Automation
           </div>
           <div class="flex items-center gap-2">
-            <i class="fas fa-location-dot text-brand-500"></i> Paris, France
+            <i class="fas fa-location-dot text-brand-500 dark:text-brand-300"></i> Paris, France
           </div>
           <div class="flex items-center gap-2">
-            <i class="fas fa-briefcase text-brand-500"></i> Recherche alternance
+            <i class="fas fa-briefcase text-brand-500 dark:text-brand-300"></i> Recherche alternance
           </div>
         </div>
       </div>

@@ -26,12 +26,12 @@ function renderCard(project) {
           alt="${project.title}"
           class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
-        <span class="absolute left-4 top-4 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-slate-700 shadow-soft dark:bg-black/60 dark:text-slate-100">
+        <span class="absolute left-4 top-4 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-slate-700 shadow-soft dark:bg-ink/70 dark:text-slate-100">
           ${project.status || project.year}
         </span>
         ${
           project.workflow
-            ? `<span class="absolute right-4 top-4 rounded-full bg-ai-500/90 px-3 py-1 text-xs font-semibold text-white shadow-soft">
+            ? `<span class="absolute right-4 top-4 rounded-full bg-ink/85 px-3 py-1 text-xs font-semibold text-white shadow-soft">
                 <i class="fas fa-diagram-project mr-1"></i>Workflow
               </span>`
             : ''

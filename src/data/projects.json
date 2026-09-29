@@ -107,6 +107,27 @@
     }
   },
   {
+    "id": "route-35",
+    "category": "dev-web",
+    "title": "Route 35",
+    "tagline": "Entraînement au code de la route façon jeu vidéo, synchronisé entre appareils",
+    "year": "2026",
+    "status": "En ligne",
+    "context": "Préparer l'examen du code de la route (35 bonnes réponses sur 40 exigées) sans repasser l'examen payant plusieurs fois, et savoir objectivement quand on est prêt à le réserver. Il faut pouvoir réviser un peu chaque jour, sur son téléphone comme sur son ordinateur.",
+    "solution": "Application web mobile-first installable (PWA) à l'esthétique rétro « jeu vidéo » : leçons sur 10 thèmes officiels, entraînement corrigé et expliqué question par question, examens blancs en conditions réelles (40 questions, 20 s chacune, réponses multiples possibles), révision de ses erreurs. Progression gamifiée (niveaux, XP, combos, 16 badges, série de jours) et feu tricolore qui indique quand réserver l'examen. La sauvegarde se synchronise entre appareils grâce à un code personnel, via une fonction serverless Vercel et Vercel Blob — le code n'est jamais stocké en clair (nom de fichier = empreinte SHA-256).",
+    "stack": ["HTML5", "CSS3", "JavaScript", "PWA", "Vercel Functions (Node.js)", "Vercel Blob"],
+    "impact": [
+      "451 questions expliquées réparties sur 10 thèmes, dont 77 à réponses multiples comme à l'examen.",
+      "Feu tricolore « prêt à réserver » : vert après 3 examens blancs d'affilée à 35/40 ou plus.",
+      "Progression synchronisée entre téléphone et ordinateur sans compte ni mot de passe, avec un code haché côté serveur."
+    ],
+    "image": "/images/route35-icon.svg",
+    "accent": "amber",
+    "links": {
+      "demo": "https://route35.vercel.app/"
+    }
+  },
+  {
     "id": "agenda-sorties",
     "category": "dev-web",
     "title": "Agenda des sorties",
@@ -191,16 +212,16 @@
     "id": "recettes-famille",
     "category": "dev-web",
     "title": "Les recettes de maman",
-    "tagline": "Site de recettes familiales, organisées et cherchables",
+    "tagline": "Application familiale de recettes partagées en temps réel, pensée pour la cuisine",
     "year": "2026",
     "status": "En ligne",
-    "context": "Des recettes de famille éparpillées entre cahiers et messages, qu'on finit par ne plus retrouver quand on en a besoin.",
-    "solution": "Site HTML/CSS/JavaScript avec une base de recettes en JSON (catégories, temps de cuisson, portions, astuces), une recherche instantanée par titre, une fiche détaillée par recette et un formulaire d'ajout de nouvelle recette.",
-    "stack": ["HTML5", "CSS3", "JavaScript", "JSON"],
+    "context": "Des recettes de famille éparpillées entre cahiers et messages, et une ancienne base existante sous forme d'export SQL de 3 300 lignes, cassé par endroits et jamais vraiment exploitable.",
+    "solution": "Refonte mobile-first au style « cozy campagnard » (barre de navigation basse, cibles tactiles larges, liste d'ingrédients cochable en mode « je cuisine »). Un parseur sur mesure a récupéré les 125 recettes de l'export SQL corrompu. Le site statique est devenu une application avec backend partagé : API REST (GET/POST/PUT/DELETE) en fonctions serverless Node.js, avec Vercel Blob comme source de vérité. Fonction « Mon frigo » : on coche ses ingrédients et l'appli propose les recettes réalisables, triées par nombre d'ingrédients manquants.",
+    "stack": ["HTML5", "CSS3", "JavaScript", "Vercel Functions (Node.js)", "Vercel Blob", "API REST"],
     "impact": [
-      "Toutes les recettes au même endroit, avec catégories, temps de cuisson, portions et astuces.",
-      "Recherche instantanée par titre et fiche détaillée pour chaque recette.",
-      "Formulaire d'ajout : la collection continue de s'enrichir sans repartir de zéro."
+      "125 recettes familiales récupérées depuis un export SQL corrompu, sans ressaisie manuelle.",
+      "Ajout, modification et suppression partagés instantanément avec toute la famille, sur n'importe quel appareil.",
+      "« Mon frigo » : des idées de recettes à partir de ce qu'on a sous la main."
     ],
     "image": "/images/recettes-famille-icon.svg",
     "accent": "green",

@@ -2,33 +2,33 @@
 const KINDS = {
   source: {
     label: 'Déclencheur / source',
-    dot: 'bg-amber-400',
-    box: 'border-amber-300/70 bg-amber-50 dark:border-amber-400/30 dark:bg-amber-400/10',
-    icon: 'bg-amber-100 text-amber-600 dark:bg-amber-400/20 dark:text-amber-300',
+    dot: 'bg-slate-400',
+    box: 'border-slate-200 bg-slate-50 dark:border-white/15 dark:bg-white/[0.04]',
+    icon: 'bg-slate-100 text-slate-600 dark:bg-white/10 dark:text-slate-200',
   },
   process: {
     label: 'Traitement',
-    dot: 'bg-sky-400',
-    box: 'border-sky-300/70 bg-sky-50 dark:border-sky-400/30 dark:bg-sky-400/10',
-    icon: 'bg-sky-100 text-sky-600 dark:bg-sky-400/20 dark:text-sky-300',
+    dot: 'bg-ai-500',
+    box: 'border-ai-400/50 bg-ai-400/10 dark:border-ai-400/30 dark:bg-ai-500/10',
+    icon: 'bg-ai-400/25 text-ai-600 dark:bg-ai-500/20 dark:text-ai-400',
   },
   ai: {
     label: 'IA',
-    dot: 'bg-ai-500',
-    box: 'border-ai-400/60 bg-ai-400/10 dark:border-ai-400/40 dark:bg-ai-500/15',
-    icon: 'bg-ai-400/20 text-ai-600 dark:bg-ai-500/25 dark:text-ai-400',
+    dot: 'bg-brand-300',
+    box: 'border-brand-200 bg-brand-50 dark:border-brand-300/40 dark:bg-brand-300/10',
+    icon: 'bg-brand-100 text-brand-600 dark:bg-brand-300/20 dark:text-brand-200',
   },
   human: {
     label: 'Validation humaine',
-    dot: 'bg-emerald-400',
-    box: 'border-emerald-300/70 bg-emerald-50 dark:border-emerald-400/30 dark:bg-emerald-400/10',
-    icon: 'bg-emerald-100 text-emerald-600 dark:bg-emerald-400/20 dark:text-emerald-300',
+    dot: 'bg-brand-500',
+    box: 'border-brand-400/50 bg-brand-100/60 dark:border-brand-400/40 dark:bg-brand-400/15',
+    icon: 'bg-brand-200 text-brand-700 dark:bg-brand-400/25 dark:text-brand-100',
   },
   output: {
     label: 'Résultat',
-    dot: 'bg-brand-500',
-    box: 'border-brand-300/70 bg-brand-50 dark:border-brand-300/30 dark:bg-brand-500/10',
-    icon: 'bg-brand-100 text-brand-600 dark:bg-brand-500/20 dark:text-brand-300',
+    dot: 'bg-brand-800 dark:bg-white',
+    box: 'border-brand-800/25 bg-brand-800/[0.06] dark:border-white/25 dark:bg-white/[0.08]',
+    icon: 'bg-brand-800 text-white dark:bg-white dark:text-ink',
   },
 };
 

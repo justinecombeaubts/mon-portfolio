@@ -2,20 +2,33 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --c-white: 255 255 255;
+}
+
+.dark {
+  --c-white: 228 229 234;
+  color-scheme: dark;
+}
+
 html {
   scroll-behavior: smooth;
 }
 
 body {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Inter', sans-serif;
 }
 
 h1, h2, h3, .font-display {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.font-code {
+  font-family: 'Source Code Pro', monospace;
 }
 
 ::selection {
-  background-color: rgba(201, 143, 163, 0.35);
+  background-color: rgba(226, 186, 172, 0.45);
 }
 
 /* Scrollbar discret */
@@ -48,11 +61,11 @@ h1, h2, h3, .font-display {
   }
 
   .btn {
-    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-400 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-[#0f1115];
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-400 focus-visible:ring-offset-2 focus-visible:ring-offset-white dark:focus-visible:ring-offset-ink;
   }
 
   .btn-primary {
-    @apply btn bg-brand-500 text-white shadow-glow hover:bg-brand-600 hover:-translate-y-0.5;
+    @apply btn bg-brand-300 text-ink shadow-glow hover:bg-brand-200 hover:-translate-y-0.5;
   }
 
   .btn-secondary {
@@ -90,7 +103,7 @@ h1, h2, h3, .font-display {
   }
 
   .filter-btn.active {
-    @apply border-transparent bg-brand-500 text-white shadow-glow hover:text-white;
+    @apply border-transparent bg-brand-300 text-ink shadow-glow hover:text-ink dark:text-ink dark:hover:text-ink;
   }
 
   .skill-bar-track {
@@ -98,11 +111,11 @@ h1, h2, h3, .font-display {
   }
 
   .skill-bar-fill {
-    @apply h-full rounded-full bg-gradient-to-r from-brand-400 to-ai-500 transition-[width] duration-700 ease-out;
+    @apply h-full rounded-full bg-gradient-to-r from-brand-300 to-brand-500 dark:from-brand-200 dark:to-brand-400 transition-[width] duration-700 ease-out;
   }
 
   .timeline-dot {
-    @apply absolute -left-[7px] top-1.5 h-3.5 w-3.5 rounded-full border-2 border-white bg-brand-500 shadow-glow dark:border-[#0f1115];
+    @apply absolute -left-[7px] top-1.5 h-3.5 w-3.5 rounded-full border-2 border-white bg-brand-400 shadow-glow dark:border-ink dark:bg-brand-300;
   }
 
   .form-input {

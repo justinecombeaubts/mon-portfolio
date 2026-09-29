@@ -23,7 +23,7 @@ export function renderHeader() {
     <div class="container-x flex h-20 items-center justify-between">
       <a href="#home" class="flex items-center gap-2 font-display text-lg font-semibold text-slate-900 dark:text-white">
         <img src="/images/logo.png" alt="Logo Justine Combeau" class="h-9 w-9 rounded-full object-cover" />
-        Justine<span class="text-brand-500">.</span>
+        Justine<span class="text-brand-500 dark:text-brand-300">.</span>
       </a>
 
       <nav class="hidden items-center gap-8 md:flex">
@@ -51,7 +51,7 @@ export function renderHeader() {
       </div>
     </div>
 
-    <div id="mobile-menu" class="hidden border-t border-slate-200/70 bg-white/95 backdrop-blur md:hidden dark:border-white/10 dark:bg-[#0f1115]/95">
+    <div id="mobile-menu" class="hidden border-t border-slate-200/70 bg-white/95 backdrop-blur md:hidden dark:border-white/10 dark:bg-ink/95">
       <div class="container-x divide-y divide-slate-200/70 dark:divide-white/10">
         ${mobileLinks}
       </div>
@@ -71,7 +71,7 @@ export function initHeader() {
     header.classList.toggle('bg-white/90', scrolled);
     header.classList.toggle('backdrop-blur', scrolled);
     header.classList.toggle('shadow-soft', scrolled);
-    header.classList.toggle('dark:bg-[#0f1115]/85', scrolled);
+    header.classList.toggle('dark:bg-ink/85', scrolled);
   };
   applyScrollStyle();
   window.addEventListener('scroll', applyScrollStyle, { passive: true });

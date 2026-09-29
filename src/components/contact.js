@@ -51,15 +51,15 @@ export function renderContact() {
             <h3 class="font-display text-lg font-semibold text-slate-900 dark:text-white">Coordonnées</h3>
             <ul class="mt-5 space-y-4 text-sm text-slate-600 dark:text-slate-400">
               <li class="flex items-center gap-3">
-                <i class="fas fa-envelope w-5 text-brand-500"></i>
+                <i class="fas fa-envelope w-5 text-brand-500 dark:text-brand-300"></i>
                 <a href="mailto:justine.combeau.bts@gmail.com" class="hover:text-brand-600 dark:hover:text-brand-300">justine.combeau.bts@gmail.com</a>
               </li>
               <li class="flex items-center gap-3">
-                <i class="fas fa-phone w-5 text-brand-500"></i>
+                <i class="fas fa-phone w-5 text-brand-500 dark:text-brand-300"></i>
                 <a href="tel:+33787505329" class="hover:text-brand-600 dark:hover:text-brand-300">07 87 50 53 29</a>
               </li>
               <li class="flex items-center gap-3">
-                <i class="fas fa-location-dot w-5 text-brand-500"></i> Paris, France
+                <i class="fas fa-location-dot w-5 text-brand-500 dark:text-brand-300"></i> Paris, France
               </li>
             </ul>
           </div>

@@ -41,7 +41,7 @@ export function renderAbout() {
               .map(
                 ([value, label]) => `
               <div class="card px-4 py-5 text-center">
-                <p class="font-display text-2xl font-semibold text-brand-500">${value}</p>
+                <p class="font-display text-2xl font-semibold text-brand-500 dark:text-brand-300">${value}</p>
                 <p class="mt-1 text-xs text-slate-500 dark:text-slate-400">${label}</p>
               </div>`
               )
@@ -52,7 +52,7 @@ export function renderAbout() {
         <div class="lg:pt-24">
           <div class="card p-6 sm:p-8">
             <h3 class="font-display text-xl font-semibold text-slate-900 dark:text-white">
-              <i class="fas fa-compass text-brand-500"></i> Ma méthode
+              <i class="fas fa-compass text-brand-500 dark:text-brand-300"></i> Ma méthode
             </h3>
             <ul class="mt-6 space-y-5">
               ${[

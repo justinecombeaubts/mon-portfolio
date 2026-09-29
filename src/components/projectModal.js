@@ -37,7 +37,7 @@ export function renderProjectModal() {
     aria-labelledby="modal-title"
   >
     <div id="modal-backdrop" class="absolute inset-0 bg-slate-900/60 backdrop-blur-sm"></div>
-    <div class="relative max-h-[88vh] w-full max-w-2xl overflow-y-auto rounded-3xl bg-white p-0 shadow-soft dark:bg-[#14161c]">
+    <div class="relative max-h-[88vh] w-full max-w-2xl overflow-y-auto rounded-3xl bg-white p-0 shadow-soft dark:bg-ink-panel">
       <button
         type="button"
         id="modal-close"
@@ -56,7 +56,7 @@ function projectDetailHTML(project) {
   const stack = project.stack.map((t) => `<span class="chip">${t}</span>`).join('');
   const impact = project.impact
     .map(
-      (line) => `<li class="flex gap-2"><i class="fas fa-circle-check mt-0.5 text-brand-500" aria-hidden="true"></i><span>${line}</span></li>`
+      (line) => `<li class="flex gap-2"><i class="fas fa-circle-check mt-0.5 text-brand-500 dark:text-brand-300" aria-hidden="true"></i><span>${line}</span></li>`
     )
     .join('');
   const workflow = project.workflow
@@ -79,14 +79,14 @@ function projectDetailHTML(project) {
       <div class="mt-6 space-y-6 text-sm">
         <section>
           <p class="font-semibold text-slate-800 dark:text-slate-100">
-            <i class="fas fa-briefcase text-brand-500"></i> Contexte
+            <i class="fas fa-briefcase text-brand-500 dark:text-brand-300"></i> Contexte
           </p>
           <p class="mt-1 text-slate-600 dark:text-slate-400">${project.context}</p>
         </section>
 
         <section>
           <p class="font-semibold text-slate-800 dark:text-slate-100">
-            <i class="fas fa-layer-group text-brand-500"></i> Stack
+            <i class="fas fa-layer-group text-brand-500 dark:text-brand-300"></i> Stack
           </p>
           <div class="mt-2 flex flex-wrap gap-2">${stack}</div>
           <p class="mt-3 text-slate-600 dark:text-slate-400">${project.solution}</p>
@@ -95,7 +95,7 @@ function projectDetailHTML(project) {
 
         <section>
           <p class="font-semibold text-slate-800 dark:text-slate-100">
-            <i class="fas fa-chart-line text-brand-500"></i> Résultat &amp; impact
+            <i class="fas fa-chart-line text-brand-500 dark:text-brand-300"></i> Résultat &amp; impact
           </p>
           <ul class="mt-2 space-y-2 text-slate-600 dark:text-slate-400">${impact}</ul>
         </section>
