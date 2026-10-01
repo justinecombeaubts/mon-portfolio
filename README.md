@@ -42,6 +42,7 @@ src/
 - **Mentions légales / confidentialité** : page statique `mentions-legales.html` (à mettre à jour si un nouveau service collecte des données, ex. un autre outil d'analytics).
 - **Modifier une compétence** : éditer `src/data/skills.json`.
 - **Ajouter une étape de parcours** : éditer `src/data/timeline.json`.
+- **Portfolio PDF** (pour les offres qui demandent un fichier) : lancer `npm run portfolio` après avoir modifié les données. Le PDF A4 paysage (8 pages) est généré à partir de `projects.json`, `skills.json` et `timeline.json` dans `public/portfolio/Portfolio_JustineCombeau.pdf` : les projets IA & Automation ont chacun une page, les projets web et mobile sont regroupés. Mise en page : `portfolio-source/portfolio.css` (nécessite Chrome ou Edge et internet pour les polices).
 - **Modifier le CV** : éditer `cv-source/cv.html`, puis lancer `npm run cv` (nécessite Chrome ou Edge et une connexion internet pour les polices). Le PDF est régénéré dans `public/cv/CV_JustineCombeau.pdf`.
 - Les images utilisées par les projets/le hero vivent dans `public/images/` et sont référencées en `/images/xxx.png`. Chaque projet a une `image` (icône, utilisée dans la section workflows) et, s'il est en ligne, une `screenshot` (capture 960×540 dans `public/images/projets/`, utilisée pour la carte et la fiche).
 - **Compétences** : chaque entrée de `skills.json` a un `level` (`projet`, `formation` ou `perso`) et une liste `proof` des projets qui la démontrent — pas de pourcentages.

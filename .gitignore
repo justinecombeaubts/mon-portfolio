@@ -10,3 +10,6 @@ dist
 .env
 .env.*
 .claude/settings.local.json
+
+# Fichier intermédiaire du portfolio PDF (régénéré par npm run portfolio)
+portfolio-source/portfolio.generated.html
