@@ -11,6 +11,7 @@ mkdirSync(OUT, { recursive: true });
 const jobs = [
   { src: 'moi.png', name: 'moi', width: 768 },
   { src: 'couverture.png', name: 'couverture', width: 640 },
+  { src: 'photo-pro.jpg', name: 'photo-pro', width: 224 },
   { src: 'logo.png', name: 'logo', width: 96, png: true },
 ];
 

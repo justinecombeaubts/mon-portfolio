@@ -48,6 +48,18 @@ export function renderContact() {
 
         <div class="space-y-6">
           <div class="card p-6 sm:p-8">
+            <div class="mb-6 flex items-center gap-4">
+              <picture class="shrink-0">
+                <source srcset="/images/photo-pro.webp" type="image/webp" />
+                <img src="/images/photo-pro.jpg" alt="Photo de Justine Combeau" width="112" height="112"
+                  loading="lazy" decoding="async"
+                  class="h-20 w-20 rounded-full object-cover ring-2 ring-brand-300 ring-offset-2 ring-offset-white dark:ring-offset-ink" />
+              </picture>
+              <div>
+                <p class="font-display text-lg font-semibold text-slate-900 dark:text-white">Justine Combeau</p>
+                <p class="text-sm text-slate-500 dark:text-slate-400">Je lis tous les messages et réponds rapidement.</p>
+              </div>
+            </div>
             <h3 class="font-display text-lg font-semibold text-slate-900 dark:text-white">Coordonnées</h3>
             <ul class="mt-5 space-y-4 text-sm text-slate-600 dark:text-slate-400">
               <li class="flex items-center gap-3">
