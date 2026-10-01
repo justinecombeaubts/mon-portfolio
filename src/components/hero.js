@@ -29,6 +29,9 @@ export function renderHero() {
           <a href="/cv/CV_JustineCombeau.pdf" download class="btn-ghost">
             <i class="fas fa-download"></i> Télécharger mon CV
           </a>
+          <a href="/portfolio/Portfolio_JustineCombeau.pdf" download class="btn-ghost">
+            <i class="fas fa-file-pdf"></i> Portfolio PDF
+          </a>
         </div>
 
         <div class="mt-12 flex flex-wrap items-center gap-x-10 gap-y-4 text-sm text-slate-500 dark:text-slate-400">
