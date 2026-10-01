@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<title>Bannière LinkedIn — Justine Combeau</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+<style>
+  /* DA « Bordeaux · Argent · Rose nude » du portfolio, version sombre. */
+  :root {
+    --ink: #2a0f17;        /* fond bordeaux profond */
+    --panel: #3a1620;
+    --silver: #e4e5ea;     /* texte fort */
+    --silver-soft: #a3a4ad;
+    --nude: #e2baac;       /* accents */
+    --nude-strong: #cf9d8e;
+    --mauve: #c9b3b8;
+    --wine: #7a4049;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { width: 1584px; height: 396px; overflow: hidden; background: var(--ink); }
+  body { font-family: 'Inter', sans-serif; color: var(--silver); }
+
+  .banner {
+    position: relative; width: 1584px; height: 396px; overflow: hidden;
+    background:
+      radial-gradient(circle at 22% 10%, rgba(226, 186, 172, 0.16), transparent 40%),
+      radial-gradient(circle at 88% 0%, rgba(122, 64, 73, 0.55), transparent 45%),
+      radial-gradient(circle at 70% 130%, rgba(158, 95, 102, 0.30), transparent 50%),
+      var(--ink);
+  }
+  /* grille argentée très discrète */
+  .banner::before {
+    content: ''; position: absolute; inset: 0;
+    background-image: linear-gradient(rgba(228,229,234,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(228,229,234,0.05) 1px, transparent 1px);
+    background-size: 44px 44px;
+    -webkit-mask-image: radial-gradient(ellipse at 70% 40%, #000 0%, transparent 75%);
+            mask-image: radial-gradient(ellipse at 70% 40%, #000 0%, transparent 75%);
+  }
+  /* quelques étoiles, clin d'œil à nocturne.tech_ */
+  .star { position: absolute; border-radius: 50%; background: var(--silver); opacity: .55; }
+
+  /* Bloc texte : commence après la zone de la photo de profil (x ≈ 430) */
+  .text { position: absolute; left: 430px; top: 72px; width: 660px; }
+  .eyebrow { display: flex; align-items: center; gap: 10px; font-size: 14px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--nude); }
+  .eyebrow::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: var(--nude); box-shadow: 0 0 12px var(--nude); }
+  h1 { margin-top: 16px; font-family: 'Montserrat', sans-serif; font-size: 68px; line-height: 1.02; font-weight: 700; color: var(--silver); letter-spacing: -0.01em; }
+  h1 span { color: var(--nude); }
+  .tag { margin-top: 18px; font-size: 22px; line-height: 1.4; color: var(--silver-soft); }
+  .tag b { font-weight: 600; }
+  .tag .w { color: var(--mauve); }
+  .tag .i { color: var(--nude); }
+
+  .pill {
+    display: inline-flex; align-items: center; gap: 12px; margin-top: 26px;
+    padding: 11px 20px 11px 16px; border-radius: 999px;
+    background: rgba(226, 186, 172, 0.10); border: 1.5px solid rgba(226, 186, 172, 0.35);
+    font-size: 18px; font-weight: 500; color: var(--silver);
+  }
+  .pill .dot { width: 11px; height: 11px; border-radius: 50%; background: #4ade80; box-shadow: 0 0 0 5px rgba(74, 222, 128, 0.18); }
+
+  /* Motif workflow à droite */
+  .flow { position: absolute; right: 78px; top: 100px; width: 396px; }
+  .flow .cap { text-align: center; font-size: 13px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--silver-soft); }
+  .nodes { display: flex; align-items: center; justify-content: space-between; margin-top: 22px; }
+  .node {
+    width: 62px; height: 62px; border-radius: 18px; display: flex; align-items: center; justify-content: center;
+    font-size: 24px; color: var(--mauve);
+    background: rgba(58, 22, 32, 0.85); border: 1.5px solid rgba(201, 179, 184, 0.30);
+  }
+  .node.ai {
+    color: var(--ink); background: var(--nude); border-color: var(--nude);
+    box-shadow: 0 0 34px -4px rgba(226, 186, 172, 0.6);
+  }
+  .link { flex: 1; height: 2px; margin: 0 6px; background: repeating-linear-gradient(90deg, rgba(226,186,172,0.45) 0 4px, transparent 4px 8px); }
+  .labels { display: flex; justify-content: space-between; margin-top: 12px; font-size: 12px; color: var(--silver-soft); text-align: center; }
+  .labels span { width: 62px; }
+  .labels .ai { color: var(--nude); font-weight: 700; }
+  .sub { margin-top: 34px; text-align: center; font-size: 15px; color: var(--silver-soft); }
+  .sub b { color: var(--silver); font-weight: 600; }
+
+  .url { position: absolute; right: 78px; bottom: 30px; font-size: 16px; font-weight: 500; letter-spacing: 0.02em; color: var(--silver-soft); display: flex; align-items: center; gap: 18px; }
+  .url span { display: inline-flex; align-items: center; gap: 8px; }
+  .url i { color: var(--nude); }
+</style>
+</head>
+<body>
+<div class="banner">
+  <i class="star" style="left:120px;top:48px;width:3px;height:3px"></i>
+  <i class="star" style="left:300px;top:110px;width:2px;height:2px"></i>
+  <i class="star" style="left:1010px;top:40px;width:2px;height:2px"></i>
+  <i class="star" style="left:1180px;top:68px;width:3px;height:3px;opacity:.35"></i>
+  <i class="star" style="left:1460px;top:44px;width:2px;height:2px"></i>
+  <i class="star" style="left:960px;top:300px;width:2px;height:2px;opacity:.3"></i>
+
+  <div class="text">
+    <div class="eyebrow">Développement web · IA &amp; Automation</div>
+    <h1>Justine <span>Combeau</span></h1>
+    <p class="tag">Je code des solutions <b class="w">web</b> et je les rends <b class="i">intelligentes</b>.</p>
+    <div class="pill"><span class="dot"></span>Alternance · disponible immédiatement (3 j entreprise / 2 j école)</div>
+  </div>
+
+  <div class="flow">
+    <div class="cap">Workflows IA &amp; automation</div>
+    <div class="nodes">
+      <div class="node"><i class="fas fa-rss"></i></div><div class="link"></div>
+      <div class="node"><i class="fas fa-gears"></i></div><div class="link"></div>
+      <div class="node ai"><i class="fas fa-wand-magic-sparkles"></i></div><div class="link"></div>
+      <div class="node"><i class="fas fa-user-check"></i></div><div class="link"></div>
+      <div class="node"><i class="fab fa-discord"></i></div>
+    </div>
+    <div class="labels"><span>Source</span><span>Traitement</span><span class="ai">IA</span><span>Validation</span><span>Résultat</span></div>
+    <div class="sub"><b>Make</b> · <b>n8n</b> · <b>Supabase</b> · <b>LLM</b></div>
+  </div>
+
+  <div class="url">
+    <span><i class="fas fa-globe"></i>mon-portfolio-justine-combeau.vercel.app</span>
+    <span><i class="fab fa-instagram"></i>@nocturne.tech_</span>
+  </div>
+</div>
+</body>
+</html>
