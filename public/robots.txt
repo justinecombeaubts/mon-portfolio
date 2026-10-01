@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mon-portfolio-justine-combeau.vercel.app/sitemap.xml

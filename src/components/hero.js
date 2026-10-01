@@ -10,7 +10,7 @@ export function renderHero() {
           Développement Web &middot; IA &amp; Automation
         </p>
         <h1 class="mt-5 font-display text-4xl font-semibold leading-tight text-slate-900 sm:text-5xl lg:text-6xl dark:text-white">
-          Bonjour, je suis <span class="text-brand-500 dark:text-brand-300">Justine</span>.<br />
+          Bonjour, je suis <span class="text-brand-500 dark:text-brand-300">Justine Combeau</span>.<br />
           Je code des solutions <span class="text-ai-600 dark:text-ai-400">web</span> et je les rends
           <span class="text-brand-500 dark:text-brand-300">intelligentes</span>.
         </h1>

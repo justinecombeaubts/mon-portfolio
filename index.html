@@ -4,14 +4,18 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Justine Combeau — Développement Web & IA / Automation</title>
+  <title>Justine Combeau — Portfolio | Développeuse Web & IA / Automation</title>
   <meta name="description"
-    content="Portfolio de Justine Combeau, étudiante en Bachelor IA & Automation et développeuse web (BTS Informatique Développement), disponible en alternance. Projets en développement web, intelligence artificielle et automatisation." />
+    content="Justine Combeau — portfolio officiel. Étudiante en Bachelor IA & Automation et développeuse web (BTS Informatique Développement), disponible en alternance. Projets en développement web, intelligence artificielle et automatisation." />
   <meta name="author" content="Justine Combeau" />
   <meta name="theme-color" content="#f4f4f6" media="(prefers-color-scheme: light)" />
   <meta name="theme-color" content="#2a0f17" media="(prefers-color-scheme: dark)" />
   <link rel="icon" type="image/x-icon" href="/favicon.ico" />
   <link rel="canonical" href="https://mon-portfolio-justine-combeau.vercel.app/" />
+  <!-- Profils officiels (rel="me" relie le site à ses comptes) -->
+  <link rel="me" href="https://www.linkedin.com/in/justine-combeau/" />
+  <link rel="me" href="https://www.instagram.com/nocturne.tech_/" />
+  <link rel="me" href="https://github.com/justinecombeaubts" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="website" />
@@ -33,19 +37,44 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "Person",
-    "name": "Justine Combeau",
-    "jobTitle": "Étudiante en Bachelor IA & Automation / Développeuse Web",
-    "url": "https://mon-portfolio-justine-combeau.vercel.app/",
-    "email": "mailto:justine.combeau.bts@gmail.com",
-    "sameAs": [
-      "https://github.com/justinecombeaubts",
-      "https://www.linkedin.com/in/justine-combeau/",
-      "https://www.instagram.com/sunrise.tech_/"
-    ],
-    "alumniOf": [
-      { "@type": "EducationalOrganization", "name": "Digital Campus, Paris" },
-      { "@type": "EducationalOrganization", "name": "Lycée Bertran de Born, Périgueux" }
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://mon-portfolio-justine-combeau.vercel.app/#justine",
+        "name": "Justine Combeau",
+        "givenName": "Justine",
+        "familyName": "Combeau",
+        "alternateName": "nocturne.tech_",
+        "jobTitle": "Étudiante en Bachelor IA & Automation / Développeuse Web",
+        "image": "https://mon-portfolio-justine-combeau.vercel.app/images/moi.png",
+        "url": "https://mon-portfolio-justine-combeau.vercel.app/",
+        "email": "mailto:justine.combeau.bts@gmail.com",
+        "address": { "@type": "PostalAddress", "addressLocality": "Paris", "addressCountry": "FR" },
+        "knowsAbout": ["Développement web", "Intelligence artificielle", "Automatisation", "n8n", "Make", "Supabase", "JavaScript"],
+        "sameAs": [
+          "https://www.linkedin.com/in/justine-combeau/",
+          "https://www.instagram.com/nocturne.tech_/",
+          "https://github.com/justinecombeaubts"
+        ],
+        "alumniOf": [
+          { "@type": "EducationalOrganization", "name": "Digital Campus, Paris" },
+          { "@type": "EducationalOrganization", "name": "Lycée Bertran de Born, Périgueux" }
+        ]
+      },
+      {
+        "@type": "ProfilePage",
+        "@id": "https://mon-portfolio-justine-combeau.vercel.app/#page",
+        "url": "https://mon-portfolio-justine-combeau.vercel.app/",
+        "name": "Justine Combeau — Portfolio",
+        "inLanguage": "fr-FR",
+        "mainEntity": { "@id": "https://mon-portfolio-justine-combeau.vercel.app/#justine" }
+      },
+      {
+        "@type": "WebSite",
+        "url": "https://mon-portfolio-justine-combeau.vercel.app/",
+        "name": "Justine Combeau",
+        "alternateName": ["Portfolio Justine Combeau", "nocturne.tech_"]
+      }
     ]
   }
   </script>
@@ -70,6 +99,7 @@
   </script>
 
   <script type="module" src="/src/main.js"></script>
+<script defer src="/_vercel/insights/script.js"></script>
 </head>
 
 <body class="bg-sand-50 text-slate-700 dark:bg-ink dark:text-slate-100 antialiased selection:bg-brand-300/40">
@@ -78,7 +108,21 @@
       Ce portfolio nécessite JavaScript pour s'afficher correctement.
     </p>
   </noscript>
-  <div id="app"></div>
+  <!-- Contenu de secours : lu par les moteurs de recherche et les aperçus de liens,
+       remplacé par le rendu complet dès que main.js s'exécute. -->
+  <div id="app">
+    <main style="max-width:40rem;margin:0 auto;padding:6rem 1rem">
+      <h1>Justine Combeau</h1>
+      <p>Portfolio de Justine Combeau, développeuse web et étudiante en Bachelor IA &amp; Automation
+        à Digital Campus Paris. Disponible en alternance.</p>
+      <ul>
+        <li><a href="https://www.linkedin.com/in/justine-combeau/" rel="me">LinkedIn — Justine Combeau</a></li>
+        <li><a href="https://www.instagram.com/nocturne.tech_/" rel="me">Instagram — @nocturne.tech_</a></li>
+        <li><a href="https://github.com/justinecombeaubts" rel="me">GitHub — justinecombeaubts</a></li>
+        <li><a href="/cv/CV_JustineCombeau.pdf">CV de Justine Combeau (PDF)</a></li>
+      </ul>
+    </main>
+  </div>
 </body>
 
 </html>

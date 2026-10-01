@@ -1,14 +1,14 @@
 const SOCIALS = [
   { href: 'https://github.com/justinecombeaubts', icon: 'fab fa-github', label: 'GitHub' },
   { href: 'https://www.linkedin.com/in/justine-combeau/', icon: 'fab fa-linkedin-in', label: 'LinkedIn' },
-  { href: 'https://www.instagram.com/sunrise.tech_/', icon: 'fab fa-instagram', label: 'Instagram' },
+  { href: 'https://www.instagram.com/nocturne.tech_/', icon: 'fab fa-instagram', label: 'Instagram @nocturne.tech_' },
   { href: 'mailto:justine.combeau.bts@gmail.com', icon: 'fas fa-envelope', label: 'Email' },
 ];
 
 export function renderContact() {
   const socials = SOCIALS.map(
     (s) => `
-    <a href="${s.href}" target="_blank" rel="noopener" class="social-icon" aria-label="${s.label}">
+    <a href="${s.href}" target="_blank" rel="me noopener" class="social-icon" aria-label="${s.label}">
       <i class="${s.icon}"></i>
     </a>`
   ).join('');
