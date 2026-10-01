@@ -26,7 +26,7 @@ export function renderHeader() {
         Justine<span class="text-brand-500 dark:text-brand-300">.</span>
       </a>
 
-      <nav class="hidden items-center gap-8 md:flex">
+      <nav class="hidden items-center gap-6 lg:flex xl:gap-8">
         ${links}
       </nav>
 
@@ -44,14 +44,14 @@ export function renderHeader() {
           id="mobile-menu-btn"
           aria-label="Ouvrir le menu"
           aria-expanded="false"
-          class="flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 text-slate-600 md:hidden dark:border-white/10 dark:text-slate-200"
+          class="flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 text-slate-600 lg:hidden dark:border-white/10 dark:text-slate-200"
         >
           <i class="fas fa-bars"></i>
         </button>
       </div>
     </div>
 
-    <div id="mobile-menu" class="hidden border-t border-slate-200/70 bg-white/95 backdrop-blur md:hidden dark:border-white/10 dark:bg-ink/95">
+    <div id="mobile-menu" class="hidden border-t border-slate-200/70 bg-white/95 backdrop-blur lg:hidden dark:border-white/10 dark:bg-ink/95">
       <div class="container-x divide-y divide-slate-200/70 dark:divide-white/10">
         ${mobileLinks}
       </div>

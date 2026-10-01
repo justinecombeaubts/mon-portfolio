@@ -38,8 +38,13 @@ export function renderContact() {
           </div>
           <div>
             <label for="message" class="mb-1.5 block text-sm font-medium text-slate-700 dark:text-slate-200">Message</label>
-            <textarea id="message" name="message" rows="5" required class="form-input" placeholder="Votre message"></textarea>
+            <textarea id="message" name="message" rows="5" required minlength="10" class="form-input" placeholder="Votre message"></textarea>
           </div>
+          <!-- Piège à robots : champ invisible, Formspree rejette l'envoi s'il est rempli -->
+          <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" class="hidden" />
+          <p class="text-xs text-slate-500 dark:text-slate-400">
+            Vos nom, email et message servent uniquement à vous répondre : ils sont transmis via Formspree et ne sont jamais revendus.
+          </p>
           <button type="submit" class="btn-primary w-full sm:w-auto">
             <i class="fas fa-paper-plane"></i> Envoyer
           </button>
@@ -92,8 +97,32 @@ export function initContactForm() {
   const feedback = document.getElementById('form-feedback');
   if (!form) return;
 
+  const showFeedback = (message, ok) => {
+    feedback.classList.remove('hidden', 'text-red-500', 'text-emerald-600');
+    feedback.classList.add(ok ? 'text-emerald-600' : 'text-red-500');
+    feedback.textContent = message;
+  };
+
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
+
+    // Le formulaire est en novalidate pour garder nos propres messages :
+    // on refuse ici les champs vides (ou remplis d'espaces) et l'email mal formé.
+    const fields = ['name', 'email', 'message'].map((n) => form.elements[n]);
+    fields.forEach((f) => (f.value = f.value.trim()));
+    const invalid = fields.find((f) => !f.checkValidity());
+    fields.forEach((f) => f.setAttribute('aria-invalid', String(!f.checkValidity())));
+    if (invalid) {
+      const messages = {
+        name: 'Indiquez votre nom.',
+        email: 'Indiquez une adresse email valide.',
+        message: 'Votre message doit faire au moins 10 caractères.',
+      };
+      showFeedback(messages[invalid.name], false);
+      invalid.focus();
+      return;
+    }
+
     const submitBtn = form.querySelector('button[type="submit"]');
     submitBtn.disabled = true;
     submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Envoi en cours...';
@@ -105,18 +134,14 @@ export function initContactForm() {
         headers: { Accept: 'application/json' },
       });
 
-      feedback.classList.remove('hidden', 'text-red-500', 'text-emerald-600');
       if (response.ok) {
-        feedback.textContent = 'Merci ! Votre message a bien été envoyé, je vous réponds rapidement.';
-        feedback.classList.add('text-emerald-600');
+        showFeedback('Merci ! Votre message a bien été envoyé, je vous réponds rapidement.', true);
         form.reset();
       } else {
         throw new Error('Réponse serveur invalide');
       }
     } catch (error) {
-      feedback.classList.remove('hidden', 'text-emerald-600');
-      feedback.classList.add('text-red-500');
-      feedback.textContent = "Une erreur est survenue, écrivez-moi directement à justine.combeau.bts@gmail.com.";
+      showFeedback('Une erreur est survenue, écrivez-moi directement à justine.combeau.bts@gmail.com.', false);
     } finally {
       submitBtn.disabled = false;
       submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Envoyer';

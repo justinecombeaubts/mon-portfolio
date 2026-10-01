@@ -1,3 +1,6 @@
+import projects from '../data/projects.json';
+
+// Chiffres clés calculés depuis projects.json : ils restent justes quand on ajoute un projet.
 export function renderAbout() {
   return `
   <section id="about" class="py-24">
@@ -33,9 +36,9 @@ export function renderAbout() {
 
           <div class="mt-10 grid grid-cols-2 gap-5 sm:grid-cols-4">
             ${[
-              ['10', 'projets réalisés'],
-              ['7', 'sites en ligne'],
-              ['6', 'automatisations en production'],
+              [projects.length, 'projets réalisés'],
+              [projects.filter((p) => p.links.demo).length, 'sites en ligne'],
+              [projects.reduce((sum, p) => sum + (p.automations || 0), 0), 'automatisations en production'],
               ['3 j / 2 j', "rythme d'alternance"],
             ]
               .map(

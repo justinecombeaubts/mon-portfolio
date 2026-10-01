@@ -6,6 +6,7 @@
     "tagline": "Dashboard + 5 automatisations pour piloter 2 clans (100 joueurs) en temps réel",
     "year": "2026",
     "status": "Repo GitHub privé",
+    "automations": 5,
     "context": "Deux clans de 50 joueurs (100 joueurs au total) à animer : effectifs, guerres, Raid Weekends, Ligue de Guerre de Clans. Tout ce suivi se faisait à la main, sans vue d'ensemble ni alerte quand un joueur arrive ou quitte.",
     "solution": "Scripts Node.js orchestrés par 5 workflows GitHub Actions à cadences adaptées à chaque événement du jeu : effectif et guerres toutes les 2h, raids toutes les heures pendant le week-end, Ligue de Guerre chaque jour, rapport de synthèse chaque lundi. Les données de l'API officielle Clash of Clans (via un proxy) sont comparées à une base Supabase (Postgres + RLS) ; chaque arrivée ou départ déclenche une alerte Discord immédiate via Webhook. Dashboard web public en lecture seule (thème « bois » façon jeu, navigation par clan).",
     "stack": [
@@ -67,6 +68,7 @@
     "tagline": "Scénario Make qui notifie sur Discord les bons plans les plus populaires",
     "year": "2026",
     "status": "Scénario Make",
+    "automations": 1,
     "context": "Dealabs publie en continu de nouveaux bons plans. Seuls les plus « chauds » (température élevée) valent vraiment le détour, mais il faut surveiller le site pour ne pas les rater.",
     "solution": "Scénario Make exécuté toutes les 15 minutes : il lit le flux RSS « Hot » de Dealabs, extrait la température du deal depuis son titre avec un Text parser (expression régulière), applique un filtre numérique sur un seuil de température, puis poste le titre et le lien du deal dans un salon Discord via une connexion Discord. Seuls les deals qui dépassent le seuil déclenchent une notification.",
     "stack": [

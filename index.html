@@ -113,11 +113,12 @@
 <body class="bg-sand-50 text-slate-700 dark:bg-ink dark:text-slate-100 antialiased selection:bg-brand-300/40">
   <noscript>
     <p style="padding:2rem;text-align:center">
-      Ce portfolio nécessite JavaScript pour s'afficher correctement.
+      JavaScript est désactivé : les fiches projets et le formulaire ne fonctionneront pas,
+      mais vous pouvez m'écrire à justine.combeau.bts@gmail.com.
     </p>
   </noscript>
-  <!-- Contenu de secours : lu par les moteurs de recherche et les aperçus de liens,
-       remplacé par le rendu complet dès que main.js s'exécute. -->
+  <!-- Contenu de secours (dev uniquement) : au build, le plugin de pré-rendu
+       de vite.config.js remplace tout ce bloc par le HTML complet du site. -->
   <div id="app">
     <main style="max-width:40rem;margin:0 auto;padding:6rem 1rem">
       <h1>Justine Combeau</h1>
@@ -130,6 +131,7 @@
         <li><a href="/cv/CV_JustineCombeau.pdf">CV de Justine Combeau (PDF)</a></li>
       </ul>
     </main>
+    <!-- /app -->
   </div>
 </body>
 

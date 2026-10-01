@@ -1,35 +1,18 @@
 import './styles/main.css';
 
-import { renderHeader, initHeader } from './components/header.js';
-import { renderHero } from './components/hero.js';
-import { renderAbout } from './components/about.js';
-import { renderSkills } from './components/skills.js';
-import { renderWorkflows } from './components/workflows.js';
-import { renderProjects, initProjectFilters } from './components/projects.js';
-import { renderProjectModal, initProjectModal } from './components/projectModal.js';
-import { renderTimeline } from './components/timeline.js';
-import { renderBook } from './components/book.js';
-import { renderContact, initContactForm } from './components/contact.js';
-import { renderFooter } from './components/footer.js';
+import { renderApp } from './render.js';
+import { initHeader } from './components/header.js';
+import { initProjectFilters } from './components/projects.js';
+import { initProjectModal } from './components/projectModal.js';
+import { initContactForm } from './components/contact.js';
 import { initThemeToggle } from './utils/theme.js';
 
+// En production, le HTML est déjà pré-rendu dans index.html : on se contente
+// de brancher les interactions. En dev, on génère le rendu ici.
 const app = document.getElementById('app');
-
-app.innerHTML = `
-  ${renderHeader()}
-  <main>
-    ${renderHero()}
-    ${renderAbout()}
-    ${renderSkills()}
-    ${renderWorkflows()}
-    ${renderProjects()}
-    ${renderTimeline()}
-    ${renderBook()}
-    ${renderContact()}
-  </main>
-  ${renderFooter()}
-  ${renderProjectModal()}
-`;
+if (!app.hasAttribute('data-prerendered')) {
+  app.innerHTML = renderApp();
+}
 
 initHeader();
 initThemeToggle();

@@ -8,7 +8,8 @@ Portfolio de Justine Combeau (Bachelor 3 IA & Automation / BTS Développement We
 - [Tailwind CSS](https://tailwindcss.com/) — styles utilitaires, dark mode par classe
 - JavaScript ES modules (pas de framework) — chaque section est un petit composant qui génère son HTML à partir des données JSON
 - [Font Awesome](https://fontawesome.com/) — icônes (CDN)
-- [Formspree](https://formspree.io/) — traitement du formulaire de contact
+- [Formspree](https://formspree.io/) — traitement du formulaire de contact (champ anti-spam `_gotcha`)
+- Pré-rendu au build (plugin dans `vite.config.js`) : `dist/index.html` contient tout le contenu, lisible par Google sans exécuter le JavaScript
 
 ## Lancer le projet
 
@@ -23,7 +24,8 @@ npm run preview    # prévisualiser le build
 
 ```
 src/
-├── main.js                 # point d'entrée : monte toutes les sections
+├── main.js                 # point d'entrée : branche les interactions (et rend le HTML en dev)
+├── render.js               # HTML complet du site, pré-rendu dans dist/index.html au build
 ├── styles/main.css          # Tailwind + classes de composants réutilisables
 ├── data/
 │   ├── projects.json        # source unique des cartes projets + fiches détaillées
