@@ -114,6 +114,24 @@ h1, h2, h3, .font-display {
     @apply w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-700 placeholder:text-slate-400 transition-colors focus:border-brand-400 focus:outline-none focus:ring-2 focus:ring-brand-200 dark:border-white/10 dark:bg-white/5 dark:text-slate-100 dark:placeholder:text-slate-500 dark:focus:ring-brand-500/30;
   }
 
+  /* Texte long (page mentions légales) */
+  .legal h2 {
+    @apply mt-10 mb-3 font-display text-xl font-semibold text-slate-900 first:mt-0 dark:text-white;
+  }
+
+  .legal p,
+  .legal ul {
+    @apply mt-3 leading-relaxed text-slate-600 dark:text-slate-300;
+  }
+
+  .legal ul {
+    @apply list-disc space-y-3 pl-5;
+  }
+
+  .legal a {
+    @apply font-medium text-brand-600 [overflow-wrap:anywhere] underline underline-offset-2 hover:text-brand-700 dark:text-brand-300 dark:hover:text-brand-200;
+  }
+
   .social-icon {
     @apply flex h-11 w-11 items-center justify-center rounded-full border border-slate-200 text-slate-500 transition-all hover:-translate-y-0.5 hover:border-brand-400 hover:text-brand-600 dark:border-white/10 dark:text-slate-300 dark:hover:border-brand-300 dark:hover:text-brand-200;
   }

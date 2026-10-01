@@ -11,7 +11,9 @@ function prerender() {
     configResolved(config) {
       root = config.root;
     },
-    async transformIndexHtml(html) {
+    async transformIndexHtml(html, ctx) {
+      // Seule la page d'accueil est pré-rendue (mentions-legales.html est déjà statique).
+      if (ctx.path !== '/index.html') return html;
       const server = await createServer({
         root,
         configFile: false,
@@ -40,5 +42,11 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
+    rollupOptions: {
+      input: {
+        main: 'index.html',
+        'mentions-legales': 'mentions-legales.html',
+      },
+    },
   },
 });

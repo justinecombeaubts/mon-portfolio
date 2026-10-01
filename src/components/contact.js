@@ -44,6 +44,7 @@ export function renderContact() {
           <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" class="hidden" />
           <p class="text-xs text-slate-500 dark:text-slate-400">
             Vos nom, email et message servent uniquement à vous répondre : ils sont transmis via Formspree et ne sont jamais revendus.
+            <a href="/mentions-legales.html#donnees" class="underline underline-offset-2 hover:text-brand-600 dark:hover:text-brand-300">En savoir plus</a>
           </p>
           <button type="submit" class="btn-primary w-full sm:w-auto">
             <i class="fas fa-paper-plane"></i> Envoyer

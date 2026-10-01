@@ -39,6 +39,7 @@ src/
 
 - **Ajouter un projet** : ajouter une entrée dans `src/data/projects.json` (catégorie `ia-automation`, `dev-web` ou `mobile`) avec `context` (contexte), `solution` + `stack`, et `impact` (liste de résultats). La carte et la fiche détaillée (modale) se génèrent automatiquement.
 - **Mettre un projet en avant comme workflow** : ajouter un tableau `workflow` (étapes `{ kind, icon, label, detail }`, `kind` = `source`, `process`, `ai`, `human` ou `output`). Le projet apparaît alors dans la section « Mes workflows en action » et sa fiche affiche le schéma.
+- **Mentions légales / confidentialité** : page statique `mentions-legales.html` (à mettre à jour si un nouveau service collecte des données, ex. un autre outil d'analytics).
 - **Modifier une compétence** : éditer `src/data/skills.json`.
 - **Ajouter une étape de parcours** : éditer `src/data/timeline.json`.
 - **Modifier le CV** : éditer `cv-source/cv.html`, puis lancer `npm run cv` (nécessite Chrome ou Edge et une connexion internet pour les polices). Le PDF est régénéré dans `public/cv/CV_JustineCombeau.pdf`.
