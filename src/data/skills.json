@@ -29,7 +29,7 @@
     "icon": "terminal",
     "items": [
       { "name": "Git / GitHub", "level": "projet", "proof": ["Tous les projets"] },
-      { "name": "Vercel (déploiement, serverless, Blob)", "level": "projet", "proof": ["Route 35", "Les recettes de maman", "Agenda des sorties"] },
+      { "name": "Vercel (déploiement, serverless, Blob)", "level": "projet", "proof": ["Route 35", "Les recettes de maman", "Agenda des sorties", "Analist"] },
       { "name": "Python (Pandas, Streamlit)", "level": "projet", "proof": ["Assistant Marketing IA"] },
       { "name": "Flutter / Dart", "level": "projet", "proof": ["Mon Quotidien"] }
     ]

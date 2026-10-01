@@ -289,6 +289,33 @@
     "screenshot": "/images/projets/agenda.jpg"
   },
   {
+    "id": "analist",
+    "category": "dev-web",
+    "title": "Analist",
+    "tagline": "Tableau de bord qui réunit les visites de tous mes sites sur une seule page",
+    "year": "2026",
+    "status": "Outil personnel",
+    "context": "Mes sites sont hébergés sur Vercel, et chacun a ses statistiques de visite dans son propre onglet. Pour savoir lequel est consulté, et d'où viennent les visiteurs, il fallait ouvrir les projets un par un, sans aucune vue d'ensemble.",
+    "solution": "Une fonction serverless Vercel liste tous les projets du compte via l'API REST de Vercel, interroge Web Analytics pour chacun en parallèle et renvoie un seul JSON agrégé. L'interface, en HTML/CSS/JavaScript sans framework ni dépendance, affiche les chiffres clés, la tendance quotidienne tous sites confondus (graphique SVG codé à la main, avec infobulle au survol), une carte par site avec sa mini-courbe, et le détail d'un site au clic : pages les plus vues, sources, pays, appareils. Périodes de 7, 14 ou 30 jours, comparées à la période précédente quand l'historique le permet. Le jeton Vercel reste côté serveur, et un code d'accès optionnel (comparé en temps constant) protège les chiffres. Thème clair/sombre aux couleurs de ce portfolio.",
+    "stack": [
+      "JavaScript",
+      "Vercel Functions (Node.js)",
+      "API REST Vercel",
+      "Web Analytics",
+      "SVG",
+      "HTML5 / CSS3"
+    ],
+    "impact": [
+      "Une seule page à ouvrir au lieu d'un onglet de statistiques par projet : tout nouveau site déployé apparaît automatiquement.",
+      "Aucune bibliothèque : les graphiques sont dessinés en SVG et le projet n'a aucune dépendance npm.",
+      "Jeton d'API jamais envoyé au navigateur, et mode démonstration avec données fictives pour travailler l'interface en local (c'est lui qui figure sur la capture)."
+    ],
+    "image": "/images/analist-icon.svg",
+    "accent": "wine",
+    "links": {},
+    "screenshot": "/images/projets/analist.jpg"
+  },
+  {
     "id": "mon-quotidien",
     "category": "mobile",
     "title": "Mon Quotidien",
