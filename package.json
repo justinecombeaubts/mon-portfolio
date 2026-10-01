@@ -8,11 +8,13 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "cv": "node cv-source/build.mjs"
+    "cv": "node cv-source/build.mjs",
+    "images": "node scripts/optimize-images.mjs"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.20",
     "postcss": "^8.5.1",
+    "sharp": "^0.35.5",
     "tailwindcss": "^3.4.17",
     "vite": "^6.0.7"
   }

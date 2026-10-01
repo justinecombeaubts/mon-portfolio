@@ -6,11 +6,18 @@ export function renderBook() {
         <div class="relative mx-auto w-full max-w-xs animate-fade-up">
           <div class="absolute -inset-6 -z-10 rounded-[2.5rem] bg-gradient-to-br from-brand-300/30 via-ai-400/20 to-transparent blur-2xl"></div>
           <div class="overflow-hidden rounded-2xl border border-white/40 shadow-soft dark:border-white/10">
-            <img
-              src="/images/couverture.png"
-              alt="Couverture du roman Séléna ~ Captive de la tempête ~"
-              class="h-full w-full object-cover"
-            />
+            <picture>
+              <source srcset="/images/couverture.webp" type="image/webp" />
+              <img
+                src="/images/couverture.jpg"
+                alt="Couverture du roman Séléna ~ Captive de la tempête ~"
+                width="640"
+                height="1021"
+                loading="lazy"
+                decoding="async"
+                class="h-full w-full object-cover"
+              />
+            </picture>
           </div>
         </div>
 

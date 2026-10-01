@@ -22,7 +22,7 @@ export function renderHeader() {
   <header id="site-header" class="fixed inset-x-0 top-0 z-50 transition-colors duration-300">
     <div class="container-x flex h-20 items-center justify-between">
       <a href="#home" class="flex items-center gap-2 font-display text-lg font-semibold text-slate-900 dark:text-white">
-        <img src="/images/logo.png" alt="Logo Justine Combeau" class="h-9 w-9 rounded-full object-cover" />
+        <img src="/images/logo.png" alt="Logo Justine Combeau" width="36" height="36" class="h-9 w-9 rounded-full object-cover" />
         Justine<span class="text-brand-500 dark:text-brand-300">.</span>
       </a>
 

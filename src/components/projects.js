@@ -24,6 +24,8 @@ function renderCard(project) {
         <img
           src="${project.screenshot || project.image}"
           alt="${project.title}"
+          loading="lazy"
+          decoding="async"
           class="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
         />
         <span class="absolute left-4 top-4 rounded-full bg-white/90 px-3 py-1 text-xs font-semibold text-slate-700 shadow-soft dark:bg-ink/70 dark:text-slate-100">

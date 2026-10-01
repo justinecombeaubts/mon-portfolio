@@ -47,7 +47,11 @@ export function renderHero() {
       <div class="relative mx-auto w-full max-w-sm animate-fade-up [animation-delay:150ms]">
         <div class="absolute -inset-6 -z-10 rounded-[2.5rem] bg-gradient-to-br from-brand-300/30 via-ai-400/20 to-transparent blur-2xl"></div>
         <div class="overflow-hidden rounded-[2rem] border border-white/40 shadow-soft dark:border-white/10">
-          <img src="/images/moi.png" alt="Portrait de Justine Combeau" class="h-full w-full object-cover" />
+          <picture>
+            <source srcset="/images/moi.webp" type="image/webp" />
+            <img src="/images/moi.jpg" alt="Portrait de Justine Combeau" width="768" height="1145"
+              fetchpriority="high" decoding="async" class="h-full w-full object-cover" />
+          </picture>
         </div>
       </div>
     </div>

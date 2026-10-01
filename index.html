@@ -22,7 +22,11 @@
   <meta property="og:title" content="Justine Combeau — Développement Web & IA / Automation" />
   <meta property="og:description"
     content="Portfolio de Justine Combeau : projets en développement web, IA et automatisation (n8n, Make, Supabase, LLMs)." />
-  <meta property="og:image" content="https://mon-portfolio-justine-combeau.vercel.app/images/moi.png" />
+  <meta property="og:image" content="https://mon-portfolio-justine-combeau.vercel.app/images/moi-og.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Portrait de Justine Combeau" />
+  <meta property="og:site_name" content="Justine Combeau" />
   <meta property="og:url" content="https://mon-portfolio-justine-combeau.vercel.app/" />
   <meta property="og:locale" content="fr_FR" />
 
@@ -31,7 +35,7 @@
   <meta name="twitter:title" content="Justine Combeau — Développement Web & IA / Automation" />
   <meta name="twitter:description"
     content="Portfolio de Justine Combeau : projets en développement web, IA et automatisation." />
-  <meta name="twitter:image" content="https://mon-portfolio-justine-combeau.vercel.app/images/moi.png" />
+  <meta name="twitter:image" content="https://mon-portfolio-justine-combeau.vercel.app/images/moi-og.jpg" />
 
   <!-- Données structurées -->
   <script type="application/ld+json">
@@ -46,7 +50,7 @@
         "familyName": "Combeau",
         "alternateName": "nocturne.tech_",
         "jobTitle": "Étudiante en Bachelor IA & Automation / Développeuse Web",
-        "image": "https://mon-portfolio-justine-combeau.vercel.app/images/moi.png",
+        "image": "https://mon-portfolio-justine-combeau.vercel.app/images/moi.jpg",
         "url": "https://mon-portfolio-justine-combeau.vercel.app/",
         "email": "mailto:justine.combeau.bts@gmail.com",
         "address": { "@type": "PostalAddress", "addressLocality": "Paris", "addressCountry": "FR" },
@@ -79,7 +83,11 @@
   }
   </script>
 
+  <!-- Photo du hero : téléchargée dès le début, avant même l'exécution de main.js -->
+  <link rel="preload" as="image" href="/images/moi.webp" type="image/webp" fetchpriority="high" />
+
   <!-- Polices -->
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
