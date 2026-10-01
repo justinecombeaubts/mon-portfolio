@@ -9,3 +9,4 @@ dist
 # Secrets locaux
 .env
 .env.*
+.claude/settings.local.json
