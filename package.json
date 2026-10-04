@@ -10,7 +10,8 @@
     "preview": "vite preview",
     "cv": "node cv-source/build.mjs",
     "images": "node scripts/optimize-images.mjs",
-    "portfolio": "node portfolio-source/build.mjs"
+    "portfolio": "node portfolio-source/build.mjs",
+    "instagram": "node instagram/build.mjs"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.20",

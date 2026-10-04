@@ -13,3 +13,6 @@ dist
 
 # Fichier intermédiaire du portfolio PDF (régénéré par npm run portfolio)
 portfolio-source/portfolio.generated.html
+
+# Fichiers temporaires du carrousel Instagram
+instagram/.tmp
