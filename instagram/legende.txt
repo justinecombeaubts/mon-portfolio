@@ -1,0 +1,17 @@
+✦ Mon portfolio est enfin en ligne ✦
+
+Développeuse web en Bachelor 3 IA & Automation, je cherche mon alternance (3 j entreprise / 2 j école, à Paris) — alors j'ai voulu un portfolio qui montre des preuves, pas juste des captures.
+
+Dedans :
+→ 11 projets, dont 7 en ligne, chacun raconté en contexte / solution / impact
+→ mes workflows d'automatisation et d'IA, étape par étape
+→ des compétences reliées au projet qui les prouve (zéro barre de pourcentage 🙅‍♀️)
+→ mon CV et mon portfolio en PDF, prêts à télécharger
+
+Et côté coulisses : codé à la main avec Vite, Tailwind et JavaScript, sans framework.
+
+🔗 Lien en bio
+💬 Dis-moi en commentaire quel projet tu préfères
+📩 Tu connais une entreprise qui recrute en alternance ? Partage-lui ce post, ça m'aide énormément 🤍
+
+#portfolio #alternance #developpeuseweb #developpeur #intelligenceartificielle #automatisation #n8n #make #javascript #webdev #womenintech #codeuse #etudiante #bachelor #recrutement #alternanceparis #nocode #ia #devlife #frontend

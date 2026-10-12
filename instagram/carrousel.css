@@ -1,0 +1,175 @@
+/* Carrousel Instagram — DA « Bordeaux · Argent · Rose nude », version sombre (comme la bannière LinkedIn). */
+:root {
+  --ink: #2a0f17;
+  --panel: #3a1620;
+  --silver: #e4e5ea;
+  --silver-soft: #b9b3b8;
+  --nude: #e2baac;
+  --nude-strong: #cf9d8e;
+  --mauve: #c9b3b8;
+  --wine: #7a4049;
+  --rose: #9e5f66;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { width: 1080px; background: var(--ink); }
+body { font-family: 'Inter', sans-serif; color: var(--silver); -webkit-font-smoothing: antialiased; }
+img { display: block; }
+b { font-weight: 700; color: #fff; }
+
+.slide {
+  position: relative; width: 1080px; height: 1350px; overflow: hidden;
+  background:
+    radial-gradient(circle at 15% 8%, rgba(226, 186, 172, 0.16), transparent 38%),
+    radial-gradient(circle at 92% 0%, rgba(122, 64, 73, 0.6), transparent 42%),
+    radial-gradient(circle at 80% 110%, rgba(158, 95, 102, 0.32), transparent 48%),
+    var(--ink);
+}
+.slide[hidden] { display: none; }
+.grid-bg {
+  position: absolute; inset: 0;
+  background-image: linear-gradient(rgba(228, 229, 234, 0.045) 1px, transparent 1px), linear-gradient(90deg, rgba(228, 229, 234, 0.045) 1px, transparent 1px);
+  background-size: 54px 54px;
+  -webkit-mask-image: radial-gradient(ellipse at 60% 35%, #000 0%, transparent 72%);
+          mask-image: radial-gradient(ellipse at 60% 35%, #000 0%, transparent 72%);
+}
+.content { position: relative; height: 100%; padding: 96px 84px 150px; display: flex; flex-direction: column; }
+
+/* Typo */
+.kicker { font-size: 22px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--nude); }
+h1, h2, h3 { font-family: 'Montserrat', sans-serif; color: #fff; line-height: 1.06; }
+h1 { margin-top: 26px; font-size: 104px; font-weight: 800; letter-spacing: -0.02em; }
+h2 { margin-top: 22px; font-size: 72px; font-weight: 800; letter-spacing: -0.015em; }
+h1 span, h2 span, h3 span { color: var(--nude); }
+.sub { margin-top: 30px; font-size: 34px; line-height: 1.4; color: var(--silver-soft); max-width: 860px; }
+.sub.small { font-size: 28px; margin-top: 18px; }
+
+/* Pied de slide */
+.foot {
+  position: absolute; left: 84px; right: 84px; bottom: 56px;
+  display: flex; align-items: center; justify-content: space-between;
+  font-size: 22px; font-weight: 600; color: var(--silver-soft);
+}
+.handle { display: flex; align-items: center; gap: 12px; color: var(--silver); }
+.handle img { width: 42px; height: 42px; border-radius: 50%; border: 2px solid rgba(226, 186, 172, 0.5); }
+.dots { display: flex; gap: 10px; }
+.dots i { width: 10px; height: 10px; border-radius: 99px; background: rgba(228, 229, 234, 0.25); }
+.dots i.on { width: 34px; background: var(--nude); }
+.swipe b { color: var(--nude); }
+
+/* Cadres d'appareils */
+.browser { border-radius: 22px; overflow: hidden; background: #1c0a10; border: 2px solid rgba(228, 229, 234, 0.14); box-shadow: 0 40px 80px -30px rgba(0, 0, 0, 0.7); }
+.browser-bar { display: flex; align-items: center; gap: 9px; height: 44px; padding: 0 18px; background: #3a1620; }
+.browser-bar i { width: 13px; height: 13px; border-radius: 50%; background: rgba(228, 229, 234, 0.25); }
+.browser-bar i:first-child { background: var(--nude); }
+.browser-bar span { margin-left: 14px; padding: 5px 16px; border-radius: 99px; background: rgba(0, 0, 0, 0.25); font-size: 16px; color: var(--silver-soft); }
+.browser img { width: 100%; }
+.phone { width: 250px; padding: 10px; border-radius: 44px; background: #14070b; border: 2px solid rgba(228, 229, 234, 0.2); box-shadow: 0 40px 70px -25px rgba(0, 0, 0, 0.8); }
+.phone img { width: 100%; border-radius: 34px; }
+
+/* 1 — Accroche */
+.hero-devices { position: relative; margin-top: auto; height: 560px; }
+.hero-devices .browser { position: absolute; left: 0; top: 30px; width: 800px; transform: rotate(-3deg); }
+.hero-devices .phone { position: absolute; right: 10px; top: 0; transform: rotate(4deg); }
+
+/* 2 — Qui je suis */
+.me { margin-top: 40px; display: flex; align-items: center; gap: 48px; }
+.me-photo { width: 300px; height: 360px; flex: none; border-radius: 36px; overflow: hidden; border: 3px solid rgba(226, 186, 172, 0.45); box-shadow: 0 30px 60px -25px rgba(0, 0, 0, 0.7); }
+.me-photo img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+.me h2 { margin-top: 0; font-size: 80px; }
+.facts { list-style: none; margin-top: 56px; display: flex; flex-direction: column; gap: 26px; }
+.facts li, .features li { display: flex; gap: 26px; align-items: flex-start; }
+.facts i, .features i {
+  width: 72px; height: 72px; flex: none; border-radius: 20px;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(226, 186, 172, 0.14); color: var(--nude); font-size: 30px;
+}
+.facts b, .features b { display: block; font-size: 31px; margin-top: 4px; }
+.facts span, .features span { display: block; margin-top: 6px; font-size: 25px; line-height: 1.4; color: var(--silver-soft); }
+.stats { margin-top: auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.stats div { padding: 26px 18px; text-align: center; border-radius: 24px; border: 2px solid rgba(228, 229, 234, 0.12); background: rgba(255, 255, 255, 0.04); }
+.stats b { display: block; font-family: 'Montserrat', sans-serif; font-size: 66px; color: var(--nude); line-height: 1.05; }
+.stats span { font-size: 21px; color: var(--silver-soft); }
+
+/* 3 — Sur le site */
+.features { list-style: none; margin-top: 70px; display: flex; flex-direction: column; gap: 44px; }
+
+/* 4 — Projet phare */
+.browser.wide { margin-top: 44px; }
+.flow { list-style: none; margin-top: 40px; display: flex; align-items: center; gap: 8px; }
+.flow li:not(.arrow) {
+  flex: 1; display: flex; flex-direction: column; align-items: center; gap: 10px; text-align: center;
+  padding: 18px 8px; border-radius: 20px; border: 2px solid rgba(228, 229, 234, 0.14); background: rgba(255, 255, 255, 0.04);
+  font-size: 18px; font-weight: 600; line-height: 1.2; color: var(--silver);
+}
+.flow li i { font-size: 24px; color: var(--mauve); }
+.flow li.k-output { background: rgba(226, 186, 172, 0.16); border-color: rgba(226, 186, 172, 0.45); }
+.flow li.k-output i, .flow li.k-ai i, .flow li.k-human i { color: var(--nude); }
+.flow .arrow { font-size: 30px; color: rgba(228, 229, 234, 0.35); }
+.proof { margin-top: auto; display: flex; gap: 16px; font-size: 26px; line-height: 1.4; color: var(--silver-soft); }
+.proof i { margin-top: 6px; color: var(--nude); }
+
+/* 5 — IA encadrée */
+.duo { margin-top: 60px; display: flex; flex-direction: column; gap: 30px; }
+.duo article { padding: 40px 44px; border-radius: 30px; border: 2px solid rgba(228, 229, 234, 0.12); background: rgba(255, 255, 255, 0.045); }
+.duo .tag { font-size: 21px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--mauve); }
+.duo .tag i { margin-right: 8px; color: var(--nude); }
+.duo h3 { margin-top: 16px; font-size: 48px; font-weight: 800; }
+.duo article p:last-child { margin-top: 16px; font-size: 26px; line-height: 1.45; color: var(--silver-soft); }
+.quote { margin-top: auto; font-family: 'Montserrat', sans-serif; font-size: 36px; font-weight: 700; font-style: italic; color: var(--nude); }
+
+/* 6 — Projets web */
+.mosaic { margin-top: 54px; display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+.mosaic figure { border-radius: 24px; overflow: hidden; border: 2px solid rgba(228, 229, 234, 0.12); background: rgba(255, 255, 255, 0.045); }
+.pshot { aspect-ratio: 16 / 10; overflow: hidden; }
+.pshot img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+.mosaic figcaption { padding: 20px 24px 24px; }
+.mosaic figcaption b { display: block; font-family: 'Montserrat', sans-serif; font-size: 28px; }
+.mosaic figcaption span { display: block; margin-top: 6px; font-size: 21px; line-height: 1.35; color: var(--silver-soft); }
+
+/* 7 — Coulisses */
+.tech { margin-top: 60px; display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.tech div { padding: 32px 30px; border-radius: 26px; border: 2px solid rgba(228, 229, 234, 0.12); background: rgba(255, 255, 255, 0.045); }
+.tech i { font-size: 38px; color: var(--nude); }
+.tech b { display: block; margin-top: 18px; font-family: 'Montserrat', sans-serif; font-size: 30px; }
+.tech span { display: block; margin-top: 8px; font-size: 22px; line-height: 1.4; color: var(--silver-soft); }
+
+/* 8 — Appel à l'action */
+.cta { margin-top: 60px; display: flex; align-items: center; gap: 44px; }
+.cta .qr { width: 260px; height: 260px; flex: none; padding: 20px; border-radius: 30px; background: #fff; box-shadow: 0 30px 60px -25px rgba(0, 0, 0, 0.7); }
+.cta .qr svg { width: 100%; height: 100%; display: block; }
+.link-bio { display: inline-flex; align-items: center; gap: 14px; padding: 16px 30px; border-radius: 99px; background: var(--nude); color: var(--ink); font-family: 'Montserrat', sans-serif; font-size: 34px; font-weight: 800; }
+.url { margin-top: 22px; font-size: 25px; color: var(--silver-soft); word-break: break-all; }
+.recruit { margin-top: 56px; padding: 36px 40px; border-radius: 28px; border: 2px solid rgba(226, 186, 172, 0.4); background: rgba(226, 186, 172, 0.1); }
+.recruit p { font-size: 29px; line-height: 1.45; color: var(--silver); }
+.actions { margin-top: auto; display: flex; flex-wrap: wrap; gap: 16px 30px; font-size: 24px; font-weight: 600; color: var(--silver-soft); }
+.actions i { margin-right: 8px; color: var(--nude); }
+
+/* ───────── Ajustements d'équilibre vertical ───────── */
+/* Le bloc principal se centre dans l'espace restant sous le titre. */
+.features, .tech, .duo { margin-top: auto; margin-bottom: auto; padding-top: 40px; }
+.features { gap: 54px; }
+.features i, .facts i { width: 84px; height: 84px; font-size: 34px; }
+.features b { font-size: 34px; }
+.features span { font-size: 27px; }
+.facts { margin-top: auto; margin-bottom: auto; padding: 40px 0; }
+.stats { margin-top: 0; }
+.quote { margin-top: 0; }
+.tech div { padding: 38px 32px; }
+
+/* 4 — projet phare : titre plus compact, capture recadrée, étapes de même hauteur */
+.h-project { font-size: 60px; }
+.browser.wide img { height: 420px; object-fit: cover; object-position: top; }
+.flow { align-items: stretch; }
+.flow li:not(.arrow) { justify-content: center; }
+.flow .arrow { display: flex; align-items: center; }
+.proof { padding-top: 30px; }
+
+/* 6 — projets web : vignettes plus basses pour laisser respirer le pied */
+.mosaic { margin-top: auto; margin-bottom: auto; padding-top: 30px; }
+.pshot { aspect-ratio: 16 / 9; }
+
+/* 8 — appel à l'action : groupe centré */
+.cta { margin-top: auto; }
+.recruit .mail { margin-top: 16px; font-size: 27px; font-weight: 600; color: var(--nude); }
+.recruit .mail i { margin-right: 10px; }
+.actions { margin-top: 64px; margin-bottom: auto; }
