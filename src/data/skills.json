@@ -16,10 +16,10 @@
     "category": "IA & Automation",
     "icon": "sparkles",
     "items": [
-      { "name": "GitHub Actions (cron)", "level": "projet", "proof": ["Suivi Clash of Clans"] },
+      { "name": "GitHub Actions (cron)", "level": "projet", "proof": ["Suivi Clash of Clans", "Veille IA → Discord"] },
       { "name": "Make", "level": "projet", "proof": ["Alertes Dealabs"] },
-      { "name": "API LLM (OpenAI, Gemini, Claude)", "level": "projet", "proof": ["Assistant Marketing IA", "EduStudy Hub"] },
-      { "name": "Sortie structurée & garde-fous IA", "level": "projet", "proof": ["Assistant Marketing IA", "EduStudy Hub"] },
+      { "name": "API LLM (OpenAI, Gemini, Claude)", "level": "projet", "proof": ["Veille IA → Discord", "Assistant Marketing IA", "EduStudy Hub"] },
+      { "name": "Sortie structurée & garde-fous IA", "level": "projet", "proof": ["Assistant Marketing IA", "Veille IA → Discord", "EduStudy Hub"] },
       { "name": "Supabase (Postgres, RLS, Auth)", "level": "projet", "proof": ["Suivi Clash of Clans", "Le Chat Ivre", "EduStudy Hub"] },
       { "name": "n8n", "level": "formation", "proof": ["Bachelor IA & Automation"] }
     ]
@@ -30,7 +30,7 @@
     "items": [
       { "name": "Git / GitHub", "level": "projet", "proof": ["Tous les projets"] },
       { "name": "Vercel (déploiement, serverless, Blob)", "level": "projet", "proof": ["Route 35", "Les recettes de maman", "Agenda des sorties", "Analist"] },
-      { "name": "Python (Pandas, Streamlit)", "level": "projet", "proof": ["Assistant Marketing IA"] },
+      { "name": "Python (Pandas, Streamlit)", "level": "projet", "proof": ["Assistant Marketing IA", "Veille IA → Discord"] },
       { "name": "Flutter / Dart", "level": "projet", "proof": ["Mon Quotidien"] }
     ]
   },

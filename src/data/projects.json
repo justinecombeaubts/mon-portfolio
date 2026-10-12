@@ -62,6 +62,59 @@
     "screenshot": "/images/projets/coc.jpg"
   },
   {
+    "id": "veille-ia-discord",
+    "category": "ia-automation",
+    "title": "Veille IA → Discord",
+    "tagline": "Pipeline RSS → LLM → Discord qui résume l'actu IA en français pour toute ma promo",
+    "year": "2026",
+    "status": "En production",
+    "automations": 1,
+    "context": "En Bachelor IA & Automation, suivre l'actualité de l'IA fait partie du métier, mais elle va très vite et se disperse entre les blogs officiels (OpenAI, Google, Anthropic, Hugging Face…) et la presse française et américaine, souvent en anglais. Chacun passait à côté d'annonces importantes ou voyait la même info cinq fois.",
+    "solution": "Script Python planifié toutes les 30 minutes par GitHub Actions, sans serveur. Il lit 7 flux RSS/Atom (parseur écrit avec la bibliothèque standard, seule dépendance : requests), écarte les articles de plus de 24 h et les doublons (liens déjà postés et titres normalisés, pour repérer un même article venu de deux sources), puis donne la priorité aux sources officielles. Pour chaque article, le texte est extrait de la page quand c'est possible et envoyé à Gemini avec une sortie JSON imposée : le modèle juge si l'article parle vraiment d'IA, puis rédige un titre, un résumé factuel en français avec émojis et une phrase « À retenir ». Le résultat est posté dans le salon Discord de la promo sous forme d'embed (couleur par source, lien vers l'article). L'historique (seen.json) est recommité par le workflow à chaque passage.",
+    "stack": [
+      "Python",
+      "GitHub Actions (cron)",
+      "Flux RSS / Atom",
+      "API Gemini",
+      "Sortie JSON structurée",
+      "Discord Webhooks"
+    ],
+    "impact": [
+      "Toute la promo reçoit l'actu IA en français, résumée et sourcée, sans rien avoir à surveiller.",
+      "Zéro doublon et zéro hors-sujet : dédoublonnage multi-sources et filtre de pertinence fait par le LLM.",
+      "Hébergement 100 % gratuit et robuste : un flux en panne est ignoré, et un article non résumé ou non posté est retenté au passage suivant."
+    ],
+    "workflow": [
+      {
+        "kind": "source",
+        "icon": "fa-rss",
+        "label": "7 flux RSS / Atom",
+        "detail": "Relus toutes les 30 min"
+      },
+      {
+        "kind": "process",
+        "icon": "fa-filter",
+        "label": "Tri et dédoublonnage",
+        "detail": "< 24 h, sources officielles d'abord"
+      },
+      {
+        "kind": "ai",
+        "icon": "fa-wand-magic-sparkles",
+        "label": "Gemini",
+        "detail": "Filtre + résumé FR en JSON"
+      },
+      {
+        "kind": "output",
+        "icon": "fa-bell",
+        "label": "Embed Discord",
+        "detail": "Résumé + lien vers la source"
+      }
+    ],
+    "image": "/images/veille-ia-icon.svg",
+    "accent": "violet",
+    "links": {}
+  },
+  {
     "id": "alerte-dealabs",
     "category": "ia-automation",
     "title": "Alertes Deals Dealabs → Discord",
