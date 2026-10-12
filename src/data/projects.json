@@ -371,6 +371,33 @@
     "screenshot": "/images/projets/analist.jpg"
   },
   {
+    "id": "formes-cb",
+    "category": "dev-web",
+    "title": "Formes C.B.",
+    "tagline": "Site vitrine pour un atelier de formes de découpe à Paris, fait de ma propre initiative",
+    "year": "2026",
+    "status": "Initiative personnelle",
+    "context": "Formes C.B. est un atelier parisien qui fabrique des formes de découpe et des prototypes (emballage, PLV, imprimerie, maroquinerie). Personne ne me l'a demandé : je me suis amusée à imaginer le site vitrine que mériterait ce savoir-faire très technique, pour m'exercer sur un vrai métier avec de vraies contraintes.",
+    "solution": "Page unique en HTML/CSS/JS natif, sans framework ni dépendance. Identité visuelle inspirée du métier : fond papier, typographie Archivo + JetBrains Mono, et une illustration SVG de patron de boîte qui reprend le code couleur de l'atelier (trait rouge = coupe, pointillé bleu = rainage). Sections savoir-faire, méthode en 4 étapes, avis, contact avec appel en un clic et mentions légales intégrées. Référencement local soigné : données structurées JSON-LD « LocalBusiness », balises Open Graph avec image de partage dédiée, URL canonique. La carte Google n'est chargée qu'au clic, pour ne déposer aucun cookie tiers par défaut.",
+    "stack": [
+      "HTML5",
+      "CSS3",
+      "JavaScript",
+      "SVG",
+      "SEO local (JSON-LD)",
+      "Open Graph"
+    ],
+    "impact": [
+      "Une page légère et autonome (un seul fichier), prête à être mise en ligne sur n'importe quel hébergement.",
+      "Le vocabulaire visuel du métier (coupe, rainage, échelle) porte directement l'identité du site.",
+      "Respect de la vie privée par défaut : carte chargée à la demande, animations coupées si l'utilisateur le préfère."
+    ],
+    "image": "/images/formes-cb-icon.svg",
+    "accent": "crimson",
+    "links": {},
+    "screenshot": "/images/projets/formes-cb.jpg"
+  },
+  {
     "id": "mon-quotidien",
     "category": "mobile",
     "title": "Mon Quotidien",
@@ -394,6 +421,57 @@
     ],
     "image": "/images/mon-quotidien-icon.svg",
     "accent": "crimson",
+    "links": {}
+  },
+  {
+    "id": "nocfit",
+    "category": "mobile",
+    "title": "NocFit",
+    "tagline": "App Android de suivi santé, sport, humeur et cuisine, 100 % hors-ligne",
+    "year": "2026",
+    "status": "App Android (Kotlin)",
+    "context": "Application personnelle pour réunir au même endroit ce que je suivais dans plusieurs applis : séances de sport, poids et mensurations, cycle, prise de pilule, humeur, habitudes et même les repas de la semaine. Les données de santé devaient rester sur le téléphone.",
+    "solution": "Application Kotlin native en Jetpack Compose (Material 3), architecture MVVM : base Room → dépôts → ViewModel (StateFlow) → écrans. Séances avec historique et courbe de progression par exercice (les dernières charges pré-remplissent la séance suivante), rappel de pilule par alarme exacte reprogrammée au redémarrage, estimation du cycle, saisie express de l'humeur et de l'énergie, habitudes avec séries, recettes, planning de la semaine et liste de courses générée automatiquement. Un moteur de corrélations calculé en local relie l'énergie et l'humeur au sport, au cycle, à l'eau, aux pas et au réveil, avec des seuils pour n'afficher que des tendances fiables.",
+    "stack": [
+      "Kotlin",
+      "Jetpack Compose",
+      "Room",
+      "MVVM (StateFlow)",
+      "Navigation Compose",
+      "AlarmManager"
+    ],
+    "impact": [
+      "Toutes les données de santé restent sur le téléphone : aucun compte, aucun serveur.",
+      "Migration de base automatique (v1 → v2) couverte par un test, sans perte de données.",
+      "Une tendance n'apparaît qu'avec au moins 3 jours par groupe et un écart net, pour éviter les conclusions hâtives."
+    ],
+    "image": "/images/nocfit-icon.svg",
+    "accent": "wine",
+    "links": {}
+  },
+  {
+    "id": "mon-amour",
+    "category": "mobile",
+    "title": "Mon Amour",
+    "tagline": "App Android de couple pour partager son statut et son humeur en temps réel",
+    "year": "2026",
+    "status": "App Android (Kotlin)",
+    "context": "Savoir d'un coup d'œil si l'autre est au travail, sur la route ou déjà rentré, sans s'envoyer un message à chaque étape de la journée. L'information devait arriver instantanément, même téléphone en veille.",
+    "solution": "Application Kotlin native : chacun choisit un statut (trajet, travail, repas, maison, sommeil…) et une humeur, peut laisser un petit mot ou envoyer un câlin virtuel. L'état de l'autre s'affiche dans un widget d'écran d'accueil et une notification épinglée. Côté serveur, Supabase (Postgres + Auth) stocke les statuts et une Edge Function prévient le téléphone de l'autre par une notification push silencieuse Firebase Cloud Messaging, qui le réveille pour mettre à jour widget et notification.",
+    "stack": [
+      "Kotlin",
+      "Android (widget, notifications)",
+      "Supabase (Postgres, Auth)",
+      "Edge Functions",
+      "Firebase Cloud Messaging"
+    ],
+    "impact": [
+      "Mise à jour instantanée chez l'autre grâce au push silencieux, même téléphone en veille.",
+      "L'état de l'autre visible sans ouvrir l'app : widget d'écran d'accueil et notification épinglée.",
+      "Aucun secret dans le code : identifiants Supabase et compte de service Firebase restent hors du dépôt."
+    ],
+    "image": "/images/mon-amour-icon.svg",
+    "accent": "rose",
     "links": {}
   },
   {
@@ -483,5 +561,32 @@
       "code": "https://github.com/justinecombeaubts/recettes-famille"
     },
     "screenshot": "/images/projets/recettes.jpg"
+  },
+  {
+    "id": "nocturna",
+    "category": "dev-web",
+    "title": "Nocturna — Royaume des Ombres",
+    "tagline": "Jeu mobile de construction de village façon Clash of Clans, en univers dark fantasy",
+    "year": "2026",
+    "status": "Projet perso — jeu PWA",
+    "context": "Projet pour le plaisir : recréer les mécaniques d'un jeu de gestion et de stratégie comme Clash of Clans (ressources, constructions, défense, armée) dans mon propre univers de vampires, fées et loups-garous, jouable sur téléphone sans passer par un store.",
+    "solution": "Jeu en HTML5 Canvas et JavaScript natif, sans aucune dépendance. Vue isométrique dessinée de façon procédurale (bâtiments, décor, lucioles), déplacement au doigt et zoom au pincement. Toute l'économie est pilotée par un fichier de données d'équilibrage : château sur 20 niveaux, 4 ressources, extracteurs et stockages, 13 types de défenses, 11 troupes et 2 héroïnes, 8 expéditions et des invasions régulières dès le niveau 2. 4 mini-jeux rapportent des ressources bonus. Sauvegarde automatique avec production hors-ligne, installation comme une application (PWA plein écran, service worker) et mode turbo pour tester l'équilibrage.",
+    "stack": [
+      "JavaScript",
+      "HTML5 Canvas",
+      "PWA",
+      "Service Worker",
+      "LocalStorage",
+      "Node.js"
+    ],
+    "impact": [
+      "Un jeu complet : 20 niveaux de château, 13 défenses, 11 troupes, 8 expéditions et 4 mini-jeux.",
+      "Zéro dépendance : rendu isométrique et interface écrits entièrement à la main.",
+      "Installable sur téléphone comme une vraie app, jouable hors-ligne, avec une production qui continue pendant l'absence."
+    ],
+    "image": "/images/nocturna-icon.svg",
+    "accent": "violet",
+    "links": {},
+    "screenshot": "/images/projets/nocturna.jpg"
   }
 ]

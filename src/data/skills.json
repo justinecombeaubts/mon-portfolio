@@ -3,8 +3,8 @@
     "category": "Développement Web",
     "icon": "code-2",
     "items": [
-      { "name": "HTML5 / CSS3", "level": "projet", "proof": ["Route 35", "Le Chat Ivre", "Les recettes de maman", "QCM BNSSA"] },
-      { "name": "JavaScript", "level": "projet", "proof": ["Route 35", "Agenda des sorties", "Les recettes de maman"] },
+      { "name": "HTML5 / CSS3", "level": "projet", "proof": ["Route 35", "Le Chat Ivre", "Les recettes de maman", "QCM BNSSA", "Formes C.B."] },
+      { "name": "JavaScript", "level": "projet", "proof": ["Route 35", "Agenda des sorties", "Les recettes de maman", "Nocturna"] },
       { "name": "Node.js / Express / API REST", "level": "projet", "proof": ["Agenda des sorties", "Suivi Clash of Clans", "Les recettes de maman"] },
       { "name": "SQL / PostgreSQL", "level": "projet", "proof": ["Agenda des sorties", "Suivi Clash of Clans", "Le Chat Ivre"] },
       { "name": "React & Vite", "level": "projet", "proof": ["EduStudy Hub"] },
@@ -20,7 +20,7 @@
       { "name": "Make", "level": "projet", "proof": ["Alertes Dealabs"] },
       { "name": "API LLM (OpenAI, Gemini, Claude)", "level": "projet", "proof": ["Veille IA → Discord", "Assistant Marketing IA", "EduStudy Hub"] },
       { "name": "Sortie structurée & garde-fous IA", "level": "projet", "proof": ["Assistant Marketing IA", "Veille IA → Discord", "EduStudy Hub"] },
-      { "name": "Supabase (Postgres, RLS, Auth)", "level": "projet", "proof": ["Suivi Clash of Clans", "Le Chat Ivre", "EduStudy Hub"] },
+      { "name": "Supabase (Postgres, RLS, Auth)", "level": "projet", "proof": ["Suivi Clash of Clans", "Le Chat Ivre", "EduStudy Hub", "Mon Amour"] },
       { "name": "n8n", "level": "formation", "proof": ["Bachelor IA & Automation"] }
     ]
   },
@@ -31,7 +31,8 @@
       { "name": "Git / GitHub", "level": "projet", "proof": ["Tous les projets"] },
       { "name": "Vercel (déploiement, serverless, Blob)", "level": "projet", "proof": ["Route 35", "Les recettes de maman", "Agenda des sorties", "Analist"] },
       { "name": "Python (Pandas, Streamlit)", "level": "projet", "proof": ["Assistant Marketing IA", "Veille IA → Discord"] },
-      { "name": "Flutter / Dart", "level": "projet", "proof": ["Mon Quotidien"] }
+      { "name": "Flutter / Dart", "level": "projet", "proof": ["Mon Quotidien"] },
+      { "name": "Kotlin / Jetpack Compose (Android)", "level": "projet", "proof": ["NocFit", "Mon Amour"] }
     ]
   },
   {
@@ -39,7 +40,7 @@
     "icon": "palette",
     "items": [
       { "name": "UI / UX mobile-first", "level": "projet", "proof": ["Route 35", "Les recettes de maman"] },
-      { "name": "Identité visuelle", "level": "projet", "proof": ["Le Chat Ivre", "Ce portfolio"] },
+      { "name": "Identité visuelle", "level": "projet", "proof": ["Le Chat Ivre", "Formes C.B.", "Ce portfolio"] },
       { "name": "Canva / CapCut", "level": "perso", "proof": ["Contenus réseaux sociais"] }
     ]
   }

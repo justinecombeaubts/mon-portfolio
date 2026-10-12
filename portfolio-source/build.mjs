@@ -43,6 +43,10 @@ const featured = projects.filter((p) => p.category === 'ia-automation');
 const others = projects
   .filter((p) => p.category !== 'ia-automation')
   .sort((a, b) => CATEGORY_ORDER.indexOf(a.category) - CATEGORY_ORDER.indexOf(b.category));
+// 2 rangées de 4 cartes par page : au-delà, la grille déborde de la page A4.
+const OTHERS_PER_PAGE = 8;
+const othersChunks = [];
+for (let i = 0; i < others.length; i += OTHERS_PER_PAGE) othersChunks.push(others.slice(i, i + OTHERS_PER_PAGE));
 
 const stats = [
   [projects.length, 'projets réalisés'],
@@ -209,18 +213,19 @@ function projectPage(p, i, n, total) {
   </section>`;
 }
 
-function othersPage(qr, n, total) {
-  // Case libre en fin de grille : renvoi vers le site (fiches détaillées, démos).
+function othersPage(list, part, qr, n, total) {
+  const isLast = part === othersChunks.length - 1;
+  // Case libre en fin de grille (dernière page) : renvoi vers le site (fiches détaillées, démos).
   const cta =
-    others.length % 4
+    isLast && list.length % 4
       ? `<a class="card card-cta" href="${SITE}"><span class="qr">${qr}</span><strong>Toutes les fiches détaillées</strong><span>Contexte, solution, démos et code de chaque projet</span><em>${esc(bare(SITE))}</em></a>`
       : '';
   return `
   <section class="page">
     <p class="eyebrow">Développement Web &amp; Mobile</p>
-    <h2>Autres réalisations</h2>
+    <h2>Autres réalisations${othersChunks.length > 1 ? ` <span class="part">${part + 1}/${othersChunks.length}</span>` : ''}</h2>
     <div class="grid">
-      ${others
+      ${list
         .map(
           (p) => `
         <article class="card">
@@ -280,12 +285,12 @@ function lastPage(qr, n, total) {
 
 // ───────── Assemblage ─────────
 const qrLight = await QRCode.toString(SITE, { type: 'svg', margin: 0, color: { dark: '#2a0f17', light: '#ffffff' } });
-const total = 2 + featured.length + 2;
+const total = 2 + featured.length + othersChunks.length + 1;
 const pages = [
   coverPage(qrLight),
   aboutPage(2, total),
   ...featured.map((p, i) => projectPage(p, i, 3 + i, total)),
-  othersPage(qrLight, 3 + featured.length, total),
+  ...othersChunks.map((list, i) => othersPage(list, i, qrLight, 3 + featured.length + i, total)),
   lastPage(qrLight, total, total),
 ];
 
