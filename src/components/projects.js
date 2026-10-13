@@ -83,6 +83,10 @@ export function renderProjects() {
         <p class="section-subtitle mx-auto max-w-xl">
           Une sélection de projets en développement web, IA et automatisation.
         </p>
+        <p class="mx-auto mt-3 max-w-xl text-sm text-slate-500 dark:text-slate-400">
+          Ils sont nés depuis un an de mes tests et de mes recherches sur l'IA et l'automatisation :
+          une façon de découvrir de nouvelles choses en les essayant vraiment.
+        </p>
       </div>
 
       <div class="mt-10 flex flex-wrap justify-center gap-3">${filters}</div>
