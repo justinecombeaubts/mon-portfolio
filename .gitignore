@@ -2,8 +2,7 @@
 node_modules
 dist
 
-# Dossiers locaux (Netlify / Vercel)
-.netlify
+# Dossier local Vercel
 .vercel
 
 # Secrets locaux
