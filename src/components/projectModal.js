@@ -1,5 +1,6 @@
 import projects from '../data/projects.json';
 import { renderWorkflow } from './workflow.js';
+import { renderProjectCover } from './projectCover.js';
 
 function renderLinks(project) {
   const buttons = [];
@@ -66,9 +67,7 @@ function projectDetailHTML(project) {
       </div>`
     : '';
   return `
-    <div class="h-40 w-full overflow-hidden sm:h-52">
-      <img src="${project.screenshot || project.image}" alt="${project.title}" class="h-full w-full object-cover object-top" />
-    </div>
+    ${renderProjectCover(project, { variant: 'modal' })}
     <div class="p-6 sm:p-8">
       <p class="section-eyebrow">${project.status || project.year}</p>
       <h3 id="modal-title" class="mt-2 font-display text-2xl font-semibold text-slate-900 dark:text-white">

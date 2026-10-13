@@ -55,7 +55,7 @@
       }
     ],
     "image": "/images/coc-icon.svg",
-    "accent": "amber",
+    "accent": "#4a2c16",
     "links": {
       "demo": "https://coc-dashboard-beta.vercel.app/"
     },
@@ -111,7 +111,7 @@
       }
     ],
     "image": "/images/veille-ia-icon.svg",
-    "accent": "violet",
+    "accent": "#1e1b4b",
     "links": {}
   },
   {
@@ -163,7 +163,7 @@
       }
     ],
     "image": "/images/alerte-dealabs-icon.svg",
-    "accent": "violet",
+    "accent": "#5865f2",
     "links": {}
   },
   {
@@ -221,7 +221,7 @@
       }
     ],
     "image": "/images/marketing-assistant-icon.svg",
-    "accent": "violet",
+    "accent": "#241748",
     "links": {}
   },
   {
@@ -279,7 +279,7 @@
       }
     ],
     "image": "/images/edustudy-hub-icon.svg",
-    "accent": "rose",
+    "accent": "#ffd3b0",
     "links": {
       "demo": "https://edustudy-hub.vercel.app/"
     },
@@ -308,7 +308,7 @@
       "Progression synchronisée entre téléphone et ordinateur sans compte ni mot de passe, avec un code haché côté serveur."
     ],
     "image": "/images/route35-icon.svg",
-    "accent": "amber",
+    "accent": "#11141b",
     "links": {
       "demo": "https://route35.vercel.app/"
     },
@@ -337,7 +337,7 @@
       "Démo visiteur 100 % locale avec données fictives : on peut tout essayer sans exposer de vrais agendas."
     ],
     "image": "/images/agenda-sorties-icon.svg",
-    "accent": "amber",
+    "accent": "#f5efe6",
     "links": {
       "demo": "https://agenda-sorties.vercel.app/?demo"
     },
@@ -366,7 +366,7 @@
       "Jeton d'API jamais envoyé au navigateur, et mode démonstration avec données fictives pour travailler l'interface en local (c'est lui qui figure sur la capture)."
     ],
     "image": "/images/analist-icon.svg",
-    "accent": "wine",
+    "accent": "#2a0f17",
     "links": {},
     "screenshot": "/images/projets/analist.jpg"
   },
@@ -393,7 +393,7 @@
       "Respect de la vie privée par défaut : carte chargée à la demande, animations coupées si l'utilisateur le préfère."
     ],
     "image": "/images/formes-cb-icon.svg",
-    "accent": "crimson",
+    "accent": "#141414",
     "links": {},
     "screenshot": "/images/projets/formes-cb.jpg"
   },
@@ -420,7 +420,7 @@
       "Créneau toujours calculé sur l'heure réelle : aucune remise à zéro manuelle."
     ],
     "image": "/images/mon-quotidien-icon.svg",
-    "accent": "crimson",
+    "accent": "#2a1418",
     "links": {}
   },
   {
@@ -446,7 +446,7 @@
       "Une tendance n'apparaît qu'avec au moins 3 jours par groupe et un écart net, pour éviter les conclusions hâtives."
     ],
     "image": "/images/nocfit-icon.svg",
-    "accent": "wine",
+    "accent": "#1f0d12",
     "links": {}
   },
   {
@@ -471,7 +471,7 @@
       "Aucun secret dans le code : identifiants Supabase et compte de service Firebase restent hors du dépôt."
     ],
     "image": "/images/mon-amour-icon.svg",
-    "accent": "rose",
+    "accent": "#3b1f1a",
     "links": {}
   },
   {
@@ -496,7 +496,7 @@
       "Site maintenu : un bandeau prévient que le BNSSA est remplacé par le SSA au 1er octobre 2026 et que le contenu reste basé sur l'ancien référentiel."
     ],
     "image": "/images/qcm-bnssa-icon.svg",
-    "accent": "blue",
+    "accent": "#2563eb",
     "links": {
       "demo": "https://qcm-bnssa.vercel.app/",
       "code": "https://github.com/justinecombeaubts/qcm-bnssa"
@@ -526,7 +526,7 @@
       "Site en ligne, pensé pour le mobile : carte, galerie, réservation et itinéraire au même endroit."
     ],
     "image": "/images/le-chat-ivre-icon.svg",
-    "accent": "wine",
+    "accent": "#0a5c5c",
     "links": {
       "demo": "https://le-chat-ivre.vercel.app/"
     },
@@ -555,7 +555,7 @@
       "« Mon frigo » : des idées de recettes à partir de ce qu'on a sous la main."
     ],
     "image": "/images/recettes-famille-icon.svg",
-    "accent": "green",
+    "accent": "#b75d39",
     "links": {
       "demo": "https://les-recettes-famille.vercel.app/",
       "code": "https://github.com/justinecombeaubts/recettes-famille"
@@ -585,7 +585,7 @@
       "Installable sur téléphone comme une vraie app, jouable hors-ligne, avec une production qui continue pendant l'absence."
     ],
     "image": "/images/nocturna-icon.svg",
-    "accent": "violet",
+    "accent": "#3a1450",
     "links": {},
     "screenshot": "/images/projets/nocturna.jpg"
   }
