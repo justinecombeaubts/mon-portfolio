@@ -1,6 +1,5 @@
-// Visuel d'un projet, identique sur la carte et dans la fiche :
-// fond à la couleur du logo, puis capture d'écran dans une fenêtre de navigateur
-// si le projet en a une, sinon le logo centré (jamais recadré).
+// Visuel d'un projet : fond à la couleur du logo, puis logo centré (jamais recadré)
+// ou capture d'écran dans une fenêtre de navigateur.
 
 function siteLabel(project) {
   const url = project.links.demo;
@@ -11,7 +10,8 @@ function siteLabel(project) {
 const VARIANTS = { card: 'project-cover--card', modal: 'project-cover--modal' };
 
 export function renderProjectCover(project, { variant = 'card' } = {}) {
-  const inner = project.screenshot
+  // Carte : toujours le logo. Fiche : la capture quand il y en a une.
+  const inner = variant === 'modal' && project.screenshot
     ? `<div class="cover-window">
         <div class="cover-window-bar">
           <i></i><i></i><i></i>
