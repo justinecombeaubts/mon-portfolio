@@ -10,6 +10,7 @@ mkdirSync(OUT, { recursive: true });
 // Largeurs choisies pour un affichage net en écran Retina (2x la taille CSS max).
 const jobs = [
   { src: 'moi.png', name: 'moi', width: 768 },
+  { src: 'accueil.webp', name: 'accueil', width: 768 },
   { src: 'couverture.png', name: 'couverture', width: 640 },
   { src: 'photo-pro.jpg', name: 'photo-pro', width: 224 },
   { src: 'logo.png', name: 'logo', width: 96, png: true },
