@@ -314,7 +314,7 @@ ${pages.join('\n')}
 </html>`
 );
 
-// ───────── PDF via Chrome headless (comme cv-source/build.mjs) ─────────
+// ───────── PDF via Chrome headless ─────────
 const candidates = [
   process.env.CHROME_PATH,
   'C:/Program Files/Google/Chrome/Application/chrome.exe',
