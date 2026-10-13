@@ -561,32 +561,5 @@
       "code": "https://github.com/justinecombeaubts/recettes-famille"
     },
     "screenshot": "/images/projets/recettes.jpg"
-  },
-  {
-    "id": "nocturna",
-    "category": "dev-web",
-    "title": "Nocturna — Royaume des Ombres",
-    "tagline": "Jeu mobile de construction de village façon Clash of Clans, en univers dark fantasy",
-    "year": "2026",
-    "status": "Projet perso — jeu PWA",
-    "context": "Projet pour le plaisir : recréer les mécaniques d'un jeu de gestion et de stratégie comme Clash of Clans (ressources, constructions, défense, armée) dans mon propre univers de vampires, fées et loups-garous, jouable sur téléphone sans passer par un store.",
-    "solution": "Jeu en HTML5 Canvas et JavaScript natif, sans aucune dépendance. Vue isométrique dessinée de façon procédurale (bâtiments, décor, lucioles), déplacement au doigt et zoom au pincement. Toute l'économie est pilotée par un fichier de données d'équilibrage : château sur 20 niveaux, 4 ressources, extracteurs et stockages, 13 types de défenses, 11 troupes et 2 héroïnes, 8 expéditions et des invasions régulières dès le niveau 2. 4 mini-jeux rapportent des ressources bonus. Sauvegarde automatique avec production hors-ligne, installation comme une application (PWA plein écran, service worker) et mode turbo pour tester l'équilibrage.",
-    "stack": [
-      "JavaScript",
-      "HTML5 Canvas",
-      "PWA",
-      "Service Worker",
-      "LocalStorage",
-      "Node.js"
-    ],
-    "impact": [
-      "Un jeu complet : 20 niveaux de château, 13 défenses, 11 troupes, 8 expéditions et 4 mini-jeux.",
-      "Zéro dépendance : rendu isométrique et interface écrits entièrement à la main.",
-      "Installable sur téléphone comme une vraie app, jouable hors-ligne, avec une production qui continue pendant l'absence."
-    ],
-    "image": "/images/nocturna-icon.svg",
-    "accent": "#3a1450",
-    "links": {},
-    "screenshot": "/images/projets/nocturna.jpg"
   }
 ]
