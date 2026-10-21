@@ -17,12 +17,13 @@
     "icon": "sparkles",
     "items": [
       { "name": "GitHub Actions (cron)", "level": "projet", "proof": ["Suivi Clash of Clans", "ColibrIA"] },
-      { "name": "Make / Zapier", "level": "projet", "proof": ["Alertes Dealabs", "ColibrIA (v1)"] },
+      { "name": "Make / Zapier", "level": "projet", "proof": ["Atelier Terre & Feu", "Alertes Dealabs", "ColibrIA (v1)"] },
       { "name": "Prompt engineering", "level": "projet", "proof": ["ColibrIA", "Assistant Marketing IA"] },
       { "name": "API LLM (OpenAI, Gemini, Claude)", "level": "projet", "proof": ["ColibrIA", "Assistant Marketing IA", "EduStudy Hub"] },
       { "name": "Sortie structurée & garde-fous IA", "level": "projet", "proof": ["ColibrIA", "Assistant Marketing IA", "EduStudy Hub"] },
       { "name": "Supabase (Postgres, RLS, Auth)", "level": "projet", "proof": ["Suivi Clash of Clans", "Le Chat Ivre", "EduStudy Hub", "Mon Amour"] },
-      { "name": "n8n", "level": "formation", "proof": ["Bachelor IA & Automation"] }
+      { "name": "n8n", "level": "projet", "proof": ["Atelier Terre & Feu", "Bachelor IA & Automation"] },
+      { "name": "Choix d'outil & RGPD (hébergement, sous-traitants)", "level": "projet", "proof": ["Atelier Terre & Feu"] }
     ]
   },
   {

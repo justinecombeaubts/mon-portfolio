@@ -221,6 +221,89 @@
     "links": {}
   },
   {
+    "id": "terre-et-feu",
+    "category": "ia-automation",
+    "title": "Atelier Terre & Feu : Make, Zapier et n8n",
+    "tagline": "Le même pipeline de demandes construit sur les trois outils d'automatisation, puis comparé : fonctionnalités, coût, sécurité et RGPD",
+    "year": "2026",
+    "status": "Projet fictif · Bachelor 3",
+    "context": "Une évaluation de niveau en Bachelor 3 m'a fixé un objectif : réaliser un scénario complet sur chacun des trois outils d'automatisation et documenter leurs différences, y compris l'hébergement des données et ses implications RGPD. J'ai imaginé un client, l'Atelier Terre & Feu, un atelier de céramique parisien dont la gérante ressaisit à la main les demandes reçues par formulaire, répond une par une et finit par oublier des prospects. J'ai aussi créé son site vitrine.",
+    "solution": "Un formulaire Tally (nom, email, type de demande, atelier, date, message) envoie chaque demande par webhook à l'orchestrateur. Une réservation est enregistrée dans Google Sheets avec le statut « Nouvelle réservation », puis le client reçoit un email de confirmation HTML aux couleurs de l'atelier. Une question déclenche une alerte Discord pour la gérante, et tout échec d'enregistrement ou d'envoi l'alerte aussi : aucun prospect n'est perdu sans qu'elle le sache. Le même scénario a été construit sur Make (Router, filtres, routes d'erreur), sur Zapier (Paths, Formatter, branche Succès / Erreur, en 5 versions) et sur n8n (webhook, nœud If, expressions JavaScript, sortie d'erreur). La principale difficulté commune venait des données de Tally : un tableau de champs dont les choix arrivent sous forme d'identifiants. Sur n8n, je retrouve le champ par son nom plutôt que par sa position, pour que le workflow continue de fonctionner si le formulaire change. Le tout est documenté dans un rapport : comparatif fonctionnel, sécurité des données, RGPD et recommandation pour l'atelier.",
+    "stack": [
+      "Make",
+      "Zapier",
+      "n8n",
+      "Tally (webhook)",
+      "Google Sheets",
+      "Gmail",
+      "Discord",
+      "RGPD"
+    ],
+    "impact": [
+      "Le même pipeline fonctionne sur les trois outils, avec une gestion d'erreur testée en provoquant l'échec volontairement.",
+      "Un comparatif à périmètre égal : prise en main, lecture des données, coût (2 à 4 crédits Make, 1 à 3 tâches Zapier, 1 exécution n8n par demande) et hébergement (UE pour Make EU1 et n8n Cloud, États-Unis pour Zapier).",
+      "Recommandation argumentée : Make (zone EU1) pour une gérante seule et non technique, n8n si l'atelier grandit ou si la souveraineté des données devient une exigence.",
+      "Les points encore imparfaits sont documentés honnêtement, avec leur correctif (message d'erreur vide, champ facultatif qui donne un email incomplet)."
+    ],
+    "workflow": [
+      {
+        "kind": "source",
+        "icon": "fa-clipboard-list",
+        "label": "Formulaire Tally",
+        "detail": "Webhook à chaque demande"
+      },
+      {
+        "kind": "process",
+        "icon": "fa-code-branch",
+        "label": "Qualification",
+        "detail": "Réservation ou question"
+      },
+      {
+        "kind": "process",
+        "icon": "fa-table",
+        "label": "Google Sheets",
+        "detail": "Statut « Nouvelle réservation »"
+      },
+      {
+        "kind": "output",
+        "icon": "fa-envelope",
+        "label": "Email au client",
+        "detail": "Confirmation aux couleurs de l’atelier"
+      },
+      {
+        "kind": "human",
+        "icon": "fa-bell",
+        "label": "Alerte Discord",
+        "detail": "Question ou échec : la gérante agit"
+      }
+    ],
+    "image": "/images/terre-et-feu-icon.svg",
+    "screenshot": "/images/projets/terre-et-feu.jpg",
+    "gallery": [
+      {
+        "src": "/images/terre-et-feu/make.webp",
+        "alt": "Scénario Make : webhook, router à deux branches, Google Sheets, Gmail et alertes Discord",
+        "wide": true
+      },
+      {
+        "src": "/images/terre-et-feu/zapier.webp",
+        "alt": "Zap final : chemins Réservation et Question, Formatter, branche Succès / Erreur sur Gmail"
+      },
+      {
+        "src": "/images/terre-et-feu/n8n.webp",
+        "alt": "Workflow n8n : formulaire Tally, nœud If, Google Sheets, Gmail et sortie d'erreur vers Discord",
+        "wide": true
+      },
+      {
+        "src": "/images/terre-et-feu/email.webp",
+        "alt": "Email de confirmation reçu par le client, aux couleurs de l'atelier",
+        "wide": true
+      }
+    ],
+    "accent": "#a8471f",
+    "links": {}
+  },
+  {
     "id": "marketing-assistant",
     "category": "ia-automation",
     "title": "Assistant Marketing IA",
