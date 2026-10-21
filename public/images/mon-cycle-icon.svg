@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Mon Cycle">
+  <title>Mon Cycle</title>
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="38%" r="65%">
+      <stop offset="0" stop-color="#3A1A20"/>
+      <stop offset="1" stop-color="#1A1014"/>
+    </radialGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#E2C27E"/>
+      <stop offset="1" stop-color="#A9843F"/>
+    </linearGradient>
+    
+  </defs>
+
+  <!-- médaillon -->
+  <circle cx="64" cy="64" r="60" fill="url(#bg)"/>
+  <circle cx="64" cy="64" r="60" fill="none" stroke="url(#gold)" stroke-width="3"/>
+  <circle cx="64" cy="64" r="53" fill="none" stroke="#C9A55C" stroke-opacity=".45" stroke-width="1"/>
+
+  <circle cx="36" cy="56" r="6.5" fill="#1A1014" fill-opacity=".4" stroke="#E2C27E" stroke-opacity=".6" stroke-width="1"/><circle cx="50" cy="46" r="6.5" fill="#1A1014" fill-opacity=".4" stroke="#E2C27E" stroke-opacity=".6" stroke-width="1"/><circle cx="64" cy="42" r="6.5" fill="#1A1014" fill-opacity=".4" stroke="#E2C27E" stroke-opacity=".6" stroke-width="1"/><circle cx="78" cy="46" r="6.5" fill="#1A1014" fill-opacity=".4" stroke="#E2C27E" stroke-opacity=".6" stroke-width="1"/><circle cx="92" cy="56" r="6.5" fill="#1A1014" fill-opacity=".4" stroke="#E2C27E" stroke-opacity=".6" stroke-width="1"/>
+  <path d="M36 49.5 A6.5 6.5 0 0 1 36 62.5 A3.5 6.5 0 0 0 36 49.5Z" fill="#E2C27E"/>
+  <path d="M50 39.5 A6.5 6.5 0 0 1 50 52.5Z" fill="#E2C27E"/>
+  <circle cx="64" cy="42" r="6.5" fill="url(#gold)"/>
+  <path d="M78 39.5 A6.5 6.5 0 0 0 78 52.5Z" fill="#E2C27E"/>
+  <path d="M92 49.5 A6.5 6.5 0 0 0 92 62.5 A3.5 6.5 0 0 1 92 49.5Z" fill="#E2C27E"/>
+  <path d="M64 60 C64 60 48 78 48 87 A16 16 0 0 0 80 87 C80 78 64 60 64 60Z" fill="#7A1F2B" stroke="url(#gold)" stroke-width="2.5" stroke-linejoin="round"/>
+  <path d="M56 84 Q56 78 60 74" fill="none" stroke="#EFE6D8" stroke-opacity=".55" stroke-width="2" stroke-linecap="round"/>
+</svg>

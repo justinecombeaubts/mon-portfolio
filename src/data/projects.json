@@ -398,55 +398,130 @@
     "screenshot": "/images/projets/formes-cb.jpg"
   },
   {
-    "id": "mon-quotidien",
+    "id": "noc-sport",
     "category": "mobile",
-    "title": "Mon Quotidien",
-    "tagline": "Planning de journée en cycles de 2h avec suivi d'hydratation",
-    "year": "2026",
-    "status": "App Android (Flutter)",
-    "context": "Application personnelle pour tenir un rythme de journée régulier (cycles travail/pause de 2h) et penser à boire, avec des rappels qui doivent rester fiables même quand Android limite les tâches en arrière-plan.",
-    "solution": "Application Flutter à l'identité visuelle personnalisée : notifications locales planifiées (réveil interactif à 6h, bascule de créneau, rappels d'hydratation horaires), widget d'écran d'accueil natif (AppWidgetProvider Kotlin), et tâches d'arrière-plan (WorkManager) qui replanifient tout après un redémarrage. Le moteur de créneau se base toujours sur l'heure murale réelle : aucune réinitialisation manuelle nécessaire.",
-    "stack": [
-      "Flutter",
-      "Dart",
-      "flutter_local_notifications",
-      "WorkManager",
-      "Kotlin (widget natif)",
-      "Provider"
-    ],
-    "impact": [
-      "Rappels planifiés qui survivent au redémarrage du téléphone (WorkManager).",
-      "Widget natif Android sur l'écran d'accueil, développé en Kotlin.",
-      "Créneau toujours calculé sur l'heure réelle : aucune remise à zéro manuelle."
-    ],
-    "image": "/images/mon-quotidien-icon.svg",
-    "accent": "#2a1418",
-    "links": {}
-  },
-  {
-    "id": "nocfit",
-    "category": "mobile",
-    "title": "NocFit",
-    "tagline": "App Android de suivi santé, sport, humeur et cuisine, 100 % hors-ligne",
+    "title": "NocSport",
+    "tagline": "App Android de suivi sportif : musculation série par série, cardio et podomètre",
     "year": "2026",
     "status": "App Android (Kotlin)",
-    "context": "Application personnelle pour réunir au même endroit ce que je suivais dans plusieurs applis : séances de sport, poids et mensurations, cycle, prise de pilule, humeur, habitudes et même les repas de la semaine. Les données de santé devaient rester sur le téléphone.",
-    "solution": "Application Kotlin native en Jetpack Compose (Material 3), architecture MVVM : base Room → dépôts → ViewModel (StateFlow) → écrans. Séances avec historique et courbe de progression par exercice (les dernières charges pré-remplissent la séance suivante), rappel de pilule par alarme exacte reprogrammée au redémarrage, estimation du cycle, saisie express de l'humeur et de l'énergie, habitudes avec séries, recettes, planning de la semaine et liste de courses générée automatiquement. Un moteur de corrélations calculé en local relie l'énergie et l'humeur au sport, au cycle, à l'eau, aux pas et au réveil, avec des seuils pour n'afficher que des tendances fiables.",
+    "context": "Suivre mes séances de musculation, mon cardio et mes pas dans une seule appli, sans compte ni publicité, avec un minuteur de repos qui fonctionne même téléphone verrouillé. Elle reprend et améliore la partie sport de ma première appli de suivi.",
+    "solution": "Application Kotlin native en Jetpack Compose (Material 3), architecture MVVM : base Room → ViewModel (StateFlow) → écrans. Quatre onglets : Muscu (routines, séance validée série par série et pré-remplie avec les valeurs de la dernière fois, minuteur de repos, records et 1RM estimé, courbes de progression), Cardio (allure, vitesse, totaux de la semaine), Pas et Stats (calendrier du mois, volume des 8 dernières semaines). Le podomètre lit le capteur matériel du téléphone depuis un service de premier plan, relancé au démarrage, et n'ajoute que la différence entre deux lectures pour gérer redémarrages et changements de jour.",
     "stack": [
       "Kotlin",
       "Jetpack Compose",
       "Room",
       "MVVM (StateFlow)",
-      "Navigation Compose",
-      "AlarmManager"
+      "Service de premier plan",
+      "Tests unitaires (Robolectric)"
     ],
     "impact": [
-      "Toutes les données de santé restent sur le téléphone : aucun compte, aucun serveur.",
-      "Migration de base automatique (v1 → v2) couverte par un test, sans perte de données.",
-      "Une tendance n'apparaît qu'avec au moins 3 jours par groupe et un écart net, pour éviter les conclusions hâtives."
+      "Pas comptés en arrière-plan, appli fermée, sans perte si Android la tue (écriture en base toutes les 20 s).",
+      "Migration de base v1 → v2 et sauvegarde / restauration JSON couvertes par des tests.",
+      "Aucun compte, aucun réseau : toutes les données restent sur le téléphone."
     ],
-    "image": "/images/nocfit-icon.svg",
+    "image": "/images/noc-sport-icon.svg",
     "accent": "#1f0d12",
+    "links": {}
+  },
+  {
+    "id": "mon-cycle",
+    "category": "mobile",
+    "title": "Mon Cycle",
+    "tagline": "App Android de suivi du cycle, partagée avec son ou sa partenaire",
+    "year": "2026",
+    "status": "App Android (Kotlin)",
+    "context": "Suivre son cycle et le partager avec son ou sa partenaire, pour qu'il ou elle sache où on en est sans avoir à l'expliquer. Les données sont intimes : seul le couple doit pouvoir les lire.",
+    "solution": "Application Kotlin en Jetpack Compose. Elle note ses règles et, chaque soir, sa douleur, son flux et son énergie ; le ou la partenaire voit la phase, le jour du cycle, les prochaines règles et son état du jour. Les données sont stockées dans Supabase (même projet et mêmes comptes que Mon Amour), protégées par des règles Row Level Security : seul le couple lit, seule la propriétaire écrit. Les rappels (changement de phase à 9 h sur les deux téléphones, bilan du soir, pilule avec bouton « Je l'ai prise » et relance 1 h après) sont des alarmes exactes reprogrammées au redémarrage.",
+    "stack": [
+      "Kotlin",
+      "Jetpack Compose",
+      "Supabase (Postgres, Auth)",
+      "Row Level Security",
+      "AlarmManager",
+      "Notifications"
+    ],
+    "impact": [
+      "Données protégées côté base par 6 règles RLS : le ou la partenaire lit, sans pouvoir rien modifier.",
+      "Rappel de pilule avec action directe depuis la notification et relance automatique.",
+      "Calcul du cycle couvert par des tests unitaires."
+    ],
+    "image": "/images/mon-cycle-icon.svg",
+    "accent": "#2a1418",
+    "links": {}
+  },
+  {
+    "id": "mon-horloge",
+    "category": "mobile",
+    "title": "Mon Horloge",
+    "tagline": "App Android d'alarmes, horloge mondiale, chronomètre et minuteur",
+    "year": "2026",
+    "status": "App Android (Kotlin)",
+    "context": "Remplacer l'horloge fournie avec le téléphone par une appli à mon image, sans rien perdre en fiabilité : une alarme qui ne sonne pas n'est pas une option.",
+    "solution": "Application Kotlin en Jetpack Compose. Alarmes avec jours de répétition, nom, sonnerie au choix, vibration et rappel 5 min ; elles passent par l'API d'alarme système (setAlarmClock) et s'affichent en plein écran même téléphone verrouillé. Horloge mondiale avec un cadran gothique dessiné en Compose, chronomètre avec meilleur et pire tour, minuteur qui sonne appli fermée.",
+    "stack": [
+      "Kotlin",
+      "Jetpack Compose",
+      "AlarmManager (setAlarmClock)",
+      "Full-screen intent",
+      "RingtoneManager"
+    ],
+    "impact": [
+      "Alarmes qui sonnent écran verrouillé et survivent au redémarrage du téléphone.",
+      "Tout reste sur le téléphone, sans compte ni réseau.",
+      "Logique des alarmes (prochaine occurrence, répétitions) couverte par des tests."
+    ],
+    "image": "/images/mon-horloge-icon.svg",
+    "accent": "#24101a",
+    "links": {}
+  },
+  {
+    "id": "mon-inventaire",
+    "category": "mobile",
+    "title": "Mon Inventaire",
+    "tagline": "App Android pour inventorier livres, tenues, jeux et bijoux, avec suggestion de tenue",
+    "year": "2026",
+    "status": "App Android (Kotlin)",
+    "context": "Savoir ce que je possède (livres, vêtements, jeux, bijoux) sans tableur, avec une photo de chaque objet, et arrêter de porter toujours les mêmes vêtements.",
+    "solution": "Application Kotlin en Jetpack Compose avec base Room. Chaque objet a une catégorie, des champs propres à cette catégorie, des étiquettes, des notes et une photo (appareil photo ou galerie, stockée dans l'appli). Recherche plein texte et filtres par catégorie et étiquette. Un module propose la tenue du jour à partir des vêtements : saison, temps passé au placard, au plus une couleur forte entre le haut et le bas, veste surtout en automne et en hiver, jamais deux fois la même combinaison.",
+    "stack": [
+      "Kotlin",
+      "Jetpack Compose",
+      "Room",
+      "Photo Picker / appareil photo",
+      "FileProvider"
+    ],
+    "impact": [
+      "Suggestion de tenue par règles explicables, sans IA : un vêtement oublié a jusqu'à 15 fois plus de chances de sortir.",
+      "Données et photos uniquement sur le téléphone, hors ligne, sans compte.",
+      "Recherche dans tous les champs, étiquettes et notes."
+    ],
+    "image": "/images/mon-inventaire-icon.svg",
+    "accent": "#2a1418",
+    "links": {}
+  },
+  {
+    "id": "vampire-alchemist",
+    "category": "mobile",
+    "title": "The Vampire's Alchemist",
+    "tagline": "Jeu de fusion façon Little Alchemy en univers gothique, PWA et APK Android",
+    "year": "2026",
+    "status": "Jeu (PWA + APK Android)",
+    "context": "Créer un jeu complet de A à Z, du contenu au son, jouable sur téléphone et hors ligne, sans aucune dépendance.",
+    "solution": "Jeu en HTML, CSS et JavaScript sans dépendance : on fusionne deux éléments pour en découvrir un nouveau. 305 éléments et 415 recettes en 10 catégories, 8 rangs, grimoire, indices en deux temps, contrôles tactiles (appui long puis glisser). Musique gothique composée en temps réel avec la Web Audio API, jamais deux fois la même. PWA installable et hors ligne, empaquetée en APK avec Capacitor ; un script vérifie avant chaque build qu'aucune recette n'est en double et que chaque élément reste atteignable.",
+    "stack": [
+      "JavaScript",
+      "HTML / CSS",
+      "Web Audio API",
+      "PWA (service worker)",
+      "Capacitor (Android)"
+    ],
+    "impact": [
+      "305 éléments et 415 recettes, tous atteignables : vérifié automatiquement avant chaque build.",
+      "Musique et sons générés par le navigateur : aucun fichier audio.",
+      "Une seule base de code pour le web (PWA hors ligne) et l'APK Android."
+    ],
+    "image": "/images/vampire-alchemist-icon.svg",
+    "accent": "#1a0a0e",
     "links": {}
   },
   {
