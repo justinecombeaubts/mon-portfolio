@@ -94,7 +94,7 @@ export function renderProjects() {
         </p>
       </div>
 
-      <div class="mt-12 grid gap-7 sm:grid-cols-2 xl:grid-cols-4">
+      <div class="mt-12 grid gap-7 sm:grid-cols-2">
         ${cards}
       </div>
 

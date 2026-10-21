@@ -63,58 +63,110 @@
     }
   },
   {
-    "id": "veille-ia-discord",
+    "id": "colibria",
     "category": "ia-automation",
-    "title": "Veille IA → Discord",
-    "tagline": "Pipeline RSS → LLM → Discord qui résume l'actu IA en français pour toute ma promo",
+    "title": "ColibrIA",
+    "tagline": "Un bot de veille tech qui lit l'actu à ma place et ne garde que l'essentiel, trié par sujet sur Discord",
     "year": "2026",
     "status": "En production",
     "automations": 1,
-    "context": "En Bachelor IA & Automation, suivre l'actualité de l'IA fait partie du métier, mais elle va très vite et se disperse entre les blogs officiels (OpenAI, Google, Anthropic, Hugging Face…) et la presse française et américaine, souvent en anglais. Chacun passait à côté d'annonces importantes ou voyait la même info cinq fois.",
-    "solution": "Script Python planifié toutes les 30 minutes par GitHub Actions, sans serveur. Il lit 7 flux RSS/Atom (parseur écrit avec la bibliothèque standard, seule dépendance : requests), écarte les articles de plus de 24 h et les doublons (liens déjà postés et titres normalisés, pour repérer un même article venu de deux sources), puis donne la priorité aux sources officielles. Pour chaque article, le texte est extrait de la page quand c'est possible et envoyé à Gemini avec une sortie JSON imposée : le modèle juge si l'article parle vraiment d'IA, puis rédige un titre, un résumé factuel en français avec émojis et une phrase « À retenir ». Le résultat est posté dans le salon Discord de la promo sous forme d'embed (couleur par source, lien vers l'article). L'historique (seen.json) est recommité par le workflow à chaque passage.",
+    "context": "Faire sa veille tech, c'est un job à plein temps : des dizaines de sites à surveiller (OpenAI, Google, GitHub, n8n, médias tech…), beaucoup de bruit (marketing, rumeurs, contenus pour débutants) et les vraies nouveautés noyées dans la masse. Une première version sur Zapier envoyait un flux RSS tel quel dans Discord : sans tri, au format brut et vite limitée (une source à la fois, quota de tâches). J'ai donc reconstruit le projet en code. Comme un colibri qui ne garde que le nectar, ColibrIA ne retient que les articles qui comptent.",
+    "solution": "Programme Node.js lancé par GitHub Actions toutes les 6 heures. Il lit 38 sources (blogs officiels d'OpenAI, Google DeepMind, Mistral, Hugging Face, GitHub, Node.js, React…, médias tech et recherches Google News pour les sites sans flux), ne garde que les articles de moins de 48 h jamais vus (mémoire des liens sur 30 jours), puis fait noter chacun sur 10 par Gemini selon un profil écrit en langage naturel : sujets suivis, exclusions et grille de points (+3 pour un outil suivi, +2 pour une faille touchant ma stack, −3 pour un contenu débutant…). L'IA choisit aussi le salon parmi 31, en 8 catégories et 2 profils (le serveur est partagé à deux, chaque salon est noté selon le profil de son propriétaire). Les articles notés 6/10 ou plus sont publiés via webhooks : titre traduit, points clés, « Pour toi », idée « À tester », jauge de pertinence, couleur et avatar de colibri propres au salon. Robustesse : nouvelles tentatives puis modèle de secours si Gemini est surchargé, sources en panne ignorées, contenu des articles traité comme une donnée (protection contre l'injection de prompt) et chaque réponse de l'IA validée.",
     "stack": [
-      "Python",
+      "Node.js (ES modules)",
+      "API Gemini (Flash-Lite)",
       "GitHub Actions (cron)",
-      "Flux RSS / Atom",
-      "API Gemini",
-      "Sortie JSON structurée",
-      "Discord Webhooks"
+      "rss-parser",
+      "Webhooks Discord",
+      "Prompt engineering"
     ],
     "impact": [
-      "Toute la promo reçoit l'actu IA en français, résumée et sourcée, sans rien avoir à surveiller.",
-      "Zéro doublon et zéro hors-sujet : dédoublonnage multi-sources et filtre de pertinence fait par le LLM.",
-      "Hébergement 100 % gratuit et robuste : un flux en panne est ignoré, et un article non résumé ou non posté est retenté au passage suivant."
+      "38 sources surveillées, jusqu’à 80 articles analysés par passage, toutes les 6 heures.",
+      "Seuls les articles notés 6/10 ou plus sont publiés, dans le bon salon parmi 31 (8 catégories, 2 profils).",
+      "Pour changer ce que le bot retient, je modifie un fichier texte, pas le code.",
+      "0 € de coût de fonctionnement : clé API et webhooks dans les secrets GitHub, jamais dans le code."
     ],
     "workflow": [
       {
         "kind": "source",
         "icon": "fa-rss",
-        "label": "7 flux RSS / Atom",
-        "detail": "Relus toutes les 30 min"
+        "label": "38 sources",
+        "detail": "Relues toutes les 6 h"
       },
       {
         "kind": "process",
         "icon": "fa-filter",
-        "label": "Tri et dédoublonnage",
-        "detail": "< 24 h, sources officielles d'abord"
+        "label": "Nouveautés seulement",
+        "detail": "< 48 h, sans doublon"
       },
       {
         "kind": "ai",
         "icon": "fa-wand-magic-sparkles",
         "label": "Gemini",
-        "detail": "Filtre + résumé FR en JSON"
+        "detail": "Note /10 selon mon profil + salon"
+      },
+      {
+        "kind": "process",
+        "icon": "fa-scale-balanced",
+        "label": "Seuil 6/10",
+        "detail": "Réponse de l’IA validée"
       },
       {
         "kind": "output",
         "icon": "fa-bell",
-        "label": "Embed Discord",
-        "detail": "Résumé + lien vers la source"
+        "label": "Discord",
+        "detail": "31 salons, résumé en français"
       }
     ],
-    "image": "/images/veille-ia-icon.svg",
-    "accent": "#1e1b4b",
+    "image": "/images/colibria-icon.webp",
+    "imageAlt": "Logo ColibrIA : un colibri doré aux ailes irisées devant un croissant de lune",
+    "banner": "/images/colibria/banniere.webp",
+    "bannerAlt": "ColibrIA, veille IA, dev et automatisation",
+    "gallery": [
+      {
+        "src": "/images/colibria/slide-01.webp",
+        "alt": "Slide 1 du carrousel de présentation de ColibrIA"
+      },
+      {
+        "src": "/images/colibria/slide-02.webp",
+        "alt": "Slide 2 du carrousel de présentation de ColibrIA"
+      },
+      {
+        "src": "/images/colibria/slide-03.webp",
+        "alt": "Slide 3 du carrousel de présentation de ColibrIA"
+      },
+      {
+        "src": "/images/colibria/slide-04.webp",
+        "alt": "Slide 4 du carrousel de présentation de ColibrIA"
+      },
+      {
+        "src": "/images/colibria/slide-05.webp",
+        "alt": "Slide 5 du carrousel de présentation de ColibrIA"
+      },
+      {
+        "src": "/images/colibria/slide-06.webp",
+        "alt": "Slide 6 du carrousel de présentation de ColibrIA"
+      },
+      {
+        "src": "/images/colibria/slide-07.webp",
+        "alt": "Slide 7 du carrousel de présentation de ColibrIA"
+      },
+      {
+        "src": "/images/colibria/slide-08.webp",
+        "alt": "Slide 8 du carrousel de présentation de ColibrIA"
+      },
+      {
+        "src": "/images/colibria/avatars.webp",
+        "alt": "Planche des avatars de colibri, un par salon Discord",
+        "wide": true
+      }
+    ],
+    "accent": "#1d182e",
     "featured": true,
-    "links": {}
+    "links": {
+      "presentation": "/projets/ColibrIA-presentation.pdf"
+    },
+    "privateNote": "Code disponible sur demande"
   },
   {
     "id": "alerte-dealabs",

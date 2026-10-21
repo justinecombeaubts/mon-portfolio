@@ -1,32 +1,7 @@
 import projects from '../data/projects.json';
 import { renderWorkflow } from './workflow.js';
 import { renderProjectCover } from './projectCover.js';
-
-function renderLinks(project) {
-  const buttons = [];
-  if (project.links.demo) {
-    buttons.push(
-      `<a href="${project.links.demo}" target="_blank" rel="noopener" class="btn-primary">
-        <i class="fas fa-arrow-up-right-from-square"></i> Voir le site
-      </a>`
-    );
-  }
-  if (project.links.code) {
-    buttons.push(
-      `<a href="${project.links.code}" target="_blank" rel="noopener" class="btn-secondary">
-        <i class="fab fa-github"></i> Voir le code
-      </a>`
-    );
-  }
-  if (!buttons.length) {
-    buttons.push(
-      `<span class="btn-secondary cursor-default opacity-70">
-        <i class="fas fa-lock"></i> ${project.status || 'Projet privé'}
-      </span>`
-    );
-  }
-  return buttons.join('');
-}
+import { renderProjectLinks, renderGallery } from './projectExtras.js';
 
 export function renderProjectModal() {
   return `
@@ -100,7 +75,9 @@ function projectDetailHTML(project) {
         </section>
       </div>
 
-      <div class="mt-8 flex flex-wrap gap-3">${renderLinks(project)}</div>
+      ${renderGallery(project)}
+
+      <div class="mt-8 flex flex-wrap items-center gap-3">${renderProjectLinks(project)}</div>
     </div>
   `;
 }

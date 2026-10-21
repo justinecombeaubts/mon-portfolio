@@ -38,6 +38,8 @@ src/
 ## Mettre à jour le contenu
 
 - **Ajouter un projet** : ajouter une entrée dans `src/data/projects.json` (catégorie `ia-automation`, `dev-web` ou `mobile`) avec `context` (contexte), `solution` + `stack`, et `impact` (liste de résultats). Le projet apparaît automatiquement sur la page `projets.html` (liste où chaque ligne se déplie sur le détail et le workflow ; lien direct vers une ligne : `/projets.html#<id>`).
+- **Champs facultatifs d'un projet** : `banner` + `bannerAlt` (bannière en tête de fiche, à la place de la capture), `gallery` (liste `{ src, alt, wide? }` affichée en bande défilante « En images »), `links.presentation` (PDF téléchargeable, rangé dans `public/projets/`), `privateNote` (ex. « Code disponible sur demande »), `imageAlt` (texte alternatif du logo).
+- **Menu** : sur grand écran, colonne fixe à gauche (photo pro, liens, CV, réseaux, thème) ; sur téléphone et tablette, barre du haut avec menu ☰ (`src/components/header.js`).
 - **Projets de la page d'accueil** : seuls ceux qui ont `"featured": true` y sont affichés en cartes (3 ou 4 au maximum), avec la fiche en modale ; un bouton mène à `projets.html`.
 - **Mettre un projet en avant comme workflow** : ajouter un tableau `workflow` (étapes `{ kind, icon, label, detail }`, `kind` = `source`, `process`, `ai`, `human` ou `output`). Le projet apparaît alors dans la section « Mes workflows en action » et sa fiche affiche le schéma.
 - **Mentions légales / confidentialité** : page statique `mentions-legales.html` (à mettre à jour si un nouveau service collecte des données, ex. un autre outil d'analytics).

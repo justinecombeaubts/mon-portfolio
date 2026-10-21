@@ -34,7 +34,7 @@ const KINDS = {
 
 function renderStep(step, horizontal) {
   const k = KINDS[step.kind] || KINDS.process;
-  const layout = horizontal ? 'lg:flex-col lg:items-center lg:text-center lg:gap-2' : '';
+  const layout = horizontal ? 'xl:flex-col xl:items-center xl:text-center xl:gap-2' : '';
   return `
     <div class="flex flex-1 items-center gap-3 rounded-xl border px-3 py-2.5 ${k.box} ${layout}">
       <span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg ${k.icon}">
@@ -47,19 +47,19 @@ function renderStep(step, horizontal) {
     </div>`;
 }
 
-// horizontal : en ligne dès lg (section « workflows »), sinon toujours vertical (fiche projet).
+// horizontal : en ligne dès xl (section « workflows »), sinon toujours vertical (fiche projet).
 export function renderWorkflow(steps, { horizontal = false } = {}) {
-  const row = horizontal ? 'lg:flex-row lg:items-stretch' : '';
+  const row = horizontal ? 'xl:flex-row xl:items-stretch' : '';
   const items = steps
     .map((step, i) => {
       const isLast = i === steps.length - 1;
       const connector = isLast
         ? ''
-        : `<div class="flex items-center justify-center py-1 text-slate-300 dark:text-white/25 ${horizontal ? 'lg:px-1.5 lg:py-0' : ''}" aria-hidden="true">
-            <i class="fas fa-chevron-down text-xs ${horizontal ? 'lg:-rotate-90' : ''}"></i>
+        : `<div class="flex items-center justify-center py-1 text-slate-300 dark:text-white/25 ${horizontal ? 'xl:px-1.5 xl:py-0' : ''}" aria-hidden="true">
+            <i class="fas fa-chevron-down text-xs ${horizontal ? 'xl:-rotate-90' : ''}"></i>
           </div>`;
       return `
-      <li class="flex flex-col ${horizontal ? 'lg:flex-1 lg:flex-row' : ''} items-stretch">
+      <li class="flex flex-col ${horizontal ? 'xl:flex-1 xl:flex-row' : ''} items-stretch">
         ${renderStep(step, horizontal)}
         ${connector}
       </li>`;

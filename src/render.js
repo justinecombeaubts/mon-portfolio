@@ -16,6 +16,7 @@ import { renderFooter } from './components/footer.js';
 function renderHome() {
   return `
   ${renderHeader()}
+  <div class="lg:pl-72">
   <main>
     ${renderHero()}
     ${renderAbout()}
@@ -27,6 +28,7 @@ function renderHome() {
     ${renderContact()}
   </main>
   ${renderFooter()}
+  </div>
   ${renderProjectModal()}
 `;
 }
@@ -34,10 +36,12 @@ function renderHome() {
 function renderProjectsListPage() {
   return `
   ${renderHeader({ page: 'projets' })}
+  <div class="lg:pl-72">
   <main>
     ${renderProjectsPage()}
   </main>
   ${renderFooter()}
+  </div>
 `;
 }
 

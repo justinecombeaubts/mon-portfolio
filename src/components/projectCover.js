@@ -10,8 +10,10 @@ function siteLabel(project) {
 const VARIANTS = { card: 'project-cover--card', modal: 'project-cover--modal' };
 
 export function renderProjectCover(project, { variant = 'card' } = {}) {
-  // Carte : toujours le logo. Fiche : la capture quand il y en a une.
-  const inner = variant === 'modal' && project.screenshot
+  // Carte : toujours le logo. Fiche : la bannière, sinon la capture quand il y en a une.
+  const inner = variant === 'modal' && project.banner
+    ? `<img class="cover-banner" src="${project.banner}" alt="${project.bannerAlt || project.title}" loading="lazy" decoding="async" />`
+    : variant === 'modal' && project.screenshot
     ? `<div class="cover-window">
         <div class="cover-window-bar">
           <i></i><i></i><i></i>
@@ -19,7 +21,7 @@ export function renderProjectCover(project, { variant = 'card' } = {}) {
         </div>
         <img src="${project.screenshot}" alt="${project.title}" loading="lazy" decoding="async" />
       </div>`
-    : `<img class="cover-logo" src="${project.image}" alt="${project.title}" loading="lazy" decoding="async" />`;
+    : `<img class="cover-logo" src="${project.image}" alt="${project.imageAlt || project.title}" loading="lazy" decoding="async" />`;
 
   return `
     <div class="project-cover ${VARIANTS[variant]}" style="--cover: ${project.accent}">

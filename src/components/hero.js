@@ -1,6 +1,6 @@
 export function renderHero() {
   return `
-  <section id="home" class="relative overflow-hidden pt-40 pb-24 sm:pt-48 sm:pb-32">
+  <section id="home" class="relative overflow-hidden pt-40 pb-24 sm:pt-48 sm:pb-32 lg:pt-28">
     <div class="pointer-events-none absolute inset-0 bg-grid-glow"></div>
 
     <div class="container-x relative grid items-center gap-16 lg:grid-cols-[1.1fr_0.9fr]">

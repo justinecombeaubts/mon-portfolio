@@ -1,14 +1,32 @@
 const NAV_LINKS = [
-  { href: '#home', label: 'Accueil' },
-  { href: '#about', label: 'À propos' },
-  { href: '#skills', label: 'Compétences' },
-  { href: '#workflows', label: 'Workflows' },
-  { href: '#projects', label: 'Projets' },
-  { href: '#timeline', label: 'Parcours' },
-  { href: '#book', label: 'Livre' },
-  { href: '#contact', label: 'Contact' },
+  { href: '#home', label: 'Accueil', icon: 'fa-house' },
+  { href: '#about', label: 'À propos', icon: 'fa-user' },
+  { href: '#skills', label: 'Compétences', icon: 'fa-code' },
+  { href: '#workflows', label: 'Workflows', icon: 'fa-diagram-project' },
+  { href: '#projects', label: 'Projets', icon: 'fa-folder-open' },
+  { href: '#timeline', label: 'Parcours', icon: 'fa-route' },
+  { href: '#book', label: 'Livre', icon: 'fa-book-open' },
+  { href: '#contact', label: 'Contact', icon: 'fa-envelope' },
 ];
 
+const SOCIALS = [
+  { href: 'https://www.linkedin.com/in/justine-combeau/', label: 'LinkedIn', icon: 'fab fa-linkedin-in' },
+  { href: 'https://github.com/justinecombeaubts', label: 'GitHub', icon: 'fab fa-github' },
+  { href: 'https://www.instagram.com/nocturne.tech_/', label: 'Instagram', icon: 'fab fa-instagram' },
+];
+
+const themeButton = (extra = '') => `
+  <button
+    type="button"
+    data-theme-toggle
+    aria-label="Basculer le thème clair / sombre"
+    class="flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 text-slate-600 transition-colors hover:border-brand-400 hover:text-brand-600 dark:border-white/10 dark:text-slate-200 dark:hover:border-brand-300 ${extra}"
+  >
+    <i data-theme-icon class="fas fa-sun"></i>
+  </button>`;
+
+// Grand écran : colonne fixe à gauche (photo, liens, réseaux).
+// Téléphone et tablette : barre du haut avec menu déroulant.
 // page 'projets' : les ancres renvoient vers l'accueil et « Projets » vers projets.html.
 export function renderHeader({ page = 'home' } = {}) {
   const onHome = page === 'home';
@@ -17,49 +35,73 @@ export function renderHeader({ page = 'home' } = {}) {
     if (l.href === '#projects') return { ...l, href: '/projets.html', active: true };
     return { ...l, href: `/${l.href}`, active: false };
   });
-
-  const links = items.map(
-    (l) => `<a href="${l.href}" class="nav-link${l.active ? ' active' : ''}" data-nav-link${l.active ? ' aria-current="page"' : ''}>${l.label}</a>`
+  const homeHref = onHome ? '#home' : '/';
+  const sideLinks = items.map(
+    (l) => `<a href="${l.href}" class="side-link${l.active ? ' active' : ''}"${l.active ? ' aria-current="page"' : ''} data-nav-link>
+        <i class="fas ${l.icon} w-5 text-center" aria-hidden="true"></i>${l.label}
+      </a>`
   ).join('');
 
   const mobileLinks = items.map(
     (l) => `<a href="${l.href}" class="block py-3 text-base font-medium text-slate-600 dark:text-slate-200" data-nav-link data-mobile-link>${l.label}</a>`
   ).join('');
 
+  const socials = SOCIALS.map(
+    (s) => `<a href="${s.href}" target="_blank" rel="me noopener" aria-label="${s.label}" class="social-icon !h-9 !w-9 text-sm"><i class="${s.icon}"></i></a>`
+  ).join('');
+
   return `
-  <header id="site-header" class="fixed inset-x-0 top-0 z-50 transition-colors duration-300">
+  <aside class="fixed inset-y-0 left-0 z-50 hidden w-72 flex-col overflow-y-auto border-r border-slate-200/70 bg-white/80 px-6 py-6 backdrop-blur lg:flex dark:border-white/10 dark:bg-ink-panel/60">
+    <a href="${homeHref}" class="flex flex-col items-center text-center">
+      <picture>
+        <source srcset="/images/photo-pro.webp" type="image/webp" />
+        <img src="/images/photo-pro.jpg" alt="Photo de Justine Combeau" width="112" height="112"
+          class="h-24 w-24 rounded-full object-cover ring-2 ring-brand-300 ring-offset-4 ring-offset-white dark:ring-offset-ink-panel" />
+      </picture>
+      <span class="mt-4 font-display text-lg font-semibold text-slate-900 dark:text-white">Justine Combeau</span>
+      <span class="mt-1 text-xs text-slate-500 dark:text-slate-400">Développeuse web · IA &amp; Automation</span>
+    </a>
+    <span class="mx-auto mt-3 inline-flex items-center gap-2 rounded-full bg-brand-50 px-3 py-1 text-xs font-medium text-brand-700 dark:bg-brand-300/10 dark:text-brand-200">
+      <span class="h-1.5 w-1.5 rounded-full bg-emerald-500"></span> En recherche d'alternance
+    </span>
+
+    <nav class="mt-6 flex flex-col gap-0.5" aria-label="Navigation principale">
+      ${sideLinks}
+    </nav>
+
+    <div class="mt-auto space-y-4 pt-6">
+      <a href="/cv/CV_JustineCombeau.pdf" download class="btn-secondary w-full !py-2.5">
+        <i class="fas fa-file-arrow-down"></i> Mon CV
+      </a>
+      <div class="flex items-center justify-between">
+        <div class="flex gap-2">${socials}</div>
+        ${themeButton('!h-9 !w-9')}
+      </div>
+    </div>
+  </aside>
+
+  <header id="site-header" class="fixed inset-x-0 top-0 z-50 transition-colors duration-300 lg:hidden">
     <div class="container-x flex h-20 items-center justify-between">
-      <a href="${onHome ? '#home' : '/'}" class="flex items-center gap-2 font-display text-lg font-semibold text-slate-900 dark:text-white">
+      <a href="${homeHref}" class="flex items-center gap-2 font-display text-lg font-semibold text-slate-900 dark:text-white">
         <img src="/images/logo.png" alt="Logo Justine Combeau" width="36" height="36" class="h-9 w-9 rounded-full object-cover" />
         Justine<span class="text-brand-500 dark:text-brand-300">.</span>
       </a>
 
-      <nav class="hidden items-center gap-6 lg:flex xl:gap-8">
-        ${links}
-      </nav>
-
       <div class="flex items-center gap-3">
-        <button
-          type="button"
-          data-theme-toggle
-          aria-label="Basculer le thème clair / sombre"
-          class="flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 text-slate-600 transition-colors hover:border-brand-400 hover:text-brand-600 dark:border-white/10 dark:text-slate-200 dark:hover:border-brand-300"
-        >
-          <i id="theme-icon" class="fas fa-sun"></i>
-        </button>
+        ${themeButton()}
         <button
           type="button"
           id="mobile-menu-btn"
           aria-label="Ouvrir le menu"
           aria-expanded="false"
-          class="flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 text-slate-600 lg:hidden dark:border-white/10 dark:text-slate-200"
+          class="flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 text-slate-600 dark:border-white/10 dark:text-slate-200"
         >
           <i class="fas fa-bars"></i>
         </button>
       </div>
     </div>
 
-    <div id="mobile-menu" class="hidden border-t border-slate-200/70 bg-white/95 backdrop-blur lg:hidden dark:border-white/10 dark:bg-ink/95">
+    <div id="mobile-menu" class="hidden border-t border-slate-200/70 bg-white/95 backdrop-blur dark:border-white/10 dark:bg-ink/95">
       <div class="container-x divide-y divide-slate-200/70 dark:divide-white/10">
         ${mobileLinks}
       </div>

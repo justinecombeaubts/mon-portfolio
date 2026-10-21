@@ -18,10 +18,11 @@ export function toggleTheme() {
   setTheme(getTheme() === 'dark' ? 'light' : 'dark');
 }
 
+// Une icône par bouton (colonne de gauche et barre du haut sur téléphone).
 function updateToggleIcon(theme) {
-  const icon = document.getElementById('theme-icon');
-  if (!icon) return;
-  icon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+  document.querySelectorAll('[data-theme-icon]').forEach((icon) => {
+    icon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+  });
 }
 
 export function initThemeToggle() {

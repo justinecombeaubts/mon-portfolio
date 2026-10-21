@@ -4,7 +4,7 @@ import { renderWorkflow, renderWorkflowLegend } from './workflow.js';
 function renderWorkflowCard(project) {
   return `
   <article class="card p-6 sm:p-7">
-    <div class="grid gap-6 lg:grid-cols-[15rem_1fr] lg:items-center">
+    <div class="grid gap-6 2xl:grid-cols-[15rem_1fr] 2xl:items-center">
       <div>
         <div class="flex items-center gap-3">
           <img src="${project.image}" alt="" class="h-11 w-11 rounded-xl object-cover" />

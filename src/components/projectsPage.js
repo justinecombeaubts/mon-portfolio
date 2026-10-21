@@ -2,34 +2,9 @@ import projects from '../data/projects.json';
 import { CATEGORIES, renderProjectFilters } from './projects.js';
 import { renderProjectCover } from './projectCover.js';
 import { renderWorkflow, renderWorkflowLegend } from './workflow.js';
+import { renderProjectLinks, renderGallery } from './projectExtras.js';
 
 const CATEGORY_LABELS = Object.fromEntries(CATEGORIES.map((c) => [c.id, c.label]));
-
-function renderLinks(project) {
-  const links = [];
-  if (project.links.demo) {
-    links.push(
-      `<a href="${project.links.demo}" target="_blank" rel="noopener" class="btn-primary !px-5 !py-2.5">
-        <i class="fas fa-arrow-up-right-from-square"></i> Voir le site
-      </a>`
-    );
-  }
-  if (project.links.code) {
-    links.push(
-      `<a href="${project.links.code}" target="_blank" rel="noopener" class="btn-secondary !px-5 !py-2.5">
-        <i class="fab fa-github"></i> Voir le code
-      </a>`
-    );
-  }
-  if (!links.length) {
-    links.push(
-      `<span class="inline-flex items-center gap-2 text-sm text-slate-500 dark:text-slate-400">
-        <i class="fas fa-lock"></i> ${project.status || 'Projet privé'}
-      </span>`
-    );
-  }
-  return links.join('');
-}
 
 function renderBlock(icon, title, body) {
   return `
@@ -64,7 +39,7 @@ function renderRow(project) {
     : '';
 
   return `
-  <details id="${project.id}" class="project-row card group scroll-mt-24" data-category="${project.category}">
+  <details id="${project.id}" class="project-row card group scroll-mt-24 lg:scroll-mt-8" data-category="${project.category}">
     <summary class="flex cursor-pointer list-none items-center gap-4 p-4 sm:gap-5 sm:p-5 [&::-webkit-details-marker]:hidden">
       <img src="${project.image}" alt="" width="56" height="56" loading="lazy" decoding="async" class="h-12 w-12 shrink-0 sm:h-14 sm:w-14" />
       <div class="min-w-0 flex-1">
@@ -92,17 +67,18 @@ function renderRow(project) {
         <div class="space-y-5">
           <div class="overflow-hidden rounded-2xl">${renderProjectCover(project, { variant: 'modal' })}</div>
           ${renderBlock('fa-code', 'Stack', `<div class="mt-2 flex flex-wrap gap-2">${stack}</div>`)}
-          <div class="flex flex-wrap items-center gap-3">${renderLinks(project)}</div>
+          <div class="flex flex-wrap items-center gap-3">${renderProjectLinks(project, { compact: true })}</div>
         </div>
       </div>
       ${workflow}
+      ${renderGallery(project)}
     </div>
   </details>`;
 }
 
 export function renderProjectsPage() {
   return `
-  <section id="all-projects" class="pb-24 pt-32">
+  <section id="all-projects" class="pb-24 pt-32 lg:pt-16">
     <div class="container-x">
       <a href="/#projects" class="btn-ghost -ml-4"><i class="fas fa-arrow-left"></i> Retour à l'accueil</a>
       <div class="mt-4">
