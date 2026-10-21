@@ -85,7 +85,7 @@ function links(p) {
   const out = [];
   if (p.links.demo) out.push(`<a class="link" href="${esc(p.links.demo)}"><i class="fas fa-arrow-up-right-from-square"></i> ${esc(bare(p.links.demo))}</a>`);
   if (p.links.code) out.push(`<a class="link" href="${esc(p.links.code)}"><i class="fab fa-github"></i> ${esc(bare(p.links.code))}</a>`);
-  if (!out.length) out.push(`<span class="link muted"><i class="fas fa-lock"></i> ${esc(p.status)} — pas de démo publique</span>`);
+  if (!out.length) out.push(`<span class="link muted"><i class="fas fa-lock"></i> ${esc(p.status)} · pas de démo publique</span>`);
   return out.join('');
 }
 
@@ -96,7 +96,7 @@ function visual(p, cls = '') {
 }
 
 function footer(n, total) {
-  return `<footer class="foot"><span>Justine Combeau — Portfolio</span><a href="${SITE}">${esc(bare(SITE))}</a><span>${n} / ${total}</span></footer>`;
+  return `<footer class="foot"><span>Justine Combeau | Portfolio</span><a href="${SITE}">${esc(bare(SITE))}</a><span>${n} / ${total}</span></footer>`;
 }
 
 // ───────── Pages ─────────
@@ -109,7 +109,7 @@ function coverPage(qr) {
       <p class="cover-role">Développeuse Web &amp; IA / Automation</p>
       <p class="cover-pitch">Je code des solutions web et je les rends intelligentes : automatisations, agents IA encadrés et applications livrées en ligne.</p>
       <div class="cover-meta">
-        <span><i class="fas fa-graduation-cap"></i> Bachelor 3 IA &amp; Automation — Digital Campus Paris</span>
+        <span><i class="fas fa-graduation-cap"></i> Bachelor 3 IA &amp; Automation · Digital Campus Paris</span>
         <span><i class="fas fa-briefcase"></i> Recherche d'alternance : disponible immédiatement (3 j entreprise / 2 j école)</span>
         <span><i class="fas fa-location-dot"></i> Paris, France</span>
       </div>
@@ -148,8 +148,8 @@ function aboutPage(n, total) {
         </p>
         <p class="lead">
           À l'aise en développement web (HTML/CSS/JS, Node.js, SQL) comme sur des architectures orientées
-          données et IA (Supabase, LLMs, sortie structurée). Mes expériences de terrain — maître nageur
-          sauveteur, accueil informatique en service civique — m'ont appris la gestion du stress, la
+          données et IA (Supabase, LLMs, sortie structurée). Mes expériences de terrain (maître nageur
+          sauveteur, accueil informatique en service civique) m'ont appris la gestion du stress, la
           pédagogie et le sens du service.
         </p>
         <h3 class="mt">Ma méthode</h3>
@@ -264,7 +264,7 @@ function lastPage(qr, n, total) {
       <div class="contact">
         <p class="eyebrow light">Discutons</p>
         <h2>Contact</h2>
-        <p class="contact-lead">En recherche d'alternance (3 jours entreprise / 2 jours école) — une question, une offre ?</p>
+        <p class="contact-lead">En recherche d'alternance (3 jours entreprise / 2 jours école) : une question, une offre ?</p>
         <ul>
           <li><i class="fas fa-envelope"></i><a href="mailto:${CONTACT.email}">${CONTACT.email}</a></li>
           <li><i class="fas fa-phone"></i><a href="tel:${CONTACT.phoneHref}">${CONTACT.phone}</a></li>
@@ -301,7 +301,7 @@ writeFileSync(
 <html lang="fr">
 <head>
 <meta charset="UTF-8" />
-<title>Portfolio — Justine Combeau</title>
+<title>Portfolio | Justine Combeau</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />

@@ -10,7 +10,7 @@ export default {
         code: ['"Source Code Pro"', '"Courier Prime"', 'monospace'],
       },
       colors: {
-        // DA « Bordeaux · Argent · Rose nude » — sobre et pro.
+        // DA « Bordeaux · Argent · Rose nude », sobre et pro.
         // Sombre : fond bordeaux, texte argenté, éléments rose nude.
         // Clair (couleurs échangées) : fond argenté, texte bordeaux, éléments rose nude.
 

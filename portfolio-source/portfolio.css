@@ -1,4 +1,4 @@
-/* Portfolio PDF — A4 paysage, DA du site « Bordeaux · Argent · Rose nude » (voir tailwind.config.js). */
+/* Portfolio PDF : A4 paysage, DA du site « Bordeaux · Argent · Rose nude » (voir tailwind.config.js). */
 @page { size: 297mm 210mm; margin: 0; }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 :root {

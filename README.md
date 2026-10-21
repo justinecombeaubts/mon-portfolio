@@ -1,14 +1,14 @@
-# Portfolio — Justine Combeau
+# Portfolio | Justine Combeau
 
 Portfolio de Justine Combeau (Bachelor 3 IA & Automation / BTS Développement Web), refondu en **Vite + Tailwind CSS + JavaScript vanilla** (ES modules, sans framework).
 
 ## Stack
 
-- [Vite](https://vitejs.dev/) — bundler & serveur de dev
-- [Tailwind CSS](https://tailwindcss.com/) — styles utilitaires, dark mode par classe
-- JavaScript ES modules (pas de framework) — chaque section est un petit composant qui génère son HTML à partir des données JSON
-- [Font Awesome](https://fontawesome.com/) — icônes (CDN)
-- [Formspree](https://formspree.io/) — traitement du formulaire de contact (champ anti-spam `_gotcha`)
+- [Vite](https://vitejs.dev/) : bundler & serveur de dev
+- [Tailwind CSS](https://tailwindcss.com/) : styles utilitaires, dark mode par classe
+- JavaScript ES modules (pas de framework) : chaque section est un petit composant qui génère son HTML à partir des données JSON
+- [Font Awesome](https://fontawesome.com/) : icônes (CDN)
+- [Formspree](https://formspree.io/) : traitement du formulaire de contact (champ anti-spam `_gotcha`)
 - Pré-rendu au build (plugin dans `vite.config.js`) : `dist/index.html` contient tout le contenu, lisible par Google sans exécuter le JavaScript
 
 ## Lancer le projet
@@ -49,11 +49,11 @@ src/
 - **Carrousel Instagram** : `npm run instagram` génère 8 slides 1080×1350 dans `instagram/carrousel/` (captures du site en ligne + données du site). Textes dans `instagram/build.mjs`, style dans `instagram/carrousel.css`, légende du post dans `instagram/legende.txt`.
 - **Modifier le CV** : le CV en ligne (`public/cv/CV_JustineCombeau.pdf`) est maintenant fait hors du projet (`Documents/Pro/CV_Justine_Combeau.pdf`) : le copier à cet emplacement en gardant ce nom de fichier.
 - Les images utilisées par les projets/le hero vivent dans `public/images/` et sont référencées en `/images/xxx.png`. Chaque projet a une `image` (logo, affiché centré sur la carte et dans la section workflows), une couleur `accent` (fond du visuel) et, s'il est en ligne, une `screenshot` (capture 960×540 dans `public/images/projets/`, affichée uniquement dans la fiche détaillée, dans une fenêtre de navigateur).
-- **Compétences** : chaque entrée de `skills.json` a un `level` (`projet`, `formation` ou `perso`) et une liste `proof` des projets qui la démontrent — pas de pourcentages.
+- **Compétences** : chaque entrée de `skills.json` a un `level` (`projet`, `formation` ou `perso`) et une liste `proof` des projets qui la démontrent, sans pourcentages.
 
 ## Déploiement (Vercel)
 
-- Projet Vercel : `mon-portfolio` — adresse : https://mon-portfolio-justine-combeau.vercel.app
+- Projet Vercel : `mon-portfolio`, adresse : https://mon-portfolio-justine-combeau.vercel.app
 - Déployer en production : `vercel deploy --prod` depuis ce dossier (build : `npm run build`, dossier publié : `dist`).
 
 ## ⚠️ À faire côté Justine

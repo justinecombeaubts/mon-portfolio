@@ -309,7 +309,7 @@
     "title": "Assistant Marketing IA",
     "tagline": "Prototype d'analyse marketing piloté par IA, calculs garantis exacts",
     "year": "2026",
-    "status": "Étude de cas — Vaultinum",
+    "status": "Étude de cas · Vaultinum",
     "context": "Dans le cadre d'une étude de cas Vaultinum : des KPI marketing dispersés dans un classeur Excel doivent être lus et commentés rapidement, sans jamais prendre le risque qu'une IA se trompe dans les chiffres.",
     "solution": "Application Streamlit qui normalise les données (Pandas + Decimal), calcule les variations MoM/YoY dans une couche Python contrôlée, puis confie uniquement la restitution et le chat à un LLM interchangeable (OpenAI, Gemini ou Claude) via sortie structurée : le modèle sélectionne des faits déjà calculés, il n'en invente ni n'en calcule aucun. Architecture cible proposée : n8n + PostgreSQL + dbt Core.",
     "stack": [
@@ -367,9 +367,9 @@
     "title": "EduStudy Hub",
     "tagline": "Agenda de cours et hub de révision augmenté par l'IA",
     "year": "2026",
-    "status": "Projet BoostCamp — Digital Campus",
+    "status": "Projet BoostCamp · Digital Campus",
     "context": "Projet de 3 jours en BoostCamp à Digital Campus : aider les étudiants à centraliser leurs cours et à réviser, avec une IA qui assiste sans jamais décider à leur place, dans le respect d'une charte IA & sécurité.",
-    "solution": "Application React/Vite avec agenda multi-vues (Jour/Semaine/Mois/Année), « Coin Study » filtrable par Unité d'Enseignement, et génération de flashcards/QCM par IA à partir des cours — validation humaine obligatoire avant sauvegarde, badge « généré par IA » visible. Développée dans le respect d'une charte IA & sécurité stricte (Zero Secret, données fictives, aucune action autonome).",
+    "solution": "Application React/Vite avec agenda multi-vues (Jour/Semaine/Mois/Année), « Coin Study » filtrable par Unité d'Enseignement, et génération de flashcards/QCM par IA à partir des cours, avec validation humaine obligatoire avant sauvegarde, badge « généré par IA » visible. Développée dans le respect d'une charte IA & sécurité stricte (Zero Secret, données fictives, aucune action autonome).",
     "stack": [
       "React",
       "Vite",
@@ -431,7 +431,7 @@
     "year": "2026",
     "status": "En ligne",
     "context": "Préparer l'examen du code de la route (35 bonnes réponses sur 40 exigées) sans repasser l'examen payant plusieurs fois, et savoir objectivement quand on est prêt à le réserver. Il faut pouvoir réviser un peu chaque jour, sur son téléphone comme sur son ordinateur.",
-    "solution": "Application web mobile-first installable (PWA) à l'esthétique rétro « jeu vidéo » : leçons sur 10 thèmes officiels, entraînement corrigé et expliqué question par question, examens blancs en conditions réelles (40 questions, 20 s chacune, réponses multiples possibles), révision de ses erreurs. Progression gamifiée (niveaux, XP, combos, 16 badges, série de jours) et feu tricolore qui indique quand réserver l'examen. La sauvegarde se synchronise entre appareils grâce à un code personnel, via une fonction serverless Vercel et Vercel Blob — le code n'est jamais stocké en clair (nom de fichier = empreinte SHA-256).",
+    "solution": "Application web mobile-first installable (PWA) à l'esthétique rétro « jeu vidéo » : leçons sur 10 thèmes officiels, entraînement corrigé et expliqué question par question, examens blancs en conditions réelles (40 questions, 20 s chacune, réponses multiples possibles), révision de ses erreurs. Progression gamifiée (niveaux, XP, combos, 16 badges, série de jours) et feu tricolore qui indique quand réserver l'examen. La sauvegarde se synchronise entre appareils grâce à un code personnel, via une fonction serverless Vercel et Vercel Blob : le code n'est jamais stocké en clair (nom de fichier = empreinte SHA-256).",
     "stack": [
       "HTML5",
       "CSS3",
@@ -458,7 +458,7 @@
     "title": "Agenda des sorties",
     "tagline": "Application de groupe pour trouver les dates où tous les amis sont libres",
     "year": "2026",
-    "status": "En ligne — démo visiteur",
+    "status": "En ligne · démo visiteur",
     "context": "Un groupe d'amis qui veut se voir régulièrement mais passe des jours à comparer les disponibilités de chacun dans une conversation de groupe. Chaque sortie (bar à chats, soirée jeu…) doit aussi se préparer avec les bonnes personnes seulement.",
     "solution": "Application web où chacun renseigne ses disponibilités (dispo / indispo / incertain) sur un calendrier, et où des sous-groupes (« Bar à chats », « Soirée jeu »…) affichent un calendrier commun qui met en évidence les jours où tous sont libres. Backend Express + Postgres (Neon) déployé sur Vercel, comptes gérés par un administrateur, et mode visiteur 100 % local au navigateur avec données fictives pour tester sans rien exposer.",
     "stack": [
@@ -693,7 +693,7 @@
     "title": "QCM BNSSA Trainer",
     "tagline": "Plateforme d'entraînement à l'épreuve théorique du BNSSA",
     "year": "2025",
-    "status": "En ligne — référentiel BNSSA",
+    "status": "En ligne · référentiel BNSSA",
     "context": "Le BNSSA (Brevet National de Sécurité et de Sauvetage Aquatique) commence par une épreuve théorique chronométrée. Il faut pouvoir s'y entraîner dans des conditions proches de l'examen, pas seulement relire un cours.",
     "solution": "Site HTML/CSS/JavaScript générant 40 questions aléatoires parmi 180+, réparties en 6 catégories, avec chronomètre de 40 minutes, correction automatique (feedback visuel vert/rouge) et page de révision des notions clés.",
     "stack": [

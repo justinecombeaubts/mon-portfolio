@@ -38,7 +38,7 @@ export function renderBook() {
           <p class="mt-6 text-slate-600 dark:text-slate-300">
             Après un incident qui bouleverse tout, Séléna se retrouve prisonnière d'une tempête
             qui ne dit pas son nom. Entre les ruines du silence et les portes d'Elferia, elle va
-            devoir traverser les mensonges des autres pour affronter les siens — et découvrir ce
+            devoir traverser les mensonges des autres pour affronter les siens, et découvrir ce
             que la tourmente a vraiment fait d'elle.
           </p>
           <p class="mt-4 text-sm italic text-slate-500 dark:text-slate-400">

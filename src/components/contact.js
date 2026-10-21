@@ -20,7 +20,7 @@ export function renderContact() {
         <p class="section-eyebrow justify-center">Discutons</p>
         <h2 class="section-title mt-3">Contactez-moi</h2>
         <p class="section-subtitle mx-auto max-w-xl">
-          En recherche d'alternance (3 jours entreprise / 2 jours école) — une question, une offre ?
+          En recherche d'alternance (3 jours entreprise / 2 jours école) : une question, une offre ?
         </p>
       </div>
 

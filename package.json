@@ -3,7 +3,7 @@
   "private": true,
   "version": "2.0.0",
   "type": "module",
-  "description": "Portfolio de Justine Combeau — Développement Web & IA / Automation",
+  "description": "Portfolio de Justine Combeau : Développement Web & IA / Automation",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

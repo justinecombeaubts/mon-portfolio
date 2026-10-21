@@ -29,7 +29,7 @@ export function renderAbout() {
             </p>
             <p>
               Rigoureuse, autodidacte et créative, je m'appuie aussi sur des expériences de terrain
-              — maître nageur sauveteur, service civique en accueil informatique — qui m'ont appris
+              (maître nageur sauveteur, service civique en accueil informatique) qui m'ont appris
               la gestion du stress, la pédagogie et le sens du service.
             </p>
           </div>

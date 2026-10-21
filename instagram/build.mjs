@@ -115,7 +115,7 @@ const webShowcase = [
 ].map(([id, line]) => ({ ...byId[id], line }));
 
 const slides = [
-  // 1 — Accroche
+  // 1. Accroche
   frame(
     1,
     `
@@ -129,7 +129,7 @@ const slides = [
     'cover'
   ),
 
-  // 2 — Qui je suis
+  // 2. Qui je suis
   frame(
     2,
     `
@@ -153,7 +153,7 @@ const slides = [
     </div>`
   ),
 
-  // 3 — Ce qu'on trouve sur le site
+  // 3. Ce qu'on trouve sur le site
   frame(
     3,
     `
@@ -167,7 +167,7 @@ const slides = [
     </ul>`
   ),
 
-  // 4 — Projet IA phare
+  // 4. Projet IA phare
   frame(
     4,
     `
@@ -181,7 +181,7 @@ const slides = [
     <p class="proof"><i class="fas fa-bolt"></i> 5 automatisations GitHub Actions + Supabase, alertes Discord en moins de 2h, sans aucune action manuelle.</p>`
   ),
 
-  // 5 — L'IA encadrée
+  // 5. L'IA encadrée
   frame(
     5,
     `
@@ -202,7 +202,7 @@ const slides = [
     <p class="quote">« L'IA assiste, elle ne décide pas à ta place. »</p>`
   ),
 
-  // 6 — Projets web
+  // 6. Projets web
   frame(
     6,
     `
@@ -213,7 +213,7 @@ const slides = [
     </div>`
   ),
 
-  // 7 — Coulisses techniques
+  // 7. Coulisses techniques
   frame(
     7,
     `
@@ -229,7 +229,7 @@ const slides = [
     </div>`
   ),
 
-  // 8 — Appel à l'action
+  // 8. Appel à l'action
   frame(
     8,
     `
