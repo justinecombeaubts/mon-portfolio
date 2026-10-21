@@ -1,7 +1,23 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <rect width="32" height="32" rx="8" fill="#FFD3B0"/>
-  <polygon points="16,7 27,12.5 16,18 5,12.5" fill="#5B3A2E"/>
-  <polygon points="16,18 24,14 24,20 16,24 8,20 8,14" fill="#7A4E3D"/>
-  <line x1="26" y1="13" x2="26" y2="20" stroke="#5B3A2E" stroke-width="1.6"/>
-  <circle cx="26" cy="21.5" r="1.8" fill="#5B3A2E"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="EduStudy Hub">
+  <title>EduStudy Hub</title>
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="38%" r="65%">
+      <stop offset="0" stop-color="#3A1A20"/>
+      <stop offset="1" stop-color="#1A1014"/>
+    </radialGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#E2C27E"/>
+      <stop offset="1" stop-color="#A9843F"/>
+    </linearGradient>
+    
+  </defs>
+
+  <!-- médaillon -->
+  <circle cx="64" cy="64" r="60" fill="url(#bg)"/>
+  <circle cx="64" cy="64" r="60" fill="none" stroke="url(#gold)" stroke-width="3"/>
+  <circle cx="64" cy="64" r="53" fill="none" stroke="#C9A55C" stroke-opacity=".45" stroke-width="1"/>
+<path d="M0 0 C-11 -8 -12 -22 -5 -28 L0 -24 L5 -28 C12 -22 11 -8 0 0Z" transform="translate(62 62) rotate(0)" fill="#7A1F2B" stroke="url(#gold)" stroke-width="2" stroke-linejoin="round"/><path d="M0 0 C-11 -8 -12 -22 -5 -28 L0 -24 L5 -28 C12 -22 11 -8 0 0Z" transform="translate(62 62) rotate(72)" fill="#7A1F2B" stroke="url(#gold)" stroke-width="2" stroke-linejoin="round"/><path d="M0 0 C-11 -8 -12 -22 -5 -28 L0 -24 L5 -28 C12 -22 11 -8 0 0Z" transform="translate(62 62) rotate(144)" fill="#7A1F2B" stroke="url(#gold)" stroke-width="2" stroke-linejoin="round"/><path d="M0 0 C-11 -8 -12 -22 -5 -28 L0 -24 L5 -28 C12 -22 11 -8 0 0Z" transform="translate(62 62) rotate(216)" fill="#7A1F2B" stroke="url(#gold)" stroke-width="2" stroke-linejoin="round"/><path d="M0 0 C-11 -8 -12 -22 -5 -28 L0 -24 L5 -28 C12 -22 11 -8 0 0Z" transform="translate(62 62) rotate(288)" fill="#7A1F2B" stroke="url(#gold)" stroke-width="2" stroke-linejoin="round"/>
+  <circle cx="62" cy="62" r="5.5" fill="url(#gold)"/><circle cx="71.0" cy="62.0" r="1.6" fill="#EFE6D8"/><circle cx="66.5" cy="69.8" r="1.6" fill="#EFE6D8"/><circle cx="57.5" cy="69.8" r="1.6" fill="#EFE6D8"/><circle cx="53.0" cy="62.0" r="1.6" fill="#EFE6D8"/><circle cx="57.5" cy="54.2" r="1.6" fill="#EFE6D8"/><circle cx="66.5" cy="54.2" r="1.6" fill="#EFE6D8"/>
+  <path d="M0 0 C-5 -4 -6 -11 -2.5 -14 L0 -12 L2.5 -14 C6 -11 5 -4 0 0Z" transform="translate(92 96) rotate(150)" fill="#7A1F2B" stroke="url(#gold)" stroke-width="1.5"/>
+  <path d="M96 33 L97.4 36.6 L101 38 L97.4 39.4 L96 43 L94.6 39.4 L91 38 L94.6 36.6Z" fill="#E2C27E" opacity="1"/>
 </svg>

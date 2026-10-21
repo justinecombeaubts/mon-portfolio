@@ -1,9 +1,27 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <rect width="32" height="32" rx="8" fill="#241748"/>
-  <rect x="6" y="20" width="3.4" height="8" rx="1" fill="#8B7FD1"/>
-  <rect x="11.8" y="16" width="3.4" height="12" rx="1" fill="#A99AE6"/>
-  <rect x="17.6" y="12" width="3.4" height="16" rx="1" fill="#C9B8F0"/>
-  <rect x="23.4" y="8" width="3.4" height="20" rx="1" fill="#EAE1FB"/>
-  <polyline points="6,24 12.5,18.5 18.5,13 24.8,7.6" fill="none" stroke="#FFD76A" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-  <polygon points="25.6,6.8 20.9,7.6 23.6,10.9" fill="#FFD76A"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Assistant KPI (Vaultinum)">
+  <title>Assistant KPI (Vaultinum)</title>
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="38%" r="65%">
+      <stop offset="0" stop-color="#3A1A20"/>
+      <stop offset="1" stop-color="#1A1014"/>
+    </radialGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#E2C27E"/>
+      <stop offset="1" stop-color="#A9843F"/>
+    </linearGradient>
+    
+  </defs>
+
+  <!-- médaillon -->
+  <circle cx="64" cy="64" r="60" fill="url(#bg)"/>
+  <circle cx="64" cy="64" r="60" fill="none" stroke="url(#gold)" stroke-width="3"/>
+  <circle cx="64" cy="64" r="53" fill="none" stroke="#C9A55C" stroke-opacity=".45" stroke-width="1"/>
+
+  <circle cx="64" cy="64" r="30" fill="#7A1F2B" stroke="url(#gold)" stroke-width="3"/>
+  <circle cx="88.0" cy="64.0" r="1.8" fill="#E2C27E"/><circle cx="81.0" cy="81.0" r="1.8" fill="#E2C27E"/><circle cx="64.0" cy="88.0" r="1.8" fill="#E2C27E"/><circle cx="47.0" cy="81.0" r="1.8" fill="#E2C27E"/><circle cx="40.0" cy="64.0" r="1.8" fill="#E2C27E"/><circle cx="47.0" cy="47.0" r="1.8" fill="#E2C27E"/><circle cx="64.0" cy="40.0" r="1.8" fill="#E2C27E"/><circle cx="81.0" cy="47.0" r="1.8" fill="#E2C27E"/>
+  <circle cx="64" cy="64" r="18" fill="#1A1014" fill-opacity=".45" stroke="#E2C27E" stroke-opacity=".6" stroke-width="1.2"/>
+  <rect x="53" y="66" width="5" height="8" rx="1" fill="#EFE6D8" opacity=".75"/>
+  <rect x="61" y="60" width="5" height="14" rx="1" fill="#EFE6D8" opacity=".75"/>
+  <rect x="69" y="54" width="5" height="20" rx="1" fill="url(#gold)"/>
+  <path d="M92 29 L93.96 34.04 L99 36 L93.96 37.96 L92 43 L90.04 37.96 L85 36 L90.04 34.04Z" fill="#E2C27E" opacity="1"/><path d="M100 48.5 L100.98 51.02 L103.5 52 L100.98 52.98 L100 55.5 L99.02 52.98 L96.5 52 L99.02 51.02Z" fill="#E2C27E" opacity="0.8"/>
 </svg>

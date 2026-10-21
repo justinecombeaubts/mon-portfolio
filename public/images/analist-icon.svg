@@ -1,1 +1,27 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><rect width="32" height="32" rx="9" fill="#2a0f17"/><rect x="7" y="17" width="4" height="8" rx="1.5" fill="#e2baac"/><rect x="14" y="11" width="4" height="14" rx="1.5" fill="#e2baac"/><rect x="21" y="6" width="4" height="19" rx="1.5" fill="#e2baac"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Analist">
+  <title>Analist</title>
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="38%" r="65%">
+      <stop offset="0" stop-color="#3A1A20"/>
+      <stop offset="1" stop-color="#1A1014"/>
+    </radialGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#E2C27E"/>
+      <stop offset="1" stop-color="#A9843F"/>
+    </linearGradient>
+    
+  </defs>
+
+  <!-- médaillon -->
+  <circle cx="64" cy="64" r="60" fill="url(#bg)"/>
+  <circle cx="64" cy="64" r="60" fill="none" stroke="url(#gold)" stroke-width="3"/>
+  <circle cx="64" cy="64" r="53" fill="none" stroke="#C9A55C" stroke-opacity=".45" stroke-width="1"/>
+
+  <rect x="36" y="78" width="12" height="18" rx="2" fill="#7A1F2B" stroke="url(#gold)" stroke-width="2"/>
+  <rect x="54" y="66" width="12" height="30" rx="2" fill="#7A1F2B" stroke="url(#gold)" stroke-width="2"/>
+  <rect x="72" y="54" width="12" height="42" rx="2" fill="#7A1F2B" stroke="url(#gold)" stroke-width="2"/>
+  <path d="M30 96 H98" stroke="url(#gold)" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M42 68 L60 56 L78 44 L94 32" fill="none" stroke="#EFE6D8" stroke-opacity=".8" stroke-width="2" stroke-linecap="round" stroke-dasharray="1 4"/>
+  <circle cx="42" cy="68" r="3" fill="#E2C27E"/><circle cx="60" cy="56" r="3" fill="#E2C27E"/><circle cx="78" cy="44" r="3" fill="#E2C27E"/>
+  <path d="M94 25 L95.96 30.04 L101 32 L95.96 33.96 L94 39 L92.04 33.96 L87 32 L92.04 30.04Z" fill="#E2C27E" opacity="1"/>
+</svg>

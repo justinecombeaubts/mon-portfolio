@@ -1,7 +1,23 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <rect width="32" height="32" rx="8" fill="#5865F2"/>
-  <path d="M16 5 C17 9 21.5 11 21.5 16.5 C21.5 20.6 19 23.5 16 23.5 C13 23.5 10.5 20.6 10.5 16.5 C10.5 14.2 11.6 12.8 12.6 11.6 C12.9 13.2 13.6 14 14.4 14.4 C14.2 10.6 14.6 7.6 16 5 Z" fill="#FF7A1A"/>
-  <path d="M16 13.5 C16.6 15.4 18.4 16.4 18.4 18.6 C18.4 20.3 17.4 21.5 16 21.5 C14.6 21.5 13.6 20.3 13.6 18.6 C13.6 17.4 14.2 16.6 14.8 15.8 C15.4 16.4 15.8 16.4 16 16.2 C16.1 15.2 16 14.4 16 13.5 Z" fill="#FFD166"/>
-  <path d="M9 26.5 H23" stroke="#FFFFFF" stroke-width="1.6" stroke-linecap="round" opacity="0.85"/>
-  <circle cx="16" cy="27.6" r="1.2" fill="#FFFFFF" opacity="0.85"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-label="Alertes Deals Dealabs → Discord">
+  <title>Alertes Deals Dealabs → Discord</title>
+  <defs>
+    <radialGradient id="bg" cx="50%" cy="38%" r="65%">
+      <stop offset="0" stop-color="#3A1A20"/>
+      <stop offset="1" stop-color="#1A1014"/>
+    </radialGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#E2C27E"/>
+      <stop offset="1" stop-color="#A9843F"/>
+    </linearGradient>
+  </defs>
+
+  <!-- médaillon -->
+  <circle cx="64" cy="64" r="60" fill="url(#bg)"/>
+  <circle cx="64" cy="64" r="60" fill="none" stroke="url(#gold)" stroke-width="3"/>
+  <circle cx="64" cy="64" r="53" fill="none" stroke="#C9A55C" stroke-opacity=".45" stroke-width="1"/>
+
+  <path d="M64 30 C66 44 82 50 82 70 C82 84 74 94 64 94 C54 94 46 84 46 70 C46 60 52 54 56 48 C57 56 60 60 64 62 C62 52 60 40 64 30Z" fill="#7A1F2B" stroke="url(#gold)" stroke-width="2.5" stroke-linejoin="round"/>
+  <path d="M64 66 C66 74 74 76 74 84 C74 90 70 94 64 94 C58 94 54 90 54 84 C54 78 60 74 64 66Z" fill="url(#gold)"/>
+  <path d="M44 100 H84" stroke="#EFE6D8" stroke-opacity=".75" stroke-width="3" stroke-linecap="round"/>
+  <path d="M90 31 L91.4 34.6 L95 36 L91.4 37.4 L90 41 L88.6 37.4 L85 36 L88.6 34.6Z" fill="#E2C27E" opacity="1"/><path d="M38 41 L38.84 43.16 L41 44 L38.84 44.84 L38 47 L37.16 44.84 L35 44 L37.16 43.16Z" fill="#E2C27E" opacity="0.7"/>
 </svg>
