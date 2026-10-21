@@ -12,7 +12,7 @@ export function renderFooter() {
         <a href="https://www.instagram.com/nocturne.tech_/" target="_blank" rel="me noopener" class="hover:text-brand-600 dark:hover:text-brand-300">@nocturne.tech_</a>
         <a href="https://github.com/justinecombeaubts" target="_blank" rel="me noopener" class="hover:text-brand-600 dark:hover:text-brand-300">GitHub</a>
       </p>
-      <p>Conçu avec <i class="fas fa-heart text-brand-500 dark:text-brand-300"></i> — HTML, Tailwind CSS &amp; JavaScript.</p>
+      <p>Conçu avec <i class="fas fa-heart text-brand-500 dark:text-brand-300"></i> | HTML, Tailwind CSS &amp; JavaScript.</p>
     </div>
   </footer>
   `;
