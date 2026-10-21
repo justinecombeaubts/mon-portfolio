@@ -9,19 +9,27 @@ const NAV_LINKS = [
   { href: '#contact', label: 'Contact' },
 ];
 
-export function renderHeader() {
-  const links = NAV_LINKS.map(
-    (l) => `<a href="${l.href}" class="nav-link" data-nav-link>${l.label}</a>`
+// page 'projets' : les ancres renvoient vers l'accueil et « Projets » vers projets.html.
+export function renderHeader({ page = 'home' } = {}) {
+  const onHome = page === 'home';
+  const items = NAV_LINKS.map((l) => {
+    if (onHome) return { ...l, active: false };
+    if (l.href === '#projects') return { ...l, href: '/projets.html', active: true };
+    return { ...l, href: `/${l.href}`, active: false };
+  });
+
+  const links = items.map(
+    (l) => `<a href="${l.href}" class="nav-link${l.active ? ' active' : ''}" data-nav-link${l.active ? ' aria-current="page"' : ''}>${l.label}</a>`
   ).join('');
 
-  const mobileLinks = NAV_LINKS.map(
+  const mobileLinks = items.map(
     (l) => `<a href="${l.href}" class="block py-3 text-base font-medium text-slate-600 dark:text-slate-200" data-nav-link data-mobile-link>${l.label}</a>`
   ).join('');
 
   return `
   <header id="site-header" class="fixed inset-x-0 top-0 z-50 transition-colors duration-300">
     <div class="container-x flex h-20 items-center justify-between">
-      <a href="#home" class="flex items-center gap-2 font-display text-lg font-semibold text-slate-900 dark:text-white">
+      <a href="${onHome ? '#home' : '/'}" class="flex items-center gap-2 font-display text-lg font-semibold text-slate-900 dark:text-white">
         <img src="/images/logo.png" alt="Logo Justine Combeau" width="36" height="36" class="h-9 w-9 rounded-full object-cover" />
         Justine<span class="text-brand-500 dark:text-brand-300">.</span>
       </a>
@@ -93,7 +101,8 @@ export function initHeader() {
     }
   });
 
-  // Surbrillance du lien actif au scroll
+  // Surbrillance du lien actif au scroll (accueil seulement : ailleurs, le lien actif est fixe)
+  if (![...navLinks].some((l) => l.getAttribute('href').startsWith('#'))) return;
   const sections = [...document.querySelectorAll('section[id]')];
   const observer = new IntersectionObserver(
     (entries) => {

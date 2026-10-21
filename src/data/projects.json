@@ -56,10 +56,11 @@
     ],
     "image": "/images/coc-icon.svg",
     "accent": "#4a2c16",
+    "screenshot": "/images/projets/coc.jpg",
+    "featured": true,
     "links": {
       "demo": "https://coc-dashboard-beta.vercel.app/"
-    },
-    "screenshot": "/images/projets/coc.jpg"
+    }
   },
   {
     "id": "veille-ia-discord",
@@ -112,6 +113,7 @@
     ],
     "image": "/images/veille-ia-icon.svg",
     "accent": "#1e1b4b",
+    "featured": true,
     "links": {}
   },
   {
@@ -280,10 +282,11 @@
     ],
     "image": "/images/edustudy-hub-icon.svg",
     "accent": "#ffd3b0",
+    "screenshot": "/images/projets/edustudy.jpg",
+    "featured": true,
     "links": {
       "demo": "https://edustudy-hub.vercel.app/"
-    },
-    "screenshot": "/images/projets/edustudy.jpg"
+    }
   },
   {
     "id": "route-35",
@@ -309,10 +312,10 @@
     ],
     "image": "/images/route35-icon.svg",
     "accent": "#11141b",
+    "screenshot": "/images/projets/route35.jpg",
     "links": {
       "demo": "https://route35.vercel.app/"
-    },
-    "screenshot": "/images/projets/route35.jpg"
+    }
   },
   {
     "id": "agenda-sorties",
@@ -338,10 +341,10 @@
     ],
     "image": "/images/agenda-sorties-icon.svg",
     "accent": "#f5efe6",
+    "screenshot": "/images/projets/agenda.jpg",
     "links": {
       "demo": "https://agenda-sorties.vercel.app/?demo"
-    },
-    "screenshot": "/images/projets/agenda.jpg"
+    }
   },
   {
     "id": "analist",
@@ -367,8 +370,8 @@
     ],
     "image": "/images/analist-icon.svg",
     "accent": "#2a0f17",
-    "links": {},
-    "screenshot": "/images/projets/analist.jpg"
+    "screenshot": "/images/projets/analist.jpg",
+    "links": {}
   },
   {
     "id": "formes-cb",
@@ -394,8 +397,8 @@
     ],
     "image": "/images/formes-cb-icon.svg",
     "accent": "#141414",
-    "links": {},
-    "screenshot": "/images/projets/formes-cb.jpg"
+    "screenshot": "/images/projets/formes-cb.jpg",
+    "links": {}
   },
   {
     "id": "noc-sport",
@@ -572,11 +575,11 @@
     ],
     "image": "/images/qcm-bnssa-icon.svg",
     "accent": "#2563eb",
+    "screenshot": "/images/projets/qcm.jpg",
     "links": {
       "demo": "https://qcm-bnssa.vercel.app/",
       "code": "https://github.com/justinecombeaubts/qcm-bnssa"
-    },
-    "screenshot": "/images/projets/qcm.jpg"
+    }
   },
   {
     "id": "le-chat-ivre",
@@ -602,10 +605,10 @@
     ],
     "image": "/images/le-chat-ivre-icon.svg",
     "accent": "#0a5c5c",
+    "screenshot": "/images/projets/chat.jpg",
     "links": {
       "demo": "https://le-chat-ivre.vercel.app/"
-    },
-    "screenshot": "/images/projets/chat.jpg"
+    }
   },
   {
     "id": "recettes-famille",
@@ -631,10 +634,11 @@
     ],
     "image": "/images/recettes-famille-icon.svg",
     "accent": "#b75d39",
+    "screenshot": "/images/projets/recettes.jpg",
+    "featured": true,
     "links": {
       "demo": "https://les-recettes-famille.vercel.app/",
       "code": "https://github.com/justinecombeaubts/recettes-famille"
-    },
-    "screenshot": "/images/projets/recettes.jpg"
+    }
   }
 ]

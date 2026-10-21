@@ -1,7 +1,7 @@
 import projects from '../data/projects.json';
 import { renderProjectCover } from './projectCover.js';
 
-const CATEGORIES = [
+export const CATEGORIES = [
   { id: 'all', label: 'Tous' },
   { id: 'ia-automation', label: 'IA & Automation' },
   { id: 'dev-web', label: 'Développement Web' },
@@ -64,15 +64,20 @@ function renderCard(project) {
   </article>`;
 }
 
-export function renderProjects() {
-  const filters = CATEGORIES.map(
-    (c, i) => `
+export function renderProjectFilters({ counts = false } = {}) {
+  return CATEGORIES.map((c, i) => {
+    const n = c.id === 'all' ? projects.length : projects.filter((p) => p.category === c.id).length;
+    return `
     <button type="button" class="filter-btn ${i === 0 ? 'active' : ''}" data-filter="${c.id}">
-      ${c.label}
-    </button>`
-  ).join('');
+      ${c.label}${counts ? ` <span class="ml-1 opacity-60">${n}</span>` : ''}
+    </button>`;
+  }).join('');
+}
 
-  const cards = projects.map(renderCard).join('');
+// Accueil : seulement les projets mis en avant (`featured` dans projects.json),
+// la liste complète est sur projets.html.
+export function renderProjects() {
+  const cards = projects.filter((p) => p.featured).map(renderCard).join('');
 
   return `
   <section id="projects" class="py-24">
@@ -89,24 +94,26 @@ export function renderProjects() {
         </p>
       </div>
 
-      <div class="mt-10 flex flex-wrap justify-center gap-3">${filters}</div>
-
-      <div id="projects-grid" class="mt-12 grid gap-7 sm:grid-cols-2 lg:grid-cols-3">
+      <div class="mt-12 grid gap-7 sm:grid-cols-2 xl:grid-cols-4">
         ${cards}
       </div>
 
-      <p id="projects-empty" class="mt-12 hidden text-center text-slate-500 dark:text-slate-400">
-        Aucun projet dans cette catégorie pour le moment.
-      </p>
+      <div class="mt-12 text-center">
+        <a href="/projets.html" class="btn-primary">
+          Voir les ${projects.length} projets <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
     </div>
   </section>
   `;
 }
 
+// Filtres par catégorie de la page projets (lignes `[data-category]`).
 export function initProjectFilters() {
   const buttons = document.querySelectorAll('[data-filter]');
-  const cards = document.querySelectorAll('.project-card');
+  const cards = document.querySelectorAll('.project-row');
   const empty = document.getElementById('projects-empty');
+  if (!buttons.length) return;
 
   buttons.forEach((btn) => {
     btn.addEventListener('click', () => {

@@ -25,7 +25,7 @@ npm run preview    # prévisualiser le build
 ```
 src/
 ├── main.js                 # point d'entrée : branche les interactions (et rend le HTML en dev)
-├── render.js               # HTML complet du site, pré-rendu dans dist/index.html au build
+├── render.js               # HTML complet de chaque page (accueil, projets), pré-rendu dans dist/ au build
 ├── styles/main.css          # Tailwind + classes de composants réutilisables
 ├── data/
 │   ├── projects.json        # source unique des cartes projets + fiches détaillées
@@ -37,7 +37,8 @@ src/
 
 ## Mettre à jour le contenu
 
-- **Ajouter un projet** : ajouter une entrée dans `src/data/projects.json` (catégorie `ia-automation`, `dev-web` ou `mobile`) avec `context` (contexte), `solution` + `stack`, et `impact` (liste de résultats). La carte et la fiche détaillée (modale) se génèrent automatiquement.
+- **Ajouter un projet** : ajouter une entrée dans `src/data/projects.json` (catégorie `ia-automation`, `dev-web` ou `mobile`) avec `context` (contexte), `solution` + `stack`, et `impact` (liste de résultats). Le projet apparaît automatiquement sur la page `projets.html` (liste où chaque ligne se déplie sur le détail et le workflow ; lien direct vers une ligne : `/projets.html#<id>`).
+- **Projets de la page d'accueil** : seuls ceux qui ont `"featured": true` y sont affichés en cartes (3 ou 4 au maximum), avec la fiche en modale ; un bouton mène à `projets.html`.
 - **Mettre un projet en avant comme workflow** : ajouter un tableau `workflow` (étapes `{ kind, icon, label, detail }`, `kind` = `source`, `process`, `ai`, `human` ou `output`). Le projet apparaît alors dans la section « Mes workflows en action » et sa fiche affiche le schéma.
 - **Mentions légales / confidentialité** : page statique `mentions-legales.html` (à mettre à jour si un nouveau service collecte des données, ex. un autre outil d'analytics).
 - **Modifier une compétence** : éditer `src/data/skills.json`.
