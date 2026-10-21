@@ -8,7 +8,7 @@ Portfolio de Justine Combeau (Bachelor 3 IA & Automation / BTS Développement We
 - [Tailwind CSS](https://tailwindcss.com/) : styles utilitaires, dark mode par classe
 - JavaScript ES modules (pas de framework) : chaque section est un petit composant qui génère son HTML à partir des données JSON
 - [Font Awesome](https://fontawesome.com/) : icônes (CDN)
-- [Formspree](https://formspree.io/) : traitement du formulaire de contact (champ anti-spam `_gotcha`)
+- Formulaire de contact : fonction Vercel `api/contact.js` qui poste chaque message sur Discord (webhook dans la variable d'environnement `DISCORD_WEBHOOK_URL`, jamais dans le code ; champ anti-spam `_gotcha` + envoi en moins de 3 s ignoré). En local, `npm run dev` sert aussi `/api/contact` (définir `DISCORD_WEBHOOK_URL` avant de lancer)
 - Pré-rendu au build (plugin dans `vite.config.js`) : `dist/index.html` contient tout le contenu, lisible par Google sans exécuter le JavaScript
 
 ## Lancer le projet

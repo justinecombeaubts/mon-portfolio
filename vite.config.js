@@ -6,6 +6,35 @@ import { defineConfig, createServer } from 'vite';
 // Fichier HTML → page passée à renderApp (même valeur que data-page dans le HTML).
 const PAGES = { '/index.html': 'home', '/projets.html': 'projets' };
 
+// En dev seulement : sert api/contact.js comme le ferait Vercel (DISCORD_WEBHOOK_URL lue dans l'environnement).
+function devApi() {
+  return {
+    name: 'dev-api',
+    apply: 'serve',
+    configureServer(server) {
+      server.middlewares.use('/api/contact', async (req, res) => {
+        if (req.method !== 'POST') {
+          res.statusCode = 405;
+          return res.end();
+        }
+        const chunks = [];
+        for await (const chunk of req) chunks.push(chunk);
+        const { POST } = await server.ssrLoadModule('/api/contact.js');
+        const response = await POST(
+          new Request('http://localhost/api/contact', {
+            method: req.method,
+            headers: { 'Content-Type': req.headers['content-type'] || '' },
+            body: Buffer.concat(chunks),
+          })
+        );
+        res.statusCode = response.status;
+        res.setHeader('Content-Type', 'application/json');
+        res.end(await response.text());
+      });
+    },
+  };
+}
+
 function prerender() {
   let root;
   return {
@@ -42,7 +71,7 @@ function prerender() {
 }
 
 export default defineConfig({
-  plugins: [prerender()],
+  plugins: [prerender(), devApi()],
   build: {
     outDir: 'dist',
     assetsDir: 'assets',

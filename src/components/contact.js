@@ -25,7 +25,7 @@ export function renderContact() {
       </div>
 
       <div class="mt-14 grid gap-10 lg:grid-cols-[1.2fr_0.8fr]">
-        <form id="contact-form" class="card space-y-5 p-6 sm:p-8" action="https://formspree.io/f/maqvzaoj" method="POST" novalidate>
+        <form id="contact-form" class="card space-y-5 p-6 sm:p-8" action="/api/contact" method="POST" novalidate>
           <div class="grid gap-5 sm:grid-cols-2">
             <div>
               <label for="name" class="mb-1.5 block text-sm font-medium text-slate-700 dark:text-slate-200">Nom</label>
@@ -38,12 +38,12 @@ export function renderContact() {
           </div>
           <div>
             <label for="message" class="mb-1.5 block text-sm font-medium text-slate-700 dark:text-slate-200">Message</label>
-            <textarea id="message" name="message" rows="5" required minlength="10" class="form-input" placeholder="Votre message"></textarea>
+            <textarea id="message" name="message" rows="5" required minlength="10" maxlength="3000" class="form-input" placeholder="Votre message"></textarea>
           </div>
-          <!-- Piège à robots : champ invisible, Formspree rejette l'envoi s'il est rempli -->
+          <!-- Piège à robots : champ invisible, /api/contact ignore l'envoi s'il est rempli -->
           <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" class="hidden" />
           <p class="text-xs text-slate-500 dark:text-slate-400">
-            Vos nom, email et message servent uniquement à vous répondre : ils sont transmis via Formspree et ne sont jamais revendus.
+            Vos nom, email et message servent uniquement à vous répondre : ils me sont transmis directement et ne sont jamais revendus.
             <a href="/mentions-legales.html#donnees" class="underline underline-offset-2 hover:text-brand-600 dark:hover:text-brand-300">En savoir plus</a>
           </p>
           <button type="submit" class="btn-primary w-full sm:w-auto">
@@ -97,6 +97,7 @@ export function initContactForm() {
   const form = document.getElementById('contact-form');
   const feedback = document.getElementById('form-feedback');
   if (!form) return;
+  const startedAt = Date.now();
 
   const showFeedback = (message, ok) => {
     feedback.classList.remove('hidden', 'text-red-500', 'text-emerald-600');
@@ -129,10 +130,12 @@ export function initContactForm() {
     submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Envoi en cours...';
 
     try {
+      const data = Object.fromEntries(new FormData(form));
+      data._elapsed = Date.now() - startedAt;
       const response = await fetch(form.action, {
         method: 'POST',
-        body: new FormData(form),
-        headers: { Accept: 'application/json' },
+        body: JSON.stringify(data),
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
       });
 
       if (response.ok) {
