@@ -56,8 +56,8 @@ export function renderContact() {
           <div class="card p-6 sm:p-8">
             <div class="mb-6 flex items-center gap-4">
               <picture class="shrink-0">
-                <source srcset="/images/photo-pro.webp" type="image/webp" />
-                <img src="/images/photo-pro.jpg" alt="Photo de Justine Combeau" width="112" height="112"
+                <source srcset="/images/justine-combeau-photo.webp" type="image/webp" />
+                <img src="/images/justine-combeau-photo.jpg" alt="Photo de Justine Combeau, développeuse Web &amp; IA / Automation" width="112" height="112"
                   loading="lazy" decoding="async"
                   class="h-20 w-20 rounded-full object-cover ring-2 ring-brand-300 ring-offset-2 ring-offset-white dark:ring-offset-ink" />
               </picture>

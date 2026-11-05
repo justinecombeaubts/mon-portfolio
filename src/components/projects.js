@@ -40,7 +40,7 @@ function renderCard(project) {
       <h3 class="font-display text-lg font-semibold text-slate-900 dark:text-white">
         ${project.title}
       </h3>
-      <p class="mt-2 flex-1 text-sm text-slate-500 dark:text-slate-400">${project.tagline}</p>
+      <p class="mt-2 flex-1 text-sm text-slate-500 dark:text-slate-400">${project.summary || project.tagline}</p>
 
       <div class="mt-4 flex flex-wrap gap-2">${stack}${extra}</div>
 

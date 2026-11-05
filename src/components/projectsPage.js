@@ -2,7 +2,7 @@ import projects from '../data/projects.json';
 import { CATEGORIES, renderProjectFilters } from './projects.js';
 import { renderProjectCover } from './projectCover.js';
 import { renderWorkflow, renderWorkflowLegend } from './workflow.js';
-import { renderProjectLinks, renderGallery } from './projectExtras.js';
+import { renderProjectLinks, renderGallery, renderSolution, renderProjectFacts, renderProjectDetails } from './projectExtras.js';
 
 const CATEGORY_LABELS = Object.fromEntries(CATEGORIES.map((c) => [c.id, c.label]));
 
@@ -60,8 +60,10 @@ function renderRow(project) {
       <div class="grid gap-8 lg:grid-cols-[1fr_20rem]">
         <div class="space-y-6 text-sm">
           <p class="section-eyebrow">${project.status || project.year}</p>
+          ${project.subtitle ? `<p class="text-base text-slate-600 dark:text-slate-300">${project.subtitle}</p>` : ''}
+          ${renderProjectFacts(project)}
           ${renderBlock('fa-briefcase', 'Contexte', `<p class="mt-1.5 text-slate-600 dark:text-slate-400">${project.context}</p>`)}
-          ${renderBlock('fa-layer-group', 'Solution', `<p class="mt-1.5 text-slate-600 dark:text-slate-400">${project.solution}</p>`)}
+          ${renderBlock('fa-layer-group', 'Solution', `<div class="mt-1.5 text-slate-600 dark:text-slate-400">${renderSolution(project)}</div>`)}
           ${renderBlock('fa-chart-line', 'Résultat &amp; impact', `<ul class="mt-2 space-y-2 text-slate-600 dark:text-slate-400">${impact}</ul>`)}
         </div>
         <div class="space-y-5">
@@ -71,6 +73,7 @@ function renderRow(project) {
         </div>
       </div>
       ${workflow}
+      ${renderProjectDetails(project)}
       ${renderGallery(project)}
     </div>
   </details>`;
