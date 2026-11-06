@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" class="dark">
 
 <head>
   <meta charset="UTF-8" />
@@ -8,8 +8,7 @@
   <meta name="description"
     content="Justine Combeau : portfolio officiel. Étudiante en Bachelor IA & Automation et développeuse web (BTS Informatique Développement), disponible en alternance. Projets en développement web, intelligence artificielle et automatisation." />
   <meta name="author" content="Justine Combeau" />
-  <meta name="theme-color" content="#f4f4f6" media="(prefers-color-scheme: light)" />
-  <meta name="theme-color" content="#2a0f17" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#2a0f17" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="48x48" />
   <link rel="canonical" href="https://mon-portfolio-justine-combeau.vercel.app/" />
@@ -96,16 +95,6 @@
     rel="stylesheet" />
   <!-- Icônes -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
-
-  <script>
-    // Applique le thème avant le premier rendu pour éviter le flash (FOUC).
-    // L'identité Sunrise.tech est lumineuse par défaut : le mode sombre reste
-    // un choix explicite de la personne, jamais un état par défaut.
-    (function () {
-      var stored = localStorage.getItem('theme');
-      document.documentElement.classList.toggle('dark', stored === 'dark');
-    })();
-  </script>
 
   <script type="module" src="/src/main.js"></script>
 <script defer src="/_vercel/insights/script.js"></script>

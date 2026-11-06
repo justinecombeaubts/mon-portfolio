@@ -5,7 +5,7 @@ Portfolio de Justine Combeau (Bachelor 3 IA & Automation / BTS Développement We
 ## Stack
 
 - [Vite](https://vitejs.dev/) : bundler & serveur de dev
-- [Tailwind CSS](https://tailwindcss.com/) : styles utilitaires, dark mode par classe
+- [Tailwind CSS](https://tailwindcss.com/) : styles utilitaires, site en sombre uniquement (classe `dark` sur `<html>`)
 - JavaScript ES modules (pas de framework) : chaque section est un petit composant qui génère son HTML à partir des données JSON
 - [Font Awesome](https://fontawesome.com/) : icônes (CDN)
 - Formulaire de contact : fonction Vercel `api/contact.js` qui poste chaque message sur Discord (webhook dans la variable d'environnement `DISCORD_WEBHOOK_URL`, jamais dans le code ; champ anti-spam `_gotcha` + envoi en moins de 3 s ignoré). En local, `npm run dev` sert aussi `/api/contact` (définir `DISCORD_WEBHOOK_URL` avant de lancer)
@@ -31,15 +31,14 @@ src/
 │   ├── projects.json        # source unique des cartes projets + fiches détaillées
 │   ├── skills.json           # compétences par catégorie
 │   └── timeline.json         # formations & expériences
-├── components/               # un fichier = une section (render + logique)
-└── utils/theme.js            # dark/light mode (persisté en localStorage)
+└── components/               # un fichier = une section (render + logique)
 ```
 
 ## Mettre à jour le contenu
 
 - **Ajouter un projet** : ajouter une entrée dans `src/data/projects.json` (catégorie `ia-automation`, `dev-web` ou `mobile`) avec `context` (contexte), `solution` + `stack`, et `impact` (liste de résultats). Le projet apparaît automatiquement sur la page `projets.html` (liste où chaque ligne se déplie sur le détail et le workflow ; lien direct vers une ligne : `/projets.html#<id>`).
 - **Champs facultatifs d'un projet** : `banner` + `bannerAlt` (bannière en tête de fiche, à la place de la capture), `gallery` (liste `{ src, alt, wide? }` affichée en bande défilante « En images »), `links.presentation` (PDF téléchargeable, rangé dans `public/projets/`), `privateNote` (ex. « Code disponible sur demande »), `imageAlt` (texte alternatif du logo), `subtitle` (sous-titre de la fiche), `summary` (description de la carte, à la place de `tagline`), `facts` (liste `{ label, value }` : type, date, statut, rôle), `solutionIntro` + `solutionSteps` (solution en étapes sur le site ; `solution` reste le texte du PDF), `details` (sections en plus : `{ icon, title, text?, list?, table?, image? }`).
-- **Menu** : sur grand écran, colonne fixe à gauche (photo pro, liens, CV, réseaux, thème) ; sur téléphone et tablette, barre du haut avec menu ☰ (`src/components/header.js`).
+- **Menu** : sur grand écran, colonne fixe à gauche (photo pro, liens, CV, réseaux) ; sur téléphone et tablette, barre du haut avec menu ☰ (`src/components/header.js`).
 - **Projets de la page d'accueil** : seuls ceux qui ont `"featured": true` y sont affichés en cartes (3 ou 4 au maximum), avec la fiche en modale ; un bouton mène à `projets.html`.
 - **Mettre un projet en avant comme workflow** : ajouter un tableau `workflow` (étapes `{ kind, icon, label, detail }`, `kind` = `source`, `process`, `ai`, `human` ou `output`). Le projet apparaît alors dans la section « Mes workflows en action » et sa fiche affiche le schéma.
 - **Mentions légales / confidentialité** : page statique `mentions-legales.html` (à mettre à jour si un nouveau service collecte des données, ex. un autre outil d'analytics).

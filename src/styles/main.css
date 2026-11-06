@@ -86,7 +86,7 @@ h1, h2, h3, .font-display {
   }
 
   .card {
-    @apply rounded-2xl border border-slate-200/70 bg-white shadow-soft transition-all duration-300 dark:border-white/10 dark:bg-white/[0.03];
+    @apply rounded-2xl border border-slate-200/70 bg-white shadow-soft transition-all duration-300 dark:border-white/10 dark:bg-[#30161e];
   }
 
   /* Visuel projet : fond à la couleur du logo (--cover), capture en fenêtre ou logo centré. */
@@ -232,10 +232,9 @@ h1, h2, h3, .font-display {
   }
 }
 
-/* Fond bordeaux à la courbe (hero) : tout en CSS, sans image.
-   La section porte aussi la classe "dark" : ses textes et boutons restent lisibles
-   même quand le site est en thème clair. Placé après .dark pour que le crème s'applique. */
+/* Fond bordeaux à la courbe (hero) : tout en CSS, sans image. */
 .fond-courbe {
+  container-type: inline-size;
   --c-white: 246 233 228; /* crème #F6E9E4 pour les titres */
   position: relative;
   isolation: isolate;
@@ -262,6 +261,139 @@ h1, h2, h3, .font-display {
   box-shadow: 0 40px 80px -20px rgba(12, 3, 6, 0.6);
 }
 
+/* Contenu digital de la courbe : même cercle que le disque ci-dessus, en clip-path.
+   Rayon = max(100 % de la section, 900 px) ; bas du disque à 520 px du haut. */
+.courbe-digital {
+  --rayon: max(100cqw, 900px);
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  clip-path: circle(var(--rayon) at calc(28cqw + var(--rayon)) calc(520px - var(--rayon)));
+}
+
+.courbe-code {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: min(62cqw, 760px);
+  height: 520px;
+  overflow: hidden;
+  padding-left: 1.5rem;
+  color: rgb(246 233 228 / 0.3);
+  font-family: 'Source Code Pro', monospace;
+  font-size: 0.8125rem;
+  line-height: 1.7;
+}
+
+.courbe-code pre {
+  margin: 0;
+  font: inherit;
+  white-space: pre;
+}
+
+.courbe-code-piste {
+  animation: code-defile 42s linear infinite;
+}
+
+.courbe-workflow {
+  position: absolute;
+  top: 2.75rem;
+  right: 4cqw;
+  width: min(44cqw, 460px);
+  height: auto;
+  overflow: visible;
+}
+
+.courbe-workflow .noeud {
+  fill: rgb(46 18 23 / 0.82);
+  stroke: rgb(228 184 166 / 0.55);
+  stroke-width: 1;
+}
+
+.courbe-workflow .noeud-ia {
+  fill: rgb(122 38 56 / 0.9);
+  stroke: #e4b8a6;
+}
+
+.courbe-workflow text {
+  fill: #f6e9e4;
+  font-family: 'Source Code Pro', monospace;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.courbe-workflow .liaison {
+  fill: none;
+  stroke: rgb(228 184 166 / 0.7);
+  stroke-width: 1.5;
+  stroke-dasharray: 4 5;
+  animation: liaison-defile 1.2s linear infinite;
+}
+
+.courbe-workflow .impulsion {
+  fill: #e4b8a6;
+  offset-path: path('M0 38H420');
+  animation: impulsion-parcours 6s linear infinite;
+}
+
+/* Sur téléphone, la zone claire est trop étroite pour le workflow : le code seul. */
+@media (max-width: 640px) {
+  .courbe-workflow {
+    display: none;
+  }
+
+  .courbe-code {
+    font-size: 0.6875rem;
+  }
+}
+
+/* Fond global : balises et symboles discrets, derrière tout le contenu. */
+.fond-digital {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+  color: #e4b8a6;
+  font-family: 'Source Code Pro', monospace;
+}
+
+.fond-digital span {
+  position: absolute;
+  rotate: var(--rotation);
+  white-space: nowrap;
+  animation: digital-flotte var(--duree) ease-in-out infinite alternate;
+}
+
+@media (min-width: 1024px) {
+  .fond-digital {
+    left: 18rem; /* largeur du menu de gauche */
+  }
+}
+
+@media (max-width: 640px) {
+  .fond-digital span:nth-child(even) {
+    display: none;
+  }
+}
+
+@keyframes code-defile {
+  to { transform: translateY(-50%); }
+}
+
+@keyframes liaison-defile {
+  to { stroke-dashoffset: -9; }
+}
+
+@keyframes impulsion-parcours {
+  to { offset-distance: 100%; }
+}
+
+@keyframes digital-flotte {
+  to { translate: 0 -14px; }
+}
+
 @keyframes fade-up {
   from { opacity: 0; transform: translateY(16px); }
   to { opacity: 1; transform: translateY(0); }
@@ -272,6 +404,13 @@ h1, h2, h3, .font-display {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .courbe-code-piste,
+  .courbe-workflow .liaison,
+  .courbe-workflow .impulsion,
+  .fond-digital span {
+    animation: none !important;
+  }
+
   * {
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;

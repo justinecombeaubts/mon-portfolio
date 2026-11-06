@@ -12,9 +12,11 @@ import { renderTimeline } from './components/timeline.js';
 import { renderBook } from './components/book.js';
 import { renderContact } from './components/contact.js';
 import { renderFooter } from './components/footer.js';
+import { renderDigitalBackground } from './components/digitalBackground.js';
 
 function renderHome() {
   return `
+  ${renderDigitalBackground()}
   ${renderHeader()}
   <div class="lg:pl-72">
   <main>
@@ -35,6 +37,7 @@ function renderHome() {
 
 function renderProjectsListPage() {
   return `
+  ${renderDigitalBackground()}
   ${renderHeader({ page: 'projets' })}
   <div class="lg:pl-72">
   <main>
