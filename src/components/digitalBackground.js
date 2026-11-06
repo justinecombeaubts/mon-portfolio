@@ -1,6 +1,6 @@
 // Fond global : balises et symboles de code très discrets, derrière tout le contenu.
 // Positions fixes (x, y en %) pour que le rendu soit identique au pré-rendu.
-// [texte, x, y, taille en rem, rotation en degrés, opacité]
+// [texte, x, y, taille en rem, rotation en degrés, opacité de base]
 const ELEMENTS = [
   ['&lt;/&gt;', 6, 10, 2.6, -8, 0.1],
   ['&lt;div&gt;', 74, 7, 1.1, 4, 0.1],
@@ -25,7 +25,7 @@ const ELEMENTS = [
 export function renderDigitalBackground() {
   const items = ELEMENTS.map(
     ([text, x, y, size, rotation, opacity], i) =>
-      `<span style="left:${x}%;top:${y}%;font-size:${size}rem;opacity:${opacity};--rotation:${rotation}deg;--duree:${16 + (i % 5) * 3}s">${text}</span>`
+      `<span style="left:${x}%;top:${y}%;font-size:${size}rem;--opacite:${opacity};--rotation:${rotation}deg;--duree:${16 + (i % 5) * 3}s">${text}</span>`
   ).join('');
   return `<div class="fond-digital" aria-hidden="true">${items}</div>`;
 }

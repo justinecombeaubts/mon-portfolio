@@ -355,15 +355,22 @@ h1, h2, h3, .font-display {
   z-index: -1;
   overflow: hidden;
   pointer-events: none;
-  color: #e4b8a6;
+  color: #f0c9b8;
   font-family: 'Source Code Pro', monospace;
+  --intensite: 2.4; /* réglage global de la visibilité des éléments */
 }
 
 .fond-digital span {
   position: absolute;
+  opacity: calc(var(--opacite) * var(--intensite));
   rotate: var(--rotation);
   white-space: nowrap;
-  animation: digital-flotte var(--duree) ease-in-out infinite alternate;
+  text-shadow:
+    0 0 6px rgb(240 201 184 / 0.75),
+    0 0 18px rgb(228 184 166 / 0.45);
+  animation:
+    digital-flotte var(--duree) ease-in-out infinite alternate,
+    digital-brille calc(var(--duree) / 3) ease-in-out infinite alternate;
 }
 
 @media (min-width: 1024px) {
@@ -372,7 +379,12 @@ h1, h2, h3, .font-display {
   }
 }
 
+/* Sur téléphone, le texte occupe toute la largeur : moins d'éléments, moins intenses. */
 @media (max-width: 640px) {
+  .fond-digital {
+    --intensite: 1.6;
+  }
+
   .fond-digital span:nth-child(even) {
     display: none;
   }
@@ -392,6 +404,10 @@ h1, h2, h3, .font-display {
 
 @keyframes digital-flotte {
   to { translate: 0 -14px; }
+}
+
+@keyframes digital-brille {
+  to { opacity: calc(var(--opacite) * var(--intensite) * 1.45); }
 }
 
 @keyframes fade-up {
