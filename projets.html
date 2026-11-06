@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" class="dark">
 
 <head>
   <meta charset="UTF-8" />
@@ -8,8 +8,7 @@
   <meta name="description"
     content="Tous les projets de Justine Combeau en détail : IA et automatisation, développement web et applications Android, avec contexte, stack, résultats et workflows." />
   <meta name="author" content="Justine Combeau" />
-  <meta name="theme-color" content="#f4f4f6" media="(prefers-color-scheme: light)" />
-  <meta name="theme-color" content="#2a0f17" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#2a0f17" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="48x48" />
   <link rel="canonical" href="https://mon-portfolio-justine-combeau.vercel.app/projets.html" />
@@ -37,14 +36,6 @@
     rel="stylesheet" />
   <!-- Icônes -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
-
-  <script>
-    // Même thème que l'accueil, appliqué avant le premier rendu.
-    (function () {
-      var stored = localStorage.getItem('theme');
-      document.documentElement.classList.toggle('dark', stored === 'dark');
-    })();
-  </script>
 
   <script type="module" src="/src/main.js"></script>
 <script defer src="/_vercel/insights/script.js"></script>

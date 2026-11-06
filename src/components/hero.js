@@ -1,6 +1,61 @@
+// Dans la zone claire de la courbe : du code qui défile et un petit workflow animé.
+// Décoratif (aria-hidden) : le code reprend la logique de ColibrIA.
+const CODE_LINES = [
+  '// Veille triée par IA, toutes les 6 h',
+  "schedule: '0 */6 * * *'",
+  '',
+  'const articles = await lireSources();',
+  '',
+  'for (const article of articles) {',
+  '  const note = await noterAvecIA(article, profil);',
+  '  if (note >= 6) {',
+  '    await publier(article, salon);',
+  '  }',
+  '}',
+  '',
+  '// Le code calcule, l&#39;IA restitue, l&#39;humain valide',
+  'const reponse = valider(JSON.parse(sortieIA));',
+  'if (!reponse.ok) return reessayer(article);',
+  '',
+  '&lt;section class="projet"&gt;',
+  '  &lt;h2&gt;{titre}&lt;/h2&gt;',
+  '&lt;/section&gt;',
+  '',
+];
+
+const WORKFLOW_STEPS = ['Source', 'Filtre', 'IA', 'Discord'];
+
+function renderCourbeWorkflow() {
+  const nodes = WORKFLOW_STEPS.map(
+    (label, i) => `
+      <g transform="translate(${i * 112} 16)">
+        <rect class="${label === 'IA' ? 'noeud noeud-ia' : 'noeud'}" width="84" height="44" rx="12" />
+        <text x="42" y="27" text-anchor="middle">${label}</text>
+      </g>`
+  ).join('');
+  return `
+    <svg class="courbe-workflow" viewBox="0 0 420 76" focusable="false">
+      <path class="liaison" d="M84 38H112M196 38H224M308 38H336" />
+      <circle class="impulsion" r="4" />
+      ${nodes}
+    </svg>`;
+}
+
+function renderCourbeDigital() {
+  const code = CODE_LINES.join('\n');
+  return `
+    <div class="courbe-digital" aria-hidden="true">
+      <div class="courbe-code">
+        <div class="courbe-code-piste"><pre>${code}</pre><pre>${code}</pre></div>
+      </div>
+      ${renderCourbeWorkflow()}
+    </div>`;
+}
+
 export function renderHero() {
   return `
-  <section id="home" class="dark fond-courbe pt-40 pb-24 sm:pt-48 sm:pb-32 lg:pt-28">
+  <section id="home" class="fond-courbe pt-40 pb-24 sm:pt-48 sm:pb-32 lg:pt-28">
+    ${renderCourbeDigital()}
     <div class="container-x relative grid items-center gap-16 lg:grid-cols-[1.1fr_0.9fr]">
       <div class="animate-fade-up">
         <p class="section-eyebrow">
