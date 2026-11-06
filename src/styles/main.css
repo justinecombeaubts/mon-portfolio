@@ -276,11 +276,13 @@ h1, h2, h3, .font-display {
   position: absolute;
   top: 0;
   right: 0;
-  width: min(62cqw, 760px);
+  display: flex;
+  justify-content: flex-end; /* calé à droite, là où la zone claire est la plus large */
+  width: 100%;
   height: 520px;
   overflow: hidden;
-  padding-left: 1.5rem;
-  color: rgb(246 233 228 / 0.3);
+  padding-right: 4cqw;
+  color: rgb(246 233 228 / 0.6);
   font-family: 'Source Code Pro', monospace;
   font-size: 0.8125rem;
   line-height: 1.7;
@@ -306,13 +308,13 @@ h1, h2, h3, .font-display {
 }
 
 .courbe-workflow .noeud {
-  fill: rgb(46 18 23 / 0.82);
+  fill: rgb(46 18 23 / 0.95);
   stroke: rgb(228 184 166 / 0.55);
   stroke-width: 1;
 }
 
 .courbe-workflow .noeud-ia {
-  fill: rgb(122 38 56 / 0.9);
+  fill: rgb(122 38 56 / 0.97);
   stroke: #e4b8a6;
 }
 
@@ -337,6 +339,18 @@ h1, h2, h3, .font-display {
   animation: impulsion-parcours 6s linear infinite;
 }
 
+/* Tablette et téléphone : le titre remonte, le code s'arrête au-dessus de lui
+   et le workflow passe sous la barre du haut. */
+@media (max-width: 1023px) {
+  .courbe-code {
+    height: 210px;
+  }
+
+  .courbe-workflow {
+    top: 5.5rem;
+  }
+}
+
 /* Sur téléphone, la zone claire est trop étroite pour le workflow : le code seul. */
 @media (max-width: 640px) {
   .courbe-workflow {
@@ -344,7 +358,9 @@ h1, h2, h3, .font-display {
   }
 
   .courbe-code {
+    padding-right: 0.75rem;
     font-size: 0.6875rem;
+    text-align: right;
   }
 }
 
