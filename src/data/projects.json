@@ -66,18 +66,47 @@
     "id": "colibria",
     "category": "ia-automation",
     "title": "ColibrIA",
-    "tagline": "Un bot de veille tech qui lit l'actu à ma place et ne garde que l'essentiel, trié par sujet sur Discord",
-    "year": "2026",
+    "tagline": "Un bot de veille tech qui lit l'actu à ma place et ne garde que l'essentiel.",
+    "subtitle": "Veille automatisée par IA, triée par sujet sur Discord.",
+    "summary": "Un colibri butine des centaines de fleurs pour n'en garder que le nectar. ColibrIA fait pareil avec l'actualité : toutes les 6 heures, il lit 38 sources, demande à une IA de noter chaque article selon mon profil, et publie les meilleurs, résumés en français, dans le bon salon Discord.",
+    "year": "Octobre 2026",
     "status": "En production",
     "automations": 1,
-    "context": "Faire sa veille tech, c'est un job à plein temps : des dizaines de sites à surveiller (OpenAI, Google, GitHub, n8n, médias tech…), beaucoup de bruit (marketing, rumeurs, contenus pour débutants) et les vraies nouveautés noyées dans la masse. Une première version sur Zapier envoyait un flux RSS tel quel dans Discord : sans tri, au format brut et vite limitée (une source à la fois, quota de tâches). J'ai donc reconstruit le projet en code. Comme un colibri qui ne garde que le nectar, ColibrIA ne retient que les articles qui comptent.",
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Projet personnel, Bachelor 3 IA & Automation (Digital Campus Paris)"
+      },
+      {
+        "label": "Date",
+        "value": "Octobre 2026"
+      },
+      {
+        "label": "Statut",
+        "value": "En production, tourne tout seul toutes les 6 heures"
+      },
+      {
+        "label": "Rôle",
+        "value": "Conception, développement, prompt engineering, design (logo, avatars, mise en forme des messages)"
+      }
+    ],
+    "context": "Faire sa veille tech, c'est un job à plein temps : des dizaines de sites à surveiller (OpenAI, Google, GitHub, n8n, médias tech…), beaucoup de bruit (marketing, rumeurs, contenus pour débutants) et les vraies nouveautés noyées dans la masse. Une première version sur Zapier envoyait un flux RSS tel quel dans Discord : sans tri, au format brut et vite limitée (une source à la fois, quota de tâches, peu de contrôle). J'ai donc reconstruit le projet en code. Comme un colibri qui ne garde que le nectar, ColibrIA ne retient que les articles qui comptent.",
     "solution": "Programme Node.js lancé par GitHub Actions toutes les 6 heures. Il lit 38 sources (blogs officiels d'OpenAI, Google DeepMind, Mistral, Hugging Face, GitHub, Node.js, React…, médias tech et recherches Google News pour les sites sans flux), ne garde que les articles de moins de 48 h jamais vus (mémoire des liens sur 30 jours), puis fait noter chacun sur 10 par Gemini selon un profil écrit en langage naturel : sujets suivis, exclusions et grille de points (+3 pour un outil suivi, +2 pour une faille touchant ma stack, −3 pour un contenu débutant…). L'IA choisit aussi le salon parmi 31, en 8 catégories et 2 profils (le serveur est partagé à deux, chaque salon est noté selon le profil de son propriétaire). Les articles notés 6/10 ou plus sont publiés via webhooks : titre traduit, points clés, « Pour toi », idée « À tester », jauge de pertinence, couleur et avatar de colibri propres au salon. Robustesse : nouvelles tentatives puis modèle de secours si Gemini est surchargé, sources en panne ignorées, contenu des articles traité comme une donnée (protection contre l'injection de prompt) et chaque réponse de l'IA validée.",
+    "solutionIntro": "Un programme Node.js lancé automatiquement par GitHub Actions toutes les 6 heures, qui :",
+    "solutionSteps": [
+      "Lit 38 sources : blogs officiels (OpenAI, Google DeepMind, Mistral, Hugging Face, GitHub, Android Developers, Node.js, React…), médias tech et recherches Google News pour les sites sans flux RSS.",
+      "Garde uniquement les nouveautés : articles de moins de 48 h jamais vus, sans doublons (un fichier de mémoire garde les liens déjà traités pendant 30 jours).",
+      "Fait noter chaque article par une IA (Gemini) sur 10, selon un profil écrit en langage naturel : sujets suivis, exclusions, grille de points.",
+      "Choisit le bon salon parmi 31, répartis en 8 catégories.",
+      "Publie les articles notés 6/10 ou plus sur Discord via des webhooks, avec une mise en forme soignée."
+    ],
     "stack": [
-      "Node.js (ES modules)",
-      "API Gemini (Flash-Lite)",
-      "GitHub Actions (cron)",
-      "rss-parser",
-      "Webhooks Discord",
+      "IA",
+      "Automatisation",
+      "Node.js",
+      "LLM",
+      "GitHub Actions",
+      "Discord",
       "Prompt engineering"
     ],
     "impact": [
@@ -85,6 +114,118 @@
       "Seuls les articles notés 6/10 ou plus sont publiés, dans le bon salon parmi 31 (8 catégories, 2 profils).",
       "Pour changer ce que le bot retient, je modifie un fichier texte, pas le code.",
       "0 € de coût de fonctionnement : clé API et webhooks dans les secrets GitHub, jamais dans le code."
+    ],
+    "details": [
+      {
+        "icon": "fa-brain",
+        "title": "Ce qui le rend intelligent",
+        "list": [
+          "Un profil en langage naturel : pour changer ce que le bot retient, je modifie un fichier texte, pas le code.",
+          "Une grille de notation : +3 pour un acteur ou un outil suivi, +3 si ça change ma façon de coder, +2 pour une faille touchant ma stack, +2 pour une source officielle, −3 pour un contenu débutant, 0 pour un sujet exclu.",
+          "Plusieurs profils : le serveur est partagé à deux. Chaque salon appartient à une personne, et l'IA note l'article selon le profil de son propriétaire.",
+          "Des règles de rédaction par thème : ton strictement neutre pour la politique, jamais de conseil d'investissement pour la finance, jamais de conseil médical pour le sport."
+        ]
+      },
+      {
+        "icon": "fa-comments",
+        "title": "Le résultat sur Discord",
+        "text": "Chaque message contient : le média et son icône, le titre traduit en français avec l'emoji du salon, une accroche, 2 à 4 points clés, « Pour toi », une idée « À tester », une jauge de pertinence (▰▰▰▰▰▰▰▰▰▱ 9/10), le type d'article, des tags, l'image de l'article quand elle existe, et la couleur propre à chaque salon. Chaque salon a son propre webhook, avec un nom et un avatar de colibri dédiés.",
+        "image": {
+          "src": "/images/colibria/avatars.webp",
+          "alt": "Avatars de colibri des salons Discord de ColibrIA",
+          "width": 1000,
+          "height": 508
+        }
+      },
+      {
+        "icon": "fa-folder-tree",
+        "title": "Les catégories",
+        "table": [
+          [
+            "IA",
+            "OpenAI, Gemini, Meta, Anthropic, Mistral, open source, nouveautés IA"
+          ],
+          [
+            "Sécurité & Tech",
+            "sécurité, classements de LLM, matériel IA, nouveautés tech"
+          ],
+          [
+            "Dev",
+            "GitHub, web, mobile, nouveautés dev"
+          ],
+          [
+            "Automatisation",
+            "n8n, Make, Zapier, nouveautés automatisation"
+          ],
+          [
+            "Second profil",
+            "Politique, Sport, Crypto & Bourse, Gaming"
+          ]
+        ]
+      },
+      {
+        "icon": "fa-shield-halved",
+        "title": "Robustesse et sécurité",
+        "list": [
+          "Gemini surchargé (erreur 503) : nouvelles tentatives après 2, 6 puis 15 secondes, puis bascule sur un modèle de secours. Un article raté est retenté au passage suivant.",
+          "Sources en panne : un flux qui ne répond pas est ignoré sans bloquer les autres.",
+          "Protection contre l'injection de prompt : le contenu des articles est traité comme une donnée, jamais comme une instruction, et chaque réponse de l'IA est validée (note entre 0 et 10, salon existant, textes tronqués).",
+          "Secrets : clé API et webhooks stockés dans les secrets GitHub, jamais dans le code.",
+          "Quotas : un passage toutes les 6 heures pour rester dans les 2 000 minutes gratuites de GitHub Actions. Coût total : 0 €."
+        ]
+      },
+      {
+        "icon": "fa-cubes",
+        "title": "Stack technique",
+        "table": [
+          [
+            "Node.js (ES modules)",
+            "Orchestration : lecture des flux, appels à l'IA, envoi des messages"
+          ],
+          [
+            "rss-parser",
+            "Lecture des flux RSS et Atom"
+          ],
+          [
+            "API Gemini (Flash-Lite)",
+            "Notation, résumé et choix du salon, réponse en JSON"
+          ],
+          [
+            "GitHub Actions",
+            "Planification (cron toutes les 6 h) et sauvegarde automatique de l'état"
+          ],
+          [
+            "Webhooks Discord",
+            "Publication dans 31 salons, embeds personnalisés"
+          ],
+          [
+            "Google News RSS",
+            "Sources de secours pour les sites sans flux"
+          ]
+        ],
+        "text": "Compatible aussi avec les API Anthropic et OpenAI (choix automatique selon la clé disponible)."
+      },
+      {
+        "icon": "fa-graduation-cap",
+        "title": "Ce que j'ai appris",
+        "list": [
+          "Passer d'un prototype no-code (Zapier) à une solution codée quand les limites apparaissent",
+          "Intégrer une API de LLM et fiabiliser ses réponses (JSON, validation, réessais, modèle de secours)",
+          "Le prompt engineering appliqué : un profil en langage naturel qui sert de règle de tri",
+          "La CI/CD avec GitHub Actions : cron, secrets, sauvegarde d'état, gestion des quotas",
+          "La sécurité des applications LLM : injection de prompt, gestion des secrets",
+          "Le design d'une identité visuelle cohérente : logo, 31 avatars, messages aux couleurs de chaque salon"
+        ]
+      },
+      {
+        "icon": "fa-seedling",
+        "title": "Pistes d'évolution",
+        "list": [
+          "Un récapitulatif hebdomadaire des meilleurs articles",
+          "Une commande Discord pour ajouter un sujet sans toucher au code",
+          "Un tableau de bord des statistiques"
+        ]
+      }
     ],
     "workflow": [
       {
@@ -154,11 +295,6 @@
       {
         "src": "/images/colibria/slide-08.webp",
         "alt": "Slide 8 du carrousel de présentation de ColibrIA"
-      },
-      {
-        "src": "/images/colibria/avatars.webp",
-        "alt": "Planche des avatars de colibri, un par salon Discord",
-        "wide": true
       }
     ],
     "accent": "#1d182e",

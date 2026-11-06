@@ -1,8 +1,6 @@
 export function renderHero() {
   return `
-  <section id="home" class="relative overflow-hidden pt-40 pb-24 sm:pt-48 sm:pb-32 lg:pt-28">
-    <div class="pointer-events-none absolute inset-0 bg-grid-glow"></div>
-
+  <section id="home" class="dark fond-courbe pt-40 pb-24 sm:pt-48 sm:pb-32 lg:pt-28">
     <div class="container-x relative grid items-center gap-16 lg:grid-cols-[1.1fr_0.9fr]">
       <div class="animate-fade-up">
         <p class="section-eyebrow">
@@ -14,7 +12,7 @@ export function renderHero() {
           Je code des solutions <span class="text-ai-600 dark:text-ai-400">web</span> et je les rends
           <span class="text-brand-500 dark:text-brand-300">intelligentes</span>.
         </h1>
-        <p class="mt-6 max-w-xl text-lg text-slate-500 dark:text-slate-400">
+        <p class="mt-6 max-w-xl text-lg text-slate-500 dark:text-white/80">
           Étudiante en Bachelor IA &amp; Automation à Digital Campus Paris, diplômée d'un BTS
           Informatique Développement. Je conçois des sites et applications robustes, puis j'y ajoute de
           l'automatisation et de l'intelligence artificielle pour aller plus loin.
@@ -34,7 +32,7 @@ export function renderHero() {
           </a>
         </div>
 
-        <div class="mt-12 flex flex-wrap items-center gap-x-10 gap-y-4 text-sm text-slate-500 dark:text-slate-400">
+        <div class="mt-12 flex flex-wrap items-center gap-x-10 gap-y-4 text-sm text-slate-500 dark:text-white/80">
           <div class="flex items-center gap-2">
             <i class="fas fa-graduation-cap text-brand-500 dark:text-brand-300"></i> Bachelor 3 IA &amp; Automation
           </div>

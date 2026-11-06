@@ -65,10 +65,6 @@ export default {
         soft: '0 10px 30px -12px rgba(42,15,23,0.22)',
         glow: '0 0 30px -12px rgba(226,186,172,0.55)',
       },
-      backgroundImage: {
-        'grid-glow':
-          'radial-gradient(circle at 20% 20%, rgba(226,186,172,0.22), transparent 45%), radial-gradient(circle at 80% 0%, rgba(122,64,73,0.12), transparent 50%)',
-      },
     },
   },
   plugins: [],

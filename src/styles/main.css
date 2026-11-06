@@ -232,6 +232,36 @@ h1, h2, h3, .font-display {
   }
 }
 
+/* Fond bordeaux à la courbe (hero) : tout en CSS, sans image.
+   La section porte aussi la classe "dark" : ses textes et boutons restent lisibles
+   même quand le site est en thème clair. Placé après .dark pour que le crème s'applique. */
+.fond-courbe {
+  --c-white: 246 233 228; /* crème #F6E9E4 pour les titres */
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  color: #f6e9e4;
+  background: linear-gradient(140deg, #2e1217 0%, #3a1520 55%, #4a1e27 100%);
+}
+
+/* La courbe : un très grand disque dont on ne voit que l'arc. */
+.fond-courbe::after {
+  content: '';
+  position: absolute;
+  z-index: -2;
+  pointer-events: none;
+  width: max(200%, 1800px);
+  aspect-ratio: 1 / 1;
+  left: 28%;
+  bottom: calc(100% - 520px); /* hauteur fixe : même arc d'angle quelle que soit la hauteur du hero */
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 50%,
+    rgba(74, 30, 39, 0.15) 45%,
+    rgba(107, 47, 56, 0.55) 64%,
+    rgba(125, 55, 66, 0.7) 70.7%);
+  box-shadow: 0 40px 80px -20px rgba(12, 3, 6, 0.6);
+}
+
 @keyframes fade-up {
   from { opacity: 0; transform: translateY(16px); }
   to { opacity: 1; transform: translateY(0); }

@@ -54,8 +54,8 @@ export function renderHeader({ page = 'home' } = {}) {
   <aside class="fixed inset-y-0 left-0 z-50 hidden w-72 flex-col overflow-y-auto border-r border-slate-200/70 bg-white/80 px-6 py-6 backdrop-blur lg:flex dark:border-white/10 dark:bg-ink-panel/60">
     <a href="${homeHref}" class="flex flex-col items-center text-center">
       <picture>
-        <source srcset="/images/photo-pro.webp" type="image/webp" />
-        <img src="/images/photo-pro.jpg" alt="Photo de Justine Combeau" width="112" height="112"
+        <source srcset="/images/justine-combeau-photo.webp" type="image/webp" />
+        <img src="/images/justine-combeau-photo.jpg" alt="Photo de Justine Combeau, développeuse Web &amp; IA / Automation" width="112" height="112"
           class="h-24 w-24 rounded-full object-cover ring-2 ring-brand-300 ring-offset-4 ring-offset-white dark:ring-offset-ink-panel" />
       </picture>
       <span class="mt-4 font-display text-lg font-semibold text-slate-900 dark:text-white">Justine Combeau</span>
@@ -80,7 +80,7 @@ export function renderHeader({ page = 'home' } = {}) {
     </div>
   </aside>
 
-  <header id="site-header" class="fixed inset-x-0 top-0 z-50 transition-colors duration-300 lg:hidden">
+  <header id="site-header" class="${onHome ? 'dark ' : ''}fixed inset-x-0 top-0 z-50 transition-colors duration-300 lg:hidden">
     <div class="container-x flex h-20 items-center justify-between">
       <a href="${homeHref}" class="flex items-center gap-2 font-display text-lg font-semibold text-slate-900 dark:text-white">
         <img src="/images/logo.png" alt="Logo Justine Combeau" width="36" height="36" class="h-9 w-9 rounded-full object-cover" />
@@ -116,8 +116,12 @@ export function initHeader() {
   const menu = document.getElementById('mobile-menu');
   const navLinks = document.querySelectorAll('[data-nav-link]');
 
+  // Accueil : tant que la barre est transparente, elle passe sur le hero bordeaux, donc en thème sombre.
+  const hasDarkHero = Boolean(document.getElementById('home'));
+
   const applyScrollStyle = () => {
     const scrolled = window.scrollY > 12;
+    header.classList.toggle('dark', hasDarkHero && !scrolled);
     header.classList.toggle('bg-white/90', scrolled);
     header.classList.toggle('backdrop-blur', scrolled);
     header.classList.toggle('shadow-soft', scrolled);

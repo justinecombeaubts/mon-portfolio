@@ -1,7 +1,7 @@
 import projects from '../data/projects.json';
 import { renderWorkflow } from './workflow.js';
 import { renderProjectCover } from './projectCover.js';
-import { renderProjectLinks, renderGallery } from './projectExtras.js';
+import { renderProjectLinks, renderGallery, renderSolution, renderProjectFacts, renderProjectDetails } from './projectExtras.js';
 
 export function renderProjectModal() {
   return `
@@ -49,6 +49,8 @@ function projectDetailHTML(project) {
         ${project.title}
       </h3>
       <p class="mt-1 text-brand-600 dark:text-brand-300">${project.tagline}</p>
+      ${project.subtitle ? `<p class="mt-1 text-sm text-slate-500 dark:text-slate-400">${project.subtitle}</p>` : ''}
+      ${project.facts ? `<div class="mt-5">${renderProjectFacts(project)}</div>` : ''}
 
       <div class="mt-6 space-y-6 text-sm">
         <section>
@@ -63,7 +65,7 @@ function projectDetailHTML(project) {
             <i class="fas fa-layer-group text-brand-500 dark:text-brand-300"></i> Stack
           </p>
           <div class="mt-2 flex flex-wrap gap-2">${stack}</div>
-          <p class="mt-3 text-slate-600 dark:text-slate-400">${project.solution}</p>
+          <div class="mt-3 text-slate-600 dark:text-slate-400">${renderSolution(project)}</div>
           ${workflow}
         </section>
 
@@ -74,6 +76,8 @@ function projectDetailHTML(project) {
           <ul class="mt-2 space-y-2 text-slate-600 dark:text-slate-400">${impact}</ul>
         </section>
       </div>
+
+      ${renderProjectDetails(project)}
 
       ${renderGallery(project)}
 
