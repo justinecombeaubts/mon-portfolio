@@ -305,6 +305,153 @@
     "privateNote": "Code disponible sur demande"
   },
   {
+    "id": "nox",
+    "category": "ia-automation",
+    "title": "NoX, bot Discord d'automatisation de serveur",
+    "tagline": "Un serveur Discord complet déployé en une commande, à partir d'un seul fichier de configuration",
+    "subtitle": "L'infrastructure as code appliquée à Discord : rôles, salons, permissions et onboarding décrits dans un plan.json.",
+    "year": "2026",
+    "status": "Script Node.js",
+    "facts": [
+      {
+        "label": "Type",
+        "value": "Projet personnel, pour le serveur communautaire de mon roman fantasy"
+      },
+      {
+        "label": "Rôle",
+        "value": "Conception du plan, développement avec l'aide de l'IA, débogage en conditions réelles"
+      },
+      {
+        "label": "Statut",
+        "value": "Utilisé pour déployer le serveur des lectrices, réutilisable pour tout autre serveur"
+      }
+    ],
+    "context": "J'ai créé un serveur Discord communautaire pour les lectrices de mon roman fantasy « Séléna ~ Captive de la tempête ~ ». Configurer Discord à la main (rôles, permissions de chaque salon, onboarding) est long et source d'erreurs : un salon privé mal réglé et il devient visible de tous. J'ai donc automatisé tout le déploiement.",
+    "solution": "NoX est un bot Node.js (discord.js v14) qui lit un seul fichier de configuration, plan.json, et construit le serveur décrit : il crée les rôles, les catégories, les salons et leurs permissions privées, publie et épingle les messages et les bannières, ajoute les emojis et configure l'onboarding (3 questions qui attribuent des rôles). Le script est idempotent : il reconnaît les éléments déjà présents et peut être relancé sans jamais créer de doublons. Un mode « essai » simule tout le déploiement sans rien modifier, et le token du bot reste isolé dans un fichier .env.",
+    "solutionIntro": "Un bot Node.js (discord.js v14) qui lit un seul fichier de configuration, plan.json, et construit le serveur décrit :",
+    "solutionSteps": [
+      "Crée les rôles, les catégories et les salons, avec leurs permissions privées par rôle.",
+      "Publie et épingle les messages et les bannières de chaque salon.",
+      "Ajoute les emojis du serveur.",
+      "Configure l'onboarding : 3 questions posées à l'arrivée, qui attribuent automatiquement des rôles.",
+      "Reconnaît ce qui existe déjà : relancé, il complète le serveur sans jamais créer de doublons."
+    ],
+    "stack": [
+      "Node.js",
+      "discord.js v14",
+      "Discord API",
+      "dotenv",
+      "JSON",
+      "Automation",
+      "IA"
+    ],
+    "impact": [
+      "Un serveur complet (7 catégories, une trentaine de salons, rôles et onboarding) déployé en une seule commande.",
+      "Relançable sans risque : aucun doublon, les éléments existants sont reconnus et conservés.",
+      "Réutilisable pour n'importe quel autre serveur : il suffit de changer le plan.json, pas le code.",
+      "Le mode « essai » montre tout ce qui serait fait avant de toucher au vrai serveur."
+    ],
+    "details": [
+      {
+        "icon": "fa-gears",
+        "title": "Points techniques",
+        "list": [
+          "Infrastructure as code appliquée à Discord : le serveur entier est décrit dans un fichier JSON lisible et versionnable.",
+          "Script idempotent : chaque élément est recherché avant d'être créé, le script peut être relancé autant de fois que nécessaire.",
+          "Mode « essai » : simulation complète qui affiche les actions prévues sans rien modifier.",
+          "Permissions gérées par rôle : les salons privés ne sont visibles que des rôles autorisés.",
+          "Sécurité : le token du bot est isolé dans un fichier .env, jamais dans le code."
+        ]
+      },
+      {
+        "icon": "fa-cubes",
+        "title": "Stack technique",
+        "table": [
+          [
+            "Node.js",
+            "Exécution du script de déploiement"
+          ],
+          [
+            "discord.js v14",
+            "Création des rôles, salons, permissions, messages, emojis et onboarding via l'API Discord"
+          ],
+          [
+            "JSON (plan.json)",
+            "Description complète du serveur, seule chose à modifier pour un autre serveur"
+          ],
+          [
+            "dotenv",
+            "Chargement du token depuis un fichier .env"
+          ]
+        ]
+      },
+      {
+        "icon": "fa-graduation-cap",
+        "title": "Ma démarche",
+        "list": [
+          "Conçu avec l'aide de l'IA, puis testé et débogué en conditions réelles sur le vrai serveur.",
+          "Correction d'un bug de couleur de rôle nulle qui bloquait la création de certains rôles.",
+          "Suppression des avertissements de dépréciation de discord.js en passant aux syntaxes à jour."
+        ]
+      }
+    ],
+    "workflow": [
+      {
+        "kind": "source",
+        "icon": "fa-file-code",
+        "label": "plan.json",
+        "detail": "Rôles, salons, onboarding"
+      },
+      {
+        "kind": "process",
+        "icon": "fa-magnifying-glass",
+        "label": "Reconnaissance",
+        "detail": "Repère ce qui existe déjà"
+      },
+      {
+        "kind": "process",
+        "icon": "fa-flask",
+        "label": "Mode essai",
+        "detail": "Simule sans rien modifier"
+      },
+      {
+        "kind": "process",
+        "icon": "fa-user-lock",
+        "label": "Création",
+        "detail": "Rôles, salons, permissions"
+      },
+      {
+        "kind": "output",
+        "icon": "fa-server",
+        "label": "Serveur Discord",
+        "detail": "Prêt en une commande"
+      }
+    ],
+    "image": "/images/nox-icon.svg",
+    "imageAlt": "Logo NoX : un croissant de lune et l'arborescence d'un serveur",
+    "gallery": [
+      {
+        "src": "/images/nox/terminal.webp",
+        "alt": "Terminal pendant l'exécution de NoX",
+        "wide": true,
+        "placeholder": true
+      },
+      {
+        "src": "/images/nox/serveur.webp",
+        "alt": "Serveur Discord terminé : catégories et salons",
+        "placeholder": true
+      },
+      {
+        "src": "/images/nox/onboarding.webp",
+        "alt": "Onboarding : les 3 questions qui attribuent des rôles",
+        "placeholder": true
+      }
+    ],
+    "accent": "#1b1f3b",
+    "links": {},
+    "todo": "Ajouter links.code (dépôt GitHub) quand il sera public. Aucune démo en ligne pour un bot. Remplacer les 3 captures placeholder de gallery."
+  },
+  {
     "id": "alerte-dealabs",
     "category": "ia-automation",
     "title": "Alertes Deals Dealabs → Discord",
