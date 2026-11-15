@@ -9,6 +9,12 @@ const FONTS_URL =
 const NIGHT_KEY = 'liseuse-selena-nuit';
 const INSTAGRAM = SOCIALS.find((s) => s.icon.includes('instagram'));
 
+// Serveur Discord communautaire des lectrices (lien d'invitation permanent).
+export const DISCORD_SERVER = {
+  href: 'https://discord.gg/yznF4hGqv',
+  name: 'Astraleth ~ Le monde de Séléna',
+};
+
 export function renderBookReader() {
   return `
   <div id="book-reader" class="reader fixed inset-0 z-[70] hidden flex-col" role="dialog" aria-modal="true" aria-labelledby="reader-title">
@@ -244,9 +250,13 @@ export function initBookReader() {
           <p class="reader-orn" aria-hidden="true">❦</p>
           <h2>La suite bientôt…</h2>
           <p>Le tome 1 est en cours d'écriture et de bêta-lecture. Envie de suivre la tempête de Séléna, ou de me dire ce que vous avez pensé de ce début ?</p>
+          <a href="${DISCORD_SERVER.href}" target="_blank" rel="noopener" class="btn-primary !px-5 !py-2.5" aria-label="Rejoindre le serveur Discord ${DISCORD_SERVER.name}">
+            <i class="fab fa-discord" aria-hidden="true"></i> Rejoindre ${DISCORD_SERVER.name.split(' ~')[0]}
+          </a>
+          <p class="reader-end-server">${DISCORD_SERVER.name}</p>
           <div class="reader-end-actions">
-            <a href="#contact" class="btn-primary !px-5 !py-2.5" data-reader-link><i class="fas fa-envelope" aria-hidden="true"></i> Me contacter</a>
-            <a href="${INSTAGRAM.href}" target="_blank" rel="noopener" class="btn-secondary !px-5 !py-2.5"><i class="${INSTAGRAM.icon}" aria-hidden="true"></i> Instagram</a>
+            <a href="#contact" class="btn-secondary !px-4 !py-2" data-reader-link><i class="fas fa-envelope" aria-hidden="true"></i> Me contacter</a>
+            <a href="${INSTAGRAM.href}" target="_blank" rel="noopener" class="btn-secondary !px-4 !py-2"><i class="${INSTAGRAM.icon}" aria-hidden="true"></i> Instagram</a>
           </div>
         </div>`;
     }

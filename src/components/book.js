@@ -1,3 +1,5 @@
+import { DISCORD_SERVER } from './bookReader.js';
+
 export function renderBook() {
   return `
   <section id="book" class="py-24">
@@ -53,9 +55,14 @@ export function renderBook() {
           <p class="mt-4 text-sm italic text-slate-500 dark:text-slate-400">
             Actuellement en écriture et en bêta-lecture.
           </p>
-          <button type="button" data-book-open aria-haspopup="dialog" class="btn-primary mt-8">
-            <i class="fas fa-book-open" aria-hidden="true"></i> Lire le prologue et le chapitre 1
-          </button>
+          <div class="mt-8 flex flex-wrap gap-3">
+            <button type="button" data-book-open aria-haspopup="dialog" class="btn-primary">
+              <i class="fas fa-book-open" aria-hidden="true"></i> Lire le prologue et le chapitre 1
+            </button>
+            <a href="${DISCORD_SERVER.href}" target="_blank" rel="noopener" class="btn-secondary" aria-label="Rejoindre le serveur Discord ${DISCORD_SERVER.name}">
+              <i class="fab fa-discord" aria-hidden="true"></i> Rejoindre ${DISCORD_SERVER.name}
+            </a>
+          </div>
         </div>
       </div>
     </div>

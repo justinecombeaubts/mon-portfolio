@@ -708,6 +708,14 @@ h1, h2, h3, .font-display {
 .reader-end-actions {
   @apply mt-2 flex flex-wrap justify-center gap-3 font-sans;
 }
+.reader-end .btn-primary {
+  @apply font-sans;
+}
+.reader-end .reader-end-server {
+  margin-top: -0.6rem;
+  font-size: 0.8em;
+  font-style: italic;
+}
 .reader:not(.is-night) .reader-end .btn-secondary {
   @apply border-brand-700/40 text-brand-800 hover:border-brand-700 hover:text-brand-900;
 }
