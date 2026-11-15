@@ -5,20 +5,29 @@ export function renderBook() {
       <div class="grid items-center gap-16 lg:grid-cols-[0.85fr_1.15fr]">
         <div class="relative mx-auto w-full max-w-xs animate-fade-up">
           <div class="absolute -inset-6 -z-10 rounded-[2.5rem] bg-gradient-to-br from-brand-300/30 via-ai-400/20 to-transparent blur-2xl"></div>
-          <div class="overflow-hidden rounded-2xl border border-white/40 shadow-soft dark:border-white/10">
+          <button
+            type="button"
+            data-book-open
+            aria-haspopup="dialog"
+            aria-label="Ouvrir la liseuse : lire le prologue et le chapitre 1 de Séléna"
+            class="book-cover group block w-full overflow-hidden rounded-2xl border border-white/40 shadow-soft focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-300 focus-visible:ring-offset-4 focus-visible:ring-offset-ink dark:border-white/10"
+          >
             <picture>
-              <source srcset="/images/couverture.webp" type="image/webp" />
+              <source srcset="/images/selena-couverture.webp" type="image/webp" />
               <img
-                src="/images/couverture.jpg"
-                alt="Couverture du roman Séléna ~ Captive de la tempête ~"
-                width="640"
-                height="1021"
+                src="/images/selena-couverture.jpg"
+                alt=""
+                width="960"
+                height="1440"
                 loading="lazy"
                 decoding="async"
-                class="h-full w-full object-cover"
+                class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
               />
             </picture>
-          </div>
+            <span class="book-cover-hint">
+              <i class="fas fa-book-open" aria-hidden="true"></i> Lire un extrait
+            </span>
+          </button>
         </div>
 
         <div>
@@ -44,6 +53,9 @@ export function renderBook() {
           <p class="mt-4 text-sm italic text-slate-500 dark:text-slate-400">
             Actuellement en écriture et en bêta-lecture.
           </p>
+          <button type="button" data-book-open aria-haspopup="dialog" class="btn-primary mt-8">
+            <i class="fas fa-book-open" aria-hidden="true"></i> Lire le prologue et le chapitre 1
+          </button>
         </div>
       </div>
     </div>

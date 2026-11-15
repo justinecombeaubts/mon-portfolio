@@ -449,3 +449,292 @@ h1, h2, h3, .font-display {
     scroll-behavior: auto !important;
   }
 }
+
+/* ------------------------------------------------------------------
+   Liseuse de Séléna (src/components/bookReader.js)
+   Papier crème par défaut, mode nuit avec .is-night.
+   ------------------------------------------------------------------ */
+
+/* Couverture cliquable de la section livre */
+.book-cover {
+  position: relative;
+  cursor: pointer;
+}
+.book-cover-hint {
+  @apply absolute left-1/2 top-1/2 inline-flex -translate-x-1/2 -translate-y-1/2 items-center gap-2 whitespace-nowrap rounded-full bg-ink/80 px-4 py-2 text-xs font-semibold text-brand-100 opacity-0 shadow-glow backdrop-blur-sm transition-opacity duration-300;
+}
+.book-cover:hover .book-cover-hint,
+.book-cover:focus-visible .book-cover-hint {
+  opacity: 1;
+}
+
+.reader {
+  --paper: #f6eedd;
+  --paper-edge: #e6d9bf;
+  --ink-text: #2e2421;
+  --ink-soft: #6b5a52;
+  --accent: #7a4049;
+  --sheet-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.6);
+}
+.reader.is-night {
+  --paper: #1d1922;
+  --paper-edge: #2b2531;
+  --ink-text: #ddd5c6;
+  --ink-soft: #a89ca0;
+  --accent: #e2baac;
+}
+
+.reader-backdrop {
+  background:
+    radial-gradient(ellipse at 50% 35%, rgba(94, 44, 54, 0.55), transparent 65%),
+    rgba(26, 9, 14, 0.94);
+  backdrop-filter: blur(6px);
+}
+
+.reader-tool {
+  @apply flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-white/15 text-slate-200 transition-colors hover:border-brand-300 hover:text-brand-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-300 disabled:cursor-default disabled:opacity-35 disabled:hover:border-white/15 disabled:hover:text-slate-200;
+}
+
+.reader-progress {
+  @apply h-0.5 overflow-hidden rounded-full bg-white/10;
+}
+.reader-progress span {
+  @apply block h-full bg-brand-300 transition-[width] duration-300;
+}
+
+/* Le livre : format 2:3 comme la couverture, aussi grand que l'écran le permet */
+.reader-book {
+  position: relative;
+  width: min(100%, 32rem, calc((100dvh - 9.5rem) * 2 / 3));
+  aspect-ratio: 2 / 3;
+  perspective: 1800px;
+  container-type: inline-size;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.reader-sheet {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border-radius: 4px 10px 10px 4px;
+  background: var(--paper);
+  color: var(--ink-text);
+  box-shadow: var(--sheet-shadow), inset 14px 0 18px -14px rgba(0, 0, 0, 0.28);
+  transform-origin: left center;
+  backface-visibility: hidden;
+}
+.reader-sheet-cover,
+.reader-sheet-back {
+  background: #15131f;
+  cursor: pointer;
+}
+.reader-sheet-back {
+  cursor: default;
+}
+.reader-measure {
+  visibility: hidden;
+  pointer-events: none;
+}
+.reader-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.reader-tool.is-cta {
+  @apply border-transparent bg-brand-300 text-ink shadow-glow hover:bg-brand-200 hover:text-ink;
+}
+
+.reader-edge {
+  @apply pointer-events-none absolute top-1/2 z-20 hidden h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full text-sm opacity-0 transition-opacity;
+  color: var(--ink-soft);
+}
+.reader-edge-prev { left: 0.4rem; }
+.reader-edge-next { right: 0.4rem; }
+@media (hover: hover) {
+  .reader-book:not([data-kind='cover']) .reader-edge { display: flex; }
+  .reader-book:hover .reader-edge { opacity: 0.55; }
+  .reader-book:not([data-kind='cover']) { cursor: pointer; }
+}
+
+/* Typographie de roman */
+.reader-text {
+  height: 100%;
+  overflow: hidden;
+  padding: 9cqw 9cqw 8cqw;
+  font-family: 'EB Garamond', Garamond, Georgia, serif;
+  font-size: clamp(15px, 3.75cqw, 19px);
+  line-height: 1.5;
+  text-align: justify;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+  font-variant-numeric: oldstyle-nums;
+}
+.reader-text p {
+  margin: 0;
+  text-indent: 1.4em;
+}
+.reader-text p.reader-cont,
+.reader-chapter + p,
+.reader-sep + p,
+.reader-journal + p:not(.reader-journal),
+.reader-memory + p {
+  text-indent: 0;
+}
+.reader-text em {
+  font-style: italic;
+}
+
+.reader-kicker {
+  font-family: 'Cinzel', Georgia, serif;
+  font-size: 0.72em;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  text-indent: 0 !important;
+  color: var(--ink-soft);
+}
+.reader-orn {
+  text-indent: 0 !important;
+  text-align: center;
+  color: var(--accent);
+}
+
+.reader-chapter {
+  padding: 8% 0 6%;
+  text-align: center;
+}
+.reader-chapter h2,
+.reader-part h2,
+.reader-end h2 {
+  font-family: 'Cinzel', Georgia, serif;
+  font-weight: 600;
+  color: var(--ink-text);
+  line-height: 1.2;
+}
+.reader-chapter h2 {
+  margin-top: 0.4em;
+  font-size: 1.45em;
+}
+.reader-chapter .reader-orn {
+  margin-top: 0.6em;
+}
+
+.reader-part {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.9em;
+  text-align: center;
+}
+.reader-part h2 {
+  font-size: 1.7em;
+  letter-spacing: 0.04em;
+}
+.reader-part .reader-orn {
+  font-size: 1.4em;
+}
+
+/* Lettrine en début de chapitre */
+.reader-lettrine {
+  text-indent: 0 !important;
+}
+.reader-lettrine::first-letter {
+  float: left;
+  margin: 0.06em 0.12em 0 0;
+  font-family: 'Cinzel', Georgia, serif;
+  font-size: 3.55em;
+  font-weight: 600;
+  line-height: 0.82;
+  color: var(--accent);
+}
+
+/* Journal « Cher Dies » et souvenirs : italique, en retrait, comme dans le livre */
+.reader-text .reader-journal,
+.reader-text .reader-memory {
+  margin: 0 0.6em;
+  font-style: italic;
+  text-indent: 0;
+  color: var(--ink-text);
+}
+.reader-text .reader-journal + .reader-journal {
+  margin-top: 0.55em;
+}
+.reader-journal-date {
+  color: var(--ink-soft) !important;
+}
+.reader-journal-sign {
+  text-align: right;
+}
+.reader-text .reader-journal + p:not(.reader-journal) {
+  margin-top: 1.1em;
+}
+.reader-text .reader-memory {
+  margin-top: 0.6em;
+  margin-bottom: 0.6em;
+}
+.reader-sep {
+  margin: 0.7em 0 !important;
+  text-align: center;
+  text-indent: 0 !important;
+  color: var(--accent);
+}
+
+/* Page « La suite bientôt… » */
+.reader-end {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.1rem;
+  padding: 10cqw;
+  text-align: center;
+  font-family: 'EB Garamond', Garamond, Georgia, serif;
+  font-size: clamp(15px, 3.9cqw, 19px);
+  line-height: 1.5;
+}
+.reader-end .reader-orn {
+  font-size: 1.5em;
+}
+.reader-end h2 {
+  font-size: 1.5em;
+}
+.reader-end > p:not(.reader-orn) {
+  color: var(--ink-soft);
+}
+.reader-end-actions {
+  @apply mt-2 flex flex-wrap justify-center gap-3 font-sans;
+}
+.reader:not(.is-night) .reader-end .btn-secondary {
+  @apply border-brand-700/40 text-brand-800 hover:border-brand-700 hover:text-brand-900;
+}
+
+.reader-loading {
+  @apply absolute inset-0 flex items-center justify-center text-sm text-slate-300;
+}
+
+/* Page tournée : légère, sur le bord gauche (reliure) */
+.reader-sheet.is-leaving {
+  z-index: 2;
+}
+.turn-out {
+  animation: page-turn-out 0.55s cubic-bezier(0.45, 0.05, 0.35, 1) forwards;
+}
+.turn-in {
+  z-index: 2;
+  animation: page-turn-out 0.55s cubic-bezier(0.45, 0.05, 0.35, 1) reverse both;
+}
+@keyframes page-turn-out {
+  from {
+    transform: rotateY(0deg);
+    box-shadow: var(--sheet-shadow);
+  }
+  to {
+    transform: rotateY(-100deg);
+    opacity: 0.4;
+    box-shadow: 40px 0 60px -10px rgba(0, 0, 0, 0.5);
+  }
+}

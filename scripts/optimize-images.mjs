@@ -12,6 +12,9 @@ const jobs = [
   { src: 'moi.png', name: 'moi', width: 768 },
   { src: 'accueil.webp', name: 'accueil', width: 768 },
   { src: 'couverture.png', name: 'couverture', width: 640 },
+  // Liseuse de Séléna : couverture et 4e de couverture (affichées jusqu'à ~480 px de large).
+  { src: 'selena-couverture.jpg', name: 'selena-couverture', width: 960 },
+  { src: 'selena-quatrieme.jpg', name: 'selena-quatrieme', width: 960 },
   { src: 'justine-combeau-photo.png', name: 'justine-combeau-photo', width: 640 },
   { src: 'logo.png', name: 'logo', width: 96, png: true },
 ];
