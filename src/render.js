@@ -10,6 +10,7 @@ import { renderProjectsPage } from './components/projectsPage.js';
 import { renderProjectModal } from './components/projectModal.js';
 import { renderTimeline } from './components/timeline.js';
 import { renderBook } from './components/book.js';
+import { renderBookReader } from './components/bookReader.js';
 import { renderContact } from './components/contact.js';
 import { renderFooter } from './components/footer.js';
 import { renderDigitalBackground } from './components/digitalBackground.js';
@@ -32,6 +33,7 @@ function renderHome() {
   ${renderFooter()}
   </div>
   ${renderProjectModal()}
+  ${renderBookReader()}
 `;
 }
 

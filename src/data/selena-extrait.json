@@ -1,0 +1,330 @@
+[
+  {
+    "label": "Prologue",
+    "title": "L'Incident",
+    "blocks": [
+      {
+        "type": "journal",
+        "date": "11 novembre",
+        "paras": [
+          "Aujourd'hui, c'est la fête ! Nono a dix-huit ans, et comme il part étudier à Solvane la semaine prochaine, Maman a décidé qu'on fêterait aussi mes douze ans, avec six semaines d'avance. Douze bougies pour moi, dix-huit pour lui. Il dit que ce n'est pas juste, que son gâteau sera trop petit pour toutes ses bougies. Moi, je crois surtout qu'il va me manquer.",
+          "Ce matin, en traversant le jardin, j'ai encore senti la terre vibrer sous mes pieds. Je n'ai rien dit à Maman. C'est un jour heureux, et rien ne va le gâcher."
+        ],
+        "salutation": "Cher Dies,",
+        "signature": "Léna"
+      },
+      {
+        "type": "p",
+        "html": "Les rires résonnaient dans la grande maison des Elenwë-Vaelaris, portés par une douce brise d'automne qui faisait danser les lampions suspendus aux arbres du jardin. Ce jour-là, on fêtait les dix-huit ans de Nono, qui partait étudier à Solvane la semaine suivante, et, avec quelques semaines d'avance, les douze ans de Séléna. Autour de la grande table en bois, sa famille et ses amis s'étaient réunis dans une joyeuse effervescence. Ses parents, Auréline et Erynor, la regardaient avec des yeux brillants de fierté, tandis que les invités applaudissaient l'arrivée du gâteau."
+      },
+      {
+        "type": "p",
+        "html": "Toute la journée, la maison avait bourdonné comme une ruche."
+      },
+      {
+        "type": "p",
+        "html": "Le matin, Naëlia l'avait coincée dans la salle de bains pour la coiffer. Elle avait quinze ans et décidait de tout, surtout de ce qui ne la regardait pas. Elle avait tressé les cheveux blancs de Séléna en une couronne compliquée, piquée de petites fleurs, et l'avait nouée avec son ruban bleu, celui qu'elle ne prêtait jamais à personne."
+      },
+      {
+        "type": "p",
+        "html": "– Pour aujourd'hui seulement, avait-elle précisé. Tu me le rends ce soir. Et si tu mets du gâteau dessus, je te mange."
+      },
+      {
+        "type": "p",
+        "html": "Thalion, son jumeau, avait passé la matinée à voler de la crème dans la cuisine et à jurer que ce n'était pas lui, avec de la crème jusqu'aux sourcils. Erynor, leur père, avait accroché les lampions lui-même, un par un, en les allumant d'un claquement de doigts, et Séléna l'avait suivi d'arbre en arbre en comptant les petites flammes. Il y en avait quarante-deux. Il avait dit que c'était un bon chiffre pour une fête. Il disait ça de tous les chiffres."
+      },
+      {
+        "type": "p",
+        "html": "Et Nono était arrivé en début d'après-midi, les cheveux mouillés, avec un paquet mal emballé sous le bras."
+      },
+      {
+        "type": "p",
+        "html": "– C'est pour toi, avait-il dit en le lui tendant. Mais tu l'ouvres après le gâteau. C'est la règle."
+      },
+      {
+        "type": "p",
+        "html": "– Quelle règle ?"
+      },
+      {
+        "type": "p",
+        "html": "– La mienne. Je viens de l'inventer."
+      },
+      {
+        "type": "p",
+        "html": "Elle avait secoué le paquet. Il était léger, plat, et faisait un petit bruit de métal. Elle avait passé tout l'après-midi à essayer de deviner. Il avait refusé de lui donner le moindre indice, même quand elle lui avait mordu le bras. Doucement. Presque."
+      },
+      {
+        "type": "p",
+        "html": "Ils s'étaient assis sur les marches du perron, comme toujours. Les feuilles des bouleaux tombaient autour d'eux, jaunes et légères. Il lui avait raconté Solvane, la grande école, la chambre qu'il partagerait avec un garçon qu'il ne connaissait pas. Elle l'avait écouté en arrachant la mousse entre les pierres, brin par brin, sans rien dire."
+      },
+      {
+        "type": "p",
+        "html": "– Je t'écrirai, avait-il dit. Toutes les semaines. Et je reviendrai pour ton vrai anniversaire, le 27 décembre. Avec un vrai gâteau, rien que pour toi."
+      },
+      {
+        "type": "p",
+        "html": "– Promis ?"
+      },
+      {
+        "type": "p",
+        "html": "– Promis, Cactus."
+      },
+      {
+        "type": "p",
+        "html": "De l'autre côté du jardin, sous le grand chêne, Séléna avait vu sa mère les regarder. Auréline souriait. Mais quand ses yeux s'étaient posés sur les mains de sa fille, qui arrachaient la mousse, le sourire avait vacillé. Juste un instant. Comme si elle avait vu quelque chose que personne d'autre ne voyait."
+      },
+      {
+        "type": "p",
+        "html": "Puis Naëlia avait crié que le gâteau arrivait, et Séléna avait oublié."
+      },
+      {
+        "type": "p",
+        "html": "Elle aurait donné n'importe quoi, plus tard, pour s'en souvenir plus longtemps. Pour avoir regardé sa mère une seconde de plus."
+      },
+      {
+        "type": "p",
+        "html": "À cet âge, Séléna savait déjà qu'elle n'était pas tout à fait comme les autres. Elle ressentait la Terre vibrer sous ses pieds et l'Air murmurer à ses oreilles. Mais aujourd'hui, l'émotion était trop forte. La joie pure, mêlée à l'excitation de souffler ses bougies, créa une étincelle invisible au fond de sa poitrine."
+      },
+      {
+        "type": "p",
+        "html": "– Allez, Séléna ! Fais un vœu ! lança Nono, son meilleur ami."
+      },
+      {
+        "type": "p",
+        "html": "– Je fais le vœu que tu meures, ironisa Séléna."
+      },
+      {
+        "type": "p",
+        "html": "Son ami lui tapa l'épaule. Séléna sourit, ferma les yeux et prit une grande inspiration. Mais en elle, quelque chose se décrocha."
+      },
+      {
+        "type": "p",
+        "html": "Ce ne fut d'abord qu'un frisson. Puis, un grondement sourd monta des entrailles de la terre. Les verres posés sur la table commencèrent à s'entrechoquer. Autour d'elle, les rires s'éteignirent, remplacés par des murmures inquiets."
+      },
+      {
+        "type": "p",
+        "html": "– Séléna ? murmura doucement sa mère, Auréline, en faisant un pas vers elle. Calme-toi, ma puce. Respire."
+      },
+      {
+        "type": "p",
+        "html": "Mais Séléna ne pouvait plus respirer. L'air s'était engouffré dans ses poumons comme un torrent glacé. Prise de panique, elle recula, secouant les mains pour chasser cette sensation étouffante. Ce fut sa pire erreur. Au lieu de s'apaiser, le vent répondit à son effroi."
+      },
+      {
+        "type": "p",
+        "html": "Une bourrasque violente balaya la table, projetant le gâteau et les décorations dans les airs. En quelques secondes, la brise d'automne se mua en un monstre hurlant. Un tourbillon de vent et de poussière naquit au centre du jardin, grandissant à une vitesse terrifiante, arrachant les herbes, brisant les branches."
+      },
+      {
+        "type": "p",
+        "html": "– Maman ! Papa ! hurla Séléna, les yeux aveuglés par les larmes et la poussière."
+      },
+      {
+        "type": "p",
+        "html": "Elle tenta de retenir la tempête, de l'imaginer disparaître, mais la tornade était devenue une entité propre, nourrie par sa propre terreur. Les murs de la maison commencèrent à gémir sous la pression. Des cris d'effroi s'élevèrent de la foule des invités alors que le vortex brisait les vitres et soulevait les structures de bois. Séléna se recroquevilla au sol, les mains sur les oreilles, hurlant pour que tout s'arrête."
+      },
+      {
+        "type": "p",
+        "html": "Puis, dans un ultime fracas de fin du monde, le plafond s'effondra. Et le silence retomba, lourd, suffocant, uniquement troublé par le crépitement des débris."
+      },
+      {
+        "type": "p",
+        "html": "Tremblante, Séléna ouvrit les yeux. Ses vêtements étaient déchirés, sa peau couverte de suie et de sang. Elle se releva péniblement, le cœur battant à s'en rompre les côtes. Devant ses pieds, une mare écarlate s'élargissait sur le sol de pierre."
+      },
+      {
+        "type": "p",
+        "html": "Elle leva les yeux et le monde s'effondra une seconde fois."
+      },
+      {
+        "type": "p",
+        "html": "Sa mère, Auréline, était là, le corps horriblement empalé par un lourd morceau de charpente en bois. Ses yeux clairs, autrefois si doux, fixaient le vide, la bouche figée dans un dernier cri silencieux alors qu'un filet de sang coulait sur ses lèvres. Juste à côté, son père, Erynor, gisait contre ce qui restait d'un mur. Séléna se jeta vers lui, ses petites mains agrippant ses épaules."
+      },
+      {
+        "type": "p",
+        "html": "– Papa ! Papa, réveille-toi, s'il te plaît ! supplia-t-elle en le secouant désespérément."
+      },
+      {
+        "type": "p",
+        "html": "Mais sous le choc, la tête de son père bascula d'un angle contre nature, inanimée. Il était mort. Ils étaient tous morts."
+      },
+      {
+        "type": "p",
+        "html": "Un hurlement de pure agonie franchit les lèvres de la fillette. Elle recula, trébuchant dans les décombres. Son frère et sa sœur... où étaient-ils ? Elle courut vers ce qui restait de la maison, appelant le premier nom qui lui venait à l'esprit, celui de son ami le plus cher :"
+      },
+      {
+        "type": "p",
+        "html": "– Nono ! Nono !"
+      },
+      {
+        "type": "p",
+        "html": "Aucune réponse. Sous un pan de mur écroulé, elle aperçut les corps immobiles des autres enfants. Ses larmes brouillaient sa vue alors qu'elle fuyait ce spectacle d'horreur pour se précipiter vers le jardin. C'est là, au pied d'un grand arbre épargné par le cataclysme, qu'elle repéra une silhouette familière."
+      },
+      {
+        "type": "p",
+        "html": "– Nono !"
+      },
+      {
+        "type": "p",
+        "html": "Elle se jeta à genoux à ses côtés. Nick était pâle, sa respiration si faible qu'elle en eut le cœur transpercé. Il ouvrit un instant les yeux embrumés avant de s'évanouir dans ses bras. Paniquée à l'idée qu'il meure lui aussi, Séléna sentit son instinct réagir. Sans qu'elle ne comprenne comment, sa magie de la Terre se manifesta une dernière fois : de lourdes lianes jaillirent du sol forestier, s'enroulant délicatement autour du corps du garçon pour le protéger, comme un cocon végétal, avant qu'elle-même ne sombre dans l'inconscience."
+      },
+      {
+        "type": "p",
+        "html": "Lorsqu'elle rouvrit brièvement les yeux, le visage en larmes de sa tante et marraine, Maëlys, penché sur elle, fut la seule chose qu'elle parvint à distinguer à travers le voile noir du choc. Derrière elle, une femme qu'elle ne connaissait pas, aux longs cheveux d'un blond presque argenté, s'agenouillait au pied du grand arbre, là où reposait Nono."
+      },
+      {
+        "type": "p",
+        "html": "– Je suis là, ma puce... Je suis là, murmura Maëlys en la serrant contre son cœur."
+      },
+      {
+        "type": "p",
+        "html": "Mais Séléna savait que plus rien ne serait jamais comme avant. Elle venait de détruire sa vie et celle de tous ceux qu'elle aimait."
+      }
+    ]
+  },
+  {
+    "label": "Chapitre 1",
+    "part": {
+      "kicker": "Première partie",
+      "title": "L'Ombre de la Tempête"
+    },
+    "title": "Les Ruines du Silence",
+    "blocks": [
+      {
+        "type": "journal",
+        "date": "2 décembre",
+        "paras": [
+          "Maëlys t'a retrouvé dans la poche de mon manteau. Tu es la seule chose à moi qui soit sortie intacte des décombres.",
+          "Je ne sais pas quoi t'écrire. Avant, je te racontais mes journées. Maintenant, il n'y a plus de journées, seulement des nuits qui ne finissent pas.",
+          "Maman. Papa. Mon frère. Ma sœur. Je n'arrive pas à écrire la suite de la phrase. Et personne ne veut me dire où est Nono.",
+          "Si quelqu'un lit ça un jour : c'est moi qui ai fait la tempête."
+        ],
+        "salutation": "Cher Dies,"
+      },
+      {
+        "type": "p",
+        "html": "Le silence qui habitait la petite maison de l'allée des Saules était d'une nature totalement différente de celui qui avait suivi la tempête. Ce silence-là était lourd, épais, presque physique. Il s'infiltrait sous les portes et tapissait les murs, étouffant jusqu'au moindre souffle de vie."
+      },
+      {
+        "type": "p",
+        "html": "Cela faisait trois semaines que le monde de Séléna avait volé en éclats. Il y avait trois semaines que les rires de son anniversaire s'étaient tus pour toujours, remplacés par les échos obsessionnels de son propre hurlement."
+      },
+      {
+        "type": "p",
+        "html": "Assise sur le bord de son nouveau lit, les genoux repliés contre sa poitrine, la fillette de onze ans fixait ses mains. Ses paumes, autrefois lisses, étaient encore marquées par des coupures en voie de cicatrisation, stigmates des débris qu'elle avait désespérément fouillés. Mais ce n'étaient pas les blessures physiques qui la terrifiaient. C'était ce qui dormait – ou plutôt ce qui refusait de répondre – juste sous sa peau."
+      },
+      {
+        "type": "p",
+        "html": "La porte de la chambre s'entrouvrit doucement avec un grincement discret. Maëlys apparut dans l'embrasure, un plateau à la main. Ses traits étaient tirés, ses yeux cernés par les nuits blanches passées à veiller sur sa filleule. Elle avait mis de côté sa propre douleur, le deuil de son frère Erynor, pour se consacrer entièrement à la survivante."
+      },
+      {
+        "type": "p",
+        "html": "– Je t'ai apporté un peu de bouillon et du pain d'épices, Séléna, murmura-t-elle d'une voix qu'elle s'efforçait de rendre chaleureuse. Tu n'as presque rien avalé hier."
+      },
+      {
+        "type": "p",
+        "html": "Séléna ne bougea pas. Elle ne releva même pas la tête, ses cheveux blancs comme la neige – une particularité qui s'était accentuée depuis le choc – retombant en rideau devant son visage."
+      },
+      {
+        "type": "p",
+        "html": "Maëlys posa le plateau sur la commode et vint s'asseoir délicatement au bout du matelas. Elle tendit une main tremblante et caressa doucement les cheveux de la petite."
+      },
+      {
+        "type": "p",
+        "html": "– Les médecins d'Harmonia disent que tes blessures guérissent bien, continua la tante avec douceur. Et... j'ai eu des nouvelles des forces de l'ordre ce matin. Les recherches dans les décombres sont terminées."
+      },
+      {
+        "type": "p",
+        "html": "À ces mots, un frisson violent parcourut l'échine de Séléna. Ses doigts se crispèrent sur le tissu de son pyjama."
+      },
+      {
+        "type": "p",
+        "html": "– Et... Nono ? parvint-elle à articuler, sa voix brisée, presque méconnaissable."
+      },
+      {
+        "type": "p",
+        "html": "Maëlys retint un soupir douloureux. Séléna le vit passer sur son visage, cette hésitation d'une seconde, et elle sut avant même d'entendre la réponse."
+      },
+      {
+        "type": "p",
+        "html": "– On n'a pas retrouvé le petit Nick, ma puce. Quand je suis arrivée, il n'y avait plus personne sous les lianes. Les recherches n'ont rien donné... Les forces de l'ordre pensent que la tornade l'a emporté. La police a ouvert une enquête officielle pour comprendre l'origine de la tornade, mais je me suis occupée de tout. Tu ne risques rien."
+      },
+      {
+        "type": "p",
+        "html": "Séléna ferma les yeux si fort que des larmes brûlantes s'échappèrent de ses paupières. <em>L'origine de la tornade. </em>Elle la connaissait, l'origine. C'était elle. Ses propres émotions, sa joie trop grande, sa perte de contrôle totale. Elle avait tué ses parents, ses amis et avait emporté Nick dans sa tempête."
+      },
+      {
+        "type": "p",
+        "html": "Une bouffée de panique soudaine lui serra la gorge. L'air dans la pièce devint subitement plus frais, et les petites plantes en pot posées sur le rebord de la fenêtre commencèrent à s'agiter, leurs feuilles frémissant comme sous l'effet d'une brise invisible."
+      },
+      {
+        "type": "p",
+        "html": "– Non... non, s'il te plaît, murmura Séléna en se prenant la tête entre les mains. Arrête..."
+      },
+      {
+        "type": "p",
+        "html": "– Séléna, regarde-moi, ordonna Maëlys en lui prenant fermement mais tendrement les poignets. Regarde-moi, ma grande. Respire avec moi."
+      },
+      {
+        "type": "p",
+        "html": "Voyant la détresse de la fillette, Maëlys ferma les yeux et fit appel à sa propre magie pour diffuser une aura de calme et de sérénité dans la pièce. Lentement, la brise artificielle retomba. Les plantes cessèrent de bouger."
+      },
+      {
+        "type": "p",
+        "html": "Séléna rouvrit les yeux, le regard vide, dénué de toute étincelle. Elle prit une profonde inspiration, puis se tourna vers sa marraine."
+      },
+      {
+        "type": "p",
+        "html": "– Je ne veux plus jamais l'utiliser, Maëlys, dit-elle d'une voix glaciale et déterminée. Plus jamais. L'Air, la Terre... Je vais tout enterrer en moi. Je ne veux plus jamais faire de mal à personne."
+      },
+      {
+        "type": "p",
+        "html": "Maëlys la serra fortement contre son cœur. Séléna sentit sa poitrine se soulever, une fois, deux fois, comme quelqu'un qui retient ses larmes. Elle sentit aussi autre chose, sans pouvoir le nommer : une hésitation, une inquiétude, comme si sa tante savait quelque chose qu'elle refusait de dire. Puis Maëlys chuchota :"
+      },
+      {
+        "type": "p",
+        "html": "– On va surmonter ça ensemble, Séléna. Je te promets qu'on va y arriver."
+      },
+      {
+        "type": "p",
+        "html": "Elle resta longtemps assise au bord du lit, à la bercer sans rien dire. Puis elle se leva, reprit le plateau intact, et s'arrêta sur le seuil. Séléna la vit se retourner et regarder ses mains. Juste ses mains. Avec une expression qu'elle ne comprit pas sur le moment, et qu'elle mettrait des années à reconnaître : de la peur."
+      },
+      {
+        "type": "p",
+        "html": "La porte se referma."
+      },
+      {
+        "type": "sep"
+      },
+      {
+        "type": "p",
+        "html": "Cette nuit-là, Séléna ne dormit pas. Elle resta allongée sur le dos à fixer le plafond, à écouter les bruits de cette maison qui n'était pas la sienne. Le parquet qui craque. La pendule du couloir. Le vent dans les saules, dehors, qui la faisait tressaillir à chaque bourrasque."
+      },
+      {
+        "type": "p",
+        "html": "Sur la commode, Maëlys avait laissé le morceau de pain d'épices, enveloppé dans une serviette."
+      },
+      {
+        "type": "p",
+        "html": "Séléna se leva, le prit dans ses mains, le sentit. Cannelle, miel, orange."
+      },
+      {
+        "type": "memory",
+        "text": "Chut, Cactus. Si ta mère nous voit, on est morts. Tiens, la plus grosse part est pour toi. Non, je mens, c'est la mienne. Bon, d'accord, prends-la."
+      },
+      {
+        "type": "p",
+        "html": "Ils ont neuf et quinze ans, cachés sous la grande table de la cuisine, et le pain d'épices refroidit sur le rebord de la fenêtre. Nono a des miettes plein le menton. Il rit sans faire de bruit, en se tenant le ventre."
+      },
+      {
+        "type": "p",
+        "html": "Séléna reposa le pain d'épices sans y toucher. Elle retourna se coucher, tira la couverture jusqu'au-dessus de sa tête, et murmura dans le noir, si bas qu'elle-même l'entendit à peine :"
+      },
+      {
+        "type": "p",
+        "html": "– Reviens."
+      },
+      {
+        "type": "p",
+        "html": "Personne ne répondit. Dehors, le vent se tut, comme s'il avait honte."
+      }
+    ]
+  }
+]

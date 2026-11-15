@@ -1,4 +1,4 @@
-const SOCIALS = [
+export const SOCIALS = [
   { href: 'https://github.com/justinecombeaubts', icon: 'fab fa-github', label: 'GitHub' },
   { href: 'https://www.linkedin.com/in/justine-combeau/', icon: 'fab fa-linkedin-in', label: 'LinkedIn' },
   { href: 'https://www.instagram.com/nocturne.tech_/', icon: 'fab fa-instagram', label: 'Instagram @nocturne.tech_' },

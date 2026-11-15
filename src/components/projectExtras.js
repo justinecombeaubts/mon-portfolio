@@ -103,12 +103,27 @@ export function renderProjectDetails(project) {
   return `<div class="mt-8 space-y-6 text-sm">${sections}</div>`;
 }
 
+// Emplacement réservé d'une capture pas encore fournie (item de galerie avec placeholder: true).
+// TODO : remplacer par la vraie image (src) et retirer placeholder dans projects.json.
+function renderGalleryPlaceholder(img) {
+  return `
+      <li class="shrink-0 snap-start">
+        <div class="flex h-56 ${img.wide ? 'w-96' : 'w-72'} flex-col items-center justify-center gap-2 rounded-xl border-2 border-dashed border-slate-300 px-6 text-center text-slate-500 dark:border-white/20 dark:text-slate-400" role="img" aria-label="Capture à venir : ${img.alt}">
+          <i class="fas fa-camera text-2xl text-brand-500 dark:text-brand-300" aria-hidden="true"></i>
+          <span class="text-xs font-semibold uppercase tracking-[0.15em]">Capture à venir</span>
+          <span class="text-xs">${img.alt}</span>
+        </div>
+      </li>`;
+}
+
 // Visuels supplémentaires (slides, planches) : bande qui défile à l'horizontale.
 export function renderGallery(project) {
   if (!project.gallery?.length) return '';
   const items = project.gallery
-    .map(
-      (img) => `
+    .map((img) =>
+      img.placeholder
+        ? renderGalleryPlaceholder(img)
+        : `
       <li class="shrink-0 snap-start">
         <a href="${img.src}" target="_blank" rel="noopener" class="block overflow-hidden rounded-xl border border-slate-200/70 dark:border-white/10">
           <img src="${img.src}" alt="${img.alt}" loading="lazy" decoding="async" class="h-56 w-auto ${img.wide ? 'max-w-none' : ''}" />
