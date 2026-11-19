@@ -1,19 +1,27 @@
-export function renderFooter() {
+import { NAV, SOCIALS } from '../lib/site.js';
+import { icon } from '../lib/icons.js';
+
+export function renderFooter({ page = 'home' } = {}) {
+  const base = page === 'home' ? '' : '/';
   const year = new Date().getFullYear();
   return `
-  <footer class="border-t border-slate-200/70 py-8 dark:border-white/10">
-    <div class="container-x flex flex-col items-center justify-between gap-3 text-sm text-slate-500 sm:flex-row dark:text-slate-400">
-      <p>
-        &copy; ${year} Justine Combeau. Tous droits réservés. ·
-        <a href="/mentions-legales.html" class="hover:text-brand-600 dark:hover:text-brand-300">Mentions légales</a>
-      </p>
-      <p class="flex gap-4">
-        <a href="https://www.linkedin.com/in/justine-combeau/" target="_blank" rel="me noopener" class="hover:text-brand-600 dark:hover:text-brand-300">LinkedIn</a>
-        <a href="https://www.instagram.com/nocturne.tech_/" target="_blank" rel="me noopener" class="hover:text-brand-600 dark:hover:text-brand-300">@nocturne.tech_</a>
-        <a href="https://github.com/justinecombeaubts" target="_blank" rel="me noopener" class="hover:text-brand-600 dark:hover:text-brand-300">GitHub</a>
-      </p>
-      <p>Conçu avec <i class="fas fa-heart text-brand-500 dark:text-brand-300"></i> | HTML, Tailwind CSS &amp; JavaScript.</p>
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <a href="/" class="logo logo-dark" aria-label="Justine Combeau, retour à l'accueil">J<span>.</span></a>
+      <nav aria-label="Pied de page">
+        <ul class="footer-nav">
+          ${NAV.map((l) => `<li><a href="${base}#${l.id}">${l.label}</a></li>`).join('')}
+          <li><a href="/projets.html">Tous les projets</a></li>
+        </ul>
+      </nav>
+      <ul class="footer-socials">
+        ${SOCIALS.map((s) => `<li><a href="${s.href}" target="_blank" rel="me noopener" aria-label="${s.label}">${icon(s.icon, { size: 18 })}</a></li>`).join('')}
+        <li><a href="mailto:justine.combeau.bts@gmail.com" aria-label="Email">${icon('mail', { size: 18 })}</a></li>
+      </ul>
     </div>
-  </footer>
-  `;
+    <div class="container footer-bottom">
+      <p>© ${year} Justine Combeau · <a href="/mentions-legales.html">Mentions légales</a></p>
+      <p class="mono">Conçu et codé avec soin · Vite &amp; JavaScript</p>
+    </div>
+  </footer>`;
 }

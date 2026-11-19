@@ -1,63 +1,58 @@
+import { CONTACT, STATS } from '../lib/site.js';
+import { icon, sparkle } from '../lib/icons.js';
+import { renderNetwork } from './network.js';
+
 export function renderHero() {
+  const stats = STATS.map(
+    (s) => `<li><span class="stat-value">${s.value}</span><span class="stat-label">${s.label}</span></li>`
+  ).join('');
   return `
-  <section id="home" class="relative overflow-hidden pt-40 pb-24 sm:pt-48 sm:pb-32 lg:pt-28">
-    <div class="pointer-events-none absolute inset-0 bg-grid-glow"></div>
-
-    <div class="container-x relative grid items-center gap-16 lg:grid-cols-[1.1fr_0.9fr]">
-      <div class="animate-fade-up">
-        <p class="section-eyebrow">
-          <span class="h-1.5 w-1.5 rounded-full bg-brand-500"></span>
-          Développement Web &middot; IA &amp; Automation
-        </p>
-        <h1 class="mt-5 font-display text-4xl font-semibold leading-tight text-slate-900 sm:text-5xl lg:text-6xl dark:text-white">
-          Bonjour, je suis <span class="text-brand-500 dark:text-brand-300">Justine Combeau</span>.<br />
-          Je code des solutions <span class="text-ai-600 dark:text-ai-400">web</span> et je les rends
-          <span class="text-brand-500 dark:text-brand-300">intelligentes</span>.
+  <section class="hero section-dark" aria-labelledby="hero-title">
+    ${renderNetwork({ className: 'hero-network' })}
+    <div class="container hero-grid">
+      <div class="hero-text">
+        <p class="eyebrow intro">Bachelor 3 IA &amp; Automation <span class="eyebrow-line"></span></p>
+        <h1 id="hero-title" class="hero-title intro" style="--delay:80ms">
+          Bonjour,<br /><em>je suis Justine.</em>
         </h1>
-        <p class="mt-6 max-w-xl text-lg text-slate-500 dark:text-slate-400">
-          Étudiante en Bachelor IA &amp; Automation à Digital Campus Paris, diplômée d'un BTS
-          Informatique Développement. Je conçois des sites et applications robustes, puis j'y ajoute de
-          l'automatisation et de l'intelligence artificielle pour aller plus loin.
+        <p class="hero-lead intro" style="--delay:160ms">
+          Développeuse web passionnée d'intelligence artificielle et d'automatisation&nbsp;: je conçois des
+          applications, puis je les connecte à des workflows et à des agents IA encadrés, pour des outils
+          plus efficaces et plus humains.
         </p>
-        <div class="mt-10 flex flex-wrap items-center gap-4">
-          <a href="#projects" class="btn-primary">
-            <i class="fas fa-rocket"></i> Découvrir mes projets
-          </a>
-          <a href="#contact" class="btn-secondary">
-            <i class="fas fa-envelope"></i> Me contacter
-          </a>
-          <a href="/cv/CV_JustineCombeau.pdf" download class="btn-ghost">
-            <i class="fas fa-download"></i> Télécharger mon CV
-          </a>
-          <a href="/portfolio/Portfolio_JustineCombeau.pdf" download class="btn-ghost">
-            <i class="fas fa-file-pdf"></i> Portfolio PDF
-          </a>
+        <div class="hero-actions intro" style="--delay:240ms">
+          <a href="#projets" class="btn btn-outline">Découvrir mes projets ${icon('arrow', { size: 16 })}</a>
+          <a href="#contact" class="link-underline">Me contacter</a>
         </div>
-
-        <div class="mt-12 flex flex-wrap items-center gap-x-10 gap-y-4 text-sm text-slate-500 dark:text-slate-400">
-          <div class="flex items-center gap-2">
-            <i class="fas fa-graduation-cap text-brand-500 dark:text-brand-300"></i> Bachelor 3 IA &amp; Automation
-          </div>
-          <div class="flex items-center gap-2">
-            <i class="fas fa-location-dot text-brand-500 dark:text-brand-300"></i> Paris, France
-          </div>
-          <div class="flex items-center gap-2">
-            <i class="fas fa-briefcase text-brand-500 dark:text-brand-300"></i> Alternance : disponible immédiatement (3 j entreprise / 2 j école)
-          </div>
-        </div>
+        <ul class="hero-meta intro" style="--delay:320ms">
+          <li>${icon('pin', { size: 15 })} ${CONTACT.city}</li>
+          <li><span class="status-dot" aria-hidden="true"></span> Alternance : disponible immédiatement</li>
+        </ul>
       </div>
 
-      <div class="relative mx-auto w-full max-w-sm animate-fade-up [animation-delay:150ms]">
-        <div class="absolute -inset-6 -z-10 rounded-[2.5rem] bg-gradient-to-br from-brand-300/30 via-ai-400/20 to-transparent blur-2xl"></div>
-        <div class="overflow-hidden rounded-[2rem] border border-white/40 shadow-soft dark:border-white/10">
+      <div class="hero-visual intro" style="--delay:200ms">
+        <div class="arch-outline" aria-hidden="true"></div>
+        <div class="arch arch-photo">
           <picture>
-            <source srcset="/images/accueil.webp" type="image/webp" />
-            <img src="/images/accueil.jpg" alt="Illustration de Justine Combeau, tasse à la main, dans une bibliothèque avec son chat et son ordinateur" width="768" height="953"
-              fetchpriority="high" decoding="async" class="h-full w-full object-cover" />
+            <source srcset="/images/da/portrait.webp" type="image/webp" />
+            <img src="/images/da/portrait.jpg" alt="Portrait de Justine Combeau" width="720" height="868" fetchpriority="high" decoding="async" />
           </picture>
+        </div>
+        ${sparkle({ size: 26, className: 'hero-sparkle' })}
+        ${sparkle({ size: 12, className: 'hero-sparkle hero-sparkle--small' })}
+        <div class="motto" aria-label="Ma façon de travailler : le code calcule, l'IA restitue, l'humain valide">
+          <p class="motto-title mono">Ma méthode</p>
+          <ol class="motto-steps" aria-hidden="true">
+            <li><span class="motto-dot"></span>le code calcule</li>
+            <li><span class="motto-dot"></span>l'IA restitue</li>
+            <li><span class="motto-dot"></span>l'humain valide</li>
+          </ol>
         </div>
       </div>
     </div>
   </section>
-  `;
+
+  <section class="stats" aria-label="Chiffres clés">
+    <ul class="container stats-list">${stats}</ul>
+  </section>`;
 }

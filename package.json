@@ -1,7 +1,7 @@
 {
   "name": "justine-combeau-portfolio",
   "private": true,
-  "version": "2.0.0",
+  "version": "3.0.0",
   "type": "module",
   "description": "Portfolio de Justine Combeau : Développement Web & IA / Automation",
   "scripts": {
@@ -10,7 +10,8 @@
     "preview": "vite preview",
     "images": "node scripts/optimize-images.mjs",
     "portfolio": "node portfolio-source/build.mjs",
-    "instagram": "node instagram/build.mjs"
+    "instagram": "node instagram/build.mjs",
+    "images:da": "node scripts/prepare-da-images.mjs"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.20",

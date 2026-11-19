@@ -8,8 +8,7 @@
   <meta name="description"
     content="Tous les projets de Justine Combeau en détail : IA et automatisation, développement web et applications Android, avec contexte, stack, résultats et workflows." />
   <meta name="author" content="Justine Combeau" />
-  <meta name="theme-color" content="#f4f4f6" media="(prefers-color-scheme: light)" />
-  <meta name="theme-color" content="#2a0f17" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#48151C" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="48x48" />
   <link rel="canonical" href="https://mon-portfolio-justine-combeau.vercel.app/projets.html" />
@@ -33,24 +32,21 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Source+Code+Pro:wght@400;600&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=JetBrains+Mono:wght@400&family=Manrope:wght@300;400;500;600&display=swap"
     rel="stylesheet" />
   <!-- Icônes -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
 
   <script>
-    // Même thème que l'accueil, appliqué avant le premier rendu.
-    (function () {
-      var stored = localStorage.getItem('theme');
-      document.documentElement.classList.toggle('dark', stored === 'dark');
-    })();
+    // Active les apparitions au défilement (sans JavaScript, tout reste visible).
+    document.documentElement.classList.add('js');
   </script>
 
   <script type="module" src="/src/main.js"></script>
 <script defer src="/_vercel/insights/script.js"></script>
 </head>
 
-<body class="bg-sand-50 text-slate-700 dark:bg-ink dark:text-slate-100 antialiased selection:bg-brand-300/40">
+<body>
   <!-- Contenu de secours (dev uniquement) : au build, le plugin de pré-rendu
        de vite.config.js remplace tout ce bloc par la liste complète des projets. -->
   <div id="app" data-page="projets">

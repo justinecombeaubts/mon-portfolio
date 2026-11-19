@@ -1,13 +1,17 @@
 # Portfolio | Justine Combeau
 
-Portfolio de Justine Combeau (Bachelor 3 IA & Automation / BTS Développement Web), refondu en **Vite + Tailwind CSS + JavaScript vanilla** (ES modules, sans framework).
+Portfolio de Justine Combeau (Bachelor 3 IA & Automation / BTS Développement Web), refondu en **Vite + CSS sur mesure + JavaScript vanilla** (ES modules, sans framework).
+
+## Direction artistique (v3, novembre 2026)
+
+« Bordeaux numérique » : bordeaux profond `#48151C`, ivoire `#F4EDE5`, rose champagne `#C9A6A0`, brun presque noir `#241719`. Titres en Cormorant Garamond, texte en Manrope, touches techniques en JetBrains Mono. Sections sombres et claires en alternance, arches (photo, illustration), lignes fines, fond animé de connexions numériques (`src/components/network.js`), impulsions qui parcourent les schémas de workflow, stickers illustrés de Justine. Les animations s'arrêtent si « réduire les animations » est activé.
 
 ## Stack
 
 - [Vite](https://vitejs.dev/) : bundler & serveur de dev
-- [Tailwind CSS](https://tailwindcss.com/) : styles utilitaires, dark mode par classe
+- CSS sur mesure (`src/styles/main.css`) : variables de la palette en haut du fichier, aucune dépendance
 - JavaScript ES modules (pas de framework) : chaque section est un petit composant qui génère son HTML à partir des données JSON
-- [Font Awesome](https://fontawesome.com/) : icônes (CDN)
+- Icônes de l'interface : SVG au trait fin dans `src/lib/icons.js` ; [Font Awesome](https://fontawesome.com/) (CDN) seulement pour les icônes des étapes de workflow (`projects.json`)
 - Formulaire de contact : fonction Vercel `api/contact.js` qui poste chaque message sur Discord (webhook dans la variable d'environnement `DISCORD_WEBHOOK_URL`, jamais dans le code ; champ anti-spam `_gotcha` + envoi en moins de 3 s ignoré). En local, `npm run dev` sert aussi `/api/contact` (définir `DISCORD_WEBHOOK_URL` avant de lancer)
 - Pré-rendu au build (plugin dans `vite.config.js`) : `dist/index.html` contient tout le contenu, lisible par Google sans exécuter le JavaScript
 
@@ -26,21 +30,26 @@ npm run preview    # prévisualiser le build
 src/
 ├── main.js                 # point d'entrée : branche les interactions (et rend le HTML en dev)
 ├── render.js               # HTML complet de chaque page (accueil, projets), pré-rendu dans dist/ au build
-├── styles/main.css          # Tailwind + classes de composants réutilisables
+├── styles/main.css          # toute la DA : variables, sections, composants, animations
 ├── data/
 │   ├── projects.json        # source unique des cartes projets + fiches détaillées
 │   ├── skills.json           # compétences par catégorie
 │   └── timeline.json         # formations & expériences
-├── components/               # un fichier = une section (render + logique)
-└── utils/theme.js            # dark/light mode (persisté en localStorage)
+├── lib/
+│   ├── site.js               # coordonnées, réseaux, menu, catégories, chiffres clés
+│   ├── icons.js              # icônes SVG au trait + étoile « éclat »
+│   └── reveal.js             # apparition des blocs au défilement
+└── components/               # un fichier = une section (render + logique)
 ```
+
+Images de la DA : `public/images/da/` (portrait, illustration, stickers détourés), générées par `npm run images:da` à partir de `images-originales/refonte/`.
 
 ## Mettre à jour le contenu
 
 - **Ajouter un projet** : ajouter une entrée dans `src/data/projects.json` (catégorie `ia-automation`, `dev-web` ou `mobile`) avec `context` (contexte), `solution` + `stack`, et `impact` (liste de résultats). Le projet apparaît automatiquement sur la page `projets.html` (liste où chaque ligne se déplie sur le détail et le workflow ; lien direct vers une ligne : `/projets.html#<id>`).
 - **Champs facultatifs d'un projet** : `banner` + `bannerAlt` (bannière en tête de fiche, à la place de la capture), `gallery` (liste `{ src, alt, wide? }` affichée en bande défilante « En images »), `links.presentation` (PDF téléchargeable, rangé dans `public/projets/`), `privateNote` (ex. « Code disponible sur demande »), `imageAlt` (texte alternatif du logo).
-- **Menu** : sur grand écran, colonne fixe à gauche (photo pro, liens, CV, réseaux, thème) ; sur téléphone et tablette, barre du haut avec menu ☰ (`src/components/header.js`).
-- **Projets de la page d'accueil** : seuls ceux qui ont `"featured": true` y sont affichés en cartes (3 ou 4 au maximum), avec la fiche en modale ; un bouton mène à `projets.html`.
+- **Menu** : barre fixe en haut (transparente sur le hero, bordeaux au défilement) ; sur téléphone et tablette, menu plein écran (`src/components/header.js`).
+- **Projets de la page d'accueil** : seuls ceux qui ont `"featured": true` y sont affichés en cartes (4 idéalement, grille de 2), avec la fiche en modale ; un lien mène à `projets.html`.
 - **Mettre un projet en avant comme workflow** : ajouter un tableau `workflow` (étapes `{ kind, icon, label, detail }`, `kind` = `source`, `process`, `ai`, `human` ou `output`). Le projet apparaît alors dans la section « Mes workflows en action » et sa fiche affiche le schéma.
 - **Mentions légales / confidentialité** : page statique `mentions-legales.html` (à mettre à jour si un nouveau service collecte des données, ex. un autre outil d'analytics).
 - **Modifier une compétence** : éditer `src/data/skills.json`.
@@ -48,7 +57,7 @@ src/
 - **Portfolio PDF** (pour les offres qui demandent un fichier) : lancer `npm run portfolio` après avoir modifié les données. Le PDF A4 paysage est généré à partir de `projects.json`, `skills.json` et `timeline.json` dans `public/portfolio/Portfolio_JustineCombeau.pdf` : les projets IA & Automation ont chacun une page, les projets web et mobile sont regroupés. Mise en page : `portfolio-source/portfolio.css` (nécessite Chrome ou Edge et internet pour les polices).
 - **Carrousel Instagram** : `npm run instagram` génère 8 slides 1080×1350 dans `instagram/carrousel/` (captures du site en ligne + données du site). Textes dans `instagram/build.mjs`, style dans `instagram/carrousel.css`, légende du post dans `instagram/legende.txt`.
 - **Modifier le CV** : le CV en ligne (`public/cv/CV_JustineCombeau.pdf`) est maintenant fait hors du projet (`Documents/Pro/CV_Justine_Combeau.pdf`) : le copier à cet emplacement en gardant ce nom de fichier.
-- Les images utilisées par les projets/le hero vivent dans `public/images/` et sont référencées en `/images/xxx.png`. Chaque projet a une `image` (logo, affiché centré sur la carte et dans la section workflows), une couleur `accent` (fond du visuel) et, s'il est en ligne, une `screenshot` (capture 960×540 dans `public/images/projets/`, affichée uniquement dans la fiche détaillée, dans une fenêtre de navigateur).
+- **Visuels des projets** : aucune capture d'écran sur le site. Chaque projet a une couverture dessinée dans la DA (`src/components/projectArt.js`) : fond bordeaux teinté par sa couleur `accent`, réseau de connexions propre au projet, motif au trait selon la catégorie (fenêtre web, téléphone, ou chaîne des étapes du `workflow` pour l'IA & Automation) et son logo `image` en médaillon. Rien à faire pour un nouveau projet : la couverture se génère toute seule. Les champs `screenshot` restent dans `projects.json` uniquement pour le portfolio PDF et le carrousel Instagram.
 - **Compétences** : chaque entrée de `skills.json` a un `level` (`projet`, `formation` ou `perso`) et une liste `proof` des projets qui la démontrent, sans pourcentages.
 
 ## Déploiement (Vercel)

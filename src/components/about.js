@@ -1,86 +1,52 @@
-import projects from '../data/projects.json';
+import { icon, sparkle } from '../lib/icons.js';
 
-// Chiffres clés calculés depuis projects.json : ils restent justes quand on ajoute un projet.
+const METHOD = [
+  ['Comprendre', "Cerner le besoin réel avant d'écrire la moindre ligne de code."],
+  ['Construire', 'Un code propre, testé et documenté, pensé pour durer.'],
+  ["Coder avec l'IA", 'Les assistants IA sont mes binômes : je cadre, je relis, je teste, et chaque choix technique reste le mien.'],
+  ['Automatiser', 'Repérer ce qui peut être fiabilisé par un script, un workflow ou un agent IA.'],
+  ['Livrer & apprendre', 'Récolter les retours, itérer, documenter les décisions.'],
+];
+
+const QUALITIES = ['Rigueur', 'Autodidacte', 'Pédagogie', 'Gestion du stress', "Travail d'équipe"];
+
 export function renderAbout() {
+  const steps = METHOD.map(
+    ([title, text], i) => `
+      <li class="method-step reveal" style="--delay:${i * 70}ms">
+        <span class="method-num">0${i + 1}</span>
+        <div><p class="method-title">${title}</p><p class="method-text">${text}</p></div>
+      </li>`
+  ).join('');
   return `
-  <section id="about" class="py-24">
-    <div class="container-x">
-      <div class="grid gap-16 lg:grid-cols-2 lg:items-start">
-        <div>
-          <p class="section-eyebrow">Qui suis-je</p>
-          <h2 class="section-title mt-3">À propos de moi</h2>
-          <p class="section-subtitle">Du code au bidouillage d'IA, un parcours qui se construit pas à pas</p>
-
-          <div class="mt-8 space-y-5 text-slate-600 dark:text-slate-300">
-            <p>
-              Diplômée d'un <strong class="text-slate-900 dark:text-white">BTS Informatique
-              Développement</strong>, j'ai découvert le développement web par la pratique avant de
-              choisir d'aller plus loin : je poursuis aujourd'hui en
-              <strong class="text-slate-900 dark:text-white">Bachelor 3 IA &amp; Automation</strong>
-              à Digital Campus Paris, pour apprendre à connecter mes applications à des agents IA
-              et à des automatisations (n8n, Make, GitHub Actions).
-            </p>
-            <p>
-              Mon profil est <strong class="text-slate-900 dark:text-white">polyvalent</strong> :
-              à l'aise aussi bien sur du développement web classique (HTML/CSS/JS, PHP, SQL) que
-              sur des architectures orientées données et IA (Supabase, LLMs, scripts
-              d'automatisation). J'aime comprendre un besoin réel avant de coder, documenter mes
-              choix, et livrer des interfaces soignées.
-            </p>
-            <p>
-              Rigoureuse, autodidacte et créative, je m'appuie aussi sur des expériences de terrain
-              (maître nageur sauveteur, service civique en accueil informatique) qui m'ont appris
-              la gestion du stress, la pédagogie et le sens du service.
-            </p>
-          </div>
-
-          <div class="mt-10 grid grid-cols-2 gap-5 sm:grid-cols-4">
-            ${[
-              [projects.length, 'projets réalisés'],
-              [projects.filter((p) => p.links.demo).length, 'sites en ligne'],
-              [projects.reduce((sum, p) => sum + (p.automations || 0), 0), 'automatisations en production'],
-              ['3 j / 2 j', "rythme d'alternance"],
-            ]
-              .map(
-                ([value, label]) => `
-              <div class="card px-4 py-5 text-center">
-                <p class="font-display text-2xl font-semibold text-brand-500 dark:text-brand-300">${value}</p>
-                <p class="mt-1 text-xs text-slate-500 dark:text-slate-400">${label}</p>
-              </div>`
-              )
-              .join('')}
-          </div>
+  <section id="a-propos" class="section section-light section-about" aria-labelledby="about-title">
+    <div class="container about-grid">
+      <div class="about-visual reveal">
+        <div class="arch-outline arch-outline--left" aria-hidden="true"></div>
+        <div class="arch arch-illu">
+          <picture>
+            <source srcset="/images/da/silhouette.webp" type="image/webp" />
+            <img src="/images/da/silhouette.jpg" alt="Illustration de Justine : manteau long, livres sous le bras et tote bag à croissant de lune" width="640" height="960" loading="lazy" decoding="async" />
+          </picture>
         </div>
+        ${sparkle({ size: 24, className: 'about-sparkle' })}
+      </div>
 
-        <div class="lg:pt-24">
-          <div class="card p-6 sm:p-8">
-            <h3 class="font-display text-xl font-semibold text-slate-900 dark:text-white">
-              <i class="fas fa-compass text-brand-500 dark:text-brand-300"></i> Ma méthode
-            </h3>
-            <ul class="mt-6 space-y-5">
-              ${[
-                ['Comprendre', 'Cerner le besoin réel avant d\'écrire la moindre ligne de code.'],
-                ['Construire', 'Un code propre, testé et documenté, pensé pour durer.'],
-                ["Coder avec l'IA", "J'utilise des assistants IA en binôme : je cadre, je relis, je teste, et chaque choix technique reste le mien."],
-                ['Automatiser', 'Identifier ce qui peut être fiabilisé par un script ou un agent IA.'],
-                ['Livrer & apprendre', 'Récolter le retour, itérer, et documenter la décision.'],
-              ]
-                .map(
-                  ([title, text], i) => `
-                <li class="flex gap-4">
-                  <span class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-brand-500/10 text-sm font-semibold text-brand-600 dark:text-brand-300">${i + 1}</span>
-                  <div>
-                    <p class="font-semibold text-slate-800 dark:text-slate-100">${title}</p>
-                    <p class="text-sm text-slate-500 dark:text-slate-400">${text}</p>
-                  </div>
-                </li>`
-                )
-                .join('')}
-            </ul>
-          </div>
+      <div class="about-text">
+        <p class="eyebrow eyebrow-dark reveal">À propos <span class="eyebrow-line"></span></p>
+        <h2 id="about-title" class="section-title reveal">Curieuse, rigoureuse<br /><em>et tournée vers l'utile.</em></h2>
+        <div class="prose reveal">
+          <p>Diplômée d'un <strong>BTS Informatique Développement</strong>, j'ai appris le web par la pratique avant de choisir d'aller plus loin&nbsp;: je suis aujourd'hui en <strong>Bachelor 3 IA &amp; Automation</strong> à Digital Campus Paris, pour connecter mes applications à des agents IA et à des automatisations (n8n, Make, GitHub Actions).</p>
+          <p>Mon profil est polyvalent&nbsp;: à l'aise sur le développement web classique (HTML/CSS/JS, PHP, SQL) comme sur des architectures orientées données et IA (Supabase, LLM, scripts planifiés). Mes expériences de terrain, maître nageur sauveteur et service civique en accueil informatique, m'ont appris le sang-froid, la pédagogie et le sens du service.</p>
         </div>
+        <ul class="qualities reveal" aria-label="Mes qualités">${QUALITIES.map((q) => `<li>${q}</li>`).join('')}</ul>
+        <a href="#contact" class="btn btn-solid reveal">Travaillons ensemble ${icon('arrow', { size: 16 })}</a>
+      </div>
+
+      <div class="method">
+        <p class="eyebrow eyebrow-dark">Ma méthode</p>
+        <ol>${steps}</ol>
       </div>
     </div>
-  </section>
-  `;
+  </section>`;
 }

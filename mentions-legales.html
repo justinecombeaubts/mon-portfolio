@@ -7,46 +7,45 @@
   <title>Mentions légales et confidentialité | Justine Combeau</title>
   <meta name="description" content="Mentions légales et politique de confidentialité du portfolio de Justine Combeau." />
   <meta name="robots" content="noindex, follow" />
-  <meta name="theme-color" content="#f4f4f6" media="(prefers-color-scheme: light)" />
-  <meta name="theme-color" content="#2a0f17" media="(prefers-color-scheme: dark)" />
+  <meta name="theme-color" content="#48151C" />
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link rel="icon" type="image/x-icon" href="/favicon.ico" sizes="48x48" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=JetBrains+Mono:wght@400&family=Manrope:wght@300;400;500;600&display=swap"
     rel="stylesheet" />
 
   <script>
-    // Même thème que le portfolio (voir index.html).
-    (function () {
-      var stored = localStorage.getItem('theme');
-      document.documentElement.classList.toggle('dark', stored === 'dark');
-    })();
+    // Active les apparitions au défilement (sans JavaScript, tout reste visible).
+    document.documentElement.classList.add('js');
   </script>
 
   <script type="module" src="/src/legal.js"></script>
   <script defer src="/_vercel/insights/script.js"></script>
 </head>
 
-<body class="bg-sand-50 text-slate-700 dark:bg-ink dark:text-slate-100 antialiased selection:bg-brand-300/40">
-  <header class="border-b border-slate-200/70 dark:border-white/10">
-    <div class="container-x flex h-20 items-center justify-between">
-      <a href="/" class="flex items-center gap-2 font-display text-lg font-semibold text-slate-900 dark:text-white">
-        <img src="/images/logo.png" alt="Logo Justine Combeau" width="36" height="36" class="h-9 w-9 rounded-full object-cover" />
-        Justine<span class="text-brand-500 dark:text-brand-300">.</span>
-      </a>
-      <a href="/" class="btn-ghost whitespace-nowrap">&larr; <span class="hidden sm:inline">Retour au&nbsp;</span>portfolio</a>
+<body>
+  <a href="#main" class="skip-link">Aller au contenu</a>
+  <header class="site-header is-solid">
+    <div class="container header-inner">
+      <a href="/" class="logo" aria-label="Justine Combeau, retour à l'accueil">J<span>.</span></a>
+      <a href="/" class="btn btn-outline btn-sm">&larr; Retour au portfolio</a>
     </div>
   </header>
 
-  <main class="container-x max-w-3xl py-16">
-    <p class="section-eyebrow">Informations légales</p>
-    <h1 class="section-title mt-3">Mentions légales &amp; confidentialité</h1>
-    <p class="section-subtitle">Dernière mise à jour : 21 octobre 2026</p>
+  <section class="page-hero section-dark">
+    <div class="container">
+      <p class="eyebrow">Informations légales <span class="eyebrow-line"></span></p>
+      <h1 class="page-title">Mentions légales <em>&amp; confidentialité.</em></h1>
+      <p class="hero-lead">Dernière mise à jour : 19 novembre 2026</p>
+    </div>
+  </section>
 
-    <div class="legal mt-12">
+  <main id="main" class="section section-light">
+    <div class="container">
+    <div class="legal">
       <h2>1. Éditrice du site</h2>
       <p>
         Ce site est un portfolio personnel, édité à titre non professionnel par
@@ -69,7 +68,7 @@
         propriétaires respectifs et ne sont mentionnées que pour décrire les projets.
       </p>
 
-      <h2 id="donnees" class="scroll-mt-8">4. Données personnelles</h2>
+      <h2 id="donnees">4. Données personnelles</h2>
       <p>
         La responsable du traitement est Justine Combeau (contact ci-dessus). Ce site ne collecte
         que les données strictement nécessaires :
@@ -111,10 +110,8 @@
 
       <h2>5. Cookies et stockage local</h2>
       <p>
-        Ce site ne dépose <strong>aucun cookie</strong>. Seule votre préférence de thème
-        (clair / sombre) est enregistrée dans le stockage local de votre navigateur, à votre
-        demande, pour s'appliquer lors de vos prochaines visites. Elle ne quitte jamais votre
-        appareil et ne nécessite pas de consentement.
+        Ce site ne dépose <strong>aucun cookie</strong> et n'enregistre rien dans le stockage local
+        de votre navigateur.
       </p>
 
       <h2>6. Liens externes</h2>
@@ -124,11 +121,13 @@
         politiques.
       </p>
     </div>
+    </div>
   </main>
 
-  <footer class="border-t border-slate-200/70 py-8 dark:border-white/10">
-    <div class="container-x text-center text-sm text-slate-500 dark:text-slate-400">
-      &copy; <span id="year">2026</span> Justine Combeau | <a href="/" class="hover:text-brand-600 dark:hover:text-brand-300">Retour au portfolio</a>
+  <footer class="site-footer">
+    <div class="container footer-bottom">
+      <p>&copy; <span id="year">2026</span> Justine Combeau · <a href="/">Retour au portfolio</a></p>
+      <p class="mono">Conçu et codé avec soin · Vite &amp; JavaScript</p>
     </div>
   </footer>
 </body>
