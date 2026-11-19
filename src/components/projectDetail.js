@@ -21,11 +21,42 @@ export function renderProjectLinks(project) {
   return `<div class="detail-links">${links.join('')}</div>`;
 }
 
+// Solution : paragraphe, ou introduction + étapes numérotées (solutionSteps).
+function renderSolution(project) {
+  if (!project.solutionSteps?.length) return `<p>${project.solution}</p>`;
+  return `<p>${project.solutionIntro || ''}</p><ol class="steps">${project.solutionSteps.map((s) => `<li>${s}</li>`).join('')}</ol>`;
+}
+
+// Fiche d'identité (facts : type, rôle, statut...).
+function renderFacts(project) {
+  if (!project.facts?.length) return '';
+  return `<dl class="facts">${project.facts.map((f) => `<div><dt class="mono">${f.label}</dt><dd>${f.value}</dd></div>`).join('')}</dl>`;
+}
+
+// Sections en plus (details) : { icon, title, text?, list?, table?, image? }.
+function renderDetails(project) {
+  if (!project.details?.length) return '';
+  return project.details
+    .map((s) => {
+      const list = s.list ? `<ul class="impact">${s.list.map((l) => `<li>${icon('check', { size: 16 })}<span>${l}</span></li>`).join('')}</ul>` : '';
+      const table = s.table ? `<dl class="detail-table">${s.table.map(([t, v]) => `<div><dt>${t}</dt><dd>${v}</dd></div>`).join('')}</dl>` : '';
+      const text = s.text ? `<p>${s.text}</p>` : '';
+      const image = s.image
+        ? `<img src="${s.image.src}" alt="${s.image.alt}" width="${s.image.width}" height="${s.image.height}" loading="lazy" decoding="async" class="detail-image" />`
+        : '';
+      return `<div class="detail-block"><h4 class="detail-heading mono">${s.title}</h4>${list}${table}${text}${image}</div>`;
+    })
+    .join('');
+}
+
 function renderGallery(project) {
   if (!project.gallery?.length) return '';
   const items = project.gallery
     .map(
-      (img) => `<li><a href="${img.src}" target="_blank" rel="noopener"><img src="${img.src}" alt="${img.alt}" loading="lazy" decoding="async" class="${img.wide ? 'is-wide' : ''}" /></a></li>`
+      (img) =>
+        img.placeholder
+          ? `<li><span class="gallery-placeholder${img.wide ? ' is-wide' : ''}" role="img" aria-label="Image à venir : ${img.alt}"><span class="mono">Image à venir</span>${img.alt}</span></li>`
+          : `<li><a href="${img.src}" target="_blank" rel="noopener"><img src="${img.src}" alt="${img.alt}" loading="lazy" decoding="async" class="${img.wide ? 'is-wide' : ''}" /></a></li>`
     )
     .join('');
   return `
@@ -35,7 +66,7 @@ function renderGallery(project) {
     </div>`;
 }
 
-// headingLevel : niveau du titre du projet (h2 dans la modale, h2 dans la page projets aussi).
+// withTitle : en-tête avec titre (modale) ; la page projets a déjà le titre dans sa ligne.
 export function renderProjectDetail(project, { withTitle = true } = {}) {
   const impact = project.impact.map((line) => `<li>${icon('check', { size: 16 })}<span>${line}</span></li>`).join('');
   const stack = project.stack.map((t) => `<li>${t}</li>`).join('');
@@ -46,24 +77,27 @@ export function renderProjectDetail(project, { withTitle = true } = {}) {
           ? `<header class="detail-header">
               <p class="eyebrow eyebrow-dark">${CATEGORY_LABEL[project.category]} · ${project.year}</p>
               <h2 class="detail-title" id="modal-title">${project.title}</h2>
-              <p class="detail-tagline">${project.tagline}</p>
+              <p class="detail-tagline">${project.subtitle || project.tagline}</p>
             </header>`
           : ''
       }
       <div class="detail-grid">
         <div class="detail-main">
+          ${!withTitle && project.subtitle ? `<p class="detail-tagline">${project.subtitle}</p>` : ''}
+          ${renderFacts(project)}
           <div class="detail-block">
             <h4 class="detail-heading mono">Contexte</h4>
             <p>${project.context}</p>
           </div>
           <div class="detail-block">
             <h4 class="detail-heading mono">Solution</h4>
-            <p>${project.solution}</p>
+            ${renderSolution(project)}
           </div>
           <div class="detail-block">
             <h4 class="detail-heading mono">Résultats</h4>
             <ul class="impact">${impact}</ul>
           </div>
+          ${renderDetails(project)}
         </div>
         <aside class="detail-side">
           <div class="detail-visual">${projectVisual(project)}</div>

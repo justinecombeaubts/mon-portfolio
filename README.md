@@ -47,7 +47,7 @@ Images de la DA : `public/images/da/` (portrait, illustration, stickers détour�
 ## Mettre à jour le contenu
 
 - **Ajouter un projet** : ajouter une entrée dans `src/data/projects.json` (catégorie `ia-automation`, `dev-web` ou `mobile`) avec `context` (contexte), `solution` + `stack`, et `impact` (liste de résultats). Le projet apparaît automatiquement sur la page `projets.html` (liste où chaque ligne se déplie sur le détail et le workflow ; lien direct vers une ligne : `/projets.html#<id>`).
-- **Champs facultatifs d'un projet** : `banner` + `bannerAlt` (bannière en tête de fiche, à la place de la capture), `gallery` (liste `{ src, alt, wide? }` affichée en bande défilante « En images »), `links.presentation` (PDF téléchargeable, rangé dans `public/projets/`), `privateNote` (ex. « Code disponible sur demande »), `imageAlt` (texte alternatif du logo).
+- **Champs facultatifs d'un projet** : `gallery` (liste `{ src, alt, wide?, placeholder? }` affichée en bande défilante « En images » ; `placeholder: true` affiche un cadre « Image à venir »), `links.presentation` (PDF téléchargeable, rangé dans `public/projets/`), `privateNote`, `imageAlt`, `subtitle` (sous-titre de la fiche), `summary` (texte de la carte, à la place de `tagline`), `facts` (`{ label, value }` : type, rôle, statut), `solutionIntro` + `solutionSteps` (solution en étapes ; `solution` reste le texte du PDF), `details` (sections en plus : `{ icon, title, text?, list?, table?, image? }`).
 - **Menu** : barre fixe en haut (transparente sur le hero, bordeaux au défilement) ; sur téléphone et tablette, menu plein écran (`src/components/header.js`).
 - **Projets de la page d'accueil** : seuls ceux qui ont `"featured": true` y sont affichés en cartes (4 idéalement, grille de 2), avec la fiche en modale ; un lien mène à `projets.html`.
 - **Mettre un projet en avant comme workflow** : ajouter un tableau `workflow` (étapes `{ kind, icon, label, detail }`, `kind` = `source`, `process`, `ai`, `human` ou `output`). Le projet apparaît alors dans la section « Mes workflows en action » et sa fiche affiche le schéma.
@@ -68,3 +68,7 @@ Images de la DA : `public/images/da/` (portrait, illustration, stickers détour�
 ## ⚠️ À faire côté Justine
 
 - Mettre à jour les dépôts GitHub publics (`recettes-famille`, `qcm-bnssa`) et remplir `le-chat-ivre` (dépôt vide : le lien « Voir le code » a été retiré en attendant) : ils datent de juillet 2026 et ne reflètent pas les dernières versions. Renommer `mon-portofolio` en `mon-portfolio` sur GitHub.
+
+## Liseuse du roman
+
+Section « Hors du code » : `src/components/bookReader.js` affiche la couverture, le prologue et le chapitre 1, une page « La suite bientôt… » puis la 4e de couverture. Le texte est dans `src/data/selena-extrait.json` (seul extrait présent dans le site, chargé uniquement à l'ouverture du livre) ; la pagination se calcule selon la taille de l'écran. Bouton vers le serveur Discord Astraleth (`DISCORD_SERVER` dans le même fichier). Styles : section « Liseuse » de `src/styles/main.css`.

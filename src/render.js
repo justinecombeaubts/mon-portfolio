@@ -11,6 +11,7 @@ import { renderBook } from './components/book.js';
 import { renderContact } from './components/contact.js';
 import { renderFooter } from './components/footer.js';
 import { renderProjectsPage } from './components/projectsPage.js';
+import { renderBookReader } from './components/bookReader.js';
 
 function renderHome() {
   return `
@@ -25,7 +26,8 @@ function renderHome() {
     ${renderBook()}
     ${renderContact()}
   </main>
-  ${renderFooter()}`;
+  ${renderFooter()}
+  ${renderBookReader()}`;
 }
 
 function renderProjectsListPage() {

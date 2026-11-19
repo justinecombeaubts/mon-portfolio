@@ -13,7 +13,7 @@ function renderCard(project, i) {
         <span class="project-card-body">
           <span class="project-card-cat mono">${CATEGORY_LABEL[project.category]}</span>
           <span class="project-card-title">${project.title}</span>
-          <span class="project-card-text">${project.tagline}</span>
+          <span class="project-card-text">${project.summary || project.tagline}</span>
         </span>
         <span class="round-arrow" aria-hidden="true">${icon('arrow', { size: 16 })}</span>
         <span class="sr-only">Ouvrir la fiche du projet</span>

@@ -1306,6 +1306,102 @@ strong {
   font-size: 0.84rem;
   color: var(--muted-light);
 }
+.steps {
+  display: grid;
+  gap: 0.55rem;
+  margin-top: 0.4rem;
+  counter-reset: step;
+}
+.steps li {
+  position: relative;
+  padding-left: 2.1rem;
+  counter-increment: step;
+}
+.steps li::before {
+  content: counter(step, decimal-leading-zero);
+  position: absolute;
+  left: 0;
+  top: 0.15rem;
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  color: var(--bordeaux);
+}
+.facts {
+  display: grid;
+  gap: 0.6rem;
+  margin: 0;
+  padding: 1.1rem 1.25rem;
+  border: 1px solid var(--line-light);
+  border-left: 2px solid var(--bordeaux);
+  border-radius: var(--radius);
+  background: rgba(72, 21, 28, 0.03);
+  font-size: 0.9rem;
+}
+.facts div,
+.detail-table div {
+  display: grid;
+  gap: 0.15rem;
+}
+.facts dt {
+  font-size: 0.66rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--bordeaux);
+}
+.facts dd,
+.detail-table dd {
+  margin: 0;
+  color: var(--muted-light);
+}
+.detail-table {
+  margin: 0;
+}
+.detail-table div {
+  padding-block: 0.6rem;
+  border-bottom: 1px solid var(--line-light);
+}
+.detail-table dt {
+  font-weight: 600;
+  color: var(--text-light);
+}
+@media (min-width: 640px) {
+  .facts div,
+  .detail-table div {
+    grid-template-columns: 9rem 1fr;
+    gap: 1rem;
+  }
+  .facts div {
+    grid-template-columns: 4.5rem 1fr;
+  }
+}
+.detail-image {
+  width: 100%;
+  border-radius: var(--radius);
+  border: 1px solid var(--line-light);
+}
+.gallery-placeholder {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 260px;
+  height: 220px;
+  padding: 1.25rem;
+  border: 1px dashed rgba(72, 21, 28, 0.35);
+  border-radius: var(--radius);
+  font-size: 0.82rem;
+  color: var(--muted-light);
+  text-align: center;
+}
+.gallery-placeholder.is-wide {
+  width: 380px;
+}
+.gallery-placeholder .mono {
+  font-size: 0.66rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--bordeaux);
+}
 .detail-flow {
   margin-top: 2.5rem;
 }
@@ -1874,6 +1970,62 @@ strong {
   box-shadow: 0 30px 60px -25px rgba(36, 23, 25, 0.55), 0 0 0 1px var(--line-light);
   transform: rotate(-2deg);
 }
+.book-open {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+.book-open .book-cover {
+  transition: transform 0.6s var(--ease), box-shadow 0.6s var(--ease);
+}
+.book-open:hover .book-cover,
+.book-open:focus-visible .book-cover {
+  transform: rotate(0deg) translateY(-6px);
+  box-shadow: 0 40px 70px -25px rgba(36, 23, 25, 0.6), 0 0 0 1px var(--line-light);
+}
+.book-hint {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.55rem 1rem;
+  translate: -50% -50%;
+  border-radius: 999px;
+  background: rgba(36, 23, 25, 0.82);
+  color: var(--ivoire);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+  opacity: 0;
+  backdrop-filter: blur(6px);
+  transition: opacity 0.3s;
+}
+.book-open:hover .book-hint,
+.book-open:focus-visible .book-hint {
+  opacity: 1;
+}
+@media (hover: none) {
+  .book-hint {
+    top: auto;
+    bottom: 1rem;
+    opacity: 1;
+  }
+}
+.book-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+.book-actions .btn {
+  white-space: normal;
+  text-align: left;
+}
 .sticker-book {
   position: absolute;
   right: -34%;
@@ -2303,6 +2455,411 @@ strong {
     display: flex;
   }
 }
+
+/* --- Liseuse de Séléna (bookReader.js) ------------------------------------------------ */
+.reader.hidden {
+  display: none;
+}
+.reader {
+  position: fixed;
+  inset: 0;
+  z-index: 70;
+  display: flex;
+  flex-direction: column;
+  --focus: var(--champagne);
+  color: var(--ivoire);
+}
+.reader-backdrop {
+  position: absolute;
+  inset: 0;
+}
+.reader-bar,
+.reader-stage,
+.reader-nav {
+  position: relative;
+  z-index: 1;
+}
+.reader-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.75rem 16px;
+}
+.reader-title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-family: var(--serif);
+  font-size: 1.25rem;
+}
+.reader-title span {
+  font-style: italic;
+  color: var(--muted-dark);
+}
+.reader-tools {
+  display: flex;
+  gap: 0.4rem;
+}
+.reader-stage {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+  align-items: center;
+  justify-content: center;
+  padding-inline: 16px;
+}
+.reader-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  width: 100%;
+  max-width: 28rem;
+  margin-inline: auto;
+  padding: 0.75rem 16px 1rem;
+}
+.reader-status {
+  flex: 1;
+  min-width: 0;
+  text-align: center;
+}
+.reader-indicator {
+  font-size: 0.72rem;
+  font-variant-numeric: tabular-nums;
+  color: var(--muted-dark);
+}
+.reader {
+  --paper: #f6efe4;
+  --paper-edge: #e8dccd;
+  --ink-text: #241719;
+  --ink-soft: #6b5457;
+  --accent: #48151c;
+  --sheet-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.6);
+}
+.reader.is-night {
+  --paper: #241719;
+  --paper-edge: #33201f;
+  --ink-text: #ede3d7;
+  --ink-soft: #b9a5a2;
+  --accent: #c9a6a0;
+}
+
+.reader-backdrop {
+  background:
+    radial-gradient(ellipse at 50% 35%, rgba(90, 29, 38, 0.6), transparent 65%),
+    rgba(36, 23, 25, 0.95);
+  backdrop-filter: blur(6px);
+}
+
+.reader-tool {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 42px;
+  height: 42px;
+  border: 1px solid var(--line-dark);
+  border-radius: 50%;
+  background: none;
+  color: var(--ivoire);
+  transition: border-color 0.3s, color 0.3s, background-color 0.3s;
+}
+.reader-tool:hover:not(:disabled) {
+  border-color: var(--champagne);
+  color: var(--champagne);
+}
+.reader-tool:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+
+.reader-progress {
+  height: 2px;
+  margin-top: 0.45rem;
+  overflow: hidden;
+  border-radius: 2px;
+  background: rgba(244, 237, 229, 0.12);
+}
+.reader-progress span {
+  display: block;
+  height: 100%;
+  background: var(--champagne);
+  transition: width 0.3s var(--ease);
+}
+
+/* Le livre : format 2:3 comme la couverture, aussi grand que l'écran le permet */
+.reader-book {
+  position: relative;
+  width: min(100%, 32rem, calc((100dvh - 9.5rem) * 2 / 3));
+  aspect-ratio: 2 / 3;
+  perspective: 1800px;
+  container-type: inline-size;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.reader-sheet {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border-radius: 4px 10px 10px 4px;
+  background: var(--paper);
+  color: var(--ink-text);
+  box-shadow: var(--sheet-shadow), inset 14px 0 18px -14px rgba(0, 0, 0, 0.28);
+  transform-origin: left center;
+  backface-visibility: hidden;
+}
+.reader-sheet-cover,
+.reader-sheet-back {
+  background: #15131f;
+  cursor: pointer;
+}
+.reader-sheet-back {
+  cursor: default;
+}
+.reader-measure {
+  visibility: hidden;
+  pointer-events: none;
+}
+.reader-img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.reader-tool.is-cta {
+  border-color: var(--champagne);
+  background: var(--champagne);
+  color: var(--noir);
+}
+.reader-tool.is-cta:hover {
+  background: var(--ivoire);
+  color: var(--noir);
+}
+
+.reader-edge {
+  pointer-events: none;
+  position: absolute;
+  top: 50%;
+  z-index: 20;
+  display: none;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  translate: 0 -50%;
+  opacity: 0;
+  transition: opacity 0.3s;
+  color: var(--ink-soft);
+}
+.reader-edge-prev { left: 0.4rem; }
+.reader-edge-next { right: 0.4rem; }
+@media (hover: hover) {
+  .reader-book:not([data-kind='cover']) .reader-edge { display: grid; }
+  .reader-book:hover .reader-edge { opacity: 0.55; }
+  .reader-book:not([data-kind='cover']) { cursor: pointer; }
+}
+
+/* Typographie de roman */
+.reader-text {
+  height: 100%;
+  overflow: hidden;
+  padding: 9cqw 9cqw 8cqw;
+  font-family: 'EB Garamond', Garamond, Georgia, serif;
+  font-size: clamp(15px, 3.75cqw, 19px);
+  line-height: 1.5;
+  text-align: justify;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+  font-variant-numeric: oldstyle-nums;
+}
+.reader-text p {
+  margin: 0;
+  text-indent: 1.4em;
+}
+.reader-text p.reader-cont,
+.reader-chapter + p,
+.reader-sep + p,
+.reader-journal + p:not(.reader-journal),
+.reader-memory + p {
+  text-indent: 0;
+}
+.reader-text em {
+  font-style: italic;
+}
+
+.reader-kicker {
+  font-family: 'Cinzel', Georgia, serif;
+  font-size: 0.72em;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  text-indent: 0 !important;
+  color: var(--ink-soft);
+}
+.reader-orn {
+  text-indent: 0 !important;
+  text-align: center;
+  color: var(--accent);
+}
+
+.reader-chapter {
+  padding: 8% 0 6%;
+  text-align: center;
+}
+.reader-chapter h2,
+.reader-part h2,
+.reader-end h2 {
+  font-family: 'Cinzel', Georgia, serif;
+  font-weight: 600;
+  color: var(--ink-text);
+  line-height: 1.2;
+}
+.reader-chapter h2 {
+  margin-top: 0.4em;
+  font-size: 1.45em;
+}
+.reader-chapter .reader-orn {
+  margin-top: 0.6em;
+}
+
+.reader-part {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.9em;
+  text-align: center;
+}
+.reader-part h2 {
+  font-size: 1.7em;
+  letter-spacing: 0.04em;
+}
+.reader-part .reader-orn {
+  font-size: 1.4em;
+}
+
+/* Lettrine en début de chapitre */
+.reader-lettrine {
+  text-indent: 0 !important;
+}
+.reader-lettrine::first-letter {
+  float: left;
+  margin: 0.06em 0.12em 0 0;
+  font-family: 'Cinzel', Georgia, serif;
+  font-size: 3.55em;
+  font-weight: 600;
+  line-height: 0.82;
+  color: var(--accent);
+}
+
+/* Journal « Cher Dies » et souvenirs : italique, en retrait, comme dans le livre */
+.reader-text .reader-journal,
+.reader-text .reader-memory {
+  margin: 0 0.6em;
+  font-style: italic;
+  text-indent: 0;
+  color: var(--ink-text);
+}
+.reader-text .reader-journal + .reader-journal {
+  margin-top: 0.55em;
+}
+.reader-journal-date {
+  color: var(--ink-soft) !important;
+}
+.reader-journal-sign {
+  text-align: right;
+}
+.reader-text .reader-journal + p:not(.reader-journal) {
+  margin-top: 1.1em;
+}
+.reader-text .reader-memory {
+  margin-top: 0.6em;
+  margin-bottom: 0.6em;
+}
+.reader-sep {
+  margin: 0.7em 0 !important;
+  text-align: center;
+  text-indent: 0 !important;
+  color: var(--accent);
+}
+
+/* Page « La suite bientôt… » */
+.reader-end {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.1rem;
+  padding: 10cqw;
+  text-align: center;
+  font-family: 'EB Garamond', Garamond, Georgia, serif;
+  font-size: clamp(15px, 3.9cqw, 19px);
+  line-height: 1.5;
+}
+.reader-end .reader-orn {
+  font-size: 1.5em;
+}
+.reader-end h2 {
+  font-size: 1.5em;
+}
+.reader-end > p:not(.reader-orn) {
+  color: var(--ink-soft);
+}
+.reader-end-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+  font-family: var(--sans);
+}
+.reader-end .btn {
+  font-family: var(--sans);
+}
+.reader-end .reader-end-server {
+  margin-top: -0.6rem;
+  font-size: 0.8em;
+  font-style: italic;
+}
+.reader.is-night .reader-end .btn-solid {
+  background: var(--champagne);
+  color: var(--noir);
+}
+
+.reader-loading {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-size: 0.9rem;
+  color: var(--muted-dark);
+}
+
+/* Page tournée : légère, sur le bord gauche (reliure) */
+.reader-sheet.is-leaving {
+  z-index: 2;
+}
+.turn-out {
+  animation: page-turn-out 0.55s cubic-bezier(0.45, 0.05, 0.35, 1) forwards;
+}
+.turn-in {
+  z-index: 2;
+  animation: page-turn-out 0.55s cubic-bezier(0.45, 0.05, 0.35, 1) reverse both;
+}
+@keyframes page-turn-out {
+  from {
+    transform: rotateY(0deg);
+    box-shadow: var(--sheet-shadow);
+  }
+  to {
+    transform: rotateY(-100deg);
+    opacity: 0.4;
+    box-shadow: 40px 0 60px -10px rgba(0, 0, 0, 0.5);
+  }
+}
+
 
 /* --- Mentions légales ------------------------------------------------------------------ */
 .legal {

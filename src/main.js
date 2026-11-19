@@ -7,6 +7,7 @@ import { initWorkflowTabs } from './components/workflows.js';
 import { initContactForm } from './components/contact.js';
 import { initProjectsPage } from './components/projectsPage.js';
 import { initReveal } from './lib/reveal.js';
+import { initBookReader } from './components/bookReader.js';
 
 // En production, le HTML est déjà pré-rendu dans la page : on se contente
 // de brancher les interactions. En dev, on génère le rendu ici.
@@ -24,4 +25,5 @@ if (page === 'projets') {
   initProjectModal();
   initWorkflowTabs();
   initContactForm();
+  initBookReader();
 }
