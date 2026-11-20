@@ -11,7 +11,7 @@ const INSTAGRAM = SOCIALS.find((s) => s.icon === 'instagram');
 
 // Serveur Discord communautaire des lectrices (lien d'invitation permanent).
 export const DISCORD_SERVER = {
-  href: 'https://discord.gg/yznF4hGqv',
+  href: 'https://discord.gg/Aj2aVme9d',
   name: 'Astraleth ~ Le monde de Séléna',
 };
 
